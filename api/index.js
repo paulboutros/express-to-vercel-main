@@ -2,8 +2,9 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const cors = require('cors'); // Import the cors middleware
-app.use(express.static('public'))
-
+//app.use(express.static('public'))
+// Use path.join() to create the correct path to the "public" folder
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.use(cors());
 const {MongoClient} = require('mongodb');

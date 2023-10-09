@@ -64,7 +64,7 @@ app.get('/contact', (req, res) => res.send('Contact Page Route'));
  
 
 app.get('/', (req, res) => {
-    res.sendFile('index.html', {root: path.join(__dirname, 'public')});
+    res.sendFile('index.html', { root: path.join(__dirname, '..', 'public') });
 })
 
 console.log(`Server is running on port: ${process.env.PORT}`);

@@ -2,10 +2,12 @@ import express from 'express';
 import path from 'path';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import connectToDataBase from '../lib/connectToDataBase.js';
+import  {connectToDataBase} from '../lib/connectToDataBase.js';
  
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+
+import findUsersWithNonZeroProperties from './routes/findUsersWithNonZeroProperties.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -25,6 +27,15 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.use(cors());
  
+
+
+
+
+ 
+app.use('/', findUsersWithNonZeroProperties); // Mount the exampleRouter at /api
+
+
+
 app.get('/getData', async (req, response) =>{  
 
     try {
@@ -86,7 +97,7 @@ app.get('/', (req, res) => {
 
 console.log(`Server is running on port: ${process.env.PORT}`);
 
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 2000);
 
 //module.exports = app;
 

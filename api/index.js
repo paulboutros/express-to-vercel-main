@@ -7,7 +7,12 @@ import  {connectToDataBase} from '../lib/connectToDataBase.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
+import globalData from './routes/globalData.js';
 import findUsersWithNonZeroProperties from './routes/findUsersWithNonZeroProperties.js';
+import bestEarner from './routes/bestEarner.js';
+import getData from './routes/getData.js';
+import getDiscordData from './routes/getDiscordData.js';
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -31,34 +36,13 @@ app.use(cors());
 
 
 
- 
+ app.use('/', globalData);    
 app.use('/', findUsersWithNonZeroProperties); // Mount the exampleRouter at /api
-
-
-
-app.get('/getData', async (req, response) =>{  
-
-    try {
-        //const mongoClient = await ( new MongoClient(uri, options)).connect();
-         const {mongoClient} = await connectToDataBase();
-      
-        const db = mongoClient.db("wudb");
-        const collection = db.collection("users");
-        const result = await collection
-             .find({})
-           
-                .toArray();
-     
-               response.status(200).json(result);
-         }catch(e){
-                console.error(e);
-                response.status(500).json(e);
-     
-     
-         }
-
-});
+app.use('/', bestEarner); // Mount the exampleRouter at /api
+app.use('/', getData); // Mount the exampleRouter at /api
+ app.use('/', getDiscordData); // Mount the exampleRouter at /api
  
+
 
 app.get('/', (req, res) => res.send('Home Page Route'));
 

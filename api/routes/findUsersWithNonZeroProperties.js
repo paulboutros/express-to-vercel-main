@@ -32,7 +32,7 @@ const router = express.Router();
 
     }
 })
-
+export default router;
 
 
 
@@ -68,7 +68,7 @@ function flattenTwoDimArray(twoDArray) {
     // If the input string is longer than 8 characters, format it
     const firstFour = inputString.slice(0, 4); // Get the first 4 characters
     const lastFour = inputString.slice(-4); // Get the last 4 characters
-    return  `${firstFour}...${lastFour}`;
+    return  `${firstFour}..${lastFour}`;
   }
 }
 
@@ -82,7 +82,7 @@ const promises = [];
 for (let i = 1; i < 10 ; i++) {
 
     const layerName = `${layerPart}${i.toString().padStart(2, '0')}`; 
-
+     
     const filter = {[layerName]: { $ne: 0 }};
     const projection = {"_id": false, "wallet": true, "discord": true };
     
@@ -95,10 +95,10 @@ for (let i = 1; i < 10 ; i++) {
     promises.push(ppArray);
 }
 
-const results = await Promise.all(promises);
+  const results = await Promise.all(promises);
   
 
- const flatten = flattenTwoDimArray ( results);
+    const flatten = flattenTwoDimArray ( results);
      
     // response.status(200).json(  flatten );
  
@@ -107,4 +107,3 @@ const results = await Promise.all(promises);
     return flatten ;// usersWithNonZeroProperties;
    
 }
-export default router;

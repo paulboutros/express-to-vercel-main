@@ -25,8 +25,8 @@ const router = express.Router();
 
     const user_result = 
      await collection
-    .find({}, { projection: { walletShort: 1, discord: 1, scoreShare: 1, _id: 0 } }) // Include only the specified fields
-    .sort({ scoreShare: 1 }) // Sort in ascending order based on scoreShare
+    .find({}, { projection: { walletShort: 1, discord: 1, scoreData: 1, _id: 0 } }) // Include only the specified fields
+     .sort({ scoreShare: 1 }) // Sort in ascending order based on scoreShare
     .toArray();
 
     const glob_collect = db.collection("global");
@@ -34,10 +34,13 @@ const router = express.Router();
     .find()//({}, { projection: { reward_pool: 1, _id: 0 } }))
     .toArray();
     
+
+     
+
     const rewardPool = glob_result[0].reward_pool;
    const resultWithEarnings = user_result.map((document) => {
  
-        const userSharePercentage = document.scoreShare;
+        const userSharePercentage = document.scoreData.scoreShare;//scoreData.scoreShare; 
         const earning = calculateEarning(rewardPool, userSharePercentage ); // Calculate the earning for each document
         return {
         ...document, // Spread the existing properties
@@ -47,7 +50,7 @@ const router = express.Router();
     
 
 
-  response.status(200).json(resultWithEarnings);
+   response.status(200).json(resultWithEarnings);
     
         
     }catch(e){

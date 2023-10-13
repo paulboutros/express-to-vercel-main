@@ -11,7 +11,10 @@ import globalData from './routes/globalData.js';
 import findUsersWithNonZeroProperties from './routes/findUsersWithNonZeroProperties.js';
 import bestEarner from './routes/bestEarner.js';
 import getData from './routes/getData.js';
-import getDiscordData from './routes/getDiscordData.js';
+//import getDiscordData from './routes/getDiscordData.js';
+//import getTwitterData from './routes/getTwitterData.js';
+import getSocialData from './routes/getSocialData.js';
+
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -40,10 +43,11 @@ app.use(cors());
 app.use('/', findUsersWithNonZeroProperties); // Mount the exampleRouter at /api
 app.use('/', bestEarner); // Mount the exampleRouter at /api
 app.use('/', getData); // Mount the exampleRouter at /api
- app.use('/', getDiscordData); // Mount the exampleRouter at /api
+ //app.use('/', getDiscordData); // Mount the exampleRouter at /api
+ //app.use('/', getTwitterData); // Mount the exampleRouter at /api
+ app.use('/', getSocialData); // Mount the exampleRouter at /api
+
  
-
-
 app.get('/', (req, res) => res.send('Home Page Route'));
 
 app.get('/about', (req, res) => res.send('About Page Route'));

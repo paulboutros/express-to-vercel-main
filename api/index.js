@@ -65,7 +65,20 @@ app.use(
 //app.use(express.static(path.join(__dirname, '..', 'public')));
 app.get("/", (request, response) => {
   
-   response.send("login with discord: <a href="+process.env.YOUROAUTH2URL+">login</a>")
+/*
+ const dynamicContent = 'Hello from Express Server!';
+  
+  // Render your HTML template and pass the variable
+  res.render('index', { dynamicContent });
+*/  
+
+  const llldd = process.env.PORT;
+ const portStr = llldd.toString();
+    response.send(
+      "PORT=" + portStr + "  login with discord:"+ "<a href="+process.env.YOUROAUTH2URL+">login</a>" )
+   // const dynamicContent ="ddddddddddd";
+   //response.render('index', { dynamicContent });
+    
    
 })
 
@@ -129,14 +142,11 @@ app.get('/contact', async (req, response) =>{
 });
 // end of adding
  
-
-app.get('/', (req, res) => {
-    res.sendFile('index.html', { root: path.join(__dirname, '..', 'public') });
-})
+ 
 
 console.log(`Server is running on port: ${process.env.PORT}`);
 
- app.listen(process.env.PORT || 2000);
+ app.listen(process.env.PORT || 1999 );
 
 //module.exports = app;
 

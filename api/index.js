@@ -12,6 +12,9 @@ import findUsersWithNonZeroProperties from './routes/findUsersWithNonZeroPropert
 import bestEarner from './routes/bestEarner.js';
 import getData from './routes/getData.js';
 import testToken from './routes/testToken.js';
+import userMe from './routes/userMe.js';
+
+
 
 //import getDiscordData from './routes/getDiscordData.js';
 //import getTwitterData from './routes/getTwitterData.js';
@@ -28,6 +31,8 @@ import callback from './routes/discordOauth/callback.js';
 
 import cookieParser from 'cookie-parser' ;
 
+import authenticate from "./routes/middlewares/authenticate.js";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -38,13 +43,22 @@ const __dirname = dirname(__filename);
 dotenv.config();
 
 const app = express();
+const router = express.Router();
   
 app.use(express.json());
 // Use the cookie-parser middleware
 app.use(cookieParser());
 // Parse URL-encoded request bodies
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+// Enable CORS for all routes
+const baseurl = process.env.REACT_APP_URL;// 'http://localhost:3000';
+console.log('REACT_APP_URL:', process.env.REACT_APP_URL);
+app.use(
+  cors({
+    credentials: true,
+    origin: baseurl, 
+  })
+);
  
 
 // Serve static files (React app)
@@ -52,7 +66,7 @@ app.use(cors());
 app.get("/", (request, response) => {
   //response.send("login with discord: <a href="+process.env.YOUROAUTH2URL+">login</a>")
    response.send("login with discord: <a href="+process.env.YOUROAUTH2URL+">login</a>")
-  //http://localhost:3000/
+   
 })
 
 
@@ -70,12 +84,18 @@ app.use('/', getData); // Mount the exampleRouter at /api
  app.use('/', getSocialData); // Mount the exampleRouter at /api
 
  app.use('/', addorupdate); // Mount the exampleRouter at /api
+
+ //test
+
+ //app.use('/', userMe); // Mount the exampleRouter at /api
+ app.use(authenticate);
  app.use('/', testToken); // Mount the exampleRouter at /api
+ app.use('/', userMe); // Mount the exampleRouter at /api
+  
 
+//router.use(authenticate);
+  // do not forget to use the endpoint in index.js
  
-  
-  
-
 
  
  // keep these as they show the direfferents ways of settting up route and enddpoint

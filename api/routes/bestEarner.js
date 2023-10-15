@@ -14,7 +14,7 @@ const router = express.Router();
   // do not forget to use the endpoint in index.js
   router.get("/bestEarner", async (req, response) => {
 
-   //http://localhost:3000/api/findsss
+    
   
      try {
    //const mongoClient = await ( new MongoClient(uri, options)).connect();

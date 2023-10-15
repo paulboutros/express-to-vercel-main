@@ -1,6 +1,6 @@
 import { connectToDataBase } from "../../lib/connectToDataBase";
 
-//http://localhost:3000/api/addorupdate
+ 
 //api/addorupdate
 export default async function hanfler(request , response){
 
@@ -15,7 +15,7 @@ export default async function hanfler(request , response){
    let result = "";  
 
 
-   // http://localhost:3000/api/addorupdate
+ 
  
           
 

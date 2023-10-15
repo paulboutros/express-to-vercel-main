@@ -6,7 +6,7 @@ const router = express.Router();
   
   router.get("/findUsersWithNonZeroProperties", async (req, response) => {
 
-   //http://localhost:3000/api/findsss
+    
   
      try {
    //const mongoClient = await ( new MongoClient(uri, options)).connect();

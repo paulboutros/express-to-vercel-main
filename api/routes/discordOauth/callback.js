@@ -10,7 +10,7 @@ import dotenv from 'dotenv';
 //import{ sign } from 'jsonwebtoken'
 import jwt from 'jsonwebtoken';
  //import { newUserDocumentTemplate , globalTemplate } from "../../../lib/documentTemplate.js";
-import authenticate from "../middlewares/authenticate.js";
+//import authenticate from "../middlewares/authenticate.js";
 
 import { connectToDataBase } from "../../../lib/connectToDataBase.js";
 
@@ -20,7 +20,7 @@ dotenv.config()
 
 const router = express.Router();
 
-router.use(authenticate);
+//router.use(authenticate);
   // do not forget to use the endpoint in index.js
   router.get("/api/auth/callback/discord", async (request, response) => { 
 
@@ -118,9 +118,11 @@ router.use(authenticate);
                    response.cookie('token',  token ,   { maxAge: 3600000 });  
                    //response.cookies.set();
                     
-                   response.redirect('/');
-                        //response.redirect('http://localhost:3000/');
-                       // response.redirect('http://your-react-app-domain:3000/success');
+                  // response.redirect('/');
+                  const baseurl = process.env.REACT_APP_URL;
+                   response.redirect( baseurl);
+                        
+                     
                       //   response.status(200).json(  refresh.data );
                // in video it explains you will need to save access token and refresh token
           

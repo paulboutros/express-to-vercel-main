@@ -64,7 +64,7 @@ app.use(
 // Serve static files (React app)
 //app.use(express.static(path.join(__dirname, '..', 'public')));
 app.get("/", (request, response) => {
-  //response.send("login with discord: <a href="+process.env.YOUROAUTH2URL+">login</a>")
+  
    response.send("login with discord: <a href="+process.env.YOUROAUTH2URL+">login</a>")
    
 })

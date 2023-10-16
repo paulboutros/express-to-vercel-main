@@ -115,7 +115,7 @@ const router = express.Router();
                    ); 
                   
                    // 1 hour
-                   response.cookie('token',  token ,   { maxAge: 3600000 });  
+                   response.cookie('token',  token ,   { maxAge: 3600000 , sameSite: 'None', secure: true });  
                    //response.cookies.set();
                     
                   // response.redirect('/');

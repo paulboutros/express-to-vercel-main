@@ -74,7 +74,7 @@ app.get("/", (request, response) => {
 
    
     response.send(
-      "PORT=" + portStr + "  login with discord:"+ "<a href="+process.env.YOUROAUTH2URL+">login</a>" )
+        "  login with discord:"+ "<a href="+process.env.YOUROAUTH2URL+">login</a>" )
    // const dynamicContent ="ddddddddddd";
    //response.render('index', { dynamicContent });
     

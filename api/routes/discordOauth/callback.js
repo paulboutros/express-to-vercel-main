@@ -110,12 +110,28 @@ const router = express.Router();
                   const token =   jwt.sign(
                      {sub: userinfo.data.id } , 
                       process.env.JWT_SECRET, 
-                       {expiresIn: "1h"}  // one hour
+                       {expiresIn: "2h"}  // one hour
                     
                    ); 
                   
                    // 1 hour
-                   response.cookie('token',  token ,   { maxAge: 3600000 , sameSite: 'None', secure: true });  
+                   //https://stackoverflow.com/questions/73723099/how-to-setup-node-to-make-different-domains-share-cookies
+                   response.cookie('token',  token , 
+                    // { maxAge: 3600000 , sameSite: 'None', secure: true });  
+                      {
+                        maxAge: 7200000, // 2 hours
+                        httpOnly: true,  
+                        sameSite: 'None', // other domain (client app domain can receive it, wont be filtered out my browser)
+                        secure: true,
+                        domain: '.vercel.app', // The dot indicates sharing with all subdomains
+                        path: '/', // Set the path to a common path
+
+                     }); 
+                     /*
+                       make the cookies accessible from JavaScript running on the client side. While this can be useful for some scenarios (like client-side authentication), "
+                      */ 
+
+
                    //response.cookies.set();
                     
                   // response.redirect('/');

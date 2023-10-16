@@ -53,7 +53,7 @@ app.use(express.urlencoded({ extended: true }));
 // Enable CORS for all routes
 const baseurl = 'https://admin-dashboard-ed-roh.vercel.app/';// process.env.REACT_APP_URL;// 'http://localhost:3000';
 console.log('REACT_APP_URL:', process.env.REACT_APP_URL);
-app.use(  cors()
+app.use(  cors(  {credentials: true }  )
   /*
   cors({
     credentials: true,

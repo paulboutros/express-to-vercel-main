@@ -114,6 +114,8 @@ const router = express.Router();
                     
                    ); 
                   
+
+                    
                    // 1 hour
                    //https://stackoverflow.com/questions/73723099/how-to-setup-node-to-make-different-domains-share-cookies
                    response.cookie('token',  token , 
@@ -123,7 +125,7 @@ const router = express.Router();
                         httpOnly: false,  
                         sameSite: 'None', // other domain (client app domain can receive it, wont be filtered out my browser)
                         secure: true,
-                        domain:'wuli.rocks', // The dot indicates sharing with all subdomains
+                        domain: process.env.COOKIE_DOMAIN,//'localhost',//   'wuli.rocks', // The dot indicates sharing with all subdomains
                         path: '/', // Set the path to a common path
 
                      }); 

@@ -1,3 +1,5 @@
+//discord + saving and accessing token
+//https://www.youtube.com/watch?v=hnk2-Fs8JVI&t=9s
 import express from 'express';
 import path from 'path';
 import cors from 'cors';
@@ -15,9 +17,7 @@ import testToken from './routes/testToken.js';
 import userMe from './routes/userMe.js';
 
 
-
-//import getDiscordData from './routes/getDiscordData.js';
-//import getTwitterData from './routes/getTwitterData.js';
+ 
  import getSocialData from './routes/getSocialData.js';
 
  
@@ -32,6 +32,7 @@ import callback from './routes/discordOauth/callback.js';
 import cookieParser from 'cookie-parser' ;
 
 import authenticate from "./routes/middlewares/authenticate.js";
+import allowOrigins from "./routes/middlewares/allowOrigins.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -51,15 +52,15 @@ app.use(cookieParser());
 // Parse URL-encoded request bodies
 app.use(express.urlencoded({ extended: true }));
 // Enable CORS for all routes
-const baseurl = 'https://admin-dashboard-ed-roh.vercel.app/';// process.env.REACT_APP_URL;// 'http://localhost:3000';
+const baseurl =   process.env.REACT_APP_URL;// "http://localhost:3000" ;// process.env.REACT_APP_URL;// 'http://localhost:3000';
 console.log('REACT_APP_URL:', process.env.REACT_APP_URL);
-app.use(  cors(  {credentials: true }  )
-  /*
+app.use( // cors(  {credentials: true }  )
+   
   cors({
     credentials: true,
     origin: baseurl, 
   })
-  */
+   
 );
  
 
@@ -100,10 +101,12 @@ app.use('/', getData); // Mount the exampleRouter at /api
  app.use('/', addorupdate); // Mount the exampleRouter at /api
 
  //test
-
- //app.use('/', userMe); // Mount the exampleRouter at /api
+////app.use(allowOrigins);
+//apply middlewares
+ 
  app.use(authenticate);
-
+ //app.use(allowOrigins);
+/*
 // Add a middleware to set the appropriate headers
 app.use((req, res, next) => {
   const origin = req.headers.origin;
@@ -126,7 +129,7 @@ const allowedOrigins = ["http://localhost:3000", "https://www.wuli.rocks"]; // A
 
   next();
 });
-
+*/
 // ... Your other middleware and route handling ...
 
  

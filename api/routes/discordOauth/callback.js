@@ -1,5 +1,4 @@
-//discord + saving and accessing token
-//https://www.youtube.com/watch?v=hnk2-Fs8JVI&t=9s
+
 
 import url from 'url';
 import express from "express";

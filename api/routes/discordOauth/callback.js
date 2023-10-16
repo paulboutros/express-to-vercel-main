@@ -120,7 +120,7 @@ const router = express.Router();
                     // { maxAge: 3600000 , sameSite: 'None', secure: true });  
                       {
                         maxAge: 7200000, // 2 hours
-                        httpOnly: true,  
+                        httpOnly: false,  
                         sameSite: 'None', // other domain (client app domain can receive it, wont be filtered out my browser)
                         secure: true,
                         domain: '.vercel.app', // The dot indicates sharing with all subdomains

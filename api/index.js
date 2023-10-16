@@ -32,7 +32,9 @@ import callback from './routes/discordOauth/callback.js';
 import cookieParser from 'cookie-parser' ;
 
 import authenticate from "./routes/middlewares/authenticate.js";
-import allowOrigins from "./routes/middlewares/allowOrigins.js";
+//import allowOrigins from "./routes/middlewares/allowOrigins.js";
+
+import allowCors from "./routes/middlewares/allowOrigins.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -68,6 +70,7 @@ app.use( // cors(  {credentials: true }  )
 //app.use(express.static(path.join(__dirname, '..', 'public')));
 app.get("/", (request, response) => {
   
+  app.use(allowCors);
 /*
  const dynamicContent = 'Hello from Express Server!';
   
@@ -105,6 +108,9 @@ app.use('/', getData); // Mount the exampleRouter at /api
 //apply middlewares
  
  app.use(authenticate);
+
+  
+ 
  //app.use(allowOrigins);
 /*
 // Add a middleware to set the appropriate headers

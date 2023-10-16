@@ -51,7 +51,7 @@ app.use(cookieParser());
 // Parse URL-encoded request bodies
 app.use(express.urlencoded({ extended: true }));
 // Enable CORS for all routes
-const baseurl = process.env.REACT_APP_URL;// 'http://localhost:3000';
+const baseurl = 'https://admin-dashboard-ed-roh.vercel.app/';// process.env.REACT_APP_URL;// 'http://localhost:3000';
 console.log('REACT_APP_URL:', process.env.REACT_APP_URL);
 app.use(
   cors({

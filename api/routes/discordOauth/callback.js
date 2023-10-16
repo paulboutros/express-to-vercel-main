@@ -123,7 +123,7 @@ const router = express.Router();
                         httpOnly: false,  
                         sameSite: 'None', // other domain (client app domain can receive it, wont be filtered out my browser)
                         secure: true,
-                        domain: '.vercel.app', // The dot indicates sharing with all subdomains
+                        domain:'.wuli.rock', // The dot indicates sharing with all subdomains
                         path: '/', // Set the path to a common path
 
                      }); 

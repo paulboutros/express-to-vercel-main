@@ -136,6 +136,10 @@ const router = express.Router();
                     
                   // response.redirect('/');
                   const baseurl = process.env.REACT_APP_URL;
+
+
+
+                  console.log( " after discord callback redirect :"  + baseurl );
                    response.redirect( baseurl);
                         
                      

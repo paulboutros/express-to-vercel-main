@@ -41,7 +41,7 @@ router.get("/user/me", async (req, res) => {
   .header('Access-Control-Allow-Methods', 'GET, POST')
   .header('Access-Control-Allow-Headers', 'Content-Type, Authorization')
   .header('Access-Control-Allow-Credentials', 'true')
-  .header('Access-Control-Max-Age', '86400')
+  .header('Access-Control-Max-Age', '86400');
 
 
 })

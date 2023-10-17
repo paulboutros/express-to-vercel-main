@@ -31,17 +31,19 @@ router.options('/user/me', (req, res) => {
 //router.use(authenticate);
   // do not forget to use the endpoint in index.js
 router.get("/user/me", async (req, res) => {
-    
+     // Set the CORS headers
+  res.header('Access-Control-Allow-Origin', 'https://wuli.rocks');
+  res.header('Access-Control-Allow-Methods', 'GET, POST');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.header('Access-Control-Max-Age', '86400');
+
   // Your code to handle the "user/me" endpoint...
   const requestBody = req.state.user;
-  
+
   // Send your response with the specified headers
-  res.json(requestBody)
-  .header('Access-Control-Allow-Origin', 'https://wuli.rocks')
-  .header('Access-Control-Allow-Methods', 'GET, POST')
-  .header('Access-Control-Allow-Headers', 'Content-Type, Authorization')
-  .header('Access-Control-Allow-Credentials', 'true')
-  .header('Access-Control-Max-Age', '86400');
+  res.json(requestBody);
+
 
 
 })

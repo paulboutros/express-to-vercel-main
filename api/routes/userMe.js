@@ -32,7 +32,7 @@ router.options('/user/me', (req, res) => {
   // do not forget to use the endpoint in index.js
 router.get("/user/me", async (req, res) => {
      // Set the CORS headers
-  res.header('Access-Control-Allow-Origin', 'https://wuli.rocks/');
+  res.header('Access-Control-Allow-Origin', 'https://www.wuli.rocks/');
   res.header('Access-Control-Allow-Methods', 'GET, POST');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   res.header('Access-Control-Allow-Credentials', 'true');

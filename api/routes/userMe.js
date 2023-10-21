@@ -31,8 +31,10 @@ router.options('/user/me', (req, res) => {
 //router.use(authenticate);
   // do not forget to use the endpoint in index.js
 router.get("/user/me", async (req, res) => {
+
+   const origine = process.env.REACT_APP_URL;
      // Set the CORS headers
-  res.header('Access-Control-Allow-Origin', 'https://www.wuli.rocks');
+  res.header('Access-Control-Allow-Origin', origine);  // 'https://www.wuli.rocks'
   res.header('Access-Control-Allow-Methods', 'GET, POST');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   res.header('Access-Control-Allow-Credentials', 'true');

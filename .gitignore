@@ -1,3 +1,10 @@
 node_modules/
 .vercel
 .env
+
+
+# Ignore Python virtual environment
+venv/
+__pycache__/
+*.pyc
+*.pyo

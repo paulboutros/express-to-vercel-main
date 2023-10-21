@@ -16,15 +16,31 @@ const router = express.Router();
    const {mongoClient} = await connectToDataBase();
      
     const db = mongoClient.db("wudb");
-   const collection = db.collection("users");
+    const collection = db.collection("users");
 
    const sortOptions = { "scoreData.socialScore": -1 };
 
-    let jsonData = await collection .
-    find({}, { }).
-    sort(sortOptions).
-    limit(Number(limit)).
-    toArray();
+    let jsonData = null;
+    // if we do not ask for a specific user
+    if ( !req.query.userId){
+          jsonData = await collection .
+          find({}, { }).
+          sort(sortOptions).
+          limit(Number(limit)).
+          toArray();
+  }else{
+         // jsonData = await collection .
+          // findOne({ id: req.query.userId }) ;
+          //with user ID we normally would use  findOne(), but for this function to wrok
+          //we need an array.
+          jsonData = await collection .
+          find( { id: req.query.userId } , { }).
+          sort(sortOptions).
+          limit(Number(limit)).
+          toArray();
+
+
+  }
     
     let combinedData = [];
 
@@ -89,6 +105,9 @@ function discordBlock  (item) {
         socialScore: item.scoreData.socialScore, // need for chart bar max length
     
         total: item.scoreData.discord.total,
+        
+        scoreShareAbsolute : item.scoreData.discord.scoreShareAbsolute ,  
+
         invite_code: item.scoreData.discord.invite_code,
         message: item.scoreData.discord.message,
         invite_sent: item.scoreData.discord.invite_sent,
@@ -106,11 +125,14 @@ function twitterblock  (item) {
     wallet : item.wallet,
     walletShort :item.walletShort,
     discord: item.discord,
+ 
+    like :item.scoreData.twitter.like , 
+    retweet: item.scoreData.twitter.retweet,   
 
     socialScore: item.scoreData.socialScore, // need for chart bar max length
 
-    like :item.scoreData.twitter.like , 
-    retweet: item.scoreData.twitter.retweet   
+    total: item.scoreData.twitter.total,   
+    scoreShareAbsolute : item.scoreData.twitter.scoreShareAbsolute   
     }
    return jjj;
 }

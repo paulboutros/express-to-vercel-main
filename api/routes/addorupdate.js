@@ -3,9 +3,13 @@ import { newUserDocumentTemplate , globalTemplate , CreateNewUserDocument} from 
 import express from "express";
 import _ from 'lodash'
  
+
+ //import ValidateUserBody from "./middlewares/ValidateUserBody.js"
 //api/addorupdate
 //export default async function hanfler(request , response){
   const router = express.Router();
+
+  //router.use(ValidateUserBody);
   // do not forget to use the endpoint in index.js
   //make sure post body in postman is set to JSON
   router.post("/addorupdate", async (request, response) => {
@@ -27,29 +31,41 @@ import _ from 'lodash'
 
           
             const ID = request.body.ID;
-            const id = request.body.id;
-            const wallet = request.body.wallet;
-           const discord = request.body.discord;
+           // const id = request.body.id;
+            let wallet =request.body.wallet ;//"000000000000"; request.body.wallet;
+            // if registering from web app login, where wallt is not provided
+            if (!wallet ) {
+              wallet  ="000000000000"
 
-           let newUserDocument = _.cloneDeep(newUserDocumentTemplate); // Create a deep copy of newUserDocumentTemplate
-         // to do : load from template
-             newUserDocument = // {
-            CreateNewUserDocument( newUserDocument, request.body.ID, request.body.discord, request.body.wallet );
-  
+            }
+
+
+           const discord = request.body.discord;
+           const discordUserData =  request.body.discordUserData;
  
-        const userExist  = await
-        collection.updateOne(
-          { "ID":  ID   },
+           
+           console.log(`  discordUserData =${    discordUserData } `); 
+
+        const userExist  = await collection.updateOne(
+           { "ID":  ID   },
            {   $set: { "ID":  ID }  } ,
           { upsert: false } // if it does not exist DO NOT create one at this stage
         )
         console.log(`  >> >> userExist.matchedCount=${     userExist.matchedCount  } `); 
      
       if (     userExist.matchedCount === 0  ){
-          
-        //  newUserDocument.ID =    ID;
-       //   newUserDocument.wallet =    wallet;
-        //  newUserDocument.discord =   discord;
+        let newUserDocument = _.cloneDeep(newUserDocumentTemplate); // Create a deep copy of newUserDocumentTemplate
+        // to do : load from template
+            newUserDocument =  
+               CreateNewUserDocument(
+                  newUserDocument, 
+                  request.body.ID, 
+                  request.body.discord,
+                  wallet,//  request.body.wallet,
+                  discordUserData
+                );
+       
+
           result =  " >> >> user does not exist insert one "
           user =  newUserDocument;
           collection.insertOne( newUserDocument );
@@ -58,7 +74,11 @@ import _ from 'lodash'
          // 423608837900206091
         user = await collection.findOne({ "ID": ID });
             collection.updateOne( { "ID": ID },   
-            {   $set: { "wallet": wallet,  "discord": discord } } );
+            {   $set: {
+               "wallet": wallet,
+               "discord": discord,
+               "discordUserData":discordUserData
+              } } );
             
         
       }

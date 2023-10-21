@@ -1,9 +1,16 @@
-import { connectToDataBase } from "../../lib/connectToDataBase";
+import { connectToDataBase } from "../../lib/connectToDataBase.js";
 
- 
+//http://localhost:3000/api/addorupdate
 //api/addorupdate
-export default async function hanfler(request , response){
+//export default async function hanfler(request , response){
 
+import express from "express";
+//import authenticate from "./middlewares/authenticate.js";
+
+
+
+const router = express.Router();
+ router.get("/updateinvite", async (req, response) => {
     try {
    //const mongoClient = await ( new MongoClient(uri, options)).connect();
    const {mongoClient} = await connectToDataBase();
@@ -15,7 +22,7 @@ export default async function hanfler(request , response){
    let result = "";  
 
 
- 
+   // http://localhost:3000/api/addorupdate
  
           
 
@@ -68,4 +75,6 @@ export default async function hanfler(request , response){
 
 
     }
-}
+});
+
+export default router;

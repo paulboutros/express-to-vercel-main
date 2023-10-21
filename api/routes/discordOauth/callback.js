@@ -91,9 +91,11 @@ const router = express.Router();
                     //make a specific object type type here to get error if field is missing
                     const dataToSend = {
                      ID: userinfo.data.id,  // discord ID
-                     id: userinfo.data.id, // discord ID for unique material UI grid
-                     discord:userinfo.data.global_name ,
-                     wallet: "not provided"
+                    // id: userinfo.data.id, // discord ID for unique material UI grid
+                     discord:userinfo.data.global_name,
+
+                     discordUserData: userinfo.data
+                    // wallet: "not provided"
                    }
                  
                    

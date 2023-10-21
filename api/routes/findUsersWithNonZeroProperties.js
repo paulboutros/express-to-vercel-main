@@ -19,9 +19,9 @@ const router = express.Router();
    const db = mongoClient.db("wudb");
    const collection = db.collection("users");
    const collection_result = await collection;
-    const usersWithNonZeroProperties = await findUsersWithNonZeroProperties( collection_result , response , layerPart) ;
+    const usersWithNonZeroProperties = await findUsersWithNonZeroProperties( collection_result ,req,  response , layerPart) ;
 
-   //console.log("ccccccccccccccccccccccccccccccccccccccccccccc");
+    
            //const jjjj ={cccc: layerPart };
            // response.status(200).json(  jjjj );
            response.status(200).json(  usersWithNonZeroProperties );
@@ -73,17 +73,31 @@ function flattenTwoDimArray(twoDArray) {
 }
 
 
-async function findUsersWithNonZeroProperties( collection  , response , layerPart ) {
+async function findUsersWithNonZeroProperties( collection  ,req, response , layerPart ) {
   
     const usersWithNonZeroProperties = [];
 
+    let filter;
+  
    // layerPart ="he","we","bo","be",
 const promises = [];
-for (let i = 1; i < 10 ; i++) {
+const maxLayer = 10;// 10;
+for (let i = 1; i < maxLayer ; i++) {
 
     const layerName = `${layerPart}${i.toString().padStart(2, '0')}`; 
      
-    const filter = {[layerName]: { $ne: 0 }};
+   if ( !req.query.userId){
+    filter = {
+      
+      [layerName]: { $ne: 0 }
+    };
+   }else{
+    filter = {
+      "ID": req.query.userId ,//"423608837900206091",//user_id,
+      [layerName]: { $ne: 0 }
+    };
+   }
+     
     const projection = {"_id": false, "wallet": true, "discord": true };
     
     projection[layerName] = true; // Add the dynamic key to projection

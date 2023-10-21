@@ -1,10 +1,4 @@
-/*
-
-txId: "01e4dsa",
-    user: "johndoe",
-    date: "2021-09-01",
-    cost: "43.95"
-*/
+ 
 
 import { connectToDataBase } from "../../lib/connectToDataBase.js";
 import express from "express";
@@ -12,7 +6,7 @@ import express from "express";
 
 const router = express.Router();
   // do not forget to use the endpoint in index.js
-  router.get("/bestEarner", async (req, response) => {
+  router.get("/bestInviteScore", async (req, response) => {
 
     
   
@@ -26,31 +20,12 @@ const router = express.Router();
     const user_result = 
      await collection
     .find({}, { projection: { walletShort: 1, discord: 1, scoreData: 1, _id: 0 } }) // Include only the specified fields
-     .sort({ scoreShare: 1 }) // Sort in ascending order based on scoreShare
+     .sort({ "scoreData.discord.invite_use": -1 }) // Sort in ascending order based on scoreShare
+     .limit(1)
     .toArray();
-
-    const glob_collect = db.collection("global");
-    const glob_result = await glob_collect
-    .find()//({}, { projection: { reward_pool: 1, _id: 0 } }))
-    .toArray();
-    
-
-     
-
-    const rewardPool = glob_result[0].reward_pool;
-   const resultWithEarnings = user_result.map((document) => {
  
-        const userSharePercentage = document.scoreData.scoreShare;//scoreData.scoreShare; 
-        const earning = calculateEarning(rewardPool, userSharePercentage ); // Calculate the earning for each document
-        return {
-        ...document, // Spread the existing properties
-        earning  , // Add the "earning" property
-        };
-  });
-    
 
-
-   response.status(200).json(resultWithEarnings);
+   response.status(200).json(user_result);
     
         
     }catch(e){

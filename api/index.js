@@ -1,5 +1,9 @@
 //discord + saving and accessing token
 //https://www.youtube.com/watch?v=hnk2-Fs8JVI&t=9s
+//mern full stack:
+/*
+https://www.youtube.com/watch?v=K8YELRmUb5o&list=PL08VAKnhpM86qszK0uKZ-FXQpVy3fv_dg&index=7
+*/
 import express from 'express';
 import path from 'path';
 import cors from 'cors';
@@ -11,12 +15,18 @@ import { dirname } from 'path';
 
 import globalData from './routes/globalData.js';
 import findUsersWithNonZeroProperties from './routes/findUsersWithNonZeroProperties.js';
-import bestEarner from './routes/bestEarner.js';
+
+import updateinvite from './routes/updateinvite.js';
+import bestInviteScore from './routes/bestInviteScore.js';
+import earnings from './routes/earnings.js';
+
+
+import getLayers from './routes/getLayers.js';
 import getData from './routes/getData.js';
 import testToken from './routes/testToken.js';
 import userMe from './routes/userMe.js';
-
-
+ 
+import {spawn} from "child_process"
  
  import getSocialData from './routes/getSocialData.js';
 
@@ -32,9 +42,11 @@ import callback from './routes/discordOauth/callback.js';
 import cookieParser from 'cookie-parser' ;
 
 import authenticate from "./routes/middlewares/authenticate.js";
-//import allowOrigins from "./routes/middlewares/allowOrigins.js";
+
+import userTracking from "./routes/Tracking/userTracking.js";
 
 import allowCors from "./routes/middlewares/allowOrigins.js";
+import { ChildProcess } from 'child_process';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -71,22 +83,43 @@ app.use( // cors(  {credentials: true }  )
 app.get("/", (request, response) => {
   
   app.use(allowCors);
-/*
- const dynamicContent = 'Hello from Express Server!';
-  
-  // Render your HTML template and pass the variable
-  res.render('index', { dynamicContent });
-*/  
-
+ 
    
     response.send(
         "  login with discord:"+ "<a href="+process.env.YOUROAUTH2URL+">login</a>" )
-   // const dynamicContent ="ddddddddddd";
-   //response.render('index', { dynamicContent });
     
    
 })
 
+
+app.get("/pythonTest", (request, res) => {
+   // Get the integers from the request body
+  // const { num1, num2 } = req.body;
+   const   num1 = 4;
+   const   num2 = 5;
+
+
+  // Spawn a Python process and pass the integers as arguments
+  const pythonProcess = spawn('python', ['test.py', num1.toString(), num2.toString()]);
+  console.log('Python script path:', pythonProcess.spawnargs[1]);
+  let result = '';
+
+  // Capture the standard output of the Python script
+  pythonProcess.stdout.on('data', (data) => {
+    result += data.toString();
+  });
+
+  // Handle Python script exit
+  pythonProcess.on('close', (code) => {
+    if (code === 0) {
+      // Successfully executed
+      res.json({ result: parseFloat(result) }); // Parse the result to a float and send it in the response
+    } else {
+      res.status(500).json({ error: 'Python script execution failed', code });
+    }
+  });
+
+})
 
 
 // discord Oauth
@@ -95,8 +128,23 @@ app.use('/', callback);
 
 app.use('/', globalData);    
 app.use('/', findUsersWithNonZeroProperties); // Mount the exampleRouter at /api
-app.use('/', bestEarner); // Mount the exampleRouter at /api
+
+
+// Middleware to extract IP address
+app.use((req, res, next) => {
+  req.ipAddress = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  next();
+});
+//Tracking
+app.use('/', userTracking);   
+
+
+app.use('/', updateinvite);
+app.use('/', bestInviteScore);
+app.use('/', earnings); // Mount the exampleRouter at /api
 app.use('/', getData); // Mount the exampleRouter at /api
+app.use('/', getLayers); // Mount the exampleRouter at /api
+
  //app.use('/', getDiscordData); // Mount the exampleRouter at /api
  //app.use('/', getTwitterData); // Mount the exampleRouter at /api
  app.use('/', getSocialData); // Mount the exampleRouter at /api
@@ -108,36 +156,6 @@ app.use('/', getData); // Mount the exampleRouter at /api
 //apply middlewares
  
  app.use(authenticate);
-
-  
- 
- //app.use(allowOrigins);
-/*
-// Add a middleware to set the appropriate headers
-app.use((req, res, next) => {
-  const origin = req.headers.origin;
-
-  // Define an array of allowed origins
-const allowedOrigins = ["http://localhost:3000", "https://www.wuli.rocks"]; // Add your client app's domain
-
-  // Check if the requesting origin is in the allowedOrigins array
-  if (allowedOrigins.includes(origin)) {
-    res.setHeader("Access-Control-Allow-Origin", origin);
-  }
-
-  // Add more CORS-related headers as needed
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-  );
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.header("Access-Control-Allow-Credentials", "true");
-
-  next();
-});
-*/
-// ... Your other middleware and route handling ...
-
  
  app.use('/', testToken); // Mount the exampleRouter at /api
  app.use('/', userMe); // Mount the exampleRouter at /api

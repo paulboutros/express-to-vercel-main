@@ -17,7 +17,7 @@ router.post("/sendTracking", async (req, response) => {
 
     const userIDAuthStatus = req.body.ID === "" ? temporaryID  : req.body.ID;
 
-     console.log(  "userIDAuthStatus   =  "   +  userIDAuthStatus)
+     
 
     const ID = userIDAuthStatus ;
     const userType  = req.body.userType; 

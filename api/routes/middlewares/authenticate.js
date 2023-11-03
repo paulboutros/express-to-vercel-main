@@ -9,7 +9,7 @@ const authenticate = async (request, response, next) => {
         const token = request.cookies.token;
     
         if (!token) {
-          return response.status(401).json({ message: 'Authentication required' });
+          return response.status(401).json({ message: 'Authentication required !!' });
         }
     
         // Verify and decode the token
@@ -20,25 +20,26 @@ const authenticate = async (request, response, next) => {
         
        
         const jwt_ID = decoded.sub;
-        console.log( "stringToken decoded "  + stringToken);
-        console.log( " jwt_ID "  + jwt_ID);
+       // console.log( "stringToken decoded "  + stringToken);
+      //  console.log( " jwt_ID "  + jwt_ID);
    
         const {mongoClient} = await connectToDataBase();
         const db = mongoClient.db("wudb");
          const collection = db.collection("users");
-         let currentUser = await collection.findOne({ "ID": "423608837900206091" });
-                        // await collection.findOne({ "ID": ID });
-         console.log( " currentUser "  + currentUser);
-        // You can attach the decoded user data to the request for use in other route handlers
-        //request.user = decoded;
+         let currentUser = await collection.findOne({ "ID": jwt_ID });
+       
         request.state = {
+            can_delete_referral_cookie: false,
             user:  currentUser ,
+           
           };
         // Continue to the next middleware or route handler
         next();
       } catch (error) {
         request.state = {
+            can_delete_referral_cookie: false,
             user: null ,
+            
           };
 
           console.log( " error "  + error);

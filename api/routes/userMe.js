@@ -42,10 +42,14 @@ router.get("/user/me", async (req, res) => {
 
   // Your code to handle the "user/me" endpoint...
   const requestBody = req.state.user;
-
-  // Send your response with the specified headers
-  res.json(requestBody);
-
+  
+ 
+  // console.log("user/me: request.state === " + JSON.stringify(req.state, null, 2));
+  console.log("user/me:   === " + req.state.can_delete_referral_cookie   );
+ 
+  // Send req.state as a response
+  res.json(req.state);
+ 
 
 
 })

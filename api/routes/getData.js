@@ -14,7 +14,7 @@ const router = express.Router();
         const db = mongoClient.db("wudb");
         const collection = db.collection("users");
         const result = await collection
-             .find({})
+        .find({ "discord": { $ne: "Wulirocks" } }) // discord": "Wulirocks"
            
                 .toArray();
      

@@ -4,6 +4,9 @@
 /*
 https://www.youtube.com/watch?v=K8YELRmUb5o&list=PL08VAKnhpM86qszK0uKZ-FXQpVy3fv_dg&index=7
 */
+
+
+import axios from "axios";
 import express from 'express';
 import path from 'path';
 import cors from 'cors';
@@ -41,9 +44,38 @@ import callback from './routes/discordOauth/callback.js';
 
 import cookieParser from 'cookie-parser' ;
 
+import corsMiddleware from "./routes/middlewares/corsMiddleware.js";
 import authenticate from "./routes/middlewares/authenticate.js";
+import processClientReferralToken from "./routes/middlewares/processClientReferralToken.js";
+ 
 
-import userTracking from "./routes/Tracking/userTracking.js";
+import sendTracking from "./routes/Tracking/sendTracking.js";
+import generateReferralCode from "./routes/Tracking/generateReferralCode.js";
+import processReferral from "./routes/Tracking/processReferral.js";
+import GetReferralCode from "./routes/Tracking/GetReferralCode.js";
+
+
+import GetReward from       "./routes/Reward/GetReward.js"
+import GetLayerSupply from  "./routes/Reward/GetLayerSupply.js"
+
+
+
+import GetRewardNextTime from  "./routes/Reward/GetRewardNextTime.js"
+import SetRewardLastTiming from  "./routes/Reward/SetRewardLastTiming.js"
+import RevealAndAdd from  "./routes/Reward/RevealAndAdd.js"
+ 
+ import SetRewardNextTime from  "./routes/Reward/SetRewardNextTime.js"
+
+
+//give away api:
+ import GiveAwayLayers from  "./routes/GiveAway/GiveAwayLayers.js"
+ import GetTempGiveAway from  "./routes/GiveAway/GetTempGiveAway.js"
+
+ import StartGiveAwayShedule from  "./routes/GiveAway/StartGiveAwayShedule.js"
+ import {functionStartGiveAwayShedule } from  "./routes/GiveAway/StartGiveAwayShedule.js"
+ import  update_real_discord_user from "./routes/update_real_discord_user.js"
+
+ 
 
 import allowCors from "./routes/middlewares/allowOrigins.js";
 import { ChildProcess } from 'child_process';
@@ -122,9 +154,38 @@ app.get("/pythonTest", (request, res) => {
 })
 
 
+
+
+app.use("/",GetReward);
+app.use("/",GetLayerSupply);
+
+
+//GiveAway
+app.use("/",GiveAwayLayers);
+app.use("/",GetTempGiveAway);
+app.use("/",StartGiveAwayShedule);
+app.use("/",update_real_discord_user);
+
+
+
+app.use("/",SetRewardLastTiming);
+app.use("/",SetRewardNextTime);
+
+
+
+  app.use("/",GetRewardNextTime);
+  app.use("/",RevealAndAdd);
+
+
+
+
+
+
 // discord Oauth
 app.use('/', authorize);  
 app.use('/', callback);  
+app.use('/', processReferral);  
+app.use('/', GetReferralCode);     
 
 app.use('/', globalData);    
 app.use('/', findUsersWithNonZeroProperties); // Mount the exampleRouter at /api
@@ -136,7 +197,11 @@ app.use((req, res, next) => {
   next();
 });
 //Tracking
-app.use('/', userTracking);   
+
+
+
+app.use('/', generateReferralCode);  
+app.use('/', sendTracking);   
 
 
 app.use('/', updateinvite);
@@ -158,9 +223,13 @@ app.use('/', getLayers); // Mount the exampleRouter at /api
  app.use(authenticate);
  
  app.use('/', testToken); // Mount the exampleRouter at /api
+ app.use(processClientReferralToken);
+ 
  app.use('/', userMe); // Mount the exampleRouter at /api
   
 
+ 
+ 
 //router.use(authenticate);
   // do not forget to use the endpoint in index.js
  
@@ -199,10 +268,44 @@ app.get('/contact', async (req, response) =>{
  
  
 
-console.log(`Server is running on port: ${process.env.PORT}`);
+ console.log(`Server is running on port: ${process.env.PORT}`);
 
  app.listen(process.env.PORT || 1999 );
 
-//module.exports = app;
+
+  
+
+
+const data = { 
+   ID : "423608837900206091",
+   duration : 
+    {
+       days :  0 ,
+       hours :  1 ,
+       minutes :  1 ,
+       seconds :  1 
+    }
+  
+}
+let request={
+  body:""
+}
+let response;
+
+
+request.body= { 
+  ID : "423608837900206091",
+  duration : 
+   {
+      days :  0 ,
+      hours :  1 ,
+      minutes :  1 ,
+      seconds :  1 
+   }
+ 
+}
+
+ functionStartGiveAwayShedule( request , response );
+
 
  

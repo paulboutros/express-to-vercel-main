@@ -15,7 +15,7 @@ const router = express.Router();
    const db = mongoClient.db("wudb");
    const collection = db.collection("global");
     const result = await collection
-   .find({})
+   .find({})  // discord": "Wulirocks"
    .toArray();
 
   response.status(200).json(result);

@@ -24,7 +24,8 @@ const router = express.Router();
     // if we do not ask for a specific user
     if ( !req.query.userId){
           jsonData = await collection .
-          find({}, { }).
+          //find({}, { }).  
+          find({ "discord": { $ne: "Wulirocks" } }  , { } ) .
           sort(sortOptions).
           limit(Number(limit)).
           toArray();

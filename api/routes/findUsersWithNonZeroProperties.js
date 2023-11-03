@@ -13,19 +13,49 @@ const router = express.Router();
    const {mongoClient} = await connectToDataBase();
      
    const layerPart = req.query.layerPart;
-    // same code as in  api/wrong
-   //const db = mongoClient.db("sample_restaurants");
-   //const collection = db.collection("restaurants");
+    const use_id =    req.query.ID;;
+
+
+
    const db = mongoClient.db("wudb");
    const collection = db.collection("users");
    const collection_result = await collection;
-    const usersWithNonZeroProperties = await findUsersWithNonZeroProperties( collection_result ,req,  response , layerPart) ;
+    
+   const baseFilter = {
+    $or: [
+      { 'layers.he.0': { $exists: true, $ne: null } },
+      { 'layers.sh.0': { $exists: true, $ne: null } },
+      { 'layers.we.0': { $exists: true, $ne: null } }
+    ]
+  };
+  const projection = {
+    _id: false,
+    wallet: true,
+    discord: true,
+    layers: true,
+    walletshort: true
+  }
 
     
-           //const jjjj ={cccc: layerPart };
-           // response.status(200).json(  jjjj );
-           response.status(200).json(  usersWithNonZeroProperties );
-    }catch(e){
+   let usersWithNonZeroPropertiesX;
+
+
+   if (use_id) {
+  // Add specific user filter
+  usersWithNonZeroPropertiesX = await collection.find({
+    $and: [baseFilter, { ID: use_id }]
+  }).project( projection   ).toArray();
+} else {
+  // Retrieve all users based on the base filter
+  usersWithNonZeroPropertiesX = await collection.find(baseFilter).project( projection ).toArray();
+}
+    
+
+  //  console.log(JSON.stringify(usersWithNonZeroPropertiesX, null, 2));
+
+          response.status(200).json(  usersWithNonZeroPropertiesX );
+          // response.status(200).json(  usersWithNonZeroProperties );
+        }catch(e){
            console.error(e);
            response.status(500).json(e);
 
@@ -33,8 +63,7 @@ const router = express.Router();
     }
 })
 export default router;
-
-
+ 
 
 function flattenTwoDimArray(twoDArray) {
 

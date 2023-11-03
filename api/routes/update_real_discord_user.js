@@ -113,19 +113,7 @@ router.post('/update_real_discord_user', async (request, response) => {
        
         const db = mongoClient.db("wudb");
        const collection = db.collection("users");
-        
-      
-       
-            
-            await connectToDataBase(); // this was recently added  to make sure we wait for the database to update after deletion
-          
-            // then we can add some data...  otherwise.. the data adds up
-    
-               const minimalData =  
-                  {  ID : "account_1", discord : "joeCrazy#4500",  wallet :  "0x4eba90B4124DA2240C7Cd36A9EEE7Ff9F81Cf601" , id  : "account_1"  };
-                
-                
-               
+         
                 
                   for (let i = 0; i < discordUserData.length ; i++) {
             
@@ -163,7 +151,7 @@ router.post('/update_real_discord_user', async (request, response) => {
                     { upsert: true }
                   );
              */
-         
+         console.log( "ready to >>>  collection.insertMany(documentsToInsert); ");
                  collection.insertMany(documentsToInsert);
      
     

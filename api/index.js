@@ -20,6 +20,9 @@ import globalData from './routes/globalData.js';
 import findUsersWithNonZeroProperties from './routes/findUsersWithNonZeroProperties.js';
 
 import updateinvite from './routes/updateinvite.js';
+import updateAllInvite from './routes/updateAllInvite.js';
+
+
 import bestInviteScore from './routes/bestInviteScore.js';
 import earnings from './routes/earnings.js';
 
@@ -216,6 +219,8 @@ app.use('/', generateReferralCode);
 app.use('/', sendTracking);   
 
 
+
+app.use('/', updateAllInvite);
 app.use('/', updateinvite);
 app.use('/', bestInviteScore);
 app.use('/', earnings); // Mount the exampleRouter at /api

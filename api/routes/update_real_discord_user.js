@@ -104,7 +104,7 @@ router.post('/update_real_discord_user', async (request, response) => {
 
   const discordUserData = request.body.userlist;
  
-  console.log("userList" ,   userList );
+  console.log("userList" ,   discordUserData );
      //   return;
      const documentsToInsert = [];
        try {
@@ -134,9 +134,9 @@ router.post('/update_real_discord_user', async (request, response) => {
                       newUserDocument =  CreateNewUserDocument(
                        
                       newUserDocument,
-                       minimalData[i].ID,
-                      minimalData[i].discord ,
-                      minimalData[i].wallet, //  ,
+                      discordUserData[i].id,    
+                      discordUserData[i].username ,
+                      "wallet_not_provided", //  ,  // discordUserData[i].wallet
                   
                       discordUserData[i]
        

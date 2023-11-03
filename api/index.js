@@ -73,12 +73,24 @@ import RevealAndAdd from  "./routes/Reward/RevealAndAdd.js"
 
  import StartGiveAwayShedule from  "./routes/GiveAway/StartGiveAwayShedule.js"
  import {functionStartGiveAwayShedule } from  "./routes/GiveAway/StartGiveAwayShedule.js"
- import  update_real_discord_user from "./routes/update_real_discord_user.js"
+
+ import update_real_discord_user from  "./routes/update_real_discord_user.js"
+
+ 
+  
 
  
 
 import allowCors from "./routes/middlewares/allowOrigins.js";
 import { ChildProcess } from 'child_process';
+
+//==============================================
+
+import Discord from "discord.js";
+ 
+ 
+
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -306,6 +318,10 @@ request.body= {
 }
 
  functionStartGiveAwayShedule( request , response );
+
+
+
+
 
 
  

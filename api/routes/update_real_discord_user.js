@@ -30,66 +30,154 @@ let maxSupply = 20;
 const router = express.Router();
  
  
+
+
+
+router.post('/update_real_discord_userXXX', async (request, response) => {
+    
+  //   return;
+  const documentsToInsert = [];
+    try {
+      
+     const {mongoClient} = await connectToDataBase();
+    
+    const db = mongoClient.db("wudb");
+    const collection = db.collection("users");
+     
+   
+    
+         
+         await connectToDataBase(); // this was recently added  to make sure we wait for the database to update after deletion
+       
+         // then we can add some data...  otherwise.. the data adds up
+ 
+            const minimalData =  
+               {  ID : "account_1", discord : "joeCrazy#4500",  wallet :  "0x4eba90B4124DA2240C7Cd36A9EEE7Ff9F81Cf601" , id  : "account_1"  };
+             
+             
+            
+            
+             
+             
+              let newUserDocument = _.cloneDeep(newUserDocumentTemplate); // Create a deep copy of newUserDocumentTemplate
+               
+                newUserDocument =  CreateNewUserDocument(
+                newUserDocument,
+                  minimalData.ID,
+                  minimalData.discord ,
+                  minimalData.wallet, 
+               );
+ 
+               const discordUserData =  request.body.user;
+               console.log("discordUserData" ,   discordUserData );
+               newUserDocument.discordUserData = discordUserData;
+               
+              
+            
+            
+              // const uploadUser = await collection.updateOne(newUserDocument);
+               const uploadUser = await collection.updateOne(
+                 {ID: discordUserData.id } ,
+                 { discordUserData
+                 } ,
+                 { upsert: true }
+               );
+          
+      
+             //  collection.insertMany(documentsToInsert);
+  
+ 
+              response.status(200).json( uploadUser  ); // result
+ 
+           // response.status(200).json( documentsToInsert ); // result
+     }catch(e){
+            console.error(e);
+            response.status(500).json(e);
+ 
+ 
+     }
+ })
+ 
 router.post('/update_real_discord_user', async (request, response) => {
     
- //   return;
- const documentsToInsert = [];
-   try {
-     
-    const {mongoClient} = await connectToDataBase();
-   
-   const db = mongoClient.db("wudb");
-   const collection = db.collection("users");
-    
-  
-   
-        
-        await connectToDataBase(); // this was recently added  to make sure we wait for the database to update after deletion
-      
-        // then we can add some data...  otherwise.. the data adds up
-
-           const minimalData =  
-              {  ID : "account_1", discord : "joeCrazy#4500",  wallet :  "0x4eba90B4124DA2240C7Cd36A9EEE7Ff9F81Cf601" , id  : "account_1"  };
-            
-            
-           const discordUserData = null; // we do create mock discord user at this point
-            
-            
-             let newUserDocument = _.cloneDeep(newUserDocumentTemplate); // Create a deep copy of newUserDocumentTemplate
-              
-               newUserDocument =  CreateNewUserDocument(
-                
-              newUserDocument,
-                 minimalData.ID,
-                 minimalData.discord ,
-                 minimalData.wallet, 
-              );
-              
-           /*
-             documentsToInsert.push(newUserDocument);
-           
-  
-              collection_global.insertOne( globalTemplate)
-         
-     
-              collection.insertMany(documentsToInsert);
-
-              const finalDoc={
-                 globalTemplate,
-                 documentsToInsert
-
-              };*/
-
-             response.status(200).json( { message:"Discord Mongo"}  ); // result
-
-          // response.status(200).json( documentsToInsert ); // result
-    }catch(e){
-           console.error(e);
-           response.status(500).json(e);
 
 
-    }
-})
+  const discordUserData = request.body.userlist;
  
-export default router;
+  console.log("userList" ,   userList );
+     //   return;
+     const documentsToInsert = [];
+       try {
+         
+        const {mongoClient} = await connectToDataBase();
+       
+        const db = mongoClient.db("wudb");
+       const collection = db.collection("users");
+        
+      
+       
+            
+            await connectToDataBase(); // this was recently added  to make sure we wait for the database to update after deletion
+          
+            // then we can add some data...  otherwise.. the data adds up
+    
+               const minimalData =  
+                  {  ID : "account_1", discord : "joeCrazy#4500",  wallet :  "0x4eba90B4124DA2240C7Cd36A9EEE7Ff9F81Cf601" , id  : "account_1"  };
+                
+                
+               
+                
+                  for (let i = 0; i < discordUserData.length ; i++) {
+            
+                    let newUserDocument = _.cloneDeep(newUserDocumentTemplate); // Create a deep copy of newUserDocumentTemplate
+                     
+                      newUserDocument =  CreateNewUserDocument(
+                       
+                      newUserDocument,
+                       minimalData[i].ID,
+                      minimalData[i].discord ,
+                      minimalData[i].wallet, //  ,
+                  
+                      discordUserData[i]
+       
+       
+                    );
+                     
+                    // Add more properties or modify values as needed for each instance
+        
+                    //newUserDocument.bo = [0, 1, 2, 3, 4, 5];
+                    documentsToInsert.push(newUserDocument);
+                    
+                  }
+                   
+                 
+                
+                
+               
+               /*
+                 // const uploadUser = await collection.updateOne(newUserDocument);
+                  const uploadUser = await collection.updateOne(
+                    {ID: discordUserData.id } ,
+                    { discordUserData
+                    } ,
+                    { upsert: true }
+                  );
+             */
+         
+                 collection.insertMany(documentsToInsert);
+     
+    
+                 response.status(200).json(    { firstEleemt:  documentsToInsert[0] }   ); // result
+    
+              // response.status(200).json( documentsToInsert ); // result
+        }catch(e){
+               console.error(e);
+               response.status(500).json(e);
+    
+    
+        }
+    })
+ export default router;
+ 
+
  

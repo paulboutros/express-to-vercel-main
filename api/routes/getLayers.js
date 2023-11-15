@@ -10,7 +10,7 @@ router.get("/getLayersFull", async (req, response) => {
 
     try {
         //const mongoClient = await ( new MongoClient(uri, options)).connect();
-         const {mongoClient} = await connectToDataBase();
+          const {mongoClient} = await connectToDataBase();
       
           
 

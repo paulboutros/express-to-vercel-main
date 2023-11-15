@@ -1,9 +1,15 @@
-
+//https://portal.thirdweb.com/typescript/sdk.thirdwebsdk
 import url from 'url';
 import express from "express";
- 
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 import { connectToDataBase } from "../../../lib/connectToDataBase.js";
  
+import {  REWARDS_ADDRESS , TOOLS_ADDRESS } from "../../../const/addresses.js";
+ import {GetThirdWebSDK,
+   GetThirdWebSDK_fromPrivateKey, 
+   GetThirdWebSDK_fromSigner,
+   GetThirdWebSDK_readOnly
+  } from "../../../utils/thirdwebSdk.js";
  
 
 const router = express.Router();
@@ -17,30 +23,46 @@ const router = express.Router();
       const db = mongoClient.db("wudb");
       const layerSupplyCollection = await db.collection("layer_supply");
 
- 
-       
+  
+   const sdk = GetThirdWebSDK_readOnly(); // GetThirdWebSDK_fromSigner();
+   const contract = await sdk.getContract(TOOLS_ADDRESS);
+    //  const sdkSigner = GetThirdWebSDK_fromPrivateKey();
+     // const sdk =   GetThirdWebSDK();//new ThirdwebSDK("goerli");
+     // const contract = await sdk.getContract(TOOLS_ADDRESS);
+       const tokenId = 0;
+      const nftResult = await contract.erc1155.get( tokenId );
+      
+     let contractMetadataResult;
+    try {
+   
+      //console.error(' nftResult  >>>> fetching NFT:', nftResult);
+      // contractMetadataResult = await contract.metadata.get();
+     
+    } catch (error) {
+      console.error('Error fetching NFT:', error);
+    }
+  
 
       const layerResult = [];
       const cursor = await layerSupplyCollection.find({})
-       
+  /*     
+   const resultData={
+    contract:contract,
+    nftResult:nftResult 
 
+
+   };  */
       // layer supply for that reward
       let reward_layerSupplies;
-      for await (const doc of cursor) {
-        layerResult.push(doc);
- 
-      }
-    
-       
-
-
-
-      response.status(200).json( layerResult );
+      for await (const doc of cursor) {  layerResult.push(doc);   }
+      
+      response.status(200).json(  nftResult  );
+     // response.status(200).json( layerResult );
  
       
     } catch (e) {
        console.error(e);
-      response.status(500).json({ error: "An error occurred" });
+      response.status(500).json({ error: e });
     }
 
 

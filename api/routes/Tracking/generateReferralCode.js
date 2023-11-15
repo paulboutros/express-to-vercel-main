@@ -14,11 +14,22 @@ const router = express.Router();
       const db = mongoClient.db("wudb");
       const collection = db.collection("user_tracking");
     
-     
+       if (!req.body.ID){
+           const error = new Error(" param:ID need to be set in Body");
+      
+        // Set the HTTP status code for the response to indicate an error (e.g., 400 Bad Request)
+        response.status(400);
+        
+        // Send the error message in the response
+        response.json({ success: false, error: error.message });
+        
+        return; // Stop further execution
+
+       }
        const ID = req.body.ID ;
       // const one_referral_Code = req.body.one_referral_Code;
    
-       const one_referral_Code = cryptoRandomString({ length: 8, type: 'alphanumeric' });
+       const one_referral_Code = cryptoRandomString({ length: 16, type: 'alphanumeric' });
 
        // Create a shareable link
        const shareableLink = `${process.env.REACT_APP_URL}?referralCode=${one_referral_Code}`;

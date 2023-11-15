@@ -130,16 +130,17 @@ const allUsers = await collection.find({}).project( projection ).toArray();
  
 
 const user_how_are_ready_for_giveaway =[]; 
-console.log( "server: SetRewardNextTime function is called at" , new Date() );
+// console.log( "server: SetRewardNextTime function is called at" , new Date() );
  
         allUsers.forEach(element => {
 
-     //   if (element.ID == "423608837900206091"){
-
+    /*
         console.log( element.ID ,   "    >>   currentTime",   currentTime  ,
         "  NextGiveAway = "   , element.giveAwayTiming.NextGiveAway,
         "time left before giveaway =",( element.giveAwayTiming.NextGiveAway - currentTime) 
         );
+*/
+
         // there is no more waiting time, so it is ready
         //alternative could be to send one a bit before timeleft == 0 (with tag, advanced)
         //client could pick the advanced give away without needing to wait for the derver
@@ -150,14 +151,14 @@ console.log( "server: SetRewardNextTime function is called at" , new Date() );
              
              );
 
-          console.log( element.ID ,   "  is ready for give away " ) ;
+         // console.log( element.ID ,   "  is ready for give away " ) ;
         }
       //  }
 
        });
 
        
-       console.log(  "   user_how_are_ready_for_giveaway.length  ",     user_how_are_ready_for_giveaway.length     );
+     //  console.log(  "   user_how_are_ready_for_giveaway.length  ",     user_how_are_ready_for_giveaway.length     );
       
 ///=========================================================================
 user_how_are_ready_for_giveaway.forEach(obj => {

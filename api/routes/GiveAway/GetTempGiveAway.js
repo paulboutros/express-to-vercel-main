@@ -16,6 +16,15 @@ const router = express.Router();
 
         
       const ID =  req.query.ID;
+      if (!req.body.ID){
+        const error = new Error(" param:ID need to be set in Body");
+      // Set the HTTP status code for the response to indicate an error (e.g., 400 Bad Request)
+       response.status(400);
+      // Send the error message in the response
+       response.json({ success: false, error: error.message });
+          return; // Stop further execution
+     }
+
 
       const { mongoClient } = await connectToDataBase();
       const db = mongoClient.db("wudb");

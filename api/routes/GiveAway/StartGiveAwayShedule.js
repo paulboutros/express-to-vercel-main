@@ -55,16 +55,16 @@ export  async function  functionStartGiveAwayShedule(request,response){
     if (cronType === "repeat" ){
 
       if (duration.minutes > 0 ){
-        //  cronExpression =`*/${duration.minutes} * * * *`
-      }
+        //  cronExpression =`*/ ${duration.minutes} * * * *`
+      } 
       // warning if * or */ will override what ever if after * on minute will make every miinute and ignore day
       if (duration.days > 0 ){
            // cronExpression =`0 0 */${duration.days} * *`
       }   
           //server check all user to see if ready for give away
           //  cronExpression =`*/10 * * * * *`
-          // cronExpression =`*/3 * * * *`
-          cronExpression =`* * 3 * *`
+            cronExpression =`*/3 * * * *`
+           // cronExpression =`* * /3 * *`
      //  cronExpression =`*/${duration.minutes} */${duration.hours} */${duration.days} * *`;
     }else{
        // exact date from current tiem to duration,,  for example  today + 2 days ... executeince
@@ -84,18 +84,7 @@ export  async function  functionStartGiveAwayShedule(request,response){
      
    
     const currentDate = new Date();
-   //  console.log(`Giveaway for user ${ID} executed.  ${currentDate} `);
-
-
-   //  const nextExecution =  job.nextInvocation(); 
-    // timeLeft = getTimeLeftUntilNextExecution( job);
-
-  //   request.nextExecution =nextExecution.toISOString(); 
-  //   request.totalMilliseconds =  timeLeft;
-   
-
-    //  SetRewardNextTime(request,response  );
-
+ 
       console.log(` request.nextExecutio.  ${   request.nextExecution  } `);
        
       // Push_giveaway_toList( ID ,1, true);
@@ -105,14 +94,7 @@ export  async function  functionStartGiveAwayShedule(request,response){
    
     });
    
-  //   const nextExecution =  job.nextInvocation(); 
-  //  request.nextExecution = nextExecution.toISOString();
-  //  timeLeft = getTimeLeftUntilNextExecution( job);
-  //  request.totalMilliseconds =  timeLeft;
-
-
-   // console.log(` request.nextExecutio.  ${   request.nextExecution  } `);
-   // SetRewardNextTime(request,response  );
+   
     Push_giveaway_toListMANYUSERS( ID ,1, true);
     
       

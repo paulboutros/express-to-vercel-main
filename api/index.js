@@ -21,6 +21,8 @@ import findUsersWithNonZeroProperties from './routes/findUsersWithNonZeroPropert
 
 import updateinvite from './routes/updateinvite.js';
 import updateAllInvite from './routes/updateAllInvite.js';
+import getDiscordScore from './routes/Discord/getDiscordScore.js';
+import myDiscordInfo from './routes/Discord/myDiscordInfo.js';
 
 
 import bestInviteScore from './routes/bestInviteScore.js';
@@ -57,9 +59,12 @@ import generateReferralCode from "./routes/Tracking/generateReferralCode.js";
 import processReferral from "./routes/Tracking/processReferral.js";
 import GetReferralCode from "./routes/Tracking/GetReferralCode.js";
 
-
+ 
+import setClaimConditions from       "./routes/Reward/setClaimConditions.js"
+import ERC20claim from       "./routes/Reward/ERC20claim.js"
 import GetReward from       "./routes/Reward/GetReward.js"
 import GetLayerSupply from  "./routes/Reward/GetLayerSupply.js"
+import SetLayerSupply from  "./routes/Reward/SetLayerSupply.js"
 
 
 
@@ -79,7 +84,7 @@ import RevealAndAdd from  "./routes/Reward/RevealAndAdd.js"
 
  import update_real_discord_user from  "./routes/update_real_discord_user.js"
 
- 
+ import getTokenDetails from  "./routes/getTokenDetails.js"
   
 
  
@@ -124,6 +129,18 @@ app.use( // cors(  {credentials: true }  )
    
 );
  
+
+
+/*
+app.get('/token/:contractAddress/:tokenId', (req, res) => {
+  const { contractAddress, tokenId } = req.params;
+
+  // Now you can use contractAddress and tokenId to fetch data or render the page
+  // For example, you might render a template or send JSON data based on these parameters
+
+  res.send(`Contract Address: ${contractAddress}, Token ID: ${tokenId}`);
+});
+*/
 
 // Serve static files (React app)
 //app.use(express.static(path.join(__dirname, '..', 'public')));
@@ -170,9 +187,14 @@ app.get("/pythonTest", (request, res) => {
 
 
 
+app.use("/", setClaimConditions);
 
-app.use("/",GetReward);
-app.use("/",GetLayerSupply);
+app.use("/", ERC20claim);
+app.use("/", GetReward);
+app.use("/", GetLayerSupply);
+app.use("/", SetLayerSupply);
+app.use("/", getTokenDetails);
+
 
 
 //GiveAway
@@ -219,7 +241,8 @@ app.use('/', generateReferralCode);
 app.use('/', sendTracking);   
 
 
-
+ app.use('/', myDiscordInfo);
+ app.use('/', getDiscordScore);
 app.use('/', updateAllInvite);
 app.use('/', updateinvite);
 app.use('/', bestInviteScore);

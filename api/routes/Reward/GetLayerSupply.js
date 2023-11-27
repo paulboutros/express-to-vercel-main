@@ -23,12 +23,13 @@ const router = express.Router();
       const db = mongoClient.db("wudb");
       const layerSupplyCollection = await db.collection("layer_supply");
 
-  
-   const sdk = GetThirdWebSDK_readOnly(); // GetThirdWebSDK_fromSigner();
+     const sdk =  GetThirdWebSDK_fromSigner();
+   //const sdk = GetThirdWebSDK_readOnly(); // GetThirdWebSDK_fromSigner();
    const contract = await sdk.getContract(TOOLS_ADDRESS);
-    //  const sdkSigner = GetThirdWebSDK_fromPrivateKey();
-     // const sdk =   GetThirdWebSDK();//new ThirdwebSDK("goerli");
-     // const contract = await sdk.getContract(TOOLS_ADDRESS);
+   const nfts = await contract.erc1155.getAll();
+
+
+
        const tokenId = 0;
       const nftResult = await contract.erc1155.get( tokenId );
       

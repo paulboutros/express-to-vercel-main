@@ -85,7 +85,7 @@ export  async function  functionStartGiveAwayShedule(request,response){
    
     const currentDate = new Date();
  
-      console.log(` request.nextExecutio.  ${   request.nextExecution  } `);
+      
        
       // Push_giveaway_toList( ID ,1, true);
        Push_giveaway_toListMANYUSERS( ID ,1, true);

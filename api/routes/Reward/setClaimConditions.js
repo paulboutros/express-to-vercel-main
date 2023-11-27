@@ -13,14 +13,7 @@ dotenv.config();
 
 
 async function test(){
-
-  /*
-  const signer = new ethers.Wallet(process.env.REACT_APP_THIRDWEB_WALLET_PRIVATE_KEY  ); // "{{private_key}}"
-  const sdk = await ThirdwebSDK.fromSigner(signer, "goerli", {
-  // clientId: process.env.REACT_APP_THIRDWEB_CLIENT_ID , // Use client id if using on the client side, get it from dashboard settings
-   secretKey: process.env.REACT_APP_THIRDWEB_SECRET_KEY, // Use secret key if using on the server, get it from dashboard settings. Do NOT expose your secret key to the client-side
- });
-*/
+ 
 
 
 }
@@ -38,7 +31,7 @@ const router = express.Router();
       
 
  console.log("  THIRDWEB_SECRET_KEY, " +  process.env.REACT_APP_THIRDWEB_SECRET_KEY );
-const sdk = new ThirdwebSDK("goerli", {
+const sdk = new ThirdwebSDK(process.env.REACT_APP_ETH_NETWORK, {
   secretKey: process.env.REACT_APP_THIRDWEB_SECRET_KEY,
 });
 

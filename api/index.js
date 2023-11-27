@@ -87,11 +87,14 @@ import RevealAndAdd from  "./routes/Reward/RevealAndAdd.js"
  import getTokenDetails from  "./routes/getTokenDetails.js"
   
 
- 
+ import GetEthToUsdRate from "./routes/CryptoUtil/GetEthToUsdRate.js"  
 
 import allowCors from "./routes/middlewares/allowOrigins.js";
 import { ChildProcess } from 'child_process';
 
+
+import GetAllNFTs from "./routes/WEB3/GetAllNFTs.js";
+import GetContractThirdweb from "./routes/WEB3/GetContractThirdweb.js";
 //==============================================
 
 import Discord from "discord.js";
@@ -156,6 +159,12 @@ app.get("/", (request, response) => {
 })
 
 
+//WEB 3 test
+
+app.use("/",GetAllNFTs);
+app.use("/",GetContractThirdweb);
+
+
 app.get("/pythonTest", (request, res) => {
    // Get the integers from the request body
   // const { num1, num2 } = req.body;
@@ -194,6 +203,8 @@ app.use("/", GetReward);
 app.use("/", GetLayerSupply);
 app.use("/", SetLayerSupply);
 app.use("/", getTokenDetails);
+
+app.use("/", GetEthToUsdRate);
 
 
 
@@ -345,7 +356,8 @@ request.body= {
  
 }
 
- functionStartGiveAwayShedule( request , response );
+// we handle these things usign the smart contract.. see stacking contract
+ //functionStartGiveAwayShedule( request , response );
 
 
 

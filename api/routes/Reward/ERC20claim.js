@@ -6,195 +6,312 @@ import axios from "axios";
 import { connectToDataBase } from "../../../lib/connectToDataBase.js";
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
  import { ethers } from "ethers";
- import {  REWARDS_ADDRESS, TOOLS_ADDRESS  } from "../../../const/addresses.js";
+ import {  REWARDS_ADDRESS, TOOLS_ADDRESS, BURN_TO_CLAIM, OWNER  } from "../../../const/addresses.js";
  import {GetThirdWebSDK_fromSigner } from "../../../utils/thirdwebSdk.js"
+
+import {ABI} from "./abi.js"
+ import { Sepolia } from "@thirdweb-dev/chains";
 
 const router =  express.Router();
 
   
+// later we should move all this to a WEB3 DEV api folder
+
+/*
+https://portal.thirdweb.com/typescript/sdk.erc1155mintable
+*/
+router.post("/mintAdditionalSupplyTo", async (req, response) => {
+  try {
+
+         const tokenId    = req.body.tokenId;
+         const toAddress  = req.body.toAddress;
+         const additionalSupply = 1;
+
+     const sdk = GetThirdWebSDK_fromSigner();
+ 
+    const contract = await sdk.getContract(TOOLS_ADDRESS);
+    
+    
+ // 0, 12, 21, 34, 40
+  await contract.erc1155.mintAdditionalSupplyTo( toAddress, 0,  additionalSupply, );
+  await contract.erc1155.mintAdditionalSupplyTo( toAddress, 12,  additionalSupply, ); 
+  await contract.erc1155.mintAdditionalSupplyTo( toAddress, 21,  additionalSupply, ); 
+  await contract.erc1155.mintAdditionalSupplyTo( toAddress, 34,  additionalSupply, ); 
+  await contract.erc1155.mintAdditionalSupplyTo( toAddress, 40,  additionalSupply, ); 
+  
+ 
+
+ 
+ 
+      response.status(200).json( { res:"ok"}  );
+
+    
+  } catch (e) {
+     console.error(e);
+    response.status(500).json({ error: "An error occurred" });
+  }
+
+
+}
+
+);
+
+
+async function  GiveBurToClaimApprovalToSpendFromRewardToken(){
+
+ 
+  const sdk = GetThirdWebSDK_fromSigner();
+  const contract = await sdk.getContract(REWARDS_ADDRESS);
+
+  //const burnAndClaimContract = await sdk.getContract(BURN_TO_CLAIM);
+ 
+  const allowanceAmount = await contract.erc20.allowanceOf(OWNER, BURN_TO_CLAIM);
+  console.log( "allowanceAmount" , allowanceAmount );
+   if ( allowanceAmount &&  allowanceAmount.displayValue  > 0) {
+   // const isApproved = await burnAndClaimContract.erc1155.isApproved(
+   //   OWNER, // Address of the wallet to check
+   //   BURN_TO_CLAIM // Address of the operator to check
+   // );
+   // if (isApproved) {
+
+
+      console.log( " " ,  BURN_TO_CLAIM , "is approved already " );
+      // The contract is already approved
+      // You can choose to skip the approval step
+  } else {
+      // The contract is not approved, proceed with the approval
+     // contract.approve( OWNER, BURN_TO_CLAIM );
+     // approve and set allowance at the same time for that amount of token in WEI
+     await contract.call("approve",  [BURN_TO_CLAIM, "5000000000000000000"]);
+     await contract.call("transfer", [BURN_TO_CLAIM, "5000000000000000000"]);
+
+
+
+
+  }
+ 
+}
+
+
+router.post("/tokenApprove", async (req, response) => {
+  try {
+
+    GiveBurToClaimApprovalToSpendFromRewardToken();
+    
+
+    response.status(200).json( {res:"ok" });
+ 
+
+    
+  } catch (e) {
+     console.error(e);
+    response.status(500).json({ error: "An error occurred" });
+  }
+
+
+}
+
+);
+
+
 
 router.post("/ERC20claim", async (req, response) => {
   try {
 
+   let filteredImages    = req.body.filteredImages;
+   let address  = req.body.address;
 
-    
 
-    //const { mongoClient } = await connectToDataBase();
-    //const db = mongoClient.db("wudb");
-    //const collection = db.collection("users");
 
-      
-      const filteredImages    = req.body.filteredImages;
-      const recipientAddress  = req.body.address;
+   if ( filteredImages === null || address === null) {
+    throw new Error('One or more required parameters are null.');
+  }
 
+ // compare combo layers that are about to be used to claim, with the layers that the user actually own
+  const ownedNfts = await getOwned( address);
  
+// this is the sets of token requiered to get the reward the user is attempting to get
 
-       if ( filteredImages === null || recipientAddress === null) {
-        throw new Error('One or more required parameters are null.');
-      }
+ const he_id = filteredImages.he[0].tokenID;
+ const sh_id = filteredImages.sh[0].tokenID;
+ const we_id = filteredImages.we[0].tokenID;
+ const be_id = filteredImages.be[0].tokenID;
+ const kn_id = filteredImages.kn[0].tokenID;
 
-     // compare combo layers that are about to be used to claim, with the layers that the user actually own
-      const ownedNfts = await getOwned( recipientAddress);
+const reward_claim_for_tokenIDs=[ he_id.toString(),sh_id.toString(), we_id.toString(), be_id.toString(),kn_id.toString() ];
 
-  // this is the sets of token requiered to get the reward the user is attempting to get
-    const reward_claim_for_tokenIDs=[ 
-      filteredImages.he[0].tokenID.toString(),
-      filteredImages.sh[0].tokenID.toString(),
-      filteredImages.we[0].tokenID.toString(),
-      filteredImages.be[0].tokenID.toString(),
-      filteredImages.kn[0].tokenID.toString() 
-    ];
- 
-    // now we compare them with what this adress own
-    const owned_tokenIDs=[];
-    ownedNfts.forEach(element => {
-      const id =  element.metadata.id;
-      owned_tokenIDs.push(  id.toString()  );
-       
-   }); 
 
-    const matchResult=[];
-    owned_tokenIDs.forEach(id => {
-        const res =  reward_claim_for_tokenIDs.includes( id );
-        matchResult.push( { id_required:id , result:res   });
-    });
 
-    const containsMissingTokenID = matchResult.some(item => item.result === false);
-    /* some token ID are missing we can not go further
-    
-    */
-   if (containsMissingTokenID){
-      response.status(200).json( {
-          containsMissingTokenID:containsMissingTokenID,
-          matchResult:matchResult,
-          reward_claim_for_tokenIDs :reward_claim_for_tokenIDs, 
-          owned_tokenIDs:owned_tokenIDs
-       });
-      return;
+// now we compare them with what this adress own
+const owned_tokenIDs=[];
+ownedNfts.forEach(element => {
+  const id =  element.metadata.id;
+  owned_tokenIDs.push(  id.toString()  );
+   
+}); 
 
-   }
+const matchResult=[];
+owned_tokenIDs.forEach(id => {
+    const res =  reward_claim_for_tokenIDs.includes( id );
+    matchResult.push( { id_required:id , result:res   });
+});
+console.log( ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"  );
+const containsMissingTokenID = matchResult.some(item => item.result === false);
+/* some token ID are missing we can not go further
+
+*/
+
+
+console.log( ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"  , containsMissingTokenID );
+if (containsMissingTokenID){
+  response.status(200).json( {
+      containsMissingTokenID:containsMissingTokenID,
+      matchResult:matchResult,
+      reward_claim_for_tokenIDs :reward_claim_for_tokenIDs, 
+      owned_tokenIDs:owned_tokenIDs
+   });
+  return;
+
+}
 //==================================================================================================
 //2)   at this point we passed the test, and we have all the token ID required.
- // Now, let's recheck the rewards associated with this combo.
- const dataToSend = {
-  he : {tokenID:  filteredImages.he[0].tokenID },
-  sh : {tokenID:  filteredImages.sh[0].tokenID },
-  we : {tokenID:  filteredImages.we[0].tokenID },  
-  be : {tokenID:  filteredImages.be[0].tokenID },
-  kn : {tokenID:  filteredImages.kn[0].tokenID }
-   
-  
-}
-
-   const endpoint = `${process.env.SERVER_URL}GetReward`;
-  const reward_res = await axios.post(endpoint, dataToSend);
-  const reward_result = reward_res.data;
-   
- // 3) we send the reward to wallet 
- // We make sure we burn the token used to get this reward
-//check thirdweb video tutorial. BORED YATCH APE CLUB , for burn to claim
- //const burn_he = await contract.erc1155.burn(tokenId, amount);
-
-
-
- await transfert(recipientAddress , reward_result.finalRewardPrice   );
-
-
-
- response.status(200).json( {
-  reward_result:reward_result,
-  matchResult:matchResult,
-  reward_claim_for_tokenIDs :reward_claim_for_tokenIDs, 
-  owned_tokenIDs:owned_tokenIDs
-});
-
-
-     // console.log( "ERC20claim recipientAddress   = "  + recipientAddress );
-    //to do 
-    /*
-      request must contains the combo this request is for, 
-      1) =>  then check on server if the user own the requiered layer  
-      2) =>  recheck the price for update... 
-      also because we do not accept this information from the client for security reason
-      3) =>  call web3 contract claim function to reward with the amount
-    */
-    
-
+// Now, let's recheck the rewards associated with this combo.
+let dataToSend = {
+he : {tokenID: he_id},sh :{tokenID: sh_id},we : {tokenID: we_id}, be : {tokenID: be_id}, kn : {tokenID: kn_id} }
  
 
-      
-      // response.status(200).json( {
-      //    filteredImages:filteredImages, 
-      //     ownedNfts:ownedNfts
-      //   });
-      return;
+
+let endpoint = `${process.env.SERVER_URL}GetReward`;
+let reward_res = await axios.post(endpoint, dataToSend);
+ let reward_result = reward_res.data;
+
+// 3) we send the reward to wallet 
+// We make sure we burn the token used to get this reward
+//check thirdweb video tutorial. BORED YATCH APE CLUB , for burn to claim
+//const burn_he = await contract.erc1155.burn(tokenId, amount);
 
 
 
-     const he = filteredImages.he[0].layerName;
-     const we = filteredImages.we[0].layerName;
-     const sh = filteredImages.sh[0].layerName;
-     const kn = filteredImages.kn[0].layerName;
-     const be = filteredImages.be[0].layerName;
-
-     const result = await collection.findOne(
-      { ID: ID },
-      { projection: { _id: 0, layers: 1 } }
-    );
-    
-    const categories = ["he", "we", "sh", "kn", "be"];
-    const missingCategories = [];
-    
-    categories.forEach(category => {
-      const test_value = filteredImages[category][0].layerName;
-      if (!result.layers[category].includes(test_value)) {
-        missingCategories.push( {inCategory: category, missinLayer: test_value });
-      }
-    });
+//await transfert(address , reward_result.finalRewardPrice   );
 
 
-    let checkedResult ={};
-      
-    
+/*
+response.status(200).json( {
+reward_result:reward_result,
+matchResult:matchResult,
+reward_claim_for_tokenIDs :reward_claim_for_tokenIDs, 
+owned_tokenIDs:owned_tokenIDs,
+finalRewardPrice : reward_result.finalRewardPrice
+});
 
-
-
-       // if we passed the check
-       let priceConfirmation;
-      if (missingCategories.length === 0 ){
-          const apiUrl = `${process.env.SERVER_URL}GetReward?he=${he}&sh=${sh}&we=${we}&be=${be}&kn=${kn}`;
-          priceConfirmation = await axios.get(apiUrl);
-
-          checkedResult ={
-            missingLayers : missingCategories,
-            layerOnDataBase: result,
-            priceConfirmation: priceConfirmation.data,
-            message: "OK"
-    
-        }
-      }else{
-        
-        checkedResult ={
-          missingLayers : missingCategories,
-          layerOnDataBase: result,
-          priceConfirmation: "not available",
-          message: "client combo does not match dataBase. see missingCategories. rejected"
+*/
   
-          }
+//=======================================================================================================
+// SMART CONTRACT / WRITTING BLOCkCHAIN WRITTING
+//================================================================================================================
 
-        response.status(200).json( checkedResult );
-        return;
-      }
-       
-         
-      
-   // all web 3 reward erc20 claim        
+//================================================================================================================
+    //============================================================================================================
 
+    const contractABI = ABI; // Replace with your contract's ABI
+    const contractAddress = BURN_TO_CLAIM; // Replace with your contract's address
     
+    const provider = new ethers.providers.JsonRpcProvider("https://sepolia.rpc.thirdweb.com"); // Replace with your Ethereum node URL
    
+   
+   
+    //const signer = new ethers.Wallet(process.env.REACT_APP_THIRDWEB_WALLET_PRIVATE_KEY  );
+    const signer = new ethers.Wallet(process.env.REACT_APP_THIRDWEB_WALLET_PRIVATE_KEY, provider); // Replace with the private key
+    
+    const contract = new ethers.Contract(contractAddress, contractABI, signer);
 
-        await transfert(recipientAddress , checkedResult.priceConfirmation.finalRewardPrice   );
-      response.status(200).json( checkedResult );
+/*========================================================================================================
+   CHECK FOR APPROVE FROM REWARD TOKEN CONTACT  or BURN TO CLAIM (BURN TO GET REWARD) WILL FAILS
+  =======================================================================================================*/
+ /*
+  Make sure the Bur And Claim contract is approved by token contract, since
+ its spends money from it.
+ Note, this appoval transaction must be signed by owner, so it can be done on this server with private key
+
+*/
+    // Assuming `owner` is the owner's address and `spender` is the contract's address
+    //const contract = await sdk.getContract(REWARDS_ADDRESS); 
+      await GiveBurToClaimApprovalToSpendFromRewardToken();
+
+/*================================================================================================
+                     END OF APPROVE  CHECK
+==============================================================================================*/
+
+
+
+    const rewardAmountInEther = reward_result.finalRewardPrice;// 2.1; // Replace with your desired amount in Ether
+    const rewardAmountInWei = ethers.utils.parseUnits(rewardAmountInEther.toString(), "ether");
+     const tx1 = await contract.setRewardAmount(rewardAmountInWei 
+    , {
+         gasLimit: 200000 // Replace with an appropriate gas limit
+        }
+      
+       );
+       const receipt1 = await tx1.wait();
+  
+       console.log( " >>>>>>   receipt1", receipt1  );
+       
+/*
+       const tx2 = await contract.transfetRewardToUser(address, rewardAmountInWei 
+             , {
+              gasLimit: 200000 // Replace with an appropriate gas limit
+            }
+          
+          );
+*/
+ console.log( " he_id",  he_id  );
+console.log( " sh_id",  sh_id  );
+console.log( " we_id",  we_id  );
+console.log( " be_id",  be_id  );
+console.log( " kn_id",  kn_id  );
+
+ let tokenIdsToBurn = [he_id, sh_id, we_id, be_id, kn_id];
+// let tokenIdsToBurn = [0, 12, 21, 34, 40];
+
+     const tx2 = await contract.burnAndClaim(address, tokenIdsToBurn 
+         , {
+           gasLimit: 300000 // Replace with an appropriate gas limit
+        }
+      
+         );
+
+      //   console.log( " ??????????????????????????????????????????????????????????????   "   );
+       
+    //     console.log( "tx2   = "  , tx2 ); // Check events emitted
+       const receipt2 = await tx2.wait();
+
+    //   if (receipt.status === 0) {
+    //    console.error("Transaction reverted. Revert reason:", receipt2.revertReason);
+   // }
+
+
+     //  const revertReason = receipt2.logs.find(log => log.topics[0] === "0x08c379a0df4787b3e4cf1e38ae9352e87eaff99e858bda6b71c48c7c19f99bc5");
+    //   console.log("Revert Reason:", revertReason);
+
+
+     //  console.log(receipt2.events); // Check events emitted
+    //   console.log( ">>>>>>  receipt2  = ", receipt2  );
+       if (receipt2.status === 1) {
+             console.log("Transaction succeeded");
+        // Your logic for a successful transaction
+         } else {
+             console.error("Transaction failed");
+        // Your logic for a failed transaction
+         }
+
+
+
+
+    // Wait for the transaction to be mined
+    
+
+     response.status(200).json( {res: " ok " });
+ 
 
     
   } catch (e) {
@@ -221,13 +338,13 @@ router.post("/ERC20claim", async (req, response) => {
 
         const ID                = req.body.ID;
         const filteredImages    = req.body.filteredImages;
-        const recipientAddress  = req.body.address;
+        const address  = req.body.address;
 
-         if (ID === null || filteredImages === null || recipientAddress === null) {
+         if (ID === null || filteredImages === null || address === null) {
           throw new Error('One or more required parameters are null.');
         }
 
-        console.log( "ERC20claim recipientAddress   = "  + recipientAddress );
+        console.log( "ERC20claim address   = "  + address );
       //to do 
       /*
         request must contains the combo this request is for, 
@@ -309,7 +426,7 @@ router.post("/ERC20claim", async (req, response) => {
       
      
 
-          await transfert(recipientAddress , checkedResult.priceConfirmation.finalRewardPrice   );
+          await transfert(address , checkedResult.priceConfirmation.finalRewardPrice   );
         response.status(200).json( checkedResult );
  
       
@@ -335,7 +452,7 @@ router.post("/ERC20claim", async (req, response) => {
           throw new Error('One or more required parameters are null.');
         }
 
-       // console.log( "ERC20claim recipientAddress   = "  + recipientAddress );
+       // console.log( "ERC20claim address   = "  + address );
        
 
       const ownedNfts = await getOwned(address);
@@ -390,7 +507,7 @@ function calculateScore(combination ,  categoryWeights) {
  
   }
 //web3
-  async function transfert( recipientAddress , priceConfirmation  ){
+  async function transfert( address , priceConfirmation  ){
    
 
 
@@ -407,7 +524,7 @@ function calculateScore(combination ,  categoryWeights) {
 
    console.log( "amount" , amount  );
   // Address of the wallet you want to send the tokens to
-  const toAddress =  recipientAddress;
+  const toAddress =  address;
   // The amount of tokens you want to send
   
   await contract.erc20.transfer(toAddress,  amount );

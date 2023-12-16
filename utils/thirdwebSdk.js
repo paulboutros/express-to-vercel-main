@@ -38,6 +38,9 @@ export async function GetThirdWebSDK(){
 }
 
 export async function GetThirdWebSDK_fromPrivateKey(){
+
+  
+ //return;
 const sdk = await ThirdwebSDK.fromPrivateKey(
     process.env.REACT_APP_THIRDWEB_WALLET_PRIVATE_KEY,
     process.env.REACT_APP_ETH_NETWORK,
@@ -45,7 +48,7 @@ const sdk = await ThirdwebSDK.fromPrivateKey(
           clientId: process.env.REACT_APP_THIRDWEB_CLIENT_ID,
     }
     );
-
+  //fromPrivateKey(process.env.PRIVATE_KEY, "mumbai")
      return sdk;
 }
 

@@ -7,15 +7,190 @@ import { connectToDataBase } from "../../../lib/connectToDataBase.js";
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
  import { ethers } from "ethers";
  import {  REWARDS_ADDRESS, TOOLS_ADDRESS, BURN_TO_CLAIM, OWNER  } from "../../../const/addresses.js";
- import {GetThirdWebSDK_fromSigner } from "../../../utils/thirdwebSdk.js"
+ import {GetThirdWebSDK_fromSigner , GetThirdWebSDK_fromPrivateKey  } from "../../../utils/thirdwebSdk.js"
 
 import {ABI} from "./abi.js"
  import { Sepolia } from "@thirdweb-dev/chains";
+import { createBundle } from './CreateBundlePack.js';
 
 const router =  express.Router();
 
+
+
+router.post("/CreateBundlePack", async (req, response) => {
+  try {
+      
+     // const sdk = await GetThirdWebSDK_fromSigner();// GetThirdWebSDK_fromPrivateKey();  //ThirdwebSDK.fromPrivateKey(process.env.PRIVATE_KEY, "mumbai");
+      // console.log( sdk);
+      // GetThirdWebSDK_fromSigner();
+
+      const bundelCreated =  await createBundle(   );
+      response.status(200).json( { res: bundelCreated }  );
+
+    
+  } catch (e) {
+     console.error(e);
+    response.status(500).json({ error: "An error occurred" });
+  }
+ 
+}
+
+);
+ 
+//==============================================================
+ 
+/*
+https://portal.thirdweb.com/typescript/sdk.erc1155mintable
+*/
+  
   
 // later we should move all this to a WEB3 DEV api folder
+
+
+// good old thirdweb video for minitng all required for pack (warning some sdk not up to date)
+//https://www.youtube.com/watch?v=MBmQtpNLmgg 
+https://portal.thirdweb.com/typescript/sdk.erc1155mintable
+router.post("/generateAllSupplyforCardpack", async (req, response) => {
+  try {
+    const sdk = GetThirdWebSDK_fromSigner();
+    const contract = await sdk.getContract( "0xdA637F0BAA8CB69e7e23926915F6Cec5b248B3B4");
+
+    const nfts = await contract.erc1155.getAll();
+
+    const cardAmountInPack = [
+      1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+      1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+      1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+      1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+      1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+     ];
+    async function createSupplyAvaialbleForPackCreation() {
+ 
+      const maxLayer =   50
+         for (let i = 0; i < maxLayer; i++) {
+
+         const supply = parseInt(nfts[i].supply) ;
+                
+           const dif =    cardAmountInPack[i] -  supply;
+          const absDif = Math.abs( dif );
+
+           console.log( " i  " ,  i  ,  " absDif  " , absDif  ,  "nfts[i].supply   =  "  , nfts[i].supply  );
+  
+         
+           if ( dif < 0 ){
+            //  await  contract.erc1155.burn(i, absDif);
+ 
+            }
+            if ( dif > 0 ){
+              /* 
+              const tx = await contract.erc1155.mint({
+                   metadata: metadata,
+                 supply: 1000, // The number of this NFT you want to mint
+               });
+              */
+
+               // supply is important for the pack, but the most important it to make the address
+               // who create the pack owns even of it since ERC1155upgradable.sol will transfert from pack creator to pack contract
+             await contract.erc1155.mintAdditionalSupplyTo( OWNER, i ,   cardAmountInPack[i] );
+           //  await contract.erc1155.mintAdditionalSupply(i, absDif);
+ 
+            }
+            
+ 
+
+        
+      }
+    }
+    
+    // Call the async function
+    await createSupplyAvaialbleForPackCreation();
+
+
+    response.status(200).json( { res: nfts }  );
+     return;
+
+
+         const tokenId    = req.body.tokenId;
+         const toAddress  = req.body.toAddress;
+         const additionalSupply = 1;
+
+    
+ 
+    
+    
+    
+ // 0, 12, 21, 34, 40
+  await contract.erc1155.mintAdditionalSupplyTo( toAddress, 0,  additionalSupply, );
+  await contract.erc1155.mintAdditionalSupplyTo( toAddress, 12,  additionalSupply, ); 
+  await contract.erc1155.mintAdditionalSupplyTo( toAddress, 21,  additionalSupply, ); 
+  await contract.erc1155.mintAdditionalSupplyTo( toAddress, 34,  additionalSupply, ); 
+  await contract.erc1155.mintAdditionalSupplyTo( toAddress, 40,  additionalSupply, ); 
+  
+ 
+
+ 
+ 
+      response.status(200).json( { res:"ok"}  );
+
+    
+  } catch (e) {
+     console.error(e);
+    response.status(500).json({ error: "An error occurred" });
+  }
+
+
+}
+
+);
+
+
+https://portal.thirdweb.com/typescript/sdk.erc1155mintable
+router.post("/MintNftToLayerCollection", async (req, response) => {
+  try {
+    const sdk = GetThirdWebSDK_fromSigner();
+    const contract = await sdk.getContract("0xdA637F0BAA8CB69e7e23926915F6Cec5b248B3B4");
+
+    
+    async function mint() {
+ 
+   let maxLayer = 10;// 50;
+      for (let i = 0; i < maxLayer; i++) {
+             
+        const metadata = {
+          name: "Cool NFT #1",
+          description: "This is a cool NFT",
+          image: "https://roarblogs.s3.amazonaws.com/mgm/casino/en/blog/wp-content/uploads/2020/04/28093620/SlotSymbols.jpg", // URL, IPFS URI, or File object
+          // ... Any other metadata you want to include
+        };
+                
+              const tx = await contract.erc1155.mint({
+                   metadata: metadata,
+                 supply: i+1, // The number of this NFT you want to mint
+               });
+               
+ 
+
+        
+      }
+    }
+    
+    // Call the async function
+    await mint();
+
+
+    response.status(200).json( { res: nfts }  );
+      
+  } catch (e) {
+     console.error(e);
+    response.status(500).json({ error: "An error occurred" });
+  }
+
+
+}
+
+);
+
+
 
 /*
 https://portal.thirdweb.com/typescript/sdk.erc1155mintable

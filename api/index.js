@@ -6,12 +6,11 @@ https://www.youtube.com/watch?v=K8YELRmUb5o&list=PL08VAKnhpM86qszK0uKZ-FXQpVy3fv
 */
 
 
-import axios from "axios";
-import express from 'express';
-import path from 'path';
-import cors from 'cors';
+ import express from 'express';
+ import cors from 'cors';
 import dotenv from 'dotenv';
 import {connectToDataBase} from '../lib/connectToDataBase.js';
+import { connectToDiscord } from '../lib/connectToBotClient.js';
  
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -21,6 +20,9 @@ import findUsersWithNonZeroProperties from './routes/findUsersWithNonZeroPropert
 
 import updateinvite from './routes/updateinvite.js';
 import updateAllInvite from './routes/updateAllInvite.js';
+ 
+
+//import botTest from './routes/Discord/botTest.js';
 import getDiscordScore from './routes/Discord/getDiscordScore.js';
 import myDiscordInfo from './routes/Discord/myDiscordInfo.js';
 
@@ -97,9 +99,10 @@ import GetAllNFTs from "./routes/WEB3/GetAllNFTs.js";
 import GetContractThirdweb from "./routes/WEB3/GetContractThirdweb.js";
 //==============================================
 
-import Discord from "discord.js";
- 
- 
+//import Discord from "discord.js";
+import { Client, Events, GatewayIntentBits } from 'discord.js' ;
+const targetChannelID = '947487867658199071';
+
 
 
 
@@ -132,6 +135,90 @@ app.use( // cors(  {credentials: true }  )
    
 );
  
+
+ 
+/*
+this is just for test. remove it later when connectToDiscord is used by other part of server.
+Next:
+create an end point, so app client,  call and ask if user is part of server
+ */
+
+
+
+async function someFunction() {
+  try {
+    const { discordClient } = await connectToDiscord();
+  
+    discordClient.on("ready", async () => {
+    //discordClient.once( Events.ClientReady, () => {
+      
+         const channel = discordClient.channels.cache.get(targetChannelID);  
+         channel.send('>>>>>>>>>  Hello, this is a message from the bot!');
+         const guild = discordClient.guilds.cache.get( process.env.SERVER_ID );
+
+         const ServerMembers = await guild.members.fetch();
+
+      //    console.log( " >>>>>   channel   =" ,  channel  );
+
+          const member =   guild.members.cache.get("928290103367958528") ;
+       if ( member       )  {  
+      console.log(` members found  uer=  : ${  member   }` );
+
+        }else{
+
+          console.log(`NOT   members   ` );
+        }
+       
+            //========================================================================
+          //  const allMembers=[];
+        
+         const members = ServerMembers.filter(member => !member.user.bot);
+   
+    //     console.log(` members  : ${members  }`);     
+                  for (const member of members.values()) {
+                    const user = member.user;
+                    // Now you can access properties of the 'user' object
+                    const username = user.username;
+                    const userID = user.id;
+                    // const avatarURL = user.avatarURL();
+
+                    // Use the 'user' properties as needed
+                    // console.log(`Username: ${username}, UserID: ${userID}, Avatar URL: ${avatarURL}`);
+                    // console.log(`>>  member: ${member}`);
+
+                     if (   userID === "535766913834418179" ){
+                      console.log(`>>  FOUND :` );
+                      console.log(`>>  user:`, user);
+                     }
+                       
+
+                  
+                  }
+    
+
+
+
+
+          if (guild) {
+               console.log(`Bot is a member of the guild: ${guild  }`);
+          } else {
+              console.log(`Bot is not a member of the specified guild.`);
+          }
+   
+  
+        });
+    
+ 
+        console.log(' >> Ready!');
+
+
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+ someFunction();
+
 
 
 /*
@@ -246,7 +333,7 @@ app.use((req, res, next) => {
 });
 //Tracking
 
-
+//app.use('/',botTest);
 
 app.use('/', generateReferralCode);  
 app.use('/', sendTracking);   
@@ -296,7 +383,7 @@ app.get('/portfolio', (req, res) => res.send('Portfolio Page Route'));
 app.get('/contact', async (req, response) =>{  
 
     try {
-        //const mongoClient = await ( new MongoClient(uri, options)).connect();
+       
          const {mongoClient} = await connectToDataBase();
       
         const db = mongoClient.db("wudb");

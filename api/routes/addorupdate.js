@@ -9,6 +9,59 @@ import _ from 'lodash'
 //export default async function hanfler(request , response){
   const router = express.Router();
 
+
+
+/*
+const db = db.getSiblingDB('your_database'); // Replace 'your_database' with your actual database name
+const collection = db.your_collection; // Replace 'your_collection' with your actual collection name
+
+const query = { _id: yourDocumentId }; // Specify the document you want to update
+const update = {
+  $set: { redirectUrl: 'your_new_redirect_url' }, // Set the new value for the redirectUrl property
+};
+const options = { upsert: true }; // Set the upsert option to true
+
+// Perform the update operation
+collection.updateOne(query, update, options);
+
+
+*/
+router.post("/setRedirectURL", async (request, response) => {
+
+
+  try {
+
+       const {mongoClient} = await connectToDataBase();
+       const db = mongoClient.db("wudb");
+       const collection = db.collection("users");
+ 
+       const ID = request.body.ID;
+       const redirectUrl = request.body.redirectUrl;
+     
+       const query = { "ID":  ID }; // Specify the document you want to update
+       const update = {
+         $set: { "redirectUrl":  redirectUrl }, // Set the new value for the redirectUrl property
+       };
+       const options = { upsert: true }; // Set the upsert option to true
+       
+       // Perform the update operation
+       const mongoResponse = collection.updateOne(query, update, options);
+  
+       response.status(200).json( mongoResponse ); // result
+
+
+  }catch(e){
+
+
+       console.error(e);
+       response.status(500).json(e);
+
+
+  }
+})
+
+
+
   //router.use(ValidateUserBody);
   // do not forget to use the endpoint in index.js
   //make sure post body in postman is set to JSON
@@ -31,20 +84,20 @@ import _ from 'lodash'
 
           
             const ID = request.body.ID;
-           // const id = request.body.id;
-            let wallet =request.body.wallet ;//"000000000000"; request.body.wallet;
-            // if registering from web app login, where wallt is not provided
-            if (!wallet ) {
+             let wallet =request.body.wallet ;//"000000000000"; request.body.wallet;
+             if (!wallet ) {
               wallet  ="000000000000"
 
             }
 
 
-           const discord = request.body.discord;
+    console.log(`  >> >> wallet  from body =${    wallet  } `); 
+
+           const discord         = request.body.discord;
            const discordUserData =  request.body.discordUserData;
  
            
-           console.log(`  discordUserData =${    discordUserData } `); 
+           console.log(` >>>  discordUserData =${    discordUserData } `); 
 
         const userExist  = await collection.updateOne(
            { "ID":  ID   },
@@ -72,18 +125,25 @@ import _ from 'lodash'
       }else{
         result = " >> >> user DOES exist  UPDATE one ";
          // 423608837900206091
-        user = await collection.findOne({ "ID": ID });
-            collection.updateOne( { "ID": ID },   
-            {   $set: {
-               "wallet": wallet,
-               "discord": discord,
-               "discordUserData":discordUserData
-              } } );
+       // user = await collection.findOne({ "ID": ID });
+
+        // discordUserData is set again at each discord login, see oauth call functions;
+        // however we should not redefined if the update is coming from the app
+        // because the app should not write something on this object only dicord server
+
+           const setData = discordUserData ?  
+             {"wallet": wallet,"discord": discord,"discordUserData": discordUserData  } :
+             {"wallet": wallet,"discord": discord  } 
+           await collection.updateOne( { "ID": ID },   {   $set:  setData  } );
+            
+           // we now get the updated version of the user
+           user = await collection.findOne({ "ID": ID });
+              
             
         
       }
       result  += " userExist.matchedCount " +  userExist.matchedCount;
-      console.log(  result   ); 
+      
 
 
 
@@ -95,12 +155,14 @@ import _ from 'lodash'
              message: result,
              userExist : userExist.matchedCount === 1  //userExist.matchedCount
        }
-       console.log(  "responseObj   user  "   + responseObj.user   );
 
-       console.log(  "responseObj   user  "   + responseObj.user.ID   );
-       console.log(  "responseObj   wallet  "   + responseObj.user.wallet   );
-       console.log(  "responseObj   discord  "   + responseObj.user.discord   );
+       console.log(  "================================================================================="  );
+       console.log(  "responseObj.user  "   , responseObj.user   );
 
+       console.log(  "responseObj.user.ID  "   , responseObj.user.ID   );
+       console.log(  "responseObj.user.wallet  "   ,responseObj.user.wallet   );
+       console.log(  "responseObj.user.discord  "   , responseObj.user.discord   );
+       console.log(  "================================================================================="  );
            response.status(200).json( responseObj ); // result
     }catch(e){
            console.error(e);

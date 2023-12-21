@@ -49,7 +49,7 @@ router.post("/GetReward", async (req, response) => {
      const he_tokenId = parseInt(req.body.he.tokenID);   let nftResult  = await contract.erc1155.get( he_tokenId );
      const he_supply = nftResult.supply; // token id 4 = supply 8 for example
      const sh_tokenId =  parseInt(req.body.sh.tokenID ) ;    nftResult  = await contract.erc1155.get( sh_tokenId );
-     const sh_supply =  nftResult.supply;
+      const sh_supply =  nftResult.supply;
      const we_tokenId =  parseInt(req.body.we.tokenID)  ;    nftResult  = await contract.erc1155.get( we_tokenId );
      const we_supply =  nftResult.supply;
      const be_tokenId =  parseInt(req.body.be.tokenID)  ;    nftResult  = await contract.erc1155.get( be_tokenId );

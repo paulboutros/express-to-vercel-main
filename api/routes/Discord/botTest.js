@@ -2,6 +2,7 @@
  
 //node botTest.js
 import dotenv from 'dotenv';
+import { botChannel } from '../../../const/addresses';
  
 dotenv.config();
 
@@ -12,15 +13,15 @@ const clientId="983023254249807933"
 */
 
 
-const targetChannelID = '947487867658199071';
+ 
  
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
-const channel = client.channels.cache.get(targetChannelID);  
+const channel = client.channels.cache.get(botChannel);  
 
 client.once(Events.ClientReady, () => {
 	console.log('Ready!');
  
-   const channel = client.channels.cache.get(targetChannelID);  
+   const channel = client.channels.cache.get(botChannel);  
 
   
       channel.send('>>>>>>>>>  Hello, this is a message from the bot!');

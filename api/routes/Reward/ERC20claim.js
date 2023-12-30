@@ -15,6 +15,39 @@ import { createBundle } from './CreateBundlePack.js';
 
 const router =  express.Router();
 
+// const provider = new ethers.providers.JsonRpcProvider("https://sepolia.rpc.thirdweb.com"); // Replace with your Ethereum node URL
+    
+    //const signer = new ethers.Wallet(process.env.REACT_APP_THIRDWEB_WALLET_PRIVATE_KEY  );
+    //const signer = new ethers.Wallet(process.env.REACT_APP_THIRDWEB_WALLET_PRIVATE_KEY, provider); // Replace with the private key
+
+    router.get("/getBlock", async (req, res) => {
+      try {
+        const provider = new ethers.providers.JsonRpcProvider('https://sepolia.rpc.thirdweb.com');
+        const blockNumber = parseInt(req.query.blockNumber, 10); 4978822;// parseInt(req.query.blockNumber) ;//  4978822;
+    
+        console.log( "blockNumber  :" , blockNumber)
+        // Get the block information using await
+        const block = await provider.getBlock(blockNumber);
+    
+        if (block) {
+          const timestamp = block.timestamp;
+          console.log(`Block ${blockNumber} was mined at timestamp: ${timestamp}`);
+          res.json({ blockNumber, timestamp });
+        } else {
+          console.log(`Block ${blockNumber} not found`);
+          res.status(404).json({ error: `Block ${blockNumber} not found` });
+        }
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'An error occurred' });
+      }
+     
+    }
+    
+    );
+
+
+
 
 
 router.post("/CreateBundlePack", async (req, response) => {
@@ -392,9 +425,7 @@ finalRewardPrice : reward_result.finalRewardPrice
     const contractAddress = BURN_TO_CLAIM; // Replace with your contract's address
     
     const provider = new ethers.providers.JsonRpcProvider("https://sepolia.rpc.thirdweb.com"); // Replace with your Ethereum node URL
-   
-   
-   
+    
     //const signer = new ethers.Wallet(process.env.REACT_APP_THIRDWEB_WALLET_PRIVATE_KEY  );
     const signer = new ethers.Wallet(process.env.REACT_APP_THIRDWEB_WALLET_PRIVATE_KEY, provider); // Replace with the private key
     

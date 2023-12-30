@@ -100,11 +100,12 @@ import GetContractThirdweb from "./routes/WEB3/GetContractThirdweb.js";
 //==============================================
 
 //import Discord from "discord.js";
-import { Client, Events, GatewayIntentBits } from 'discord.js' ;
-const targetChannelID = '947487867658199071';
+import { Client, Events, GatewayIntentBits, Collection } from 'discord.js' ;
+import { botChannel } from '../const/addresses.js';
+const targetChannelID = botChannel;
+let invites = new Collection();
 
-
-
+let newInvites = new Collection();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -144,52 +145,68 @@ create an end point, so app client,  call and ask if user is part of server
  */
 
 
-
+const { discordClient } = await connectToDiscord();
 async function someFunction() {
   try {
-    const { discordClient } = await connectToDiscord();
+    
   
     discordClient.on("ready", async () => {
-    //discordClient.once( Events.ClientReady, () => {
+     
       
          const channel = discordClient.channels.cache.get(targetChannelID);  
          channel.send('>>>>>>>>>  Hello, this is a message from the bot!');
          const guild = discordClient.guilds.cache.get( process.env.SERVER_ID );
 
+
+//=======================================================================
+  
+    
+        // Fetch all Guild Invites
+          const firstInvites = await guild.invites.fetch();
+      
+          invites = new Collection(firstInvites.map((invite) => [invite.code, invite.uses]));
+                 
+          const oldInvites = invites;
+               console.log( `oldInvites.size   >> ${oldInvites.size}  oldInvites: ${ oldInvites }`);
+       
+  
+   
+//===========================================================
+
+
          const ServerMembers = await guild.members.fetch();
-
-      //    console.log( " >>>>>   channel   =" ,  channel  );
-
+ 
           const member =   guild.members.cache.get("928290103367958528") ;
-       if ( member       )  {  
-      console.log(` members found  uer=  : ${  member   }` );
-
-        }else{
-
-          console.log(`NOT   members   ` );
+       if ( member )  {  
+       //   console.log(` members found  uer=  : ${  member   }` );
+         }else{
+          // console.log(`NOT   members   ` );
         }
        
-            //========================================================================
-          //  const allMembers=[];
-        
+         
          const members = ServerMembers.filter(member => !member.user.bot);
    
-    //     console.log(` members  : ${members  }`);     
+       
                   for (const member of members.values()) {
                     const user = member.user;
                     // Now you can access properties of the 'user' object
                     const username = user.username;
                     const userID = user.id;
+
+                     console.log( userID );
+
+
+
+//1007274102727385088', '535766913834418179
+
+
                     // const avatarURL = user.avatarURL();
 
                     // Use the 'user' properties as needed
-                    // console.log(`Username: ${username}, UserID: ${userID}, Avatar URL: ${avatarURL}`);
-                    // console.log(`>>  member: ${member}`);
+                     // console.log(`Username: ${username}, UserID: ${userID}, Avatar URL: ${avatarURL}`);
+                     //  console.log(`>>  member: ${member}`);
 
-                     if (   userID === "535766913834418179" ){
-                      console.log(`>>  FOUND :` );
-                      console.log(`>>  user:`, user);
-                     }
+                      
                        
 
                   
@@ -219,6 +236,203 @@ async function someFunction() {
 
  someFunction();
 
+
+
+
+// custom event
+// attach a listener function
+discordClient.on('test',  async () => {    console.log("  custom emitter  ")   }   );
+ //=======================================================================================================
+
+ discordClient.on(Events.GuildMemberAdd, async member  => {  //memberWhoJoin
+  // warning  
+  /*
+   member arg here is a user. but user from "fetchedUser" API
+   the object returns some properties  "createdAt" ot  "tag"  that member.user DO NOT
+  */
+  
+
+    
+       
+    const {mongoClient} = await connectToDataBase();
+ 
+   const db = mongoClient.db("wudb");
+   const collection = db.collection("discord_invites");
+   //const result = await collection.find({}) .toArray();
+         
+   
+
+
+  const guild = discordClient.guilds.cache.get( process.env.SERVER_ID );
+  //===============================================================================
+ 
+  //===================================
+   // To compare, we need to load the current invite list.
+    const newInvReal  = await guild.invites.fetch()
+ 
+    const newInvites = new Collection(newInvReal.map((invite) => [invite.code, invite.uses]));
+    
+    // This is the *existing* invites for the guild.
+    const oldInvites = invites ;
+
+
+   // For mock testing only!
+//=========================================
+const firstElementCode = newInvites.firstKey(); // Get the key (invite code) of the first element
+const currentValue = newInvites.get(firstElementCode);
+newInvites.set(firstElementCode, currentValue + 1);
+//======================================
+
+
+
+
+    console.log(  " oldInvites  = "  ,oldInvites );
+     console.log(  " newInvites  = "  ,newInvites );
+ 
+    
+    //invite.uses += 1; 
+
+    // Look through the invites, find the one for which the uses went up.
+    //const invite = newInvites.find(i => i.uses > oldInvites.get(i.code));
+    
+   // const invite = newInvites.find((newUses, code) => newUses > oldInvites.get(code));
+
+   let modifiedInviteCode;
+   newInvites.forEach((newUses, code) => {
+    const oldUses = oldInvites.get(code);
+     //console.log(  ">>> newUses  = "  , newUses  , "code  " , code );
+
+    if (oldUses !== undefined && newUses > oldUses) {
+      console.log(`Invite ${code} has increased uses from ${oldUses} to ${newUses}`);
+      modifiedInviteCode =  code;
+    }
+  });
+  
+//==================================================================
+  /*
+    time to uplaod to mongo DB invite object
+  */
+     //const result = await collection.find({}) .toArray();
+    //  const memberInviter = await collection.findOne( { invite: modifiedInviteCode }   );
+     const result = await collection.updateOne(
+      { invite: modifiedInviteCode },
+      { $push: { acceptedUsers: member.id } }
+    );
+
+     
+    
+
+
+//=============================
+
+
+
+
+
+
+  const invite = await guild.invites.fetch({ code: modifiedInviteCode });
+
+   // console.log(' invite    = ' , invite.code);
+    // This is just to simplify the message being sent below (inviter doesn't have a tag property)
+    const inviter = await discordClient.users.fetch(invite.inviter.id);
+
+    console.log(  " >>>>>>>>>>>>>   inviter ="  ,   inviter);
+    // Get the log channel (change to your liking)
+    
+    console.log(  " >>>>>>>>>>>>>   inviter.tag ="  ,   inviter.tag);
+  
+    const logChannel = discordClient.channels.cache.get( botChannel );
+
+   // console.log(  " >>>>>>>>>>>>>  member ="  ,   member);
+    
+
+      //member.guild.channels.cache.find(channel => channel.name === "join-logs");
+    // A real basic message with the information we need. 
+    inviter
+      ? logChannel.send(`${ member.tag } joined using invite code ${invite.code} from ${inviter.tag}. Invite was used ${invite.uses} times since its creation.`)
+      : logChannel.send(`${ member.tag} joined but I couldn't find through which invite.`);
+  
+    // end from tutorial tracks invites
+    
+    
+     if ( !NewMemberShouldBeAllowedInServer(member)  ){
+             invite.uses -= 1; // decrencrement invite uses if member was kicked
+             invite.upload();
+       logChannel.send(`${ member.tag } joined and got Kicked right after because it doea not meet this server requierement.`)
+        member.kick();
+     }
+    
+   
+  });
+
+  function NewMemberShouldBeAllowedInServer(member) {
+
+    
+
+
+    let accountAge =  getAccountAge(member);
+       // is account age is > 90 days
+     let accountIsOldEnough = accountAge > 90; // this could be voted
+     let memberUsernameIsOk = true;// !member.username.startsWith("wulli");
+   
+   
+      if (!accountIsOldEnough){
+         console.log( `Reject account because age is    >> ${accountAge} `);
+        return false;
+      } 
+       if ( !memberUsernameIsOk ){
+         console.log( " Reject account name start with wulli  ");
+        return false;
+      }
+      return true;  
+     
+   }// age in day
+   function getAccountAge(member) {
+     const createdAt = member.createdAt ;// member.user.createdAt;
+     const now = new Date();
+     const ageInMs = now - createdAt;
+     const ageInDays = ageInMs / (1000 * 60 * 60 * 24); // convert milliseconds to days
+     return ageInDays;
+   }
+   
+
+
+
+  
+   
+ //-================================
+ discordClient.on(Events.MessageCreate, (message) => {
+
+  if (message.author.bot) { return };
+  const channel = discordClient.channels.cache.get(botChannel);
+  
+  const tempMess = "reply from express server";
+ 
+
+  discordClient.channels.cache.get(botChannel).send(tempMess);
+ 
+   
+  console.log(">> ", tempMess  );
+  
+
+
+  //TO DO:
+  // bot on certain mode, could store user message if they get reactions from other
+  //then repost these message ... follow by a random question and random price..must connect to //blockchain
+  //   Who said that ? When was this said on the server?
+  // reward automatic on the blockchain via  smart contract
+
+
+  // for Shilling
+  // a bot can check for specific tags, and key words in Twitter tweets.
+  //=> Tweet  link submitted in a channel, the bot read the tweet look for the info 
+  // use already functionnal code we cereated in Visual Studio
+  // to send this to an data base  
+  // 
+});
+
+
+//===========================
 
 
 /*

@@ -22,3 +22,8 @@ export const STAKING_ADDRESS = "0xeA5Dc787B867D98B0C67C714594a10D3BaDdED85";//'0
   export const TOOLS_ADDRESS ="0x06a33CD093aDD0C6A8F685888f1B3E0C119b2461";// sepolia
 
   export const OWNER ="0x756C47096DeCb0CA7935a59b53e9732b7F283A6C";
+
+
+
+  export const botChannel='947487867658199071';
+  export const wullirockTestUser = "969712435869122560";

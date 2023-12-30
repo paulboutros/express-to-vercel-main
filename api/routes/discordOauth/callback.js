@@ -127,7 +127,7 @@ router.get("/api/auth/callback/discord", async (request, response) => {
               //https://stackoverflow.com/questions/73723099/how-to-setup-node-to-make-different-domains-share-cookies
               response.cookie('token',  token , 
                   {
-                   maxAge: 1000 *60*60*24 , // 1 day (24 hours )// 60*60*24  7200000, // 2 hours
+                    maxAge: 1000 *60*60*24 , // 1 day (24 hours )// 60*60*24  7200000, // 2 hours
                    httpOnly: false,  
                    sameSite: 'None', // other domain (client app domain can receive it, wont be filtered out my browser)
                    secure: true,

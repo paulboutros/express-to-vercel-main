@@ -26,56 +26,26 @@ router.get("/getUserGuild", async (req, response) => {
        return; // Stop further execution
    }
    try {
-    
-
+ 
      const { discordClient } = await connectToDiscord();
-     //  discordClient.once( Events.ClientReady, async () => {
+     const guild  =   discordClient.guilds.cache.get(guildId);
+         
+          const ServerMembers = await guild.members.fetch();
 
-          const guild  =   discordClient.guilds.cache.get(guildId);
-          const member =   guild.members.cache.get(ID);
-
-          if (guild.member(ID)) {
-             console.log(  " memnber exist  ");
-          }else{
-
-            console.log(  " memnber DOES NOT  exist  ");
-          }
-             //========================================================================
-             const allMembers=[];
-           //  const ServerMembers = await guild.members.fetch();
-
-           
-             // Filter out the bots
-         //    const members = ServerMembers.filter(member => !member.user.bot);
-  
-           //  const members = ServerMembers.filter(memb => !memb.user.bot);
-    
-                /*
-                  for (const member of members.values()) {
-                    const user = member.user;
-                    // Now you can access properties of the 'user' object
-                    const username = user.username;
-                    const userID = user.id;
-                    // const avatarURL = user.avatarURL();
-
-                    // Use the 'user' properties as needed
-                    // console.log(`Username: ${username}, UserID: ${userID}, Avatar URL: ${avatarURL}`);
-                    // console.log(`>>  member: ${member}`);
-                    console.log(`>>  user:`, user);
-                  }
-    */ 
-
-
+          let result={   status:false, joinedAt:"" };
         
-          let result={ message:"" };
-          if (member) {
-          //  result.message  += `${ID} is a member of ${guild.name}   |  ` ;
-          //  const joinTimestamp = member.joinedAt;
-          //  result.message  += `${ID} joined the guild on: ${joinTimestamp}` ;
-          } else {
-           // result.message   +=`${ID} is not a member of ${guild.name}` ;
+           const member =   guild.members.cache.get(ID) ;
+          if ( member )  {  
+
+            const userJoinTime = member.joinedAt 
+            result  = {  status :true, joinedAt: userJoinTime  };
+           //  result.message+= ` members found  uer=  : ${  member   }  userJoinTime${  userJoinTime   }`;
+            // console.log( result.message );
+           }else{
+              result  = {  status :true, joinedAt: userJoinTime  };
+             
           }
-    
+  
           response.status(200).json(  result  );
 
        //  });
@@ -91,11 +61,18 @@ router.get("/getUserGuild", async (req, response) => {
    })
 
 
+
+   
+
+
   // do not forget to use the endpoint in index.js
   router.post("/getManyUserData", async (req, response) => {
 
 
     const IDlist = req.body.IDlist;
+
+     console.log(  ">>>>>>>>>>>   IDlist "  , IDlist);
+    //return;
     if (!IDlist || IDlist.length === 0) {
         // Create an error object with your custom error message
         const error = new Error("'IDlist' should be set in you rerquest body");
@@ -118,7 +95,7 @@ router.get("/getUserGuild", async (req, response) => {
         const db = mongoClient.db("wudb");
         const collection = db.collection("users");
       //  await yourCollection.find({ ID: { $in: ids } }).toArray();
-        const result = await collection.aggregate([
+        let result = await collection.aggregate([
             {
                 $match: {
                     ID: { $in: IDlist }  
@@ -131,16 +108,29 @@ router.get("/getUserGuild", async (req, response) => {
                 discord:1,
                 discordUserData:1,
               
-           //     "scoreData.discord.invite_code": 1  ,
+             //   "scoreData.discord.invite_code": 1  ,
              //   "scoreData.discord.invite_use": 1 
-                
-               
+              
               },
             },
           ]).toArray();
 
- 
-     
+
+
+          /*
+          const { discordClient } = await connectToDiscord();
+          const userIds = IDlist;
+          const tempLIst = [];
+         
+          for (let i = 0; i < userIds.length; i++) {
+
+            const fetchedUser = await fetchUserById( discordClient , userIds[i]);
+           
+          }
+*/
+
+
+      
                response.status(200).json(result);
           }catch(e){
                 console.error(e);

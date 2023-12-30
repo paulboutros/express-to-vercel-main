@@ -1,8 +1,24 @@
 import cryptoRandomString  from "crypto-random-string";
 import { connectToDataBase } from "../../../lib/connectToDataBase.js";
-import express from "express";
- 
+import { connectToDiscord }  from '../../../lib/connectToBotClient.js';
 
+const guildId = process.env.SERVER_ID;
+/*
+
+video related to adding testing member joining server:
+https://www.youtube.com/watch?v=gBKXmzbq2Bc&t=52s
+
+
+discord.js source:
+https://github.com/discordjs/discord.js/blob/main/packages/discord.js/src/structures/Invite.js#L288
+*/
+/*
+Invites strategies */
+import express from "express";
+import { wullirockTestUser } from "../../../const/addresses.js";
+import axios from "axios";
+ 
+const verificationChannel = '947487866655764556';
 const router = express.Router();
   // do not forget to use the endpoint in index.js
 
@@ -57,22 +73,14 @@ const router = express.Router();
        
     );
 
-
-
-
-
-
-
+ 
     
          // layer interaction
    
       const responeToClient = {
          shareableLink :shareableLink
       };
-
-
-      
-  
+ 
   
       response.status(200).json(responeToClient);
     } catch (e) {
@@ -80,6 +88,325 @@ const router = express.Router();
       response.status(500).json({ error: "An error occurred" });
     }
   });
+ 
+    router.get("/discord_invite_delete", async (req, response) => {
+ 
+      const { mongoClient } = await connectToDataBase();
+      const db = mongoClient.db("wudb");
+      const collection = db.collection("discord_invites");
   
+          
+      
+      const ID = req.query.ID; 
+      if ( !ID ) {
+          const error = new Error("'inviteCode' should be set in you rerquest body");
+          response.status(400);
+          response.json({ success: false, error: error.message });
+          
+          return; // Stop further execution
+      }
+      try {
+
+       let MongoDeleteResult;
+        const memberInviter = await collection.findOne(
+          { ID: ID }, // look for this user
+          { projection: { invite: 1 } } // get the invite/referral code
+        );
+        let inviteCode ;
+        
+        if (memberInviter){
+
+           inviteCode  = memberInviter.invite;
+           
+           console.log(  "memberInviter  "  , memberInviter);
+         
+          const { discordClient } = await connectToDiscord();
+          const invite = await discordClient.fetchInvite(inviteCode);
+
+         // Check if the invite exists
+         if (invite) {
+           // Delete the invite
+           await invite.delete();
+           console.log(`Invite ${inviteCode} deleted successfully.`);
+         } else {
+           console.log(`Invite ${inviteCode} not found.`);
+         } 
+            
+           MongoDeleteResult = await collection.deleteOne({ invite: inviteCode });
+          
+          }
+        
+        response.status(200).json(  MongoDeleteResult   );
+      } catch (e) {
+        console.error(e);
+        response.status(500).json({ error: "An error occurred" });
+      }
+    });
+
+     router.post("/discord_invite_create_list", async (req, response) => {
+
+
+       let result;
+       const IDlist = req.body.IDlist;
+       console.log(  ">>>>>>>>>>>  coxSSX IDlist "  , IDlist);
+       for (let i =0  ; i < IDlist.length; i++ ){
+         req.query.ID = IDlist[ i ];
+            result = await discord_invite_create( req, response );
+        
+       } 
+       response.status( result.code ).json(  result.json  );  
+
+
+      
+    });
+      
+  router.get("/discord_invite_create", async (req, response) => {
+ 
+
+    try {
+        const result = await discord_invite_create( req  );
+        response.status(result.code).json( result.json );  
+
+      } catch (e) {
+       console.error(e);
+      response.status(500).json({ error: "An error occurred" });
+     }
+ 
+  });
+
+
+ async function discord_invite_create( req ){
+  const { mongoClient } = await connectToDataBase();
+  const db = mongoClient.db("wudb");
+  const collection = db.collection("discord_invites");
+  
+      
+  const ID = req.query.ID;
+
+
+
+
+  if ( !ID ) {
+      const error = new Error("'userId' should be set in you rerquest body");
+    //   response.status(400);
+    //  response.json(  { success: false, error: error.message }    );
+      
+      return  { code :400 , json: { success: false, error: error.message }     }; // Stop further execution
+  }
+  try {
+    // make sure an invite already assign to user does not exist;
+       const inviteWithThisID_exist = await collection.findOne({ID:ID})
+       if (inviteWithThisID_exist ) {
+           return  { code :400 , json: {  msg: `invite for this ID:${ID}exist already. Invite NOT created`
+             }}; // Stop further execution
+          
+       }
+
+       // done including :
+   // 1028006501
+   
+     
+      const { discordClient } = await connectToDiscord();
+      const channel = discordClient.channels.cache.get(  verificationChannel  );  
+    
+
+     let responseToClient = {inviteData: null}
+       // cool strategy: let user once ev 3 days. create a 24 invite channel, allinvites count 1.5 weight then it expires
+       let inviteData;
+       const invite = await channel.createInvite( {  unique: true,   maxAge:  0 }  )    //6400, // 24 hours
+       .then(inv=> 
+            {
+              inviteData = {
+                invite:inv.code,
+                shareableLink: ( "https://discord.gg/" + inv.code ),
+                ID:ID,
+                acceptedUsers:[]
+                
+              };
+
+                responseToClient.inviteData = inviteData ;//.status = inv.code
+              }
+          );
+        
+     const result = await collection.insertOne( inviteData );
+      
+     return  { code :200 , json: responseToClient    }; // Stop further execution
+     // response.status(200).json(  responseToClient  );
+  } catch (e) {
+    console.error(e);
+    response.status(500).json({ error: "An error occurred" });
+  }
+
+
+ 
+ }
+  
+  router.get("/discord_kick", async (req, response) => {
+ 
+     
+    
+    const ID = req.query.ID; 
+    if ( !ID ) {
+        // const error = new Error("'inviteCode' should be set in you rerquest body");
+        // response.status(400);
+        // response.json({ success: false, error: error.message });
+        
+        // return; // Stop further execution
+    }
+    try {
+ 
+      const { discordClient } = await connectToDiscord();
+       
+
+        const guild  =   discordClient.guilds.cache.get(guildId);
+         
+       const ServerMembers = await guild.members.fetch();
+
+        
+      
+         const member =   guild.members.cache.get( wullirockTestUser ) ;
+        if ( member )  {   
+
+
+            console.log(  "member  found   "     );
+           member.kick("testing purposes");
+
+        }else{ 
+          console.log(  "member  NOT FOUND  ");
+        } 
+ 
+       
+      
+      response.status(200).json(  { result:"ok"}   );
+    } catch (e) {
+      console.error(e);
+       response.status(500).json({ error: "An error occurred" });
+    }
+  });
+
+   
+
+
+  router.get("/emit/guildMemberAdd", async (req, response) => {
+ 
+     
+    const type = req.query.type; 
+    const ID = req.query.ID; 
+    if ( !ID ) {
+          const error = new Error("'inviteCode' should be set in you rerquest body");
+          response.status(400);
+          response.json({ success: false, error: error.message });
+        
+        // return; // Stop further execution
+    }
+    try {
+ 
+      const { discordClient } = await connectToDiscord();
+      
+      if (!type){
+        simulateGuildMemberAdd( discordClient, ID );
+      }else{
+      // type == nultiple
+      simulateGuildMemberAdd_many( discordClient, ID );
+
+      }
+      
+      
+      response.status(200).json(  { result:"ok"}   );
+    } catch (e) {
+      console.error(e);
+       response.status(500).json({ error: "An error occurred" });
+    }
+  });
+ 
+
+  async function fetchUserById( client , userId  ) {
+    try {
+      const user = await client.users.fetch(userId);
+      console.log('Fetched user from API:', user.tag);
+      return user;
+    } catch (error) {
+      console.error('Error fetching user from API:', error.message);
+      return null;
+    }
+  }
+// Simulate the GuildMemberAdd event
+async function simulateGuildMemberAdd(client, userId ) {
+
+
+ // client.emit('test', 'these params', 'will be logged', 'via the listener.');
+ // return;
+  //const guildId = 'YOUR_GUILD_ID'; // Replace with your actual guild ID
+  const guild = client.guilds.cache.get(guildId);
+   
+ 
+  // it is not in the cache.. it will ne when an event ex: message or other related to this user.. happens  
+  //const user = client.users.cache.get(userId);
+/*
+many ways to get a user:
+https://stackoverflow.com/questions/64933979/discord-get-user-by-id
+*/
+  // const user = await fetchUser(userId);   
+ 
+  const fetchedUser = await fetchUserById(client, userId);
+     
+
+  
+  console.log('User attempt to join  = '  ,fetchedUser );
+
+
+/*
+  8bitbert  , user.id;  523040251862712320
+  >>  member: <@523040251862712320>
+  >>  username:  osmanboca  , user.id;  925073990656077824
+  >>  member: <@925073990656077824>
+  >>  username:  huda_space  , user.id;  964233683898867792
+  >>  member: <@964233683898867792>
+  >>  username:  dbalooweb3  , user.id;  949424238442455070
+*/
+  client.emit('guildMemberAdd', fetchedUser);
+  //guild.emit('guildMemberAdd', user);
+}
+// try will multiple add at once
+async function simulateGuildMemberAdd_many(client, userId ) {
+ 
+   
+   const guild = client.guilds.cache.get(guildId);
+   
+   const userIds = ["523040251862712320","925073990656077824","964233683898867792","949424238442455070" ];
+    for (let i = 0; i < userIds.length; i++) {
+      const fetchedUser = await fetchUserById(client, userIds[i]);
+      client.emit('guildMemberAdd', fetchedUser);
+    }
+  
+    
+   //guild.emit('guildMemberAdd', user);
+ }
+
+/*
+router.get('/joindiscord/:inviteCode', (req, res) => {
+  const inviteCode = req.params.inviteCode;
+
+  // Redirect to the Discord invite link
+  res.redirect(`https://discord.gg/${inviteCode}`);
+
+  // Now, you can use 'inviteCode' as the code used for the invite
+  console.log(`User used invite code: ${inviteCode}`);
+});
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   export default router;
   

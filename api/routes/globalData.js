@@ -9,6 +9,8 @@ router.post("/globalData_setDebugMode", async (req, response) => {
    
 
   const value = req.body.value;
+
+  console.log( "value"  , value );
   try {
  const {mongoClient} = await connectToDataBase();
    
@@ -28,7 +30,7 @@ var o_id = new ObjectId(id);
  
  collection.updateOne(filter, update);
  
- response.status(200).json(result);
+ response.status(200).json( {msg:"value modified to: "+ value  });
 
      
  } catch(e){  console.error(e); response.status(500).json(e);}

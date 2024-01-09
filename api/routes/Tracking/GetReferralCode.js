@@ -8,6 +8,8 @@ import dotenv from 'dotenv';
 //import{ sign } from 'jsonwebtoken'
 import jwt from 'jsonwebtoken';
 import { connectToDataBase } from "../../../lib/connectToDataBase.js";
+import { connectToDiscord } from '../../../lib/connectToBotClient.js';
+import { customEvent1 } from '../../index.js';
   
 
 const router = express.Router();
@@ -52,6 +54,10 @@ const router = express.Router();
 
   
   router.get("/GetDiscordInviteCode", async (req, response) => {
+
+    const { discordClient } = await connectToDiscord();
+    const guild = discordClient.guilds.cache.get( process.env.SERVER_ID );
+
     try {
       const { mongoClient } = await connectToDataBase();
       const db = mongoClient.db("wudb");
@@ -63,6 +69,40 @@ const router = express.Router();
         { ID: ID } // look for this user
        // ,{ projection: { invite: 1 } } // get the invite/referral code
       );
+     if (inviteData ) { 
+        
+       
+      
+          try {
+            const inviteCode =  inviteData.invite;
+            const invite = await  guild.invites.fetch(inviteCode); 
+            console.log(  " inviteData.invite  =  "  ,   inviteData.invite , " is a invite on Discord "   );
+          } catch (error) {
+          //  console.error('Error fetching invite:', error.message);
+            // Handle the case where the invite is not found
+            const missingMatchingDiscordInviteCode = await collection.deleteOne({ ID: ID });
+            inviteData=null;
+            console.log(  " inviteData.invite  =  "  ,   inviteData.invite , " is not a invite on Discord "   );
+          }
+      
+     }
+ 
+
+    //if invidata doesnt exist or we deleted if because it contains a Discord invite that id
+    //no longer valid or listed....
+   if  (!inviteData){
+      const endpoint = `${process.env.SERVER_URL}discord_invite_create?ID=${user_ID}`; // make it specific (filter to twitter fields)
+      const resultsPostJson = await fetch(endpoint);
+       resultsJson = await resultsPostJson.json();
+     // responseToClient.inviteData = inviteData ;/
+      inviteData = resultsJson.inviteData = inviteData 
+      client.emit(customEvent1, guild,'these params', 'will be logged', 'via the listener.');
+
+   }
+        //
+
+
+
    
       if (inviteData  ) { 
         

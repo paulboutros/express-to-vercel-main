@@ -71,7 +71,7 @@ router.get("/getUserGuild", async (req, response) => {
 
     const IDlist = req.body.IDlist;
 
-     console.log(  ">>>>>>>>>>>   IDlist "  , IDlist);
+    // 
     //return;
     if (!IDlist || IDlist.length === 0) {
         // Create an error object with your custom error message

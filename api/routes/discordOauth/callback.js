@@ -117,7 +117,7 @@ router.get("/api/auth/callback/discord", async (request, response) => {
              const token =   jwt.sign(
                 {sub: userinfo.data.id } , 
                  process.env.JWT_SECRET, 
-                  {expiresIn: "2h"}  // one hour
+                  {expiresIn: "5h"}  // one hour
                
               ); 
              

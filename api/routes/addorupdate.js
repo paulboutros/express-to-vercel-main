@@ -62,6 +62,35 @@ router.post("/setRedirectURL", async (request, response) => {
 
 
 
+
+router.post("/setWallet", async (request, response) => {
+
+
+  try {
+ 
+ const {mongoClient} = await connectToDataBase();
+ 
+ const db = mongoClient.db("wudb");
+ const collection = db.collection("users");
+  
+        
+          const ID = request.body.ID;
+           let wallet =request.body.wallet ; 
+ 
+         const setData = { "wallet": wallet  } 
+           
+         await collection.updateOne( { "ID": ID },   {   $set:  setData  } );
+         
+       
+    
+         response.status(200).json( { message:(wallet + " added successfully") }  ); // result
+  }catch(e){
+         console.error(e);
+         response.status(500).json(e);
+
+
+  }
+})
   //router.use(ValidateUserBody);
   // do not forget to use the endpoint in index.js
   //make sure post body in postman is set to JSON
@@ -86,7 +115,7 @@ router.post("/setRedirectURL", async (request, response) => {
             const ID = request.body.ID;
              let wallet =request.body.wallet ;//"000000000000"; request.body.wallet;
              if (!wallet ) {
-              wallet  ="000000000000"
+            //  wallet  ="000000000000"
 
             }
 
@@ -132,8 +161,8 @@ router.post("/setRedirectURL", async (request, response) => {
         // because the app should not write something on this object only dicord server
 
            const setData = discordUserData ?  
-             {"wallet": wallet,"discord": discord,"discordUserData": discordUserData  } :
-             {"wallet": wallet,"discord": discord  } 
+             {  /*"wallet": wallet,*/ "discord": discord,"discordUserData": discordUserData  } :
+             {  /*"wallet": wallet,*/ "discord": discord  } 
            await collection.updateOne( { "ID": ID },   {   $set:  setData  } );
             
            // we now get the updated version of the user
@@ -156,6 +185,7 @@ router.post("/setRedirectURL", async (request, response) => {
              userExist : userExist.matchedCount === 1  //userExist.matchedCount
        }
 
+       /*
        console.log(  "================================================================================="  );
        console.log(  "responseObj.user  "   , responseObj.user   );
 
@@ -163,6 +193,7 @@ router.post("/setRedirectURL", async (request, response) => {
        console.log(  "responseObj.user.wallet  "   ,responseObj.user.wallet   );
        console.log(  "responseObj.user.discord  "   , responseObj.user.discord   );
        console.log(  "================================================================================="  );
+*/
            response.status(200).json( responseObj ); // result
     }catch(e){
            console.error(e);

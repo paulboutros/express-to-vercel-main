@@ -40,7 +40,7 @@ import {spawn} from "child_process"
  
  import getSocialData from './routes/getSocialData.js';
 
- 
+
 //registration
 import addorupdate from './routes/addorupdate.js';
 
@@ -63,7 +63,7 @@ import GetReferralCode from "./routes/Tracking/GetReferralCode.js";
 
  
 import setClaimConditions from       "./routes/Reward/setClaimConditions.js"
-import ERC20claim from       "./routes/Reward/ERC20claim.js"
+import ERC20claim, { addto_inviteStaking, transfertDIST } from       "./routes/Reward/ERC20claim.js"
 import GetReward from       "./routes/Reward/GetReward.js"
 import GetLayerSupply from  "./routes/Reward/GetLayerSupply.js"
 import SetLayerSupply from  "./routes/Reward/SetLayerSupply.js"
@@ -101,11 +101,16 @@ import GetContractThirdweb from "./routes/WEB3/GetContractThirdweb.js";
 
 //import Discord from "discord.js";
 import { Client, Events, GatewayIntentBits, Collection } from 'discord.js' ;
-import { botChannel } from '../const/addresses.js';
-const targetChannelID = botChannel;
-let invites = new Collection();
+import { Discord_invite_stake_token, Discord_stake_contract, OWNER, STAKING_ADDRESS, botChannel } from '../const/addresses.js';
+import { GetThirdWebSDK_fromSigner } from '../utils/thirdwebSdk.js';
+import { debug } from 'console';
 
-let newInvites = new Collection();
+
+ export const customEvent1="test";
+const targetChannelID = botChannel;
+let invitesBeforeJoin = new Collection();
+ let newInvites = new Collection();
+ let isSetBefore_due_to_debugMode = false;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -162,12 +167,14 @@ async function someFunction() {
   
     
         // Fetch all Guild Invites
-          const firstInvites = await guild.invites.fetch();
+          //const firstInvites = await guild.invites.fetch();
       
-          invites = new Collection(firstInvites.map((invite) => [invite.code, invite.uses]));
-                 
-          const oldInvites = invites;
-               console.log( `oldInvites.size   >> ${oldInvites.size}  oldInvites: ${ oldInvites }`);
+         // invitesBeforeJoin = new Collection(firstInvites.map((invite) => [invite.code, invite.uses]));
+              
+            reset_invites_beforeJoin( guild );
+
+
+               console.log( `invitesBeforeJoin.size   >> ${invitesBeforeJoin.size}  invitesBeforeJoin: ${ invitesBeforeJoin }`);
        
   
    
@@ -176,13 +183,8 @@ async function someFunction() {
 
          const ServerMembers = await guild.members.fetch();
  
-          const member =   guild.members.cache.get("928290103367958528") ;
-       if ( member )  {  
-       //   console.log(` members found  uer=  : ${  member   }` );
-         }else{
-          // console.log(`NOT   members   ` );
-        }
-       
+        //  const member =   guild.members.cache.get("928290103367958528") ;
+        
          
          const members = ServerMembers.filter(member => !member.user.bot);
    
@@ -238,28 +240,60 @@ async function someFunction() {
 
 
 
+export  async function  modify_newInvites( guild,  inviteCodeToUpdate ){
 
+  // const  newInvites = invitesBeforeJoin;
+  const newInvReal  = await guild.invites.fetch()
+    newInvites = new Collection(newInvReal.map((invite) => [invite.code, invite.uses]));
+   
+ // const firstElementCode = invitesBeforeJoin[inviteCodeToUpdate] ;//   .firstKey(); // Get the key (invite code) of the first element
+  const currentValue = newInvites.get(inviteCodeToUpdate);
+  newInvites.set(inviteCodeToUpdate, currentValue + 1);
+ 
+    
+
+
+}
+
+
+export async  function reset_invites_beforeJoin( guild  ){
+
+  const firstInvites = await guild.invites.fetch();
+      
+  invitesBeforeJoin = new Collection(firstInvites.map((invite) => [invite.code, invite.uses]));
+              
+
+}
 // custom event
 // attach a listener function
-discordClient.on('test',  async () => {    console.log("  custom emitter  ")   }   );
+discordClient.on(customEvent1,  async ( guild ) => {   
+  
+  console.log("  custom emitter  arg:guild "  , guild)  
+ // const guild = client.guilds.cache.get(guildId);
+  reset_invites_beforeJoin(guild);
+
+}   );
  //=======================================================================================================
 
+ ///check: emit/guildMemberAdd for mocking event
  discordClient.on(Events.GuildMemberAdd, async member  => {  //memberWhoJoin
   // warning  
   /*
    member arg here is a user. but user from "fetchedUser" API
    the object returns some properties  "createdAt" ot  "tag"  that member.user DO NOT
   */
-  
+   if( member.isTestMember ){
+    console.log(`THIS IS A TEST MEMBER `);
 
-    
+
+   }
        
     const {mongoClient} = await connectToDataBase();
  
    const db = mongoClient.db("wudb");
    const collection = db.collection("discord_invites");
-   //const result = await collection.find({}) .toArray();
-         
+    
+       // create debug mode status per user.. not global  
    
 
 
@@ -268,34 +302,33 @@ discordClient.on('test',  async () => {    console.log("  custom emitter  ")   }
  
   //===================================
    // To compare, we need to load the current invite list.
-    const newInvReal  = await guild.invites.fetch()
+     const newInvReal  = await guild.invites.fetch()
+
+      const isSetBefore_due_to_debugMode = true;//  newInvites
+     if (!isSetBefore_due_to_debugMode){ 
+      newInvites = new Collection(newInvReal.map((invite) => [invite.code, invite.uses]));
+     }
+  
+      // This is the *existing* invitesBeforeJoin for the guild.
+    const oldInvites = invitesBeforeJoin ;
  
-    const newInvites = new Collection(newInvReal.map((invite) => [invite.code, invite.uses]));
-    
-    // This is the *existing* invites for the guild.
-    const oldInvites = invites ;
-
-
-   // For mock testing only!
+   // For mock testing only!!
+   // we pretend an invite (the first one) an "use" increased by 1 
 //=========================================
+/*
 const firstElementCode = newInvites.firstKey(); // Get the key (invite code) of the first element
 const currentValue = newInvites.get(firstElementCode);
 newInvites.set(firstElementCode, currentValue + 1);
+*/
 //======================================
 
 
 
 
-    console.log(  " oldInvites  = "  ,oldInvites );
-     console.log(  " newInvites  = "  ,newInvites );
+ //   console.log(  " oldInvites  = "  ,oldInvites );
+   //  console.log(  " newInvites  = "  ,newInvites );
  
-    
-    //invite.uses += 1; 
-
-    // Look through the invites, find the one for which the uses went up.
-    //const invite = newInvites.find(i => i.uses > oldInvites.get(i.code));
-    
-   // const invite = newInvites.find((newUses, code) => newUses > oldInvites.get(code));
+     
 
    let modifiedInviteCode;
    newInvites.forEach((newUses, code) => {
@@ -312,44 +345,65 @@ newInvites.set(firstElementCode, currentValue + 1);
   /*
     time to uplaod to mongo DB invite object
   */
-     //const result = await collection.find({}) .toArray();
-    //  const memberInviter = await collection.findOne( { invite: modifiedInviteCode }   );
+
+
+    console.log('guild ADD:modifiedInviteCode:', modifiedInviteCode);
+    
+     let acceptedUsersLength;
+    // add th enew member to the collection
      const result = await collection.updateOne(
-      { invite: modifiedInviteCode },
+      { invite: modifiedInviteCode }, //< the invite that we detected has a change in uses
       { $push: { acceptedUsers: member.id } }
     );
+     // Check if the update was successful
+    if (result.modifiedCount === 1) {
+      // If the update was successful, retrieve the updated document
+      const updatedDocument = await collection.findOne({ invite: modifiedInviteCode });
 
-     
-    
+      // Get the length of the "acceptedUsers" array in the updated document
+        acceptedUsersLength = updatedDocument.acceptedUsers.length;
 
-
-//=============================
-
-
-
-
-
-
-  const invite = await guild.invites.fetch({ code: modifiedInviteCode });
-
-   // console.log(' invite    = ' , invite.code);
-    // This is just to simplify the message being sent below (inviter doesn't have a tag property)
-    const inviter = await discordClient.users.fetch(invite.inviter.id);
-
-    console.log(  " >>>>>>>>>>>>>   inviter ="  ,   inviter);
-    // Get the log channel (change to your liking)
-    
-    console.log(  " >>>>>>>>>>>>>   inviter.tag ="  ,   inviter.tag);
+      console.log('Accepted Users Length:', acceptedUsersLength);
+    } else {
+      console.log('Update failed result=.' , result);
+    }
+ 
+    //we want the inviter we saved in the database, to whom we
+    // assigned the invite code.
+    // in Discord, all invitesare from one inviter.. the wulibot
+    const inviterFomMongo = await collection.findOne(
+      { invite: modifiedInviteCode },
+      { projection: { ID: 1  } }
+    );
   
-    const logChannel = discordClient.channels.cache.get( botChannel );
+    console.log( "inviterFomMongo   " , inviterFomMongo);
+ 
 
-   // console.log(  " >>>>>>>>>>>>>  member ="  ,   member);
+ //=============================
+ 
+ /* if the invite we submitted does not exist, or for some reason no invite uses difference
+ is found, we avoid app crash/ error
+ */
+ let invite;
+ try {
+    invite = await guild.invites.fetch({ code: modifiedInviteCode });
+} catch (error) {
+  console.log(  " modifiedInviteCode  =  "  ,   modifiedInviteCode , " is not a invite on Discord or the count of uses did not change "   );
+ return;
+}
+    // DO NOT USE inviter, all invites are form WuliBot.  inviter is ALWAYS wuliBot
+    /* 
+     const inviter = await discordClient.users.fetch(invite.inviter.id);
+   */
     
 
+
+    const logChannel = discordClient.channels.cache.get( botChannel );
+ 
       //member.guild.channels.cache.find(channel => channel.name === "join-logs");
     // A real basic message with the information we need. 
-    inviter
-      ? logChannel.send(`${ member.tag } joined using invite code ${invite.code} from ${inviter.tag}. Invite was used ${invite.uses} times since its creation.`)
+    inviterFomMongo
+      ? logChannel.send(`${ member.tag } joined using invite code ${modifiedInviteCode} from ${inviterFomMongo.ID }. Invite was used ${invite.uses} times since its creation.`)
       : logChannel.send(`${ member.tag} joined but I couldn't find through which invite.`);
   
     // end from tutorial tracks invites
@@ -361,9 +415,49 @@ newInvites.set(firstElementCode, currentValue + 1);
        logChannel.send(`${ member.tag } joined and got Kicked right after because it doea not meet this server requierement.`)
         member.kick();
      }
-    
+
+// set the invites be  bsfore join to current state
+/*
+  this is done once whenn the bot/client login, and now
+  so next time some one koin it can compare with this list of [invitecode-inviteUses] mapping
+*/
+//reset_invites_beforeJoin( guild );
+
+
+     //BLOCKCHAIN INTERRACTION
+     //to do: this function should be shared by multiple contract.. add arguments etc..
+
+     /*
+     note that $Wu token does not need to approve this contract, because this contract
+     does not transfert $wu token it mint them to the claimer.
+     See documentation:
+     https://www.notion.so/Discord-Invite-to-get-Dist-Stake-Tokens-f8e166b7bae942cb92bdf793073332d3
+     */
+     //await setApprovalandTransfertFromRewardToken( Discord_invite_stake_token, Discord_stake_contract);
    
+   
+   
+   
+     addto_inviteStaking( inviterFomMongo.ID,  acceptedUsersLength );
+
+
+
+
+     // we no nlonger add a Dit token
+      //transfertDIST();
+     // now we nee to transfert some $DIST to user,
+      
   });
+
+ 
+  //collection will be the real and the fake/mock one if we test
+export async function updateInvitesOnMongo ( collection , filter, action ){
+  const result = await collection.updateOne(
+    filter,
+    action
+  );
+
+}
 
   function NewMemberShouldBeAllowedInServer(member) {
 
@@ -579,13 +673,7 @@ app.use('/', getLayers); // Mount the exampleRouter at /api
  
  app.use('/', userMe); // Mount the exampleRouter at /api
   
-
  
- 
-//router.use(authenticate);
-  // do not forget to use the endpoint in index.js
- 
-
  
  // keep these as they show the direfferents ways of settting up route and enddpoint
 app.get('/', (req, res) => res.send('Home Page Route'));

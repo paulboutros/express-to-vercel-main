@@ -6,6 +6,8 @@ import express from "express";
 
 const router = express.Router();
 
+
+// this is copying the real DB
 router.get("/createDiscordMockData", async (req, response) => {
 
   let result;

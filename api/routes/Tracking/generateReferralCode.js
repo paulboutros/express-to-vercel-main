@@ -17,6 +17,8 @@ Invites strategies */
 import express from "express";
 import { wullirockTestUser } from "../../../const/addresses.js";
 import axios from "axios";
+import { Collection } from "discord.js";
+import { modify_newInvites } from "../../index.js";
  
 const verificationChannel = '947487866655764556';
 const router = express.Router();
@@ -89,9 +91,12 @@ const router = express.Router();
     }
   });
  
+ 
+
+
     router.get("/discord_invite_delete", async (req, response) => {
  
-      const { mongoClient } = await connectToDataBase();
+       const { mongoClient } = await connectToDataBase();
       const db = mongoClient.db("wudb");
       const collection = db.collection("discord_invites");
   
@@ -99,7 +104,7 @@ const router = express.Router();
       
       const ID = req.query.ID; 
       if ( !ID ) {
-          const error = new Error("'inviteCode' should be set in you rerquest body");
+          const error = new Error("'ID' should be set in you rerquest body");
           response.status(400);
           response.json({ success: false, error: error.message });
           
@@ -286,28 +291,80 @@ const router = express.Router();
 
    
 
-
+// 334,29:   // actual event listener "Events.GuildMemberAdd,"
   router.get("/emit/guildMemberAdd", async (req, response) => {
  
      
-    const type = req.query.type; 
-    const ID = req.query.ID; 
-    if ( !ID ) {
-          const error = new Error("'inviteCode' should be set in you rerquest body");
+     
+     const type = req.query.type; 
+    let mock_joiningMember_ID = req.query.ID; 
+    let modifiedInviteCode = req.query.modifiedInviteCode; 
+
+
+    /*
+    if ( !mock_joiningMember_ID ) {
+          const error = new Error("'ID' should be set in you rerquest body");
           response.status(400);
           response.json({ success: false, error: error.message });
         
-        // return; // Stop further execution
-    }
+        
+    }*/
+
     try {
  
       const { discordClient } = await connectToDiscord();
+ 
+
+      // let us pick a random membe rto add to the list
+       const guild = discordClient.guilds.cache.get( process.env.SERVER_ID );
+       const ServerMembers = await guild.members.fetch();
+       const members = ServerMembers.filter(member => !member.user.bot);
+
+       // Create an array to store all non-bot members
+       const membersArray = Array.from(members.values());
+       const randomMember =  getRandomMember(membersArray);
+        
+
+       mock_joiningMember_ID = randomMember.user.id;
+ 
+
+       const newInvReal  = await guild.invites.fetch()
+       const newInvites = new Collection(newInvReal.map((invite) => [invite.code, invite.uses]));
+
+       console.log( "newInvites    == "  ,newInvites);
+
+
+
+      // modifiedInviteCode = "6za6sZyHDC";
+       console.log( "modifiedInviteCode    == "  ,modifiedInviteCode);
+       //const invite = await guild.invites.fetch({ code: modifiedInviteCode });
+       
+       // we change the inviteuses count of a temp list, to simulate a use change
+       // so addMember event can detect which invite was use.
+       // This function will not run in real scenario.. where invite use will increase for real
+       modify_newInvites( guild, modifiedInviteCode); 
+    
+ 
+       
+
+       // here we save this user to the list of FAKE user, to display the fact it was just a test
+       const { mongoClient } = await connectToDataBase();
+      const db = mongoClient.db("wudb");
+      const collection = db.collection("discord_invites");
+      const result = await collection.updateOne(
+        { invite: modifiedInviteCode },
+        {
+        //  $setOnInsert: { mockMember: [] }, // Set the field if the document is inserted
+          $push: { mockMember: mock_joiningMember_ID }, // Add the member ID to the array
+        },
+        { upsert: true } // Create the document if it doesn't exist
+      );
       
       if (!type){
-        simulateGuildMemberAdd( discordClient, ID );
+        simulateGuildMemberAdd( discordClient, mock_joiningMember_ID );
       }else{
       // type == nultiple
-      simulateGuildMemberAdd_many( discordClient, ID );
+        simulateGuildMemberAdd_many( discordClient, mock_joiningMember_ID );
 
       }
       
@@ -330,10 +387,20 @@ const router = express.Router();
       return null;
     }
   }
+
+// Function to pick a random member
+function getRandomMember(membersArray) {
+  const randomIndex = Math.floor(Math.random() * membersArray.length);
+  return membersArray[randomIndex];
+}
+
+
+
+  // actual event listener "Events.GuildMemberAdd,"
+  //is in index file
 // Simulate the GuildMemberAdd event
 async function simulateGuildMemberAdd(client, userId ) {
-
-
+ 
  // client.emit('test', 'these params', 'will be logged', 'via the listener.');
  // return;
   //const guildId = 'YOUR_GUILD_ID'; // Replace with your actual guild ID
@@ -348,28 +415,20 @@ https://stackoverflow.com/questions/64933979/discord-get-user-by-id
 */
   // const user = await fetchUser(userId);   
  
-  const fetchedUser = await fetchUserById(client, userId);
-     
-
-  
-  console.log('User attempt to join  = '  ,fetchedUser );
-
-
-/*
-  8bitbert  , user.id;  523040251862712320
-  >>  member: <@523040251862712320>
-  >>  username:  osmanboca  , user.id;  925073990656077824
-  >>  member: <@925073990656077824>
-  >>  username:  huda_space  , user.id;  964233683898867792
-  >>  member: <@964233683898867792>
-  >>  username:  dbalooweb3  , user.id;  949424238442455070
-*/
+  let fetchedUser = await fetchUserById(client, userId);
+   
+   console.log('User attempt to join  = '  ,fetchedUser );
+ 
+  fetchedUser = { ...fetchedUser, isTestMember: true };
   client.emit('guildMemberAdd', fetchedUser);
-  //guild.emit('guildMemberAdd', user);
-}
+ }
+
+
+
+
+
 // try will multiple add at once
 async function simulateGuildMemberAdd_many(client, userId ) {
- 
    
    const guild = client.guilds.cache.get(guildId);
    

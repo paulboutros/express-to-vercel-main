@@ -19,7 +19,7 @@ const router = express.Router();
 
       // GET query , Post Body
          const ID = req.query.ID;
-       console.log( "ID    = " + ID);
+      // console.log( "ID    = " + ID);
       const result = await collection.findOne({ "ID": ID }, {
         "giveAwayTiming.NextGiveAway": 1,
         "giveAwayTiming.lastGiveAway": 1,

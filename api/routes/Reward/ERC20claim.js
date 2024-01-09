@@ -6,10 +6,19 @@ import axios from "axios";
 import { connectToDataBase } from "../../../lib/connectToDataBase.js";
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
  import { ethers } from "ethers";
- import {  REWARDS_ADDRESS, TOOLS_ADDRESS, BURN_TO_CLAIM, OWNER  } from "../../../const/addresses.js";
+ import {  REWARDS_ADDRESS, TOOLS_ADDRESS, BURN_TO_CLAIM,
+   OWNER, Discord_invite_stake_token, 
+   Discord_stake_contract, OWNER2,
+   Discord_tokenLess_stakinContract
+   
+  
+  } from "../../../const/addresses.js";
  import {GetThirdWebSDK_fromSigner , GetThirdWebSDK_fromPrivateKey  } from "../../../utils/thirdwebSdk.js"
 
-import {ABI} from "./abi.js"
+import {ABI} from "../../../public/ABI/burnToClaim.js"
+import {discordStakeABI} from "../../../public/ABI/discordStaking.js"
+
+
  import { Sepolia } from "@thirdweb-dev/chains";
 import { createBundle } from './CreateBundlePack.js';
 
@@ -265,7 +274,7 @@ router.post("/mintAdditionalSupplyTo", async (req, response) => {
 );
 
 
-async function  GiveBurToClaimApprovalToSpendFromRewardToken(){
+async function GiveBurToClaimApprovalToSpendFromRewardToken(){
 
  
   const sdk = GetThirdWebSDK_fromSigner();
@@ -276,17 +285,12 @@ async function  GiveBurToClaimApprovalToSpendFromRewardToken(){
   const allowanceAmount = await contract.erc20.allowanceOf(OWNER, BURN_TO_CLAIM);
   console.log( "allowanceAmount" , allowanceAmount );
    if ( allowanceAmount &&  allowanceAmount.displayValue  > 0) {
-   // const isApproved = await burnAndClaimContract.erc1155.isApproved(
-   //   OWNER, // Address of the wallet to check
-   //   BURN_TO_CLAIM // Address of the operator to check
-   // );
-   // if (isApproved) {
-
-
+ 
       console.log( " " ,  BURN_TO_CLAIM , "is approved already " );
       // The contract is already approved
       // You can choose to skip the approval step
   } else {
+    // i think this code was written for the case where the contract is deploy and used for the first time
       // The contract is not approved, proceed with the approval
      // contract.approve( OWNER, BURN_TO_CLAIM );
      // approve and set allowance at the same time for that amount of token in WEI
@@ -350,7 +354,7 @@ const reward_claim_for_tokenIDs=[ he_id.toString(),sh_id.toString(), we_id.toStr
 
 
 
-// now we compare them with what this adress own
+// 1a) now we compare them with what this adress own
 const owned_tokenIDs=[];
 ownedNfts.forEach(element => {
   const id =  element.metadata.id;
@@ -401,21 +405,10 @@ let reward_res = await axios.post(endpoint, dataToSend);
 
 
 //await transfert(address , reward_result.finalRewardPrice   );
-
-
-/*
-response.status(200).json( {
-reward_result:reward_result,
-matchResult:matchResult,
-reward_claim_for_tokenIDs :reward_claim_for_tokenIDs, 
-owned_tokenIDs:owned_tokenIDs,
-finalRewardPrice : reward_result.finalRewardPrice
-});
-
-*/
+ 
   
 //=======================================================================================================
-// SMART CONTRACT / WRITTING BLOCkCHAIN WRITTING
+// SMART CONTRACT / BLOCKCHAIN INTERACTION
 //================================================================================================================
 
 //================================================================================================================
@@ -435,13 +428,14 @@ finalRewardPrice : reward_result.finalRewardPrice
    CHECK FOR APPROVE FROM REWARD TOKEN CONTACT  or BURN TO CLAIM (BURN TO GET REWARD) WILL FAILS
   =======================================================================================================*/
  /*
-  Make sure the Bur And Claim contract is approved by token contract, since
+  Make sure the Burn And Claim contract is approved by token contract, since
  its spends money from it.
  Note, this appoval transaction must be signed by owner, so it can be done on this server with private key
 
 */
     // Assuming `owner` is the owner's address and `spender` is the contract's address
     //const contract = await sdk.getContract(REWARDS_ADDRESS); 
+    //to do: this function should be shared by multiple contract.. add arguments etc..
       await GiveBurToClaimApprovalToSpendFromRewardToken();
 
 /*================================================================================================
@@ -450,7 +444,7 @@ finalRewardPrice : reward_result.finalRewardPrice
 
 
 
-    const rewardAmountInEther = reward_result.finalRewardPrice;// 2.1; // Replace with your desired amount in Ether
+    const rewardAmountInEther = reward_result.finalRewardPrice; 
     const rewardAmountInWei = ethers.utils.parseUnits(rewardAmountInEther.toString(), "ether");
      const tx1 = await contract.setRewardAmount(rewardAmountInWei 
     , {
@@ -479,29 +473,10 @@ console.log( " kn_id",  kn_id  );
  let tokenIdsToBurn = [he_id, sh_id, we_id, be_id, kn_id];
 // let tokenIdsToBurn = [0, 12, 21, 34, 40];
 
-     const tx2 = await contract.burnAndClaim(address, tokenIdsToBurn 
-         , {
-           gasLimit: 300000 // Replace with an appropriate gas limit
-        }
-      
-         );
-
-      //   console.log( " ??????????????????????????????????????????????????????????????   "   );
-       
-    //     console.log( "tx2   = "  , tx2 ); // Check events emitted
-       const receipt2 = await tx2.wait();
-
-    //   if (receipt.status === 0) {
-    //    console.error("Transaction reverted. Revert reason:", receipt2.revertReason);
-   // }
-
-
-     //  const revertReason = receipt2.logs.find(log => log.topics[0] === "0x08c379a0df4787b3e4cf1e38ae9352e87eaff99e858bda6b71c48c7c19f99bc5");
-    //   console.log("Revert Reason:", revertReason);
-
-
-     //  console.log(receipt2.events); // Check events emitted
-    //   console.log( ">>>>>>  receipt2  = ", receipt2  );
+     const tx2 = await contract.burnAndClaim(address, tokenIdsToBurn  , {gasLimit: 300000  } );
+ 
+        const receipt2 = await tx2.wait();
+     
        if (receipt2.status === 1) {
              console.log("Transaction succeeded");
         // Your logic for a successful transaction
@@ -509,17 +484,9 @@ console.log( " kn_id",  kn_id  );
              console.error("Transaction failed");
         // Your logic for a failed transaction
          }
-
-
-
-
-    // Wait for the transaction to be mined
-    
-
-     response.status(200).json( {res: " ok " });
  
-
-    
+     response.status(200).json( {res: " ok " });
+  
   } catch (e) {
      console.error(e);
     response.status(500).json({ error: "An error occurred" });
@@ -532,11 +499,11 @@ console.log( " kn_id",  kn_id  );
 
 // from client it is called ERC20claim_discord_login_required in API.js (we may not need this anymore)
 //this is the version using Mongo mock data
+/*
+
   router.post("/ERC20claim_MONGO_MOCK_DATA", async (req, response) => {
     try {
-
-
-      
+ 
 
       const { mongoClient } = await connectToDataBase();
       const db = mongoClient.db("wudb");
@@ -551,22 +518,8 @@ console.log( " kn_id",  kn_id  );
         }
 
         console.log( "ERC20claim address   = "  + address );
-      //to do 
-      /*
-        request must contains the combo this request is for, 
-        1) =>  then check on server if the user own the requiered layer
-        2) =>  recheck the price for update... also because we do not accept this information from the client for security reason
-        3) =>  call web3 contract claim function to reward with the amount
-      */
-     /*
-        const referrer_user = db.user_tracking.findOne({
-            "referralCodes": {
-              $elemMatch: {
-                $eq: "LXc7v98j"
-              }
-            }
-          })
-*/
+       
+      
 
 
 
@@ -645,7 +598,187 @@ console.log( " kn_id",  kn_id  );
   }
   
   );
+ */
+
+
+//addDist
+
+
+//=====================================================
+
+router.post("/setRewardStatusAndaddDist", async (request, response) => {
  
+  try {
+ 
+ const {mongoClient} = await connectToDataBase();
+ 
+ const db = mongoClient.db("wudb");
+ const collection = db.collection("app_tasks");
+  
+        
+
+          const ID = request.body.ID;
+          const taskID = request.body.taskID;
+         
+          
+          console.log(" ================= task taskID    = " , taskID);
+         if (ID === null  || taskID === null ) {
+          throw new Error('/setUserTask :One or more required parameters are null.');
+        }
+ 
+
+          const userTask = await collection.findOne({ "ID": ID });
+           
+           console.log(" =================userTask    = " , userTask);
+
+        
+
+          if (!userTask){
+
+            const newdoc ={
+              ID: ID,
+             tasksData:[ 
+               {completed:false , rewarded:false},
+               {completed:false , rewarded:false},
+               {completed:false , rewarded:false},
+               {completed:false , rewarded:false},
+               {completed:false , rewarded:false}
+             ]  
+            }
+            collection.insertOne( newdoc );
+          }else{
+               // Update the existing document
+             
+              const updateQuery = {
+              $set: {
+                  [`tasksData.${taskID}`]: { completed: true, rewarded: true }
+              }
+              };
+              await collection.updateOne({ "ID": ID }, updateQuery);
+           
+          }
+          
+         
+          const userTaskModified = await collection.findOne({ "ID": ID }) ;
+    
+
+
+
+
+         response.status(200).json(  userTaskModified  ); // result
+  }catch(e){
+         console.error(e);
+         response.status(500).json(e);
+
+
+  }
+})
+
+
+
+
+router.get("/addto_inviteStaking", async (request, response) => {
+ 
+  try {
+ 
+       await addto_inviteStaking();
+         response.status(200).json(  {message:"ok"}  ); // result
+  }catch(e){
+         console.error(e);
+         response.status(500).json(e);
+
+
+  }
+})
+export async function addto_inviteStaking( ID , acceptedUsersLength ){
+    
+ let recipientAddress;
+ let mongoResult;
+    try {
+      
+        const {mongoClient} = await connectToDataBase();
+        const db = mongoClient.db("wudb");
+        const collection = db.collection("users");
+        
+        mongoResult = await collection      
+        .findOne({ ID: ID }, { projection: { wallet: 1, _id: 0 } }); // Include only the specified fields
+            
+      }catch(e){
+          console.error(e);
+          console.log("no address found");
+      
+      }
+      recipientAddress = mongoResult.wallet;
+ 
+
+
+       console.log("recipientAddress found : " , recipientAddress );
+
+ 
+  
+const sdk = GetThirdWebSDK_fromSigner();
+const contract = await sdk.getContract( Discord_tokenLess_stakinContract );
+
+
+const weiValue = ethers.utils.parseUnits( acceptedUsersLength.toString(), 'ether');
+ acceptedUsersLength = weiValue;
+
+ 
+ // const call = await contract.call("setStackedAmount",[recipientAddress, acceptedUsersLength ])
+   console.log( "DO NOT FORGET TO REACTIVATE contract SetStackAmount    ====  ", acceptedUsersLength   );
+}
+
+export async function transfertDIST( recipientAddress){
+
+  recipientAddress = OWNER2;
+ 
+  await setApprovalandTransfertFromRewardToken( Discord_invite_stake_token, Discord_stake_contract );
+    
+  transfert(   recipientAddress , 100 ,  Discord_invite_stake_token );
+ 
+ }
+
+
+
+
+
+
+
+//=====================================================
+
+ 
+
+
+ 
+ async function  setApprovalandTransfertFromRewardToken(REWARDS_TOKEN, SPENDER_CONTRACT){
+
+ 
+  const sdk = GetThirdWebSDK_fromSigner();
+  const contract = await sdk.getContract(REWARDS_TOKEN);
+  
+  // ste allowance way smaller for discor contrat
+  const allowanceAmount = await contract.erc20.allowanceOf(OWNER, SPENDER_CONTRACT );
+  console.log( "allowanceAmount" , allowanceAmount );
+   if ( allowanceAmount &&  allowanceAmount.displayValue  > 0) {
+ 
+      console.log( " " ,  SPENDER_CONTRACT , "is approved already " );
+      // The contract is already approved
+      // You can choose to skip the approval step
+  } else {
+    // i think this code was written for the case where the contract is deploy and used for the first time
+      // The contract is not approved, proceed with the approval
+     
+     // approve and set allowance at the same time for that amount of token in WEI
+     await contract.call("approve",  [SPENDER_CONTRACT, "5000000000000000000"]);
+     await contract.call("transfer", [SPENDER_CONTRACT, "5000000000000000000"]);
+
+
+
+
+  }
+ 
+}
+
   
 
   router.post("/GetOwnedNFTs", async (req, response) => {
@@ -684,21 +817,7 @@ console.log( " kn_id",  kn_id  );
 
 
 
-
-  // Calculate the weighted score for the combination
-function calculateScore(combination ,  categoryWeights) {
-    let totalScore = 0;
-    for (const category in combination) {
-
-        const catScore = combination[category] * categoryWeights[category];
-      totalScore += catScore; 
-
-      console.log("calcul:"   + category   + "  catScore  " + catScore   );
-    }
-    return totalScore;
-  }
   
-  // Determine the reward price based on the total score
    
 
   async function getOwned(address){
@@ -712,25 +831,25 @@ function calculateScore(combination ,  categoryWeights) {
     return nfts;
  
   }
-//web3
-  async function transfert( address , priceConfirmation  ){
+//web3  ERC20  we use Thridweb sdk for non custom function sicen that works
+  async function transfert( toAddress , priceConfirmation ,  FromContract ){
    
 
-
+ 
  
    
     const sdk = GetThirdWebSDK_fromSigner();
    
-  const contract = await sdk.getContract(REWARDS_ADDRESS);
+  const contract = await sdk.getContract(FromContract);
   
  // priceConfirmation =  "57.78";
 
  console.log( "priceConfirmation" , priceConfirmation  );
-   const amount = parseFloat(priceConfirmation);
+   const amount =priceConfirmation ;// parseFloat(priceConfirmation);
 
-   console.log( "amount" , amount  );
-  // Address of the wallet you want to send the tokens to
-  const toAddress =  address;
+   console.log( "amount" , amount , "toAddress    = " , toAddress );
+  
+   
   // The amount of tokens you want to send
   
   await contract.erc20.transfer(toAddress,  amount );

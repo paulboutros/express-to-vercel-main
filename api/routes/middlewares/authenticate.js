@@ -14,14 +14,11 @@ const authenticate = async (request, response, next) => {
     
         // Verify and decode the token
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    
-
+ 
         const stringToken = JSON.stringify(decoded, null, 2);
         
-       
         const jwt_ID = decoded.sub;
-       // console.log( "stringToken decoded "  + stringToken);
-      //  console.log( " jwt_ID "  + jwt_ID);
+       
    
         const {mongoClient} = await connectToDataBase();
         const db = mongoClient.db("wudb");
@@ -33,6 +30,10 @@ const authenticate = async (request, response, next) => {
             user:  currentUser ,
            
           };
+
+
+           
+
         // Continue to the next middleware or route handler
         next();
       } catch (error) {

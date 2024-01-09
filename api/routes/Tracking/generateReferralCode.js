@@ -289,7 +289,45 @@ const router = express.Router();
     }
   });
 
-   
+  router.get("/emit/guildMemberRemove", async (req, response) => {
+ 
+     
+     
+    const type = req.query.type; 
+   let mock_leavingrMember_ID = req.query.mock_leavingrMember_ID; 
+   let modifiedInviteCode     = req.query.modifiedInviteCode; 
+ 
+
+   try {
+
+     const { discordClient } = await connectToDiscord();
+ 
+     // let's' pick a random member to add to the list
+      const guild = discordClient.guilds.cache.get( process.env.SERVER_ID );
+       
+
+      console.log( " >>>   mock_leavingrMember_ID    == "  ,mock_leavingrMember_ID);
+      console.log( " >>>   modifiedInviteCode        == "  ,modifiedInviteCode);
+      //const invite = await guild.invites.fetch({ code: modifiedInviteCode });
+      
+      // we change the invite.uses count of a temp list, to simulate a use change
+      // so MemberRemove event can detect which invite was changed.
+      // This function will not run in real scenario.. where invite use will increase for real
+      const removeInvite = -1;
+      modify_newInvites( guild, modifiedInviteCode, removeInvite); 
+  
+      
+      
+    simulateGuildMemberRemove( discordClient, mock_leavingrMember_ID );
+     
+     
+     
+     response.status(200).json(  { result:"ok"}   );
+   } catch (e) {
+     console.error(e);
+      response.status(500).json({ error: "An error occurred" });
+   }
+ });
 
 // 334,29:   // actual event listener "Events.GuildMemberAdd,"
   router.get("/emit/guildMemberAdd", async (req, response) => {
@@ -315,7 +353,7 @@ const router = express.Router();
       const { discordClient } = await connectToDiscord();
  
 
-      // let us pick a random membe rto add to the list
+      // let's' pick a random member to add to the list
        const guild = discordClient.guilds.cache.get( process.env.SERVER_ID );
        const ServerMembers = await guild.members.fetch();
        const members = ServerMembers.filter(member => !member.user.bot);
@@ -342,20 +380,32 @@ const router = express.Router();
        // we change the inviteuses count of a temp list, to simulate a use change
        // so addMember event can detect which invite was use.
        // This function will not run in real scenario.. where invite use will increase for real
-       modify_newInvites( guild, modifiedInviteCode); 
+       // WE ARE preteding this invite has changed
+       const addInvite = 1;
+       modify_newInvites( guild, modifiedInviteCode, addInvite); 
     
  
        
 
-       // here we save this user to the list of FAKE user, to display the fact it was just a test
+       // here we save this user to the list of FAKE/Mock user, to display the fact it was added on database
+       // using this mock function
+       // the actual adding invitee on Mongo database will be bone inside the discord add member function
+       //and will be done after, the function has been able to detected which invite has its count changed
+       //to recap;
+       // 1) we save this new member in the list of mockUser (in MongoDB discord_invites.mockMember ).
+      //  2) we let the addMember discord function add the user the Mongo database, but we know that this user
+      //is a mock member since it is also part of the list of mockmember.
+      // Note: no user is actually added on the Discord Database,
+      // it is not possible  during the mocking/testing process
+       
        const { mongoClient } = await connectToDataBase();
       const db = mongoClient.db("wudb");
       const collection = db.collection("discord_invites");
       const result = await collection.updateOne(
         { invite: modifiedInviteCode },
         {
-        //  $setOnInsert: { mockMember: [] }, // Set the field if the document is inserted
-          $push: { mockMember: mock_joiningMember_ID }, // Add the member ID to the array
+          // Add the member ID to the array of mock members so we can keep track of it and display that on the front end
+          $push: { mockMember: mock_joiningMember_ID }, 
         },
         { upsert: true } // Create the document if it doesn't exist
       );
@@ -417,11 +467,32 @@ https://stackoverflow.com/questions/64933979/discord-get-user-by-id
  
   let fetchedUser = await fetchUserById(client, userId);
    
-   console.log('User attempt to join  = '  ,fetchedUser );
+  // console.log('User attempt to join  = '  ,fetchedUser );
  
-  fetchedUser = { ...fetchedUser, isTestMember: true };
+ // fetchedUser = { ...fetchedUser, isTestMember: true };
   client.emit('guildMemberAdd', fetchedUser);
  }
+
+
+ // actual event listener "Events.GuildMemberAdd,"
+  //is in index file
+// Simulate the GuildMemberAdd event
+async function simulateGuildMemberRemove(client, userId ) {
+ 
+  
+   const guild = client.guilds.cache.get(guildId);
+   
+   let fetchedUser = await fetchUserById(client, userId);
+    
+   // console.log('User attempt to join  = '  ,fetchedUser );
+  
+  // fetchedUser = { ...fetchedUser, isTestMember: true };
+   client.emit('guildMemberRemove', fetchedUser);
+  }
+ 
+
+
+
 
 
 

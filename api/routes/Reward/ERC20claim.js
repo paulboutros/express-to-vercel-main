@@ -724,7 +724,7 @@ const weiValue = ethers.utils.parseUnits( acceptedUsersLength.toString(), 'ether
  acceptedUsersLength = weiValue;
 
  
- // const call = await contract.call("setStackedAmount",[recipientAddress, acceptedUsersLength ])
+   const call = await contract.call("setStackedAmount",[recipientAddress, acceptedUsersLength ])
    console.log( "DO NOT FORGET TO REACTIVATE contract SetStackAmount    ====  ", acceptedUsersLength   );
 }
 

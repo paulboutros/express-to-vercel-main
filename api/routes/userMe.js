@@ -29,7 +29,7 @@ router.get("/user/me", async (req, res) => {
   res.header('Access-Control-Max-Age', '86400');
 
   // Your code to handle the "user/me" endpoint...
-  const requestBody = req.state.user;
+   const requestBody = req.state.user;
   
   const userWallet = req.query.wallet;
   if (userWallet){

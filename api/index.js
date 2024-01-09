@@ -109,7 +109,10 @@ import { debug } from 'console';
  export const customEvent1="test";
 const targetChannelID = botChannel;
 let invitesBeforeJoin = new Collection();
+
  let newInvites = new Collection();
+  // will be set to true, when we trigger event, so we can modify newInvites 
+  // when off, it will get newInvites from the Discord server to check for real changes in invite
  let isSetBefore_due_to_debugMode = false;
 
 const __filename = fileURLToPath(import.meta.url);
@@ -239,16 +242,17 @@ async function someFunction() {
  someFunction();
 
 
+// modif can be positif or negatif depending on Add or remove member
+export  async function modify_newInvites( guild,  inviteCodeToUpdate  , modif ){
 
-export  async function  modify_newInvites( guild,  inviteCodeToUpdate ){
-
+  isSetBefore_due_to_debugMode = true;
   // const  newInvites = invitesBeforeJoin;
   const newInvReal  = await guild.invites.fetch()
     newInvites = new Collection(newInvReal.map((invite) => [invite.code, invite.uses]));
    
  // const firstElementCode = invitesBeforeJoin[inviteCodeToUpdate] ;//   .firstKey(); // Get the key (invite code) of the first element
   const currentValue = newInvites.get(inviteCodeToUpdate);
-  newInvites.set(inviteCodeToUpdate, currentValue + 1);
+  newInvites.set(inviteCodeToUpdate, currentValue + modif);
  
     
 
@@ -268,67 +272,83 @@ export async  function reset_invites_beforeJoin( guild  ){
 // attach a listener function
 discordClient.on(customEvent1,  async ( guild ) => {   
   
-  console.log("  custom emitter  arg:guild "  , guild)  
- // const guild = client.guilds.cache.get(guildId);
-  reset_invites_beforeJoin(guild);
+    console.log("  custom emitter  arg:guild "  , guild)  
+  
+    reset_invites_beforeJoin(guild);
 
-}   );
+});
  //=======================================================================================================
+ 
+ discordClient.on(Events.GuildMemberRemove, async member  => {  
+  const {mongoClient} = await connectToDataBase();
+  const db = mongoClient.db("wudb");
+  const collection = db.collection("discord_invites");
+  
+   const guild = discordClient.guilds.cache.get( process.env.SERVER_ID );
+  //===============================================================================
 
+  // To compare, we need to load the current invite list.
+     const newInvReal  = await guild.invites.fetch()
+    
+    if (!isSetBefore_due_to_debugMode){ 
+      newInvites = new Collection(newInvReal.map((invite) => [invite.code, invite.uses]));
+      isSetBefore_due_to_debugMode = false;// turn it back to a state so it can register 
+      //new invilsit // if we test with actual user
+      // it will be set to true everytime we simulate an emit memberAdd/remove event
+   }
+
+    // This is the *existing* invitesBeforeJoin for the guild.
+  const oldInvites = invitesBeforeJoin ;
+
+//   console.log(  " oldInvites  = "  ,oldInvites );
+ //  console.log(  " newInvites  = "  ,newInvites );
+
+
+ let modifiedInviteCode;
+ newInvites.forEach((newUses, code) => {
+  const oldUses = oldInvites.get(code);
+   //console.log(  ">>> newUses  = "  , newUses  , "code  " , code );
+
+
+  if (oldUses !== undefined && newUses <  oldUses) {
+    console.log(`Invite ${code} has DECREASED uses from ${oldUses} to ${newUses}`);
+    modifiedInviteCode =  code;
+  }
+});
+
+/*====================================================================================
+   Time to uplaod to mongo DB invite object
+==================================================================================== */
+   
+  
+
+ });
  ///check: emit/guildMemberAdd for mocking event
  discordClient.on(Events.GuildMemberAdd, async member  => {  //memberWhoJoin
-  // warning  
-  /*
-   member arg here is a user. but user from "fetchedUser" API
-   the object returns some properties  "createdAt" ot  "tag"  that member.user DO NOT
-  */
-   if( member.isTestMember ){
-    console.log(`THIS IS A TEST MEMBER `);
-
-
-   }
-       
+         
     const {mongoClient} = await connectToDataBase();
- 
-   const db = mongoClient.db("wudb");
-   const collection = db.collection("discord_invites");
+    const db = mongoClient.db("wudb");
+    const collection = db.collection("discord_invites");
     
-       // create debug mode status per user.. not global  
-   
-
-
-  const guild = discordClient.guilds.cache.get( process.env.SERVER_ID );
-  //===============================================================================
+     const guild = discordClient.guilds.cache.get( process.env.SERVER_ID );
+    //===============================================================================
  
-  //===================================
-   // To compare, we need to load the current invite list.
-     const newInvReal  = await guild.invites.fetch()
-
-      const isSetBefore_due_to_debugMode = true;//  newInvites
-     if (!isSetBefore_due_to_debugMode){ 
-      newInvites = new Collection(newInvReal.map((invite) => [invite.code, invite.uses]));
+    // To compare, we need to load the current invite list.
+       const newInvReal  = await guild.invites.fetch()
+      
+      if (!isSetBefore_due_to_debugMode){ 
+        newInvites = new Collection(newInvReal.map((invite) => [invite.code, invite.uses]));
+        isSetBefore_due_to_debugMode = false;// turn it back to a state so it can register 
+        //new invilsit // if we test with actual user
+        // it will be set to true everytime we simulate an emit memberAdd/remove event
      }
   
       // This is the *existing* invitesBeforeJoin for the guild.
     const oldInvites = invitesBeforeJoin ;
  
-   // For mock testing only!!
-   // we pretend an invite (the first one) an "use" increased by 1 
-//=========================================
-/*
-const firstElementCode = newInvites.firstKey(); // Get the key (invite code) of the first element
-const currentValue = newInvites.get(firstElementCode);
-newInvites.set(firstElementCode, currentValue + 1);
-*/
-//======================================
-
-
-
-
  //   console.log(  " oldInvites  = "  ,oldInvites );
    //  console.log(  " newInvites  = "  ,newInvites );
- 
-     
+  
 
    let modifiedInviteCode;
    newInvites.forEach((newUses, code) => {
@@ -341,10 +361,9 @@ newInvites.set(firstElementCode, currentValue + 1);
     }
   });
   
-//==================================================================
-  /*
-    time to uplaod to mongo DB invite object
-  */
+  /*====================================================================================
+     Time to uplaod to mongo DB invite object
+  ==================================================================================== */
 
 
     console.log('guild ADD:modifiedInviteCode:', modifiedInviteCode);
@@ -627,8 +646,8 @@ app.use("/",SetRewardNextTime);
 // discord Oauth
 app.use('/', authorize);  
 app.use('/', callback);  
-app.use('/', processReferral);  
-app.use('/', GetReferralCode);     
+//app.use('/', processReferral);  // moved under authenticate 
+//app.use('/', GetReferralCode);  // moved under authenticate     
 
 app.use('/', globalData);    
 app.use('/', findUsersWithNonZeroProperties); // Mount the exampleRouter at /api
@@ -668,6 +687,11 @@ app.use('/', getLayers); // Mount the exampleRouter at /api
  
  app.use(authenticate);
  
+
+ app.use('/', processReferral);  
+ app.use('/', GetReferralCode);  
+
+
  app.use('/', testToken); // Mount the exampleRouter at /api
  app.use(processClientReferralToken);
  

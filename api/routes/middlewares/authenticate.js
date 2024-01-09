@@ -4,6 +4,8 @@ import { connectToDataBase } from "../../../lib/connectToDataBase.js";
 import jwt from 'jsonwebtoken';
 const authenticate = async (request, response, next) => {
 
+  
+
     try {
         // Get the token from the cookie
         const token = request.cookies.token;
@@ -43,7 +45,7 @@ const authenticate = async (request, response, next) => {
             
           };
 
-          console.log( " error "  + error);
+          console.log( "authenticate: error "  + error);
 
          return response.status(401).json({ message: ' Invalid or expired token' });
       }

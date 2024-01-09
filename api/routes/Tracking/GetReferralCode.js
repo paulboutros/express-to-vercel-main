@@ -72,11 +72,14 @@ const router = express.Router();
      if (inviteData ) { 
         
        
-      
+     
+
+         console.log(  " >>>>>   inviteData   inviteCode  =  "  ,  inviteData.invite   );
+        
           try {
             const inviteCode =  inviteData.invite;
             const invite = await  guild.invites.fetch(inviteCode); 
-            console.log(  " inviteData.invite  =  "  ,   inviteData.invite , " is a invite on Discord "   );
+            console.log(  " inviteData.invite  =  "  ,   inviteData.invite , " is not a invite on Discord "   );
           } catch (error) {
           //  console.error('Error fetching invite:', error.message);
             // Handle the case where the invite is not found
@@ -91,7 +94,7 @@ const router = express.Router();
     //if invidata doesnt exist or we deleted if because it contains a Discord invite that id
     //no longer valid or listed....
    if  (!inviteData){
-      const endpoint = `${process.env.SERVER_URL}discord_invite_create?ID=${user_ID}`; // make it specific (filter to twitter fields)
+      const endpoint = `${process.env.SERVER_URL}discord_invite_create?ID=${ID}`; // make it specific (filter to twitter fields)
       const resultsPostJson = await fetch(endpoint);
        resultsJson = await resultsPostJson.json();
      // responseToClient.inviteData = inviteData ;/

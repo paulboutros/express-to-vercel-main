@@ -16,11 +16,9 @@ import { ThirdwebSDK } from "@thirdweb-dev/sdk";
  import {GetThirdWebSDK_fromSigner , GetThirdWebSDK_fromPrivateKey  } from "../../../utils/thirdwebSdk.js"
 
 import {ABI} from "../../../public/ABI/burnToClaim.js"
-import {discordStakeABI} from "../../../public/ABI/discordStaking.js"
-
-
- import { Sepolia } from "@thirdweb-dev/chains";
-import { createBundle } from './CreateBundlePack.js';
+  
+  
+import {   createPacksWEB2, generateData } from './CreateBundlePack.js';
 
 const router =  express.Router();
 
@@ -59,15 +57,134 @@ const router =  express.Router();
 
 
 
+
+    router.post("/openPack", async (req, response) => {
+      try {
+          
+         // const sdk = await GetThirdWebSDK_fromSigner();// GetThirdWebSDK_fromPrivateKey();  //ThirdwebSDK.fromPrivateKey(process.env.PRIVATE_KEY, "mumbai");
+          // console.log( sdk);
+          // GetThirdWebSDK_fromSigner();
+        
+         
+     const openerAddress =  req.body.openerAddress; 
+    // low let's send this the mongo
+      
+      const {mongoClient} = await connectToDataBase();
+      
+      const db = mongoClient.db("wudb");
+      const collection = db.collection("packs");
+
+
+       /* currently there is only 1 pack contract with a supply of 55 packs
+             each contains 5 cards 
+        */
+       const packID = 0;
+
+
+      // array length 55 
+      //this is inclusive, that means max mumber to be selected will be  54
+      
+      const allPacks = await collection.findOne({ "packID": packID });
+     
+
+      // the pack length start at 55, but will decrease, as we open pack packs , and remove them form the list
+      const allPacksLength =  allPacks.packs.length;
+      const randomPackIndex = Math.floor(Math.random() * allPacksLength);
+
+      const packToOpen = allPacks.packs[randomPackIndex];
+
+      console.log(  "BEFORE OPENING: allPacks   "  , allPacks ); 
+      console.log(  "randomPackIndex   "  ,  randomPackIndex );    
+      console.log(  "packToOpen   "  , allPacks.packs[randomPackIndex] );       
+     
+
+     // Update the document to remove the element at the specified index
+    await collection.updateOne(
+      { "packID": packID },
+      { $pull: { "packs": { $in: [allPacks.packs[randomPackIndex]] } } }
+    );
+    const allPacksAfterOpen = await collection.findOne({ "packID": packID }) ;
+    console.log(  "AFTER OPENING: allPacks   "  , allPacksAfterOpen ); 
+          
+    
+    // to simplify testing, we mint to the winner.
+    // later we may pre-mint to pack .. so the pack transfert teh reward from its own supply
+    // and there will be no supply imcrementaion when someone open a pack
+
+     const sdk = GetThirdWebSDK_fromSigner();
+     const contract = await sdk.getContract(TOOLS_ADDRESS);
+        /*
+      for ( let i = 0 ; i < packToOpen.length; i++  ){
+        const nft_amount = 1; // one of each in the pack
+        const tokenID = packToOpen[i];
+        await contract.erc1155.mintAdditionalSupplyTo( openerAddress, tokenID  ,  nft_amount, );
+        
+      }
+     */
+
+       // burn a 1 pack from the 55   
+      // const packContract = await sdk.getContract(PACK_ADDRESS);
+       //await packContract.erc1155.burn(0, 1);
+   
+    
+    
+    
+          response.status(200).json(  packToOpen );
+    
+        
+      } catch (e) {
+         console.error(e);
+        response.status(500).json({ error: "An error occurred" });
+      }
+     
+    }
+    
+    );
+  // web 2 custom pack   
 router.post("/CreateBundlePack", async (req, response) => {
   try {
       
      // const sdk = await GetThirdWebSDK_fromSigner();// GetThirdWebSDK_fromPrivateKey();  //ThirdwebSDK.fromPrivateKey(process.env.PRIVATE_KEY, "mumbai");
       // console.log( sdk);
       // GetThirdWebSDK_fromSigner();
+    
+      const generatedData =  await generateData();
+       // for WEB2 pack geenration
+      const cardList = generatedData.flatMap((card) =>
+      Array.from({ length: card.totalRewards }, () => card.tokenId)
+      );
+      console.log( "cardList" , cardList );
+      const packSize = 5;
+      const packs = createPacksWEB2(cardList, packSize );
+      const packID = 0;
+      console.log( "packs" , packs );
 
-      const bundelCreated =  await createBundle(   );
-      response.status(200).json( { res: bundelCreated }  );
+      console.log( "packs length" , packs.length );
+      const newdoc ={
+        packID: packID,
+        packs:packs 
+      
+       }
+
+// low let's send this the mongo
+  
+  const {mongoClient} = await connectToDataBase();
+  
+  const db = mongoClient.db("wudb");
+  const collection = db.collection("packs");
+  const userTask = await collection.findOne({ "packID": packID });
+          
+          if (!userTask){
+              collection.insertOne( newdoc );
+          }else{
+            
+             await collection.replaceOne({ "packID": packID }, newdoc);
+           //  await collection.updateOne({ "ID": ID }, updateQuery);
+           
+          }
+ 
+
+      response.status(200).json( { res: packs }  );
 
     
   } catch (e) {
@@ -95,7 +212,7 @@ https://portal.thirdweb.com/typescript/sdk.erc1155mintable
 router.post("/generateAllSupplyforCardpack", async (req, response) => {
   try {
     const sdk = GetThirdWebSDK_fromSigner();
-    const contract = await sdk.getContract( "0xdA637F0BAA8CB69e7e23926915F6Cec5b248B3B4");
+    const contract = await sdk.getContract( TOOLS_ADDRESS);
 
     const nfts = await contract.erc1155.getAll();
 
@@ -610,29 +727,21 @@ router.post("/setRewardStatusAndaddDist", async (request, response) => {
  
   try {
  
- const {mongoClient} = await connectToDataBase();
- 
- const db = mongoClient.db("wudb");
- const collection = db.collection("app_tasks");
-  
-        
-
+          const {mongoClient} = await connectToDataBase();
+          const db = mongoClient.db("wudb");
+          const collection = db.collection("app_tasks");
+   
           const ID = request.body.ID;
           const taskID = request.body.taskID;
-         
-          
+           
           console.log(" ================= task taskID    = " , taskID);
-         if (ID === null  || taskID === null ) {
-          throw new Error('/setUserTask :One or more required parameters are null.');
-        }
+          if (ID === null  || taskID === null ) {
+             throw new Error('/setUserTask :One or more required parameters are null.');
+          }
  
 
           const userTask = await collection.findOne({ "ID": ID });
-           
-           console.log(" =================userTask    = " , userTask);
-
-        
-
+          
           if (!userTask){
 
             const newdoc ={
@@ -719,13 +828,14 @@ export async function addto_inviteStaking( ID , acceptedUsersLength ){
 const sdk = GetThirdWebSDK_fromSigner();
 const contract = await sdk.getContract( Discord_tokenLess_stakinContract );
 
-
+console.log( " before: acceptedUsersLength"   ,acceptedUsersLength    ) ;
 const weiValue = ethers.utils.parseUnits( acceptedUsersLength.toString(), 'ether');
  acceptedUsersLength = weiValue;
 
+ console.log( "after: acceptedUsersLength"   ,acceptedUsersLength    ) ;
  
    const call = await contract.call("setStackedAmount",[recipientAddress, acceptedUsersLength ])
-   console.log( "DO NOT FORGET TO REACTIVATE contract SetStackAmount    ====  ", acceptedUsersLength   );
+  // console.log( "DO NOT FORGET TO REACTIVATE contract SetStackAmount    ====  ", acceptedUsersLength   );
 }
 
 export async function transfertDIST( recipientAddress){

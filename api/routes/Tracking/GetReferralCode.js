@@ -55,6 +55,9 @@ const router = express.Router();
   
   router.get("/GetDiscordInviteCode", async (req, response) => {
 
+    const currentTime = new Date();
+    console.log("GetDiscordInviteCode  time:  " , currentTime  )
+
     const { discordClient } = await connectToDiscord();
     const guild = discordClient.guilds.cache.get( process.env.SERVER_ID );
 
@@ -79,7 +82,7 @@ const router = express.Router();
           try {
             const inviteCode =  inviteData.invite;
             const invite = await  guild.invites.fetch(inviteCode); 
-            console.log(  " inviteData.invite  =  "  ,   inviteData.invite , " is not a invite on Discord "   );
+            console.log(  " inviteData.invite  =  "  ,   inviteData.invite , " is an invite on Discord "   );
           } catch (error) {
           //  console.error('Error fetching invite:', error.message);
             // Handle the case where the invite is not found

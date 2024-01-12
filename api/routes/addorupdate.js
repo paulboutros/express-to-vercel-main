@@ -2,6 +2,9 @@ import { connectToDataBase } from "../../lib/connectToDataBase.js";
 import { newUserDocumentTemplate , globalTemplate , CreateNewUserDocument} from "../../lib/documentTemplate.js";
 import express from "express";
 import _ from 'lodash'
+import { GetThirdWebSDK_fromSigner } from "../../utils/thirdwebSdk.js";
+import { Discord_tokenLess_stakinContract } from "../../const/addresses.js";
+import { ethers } from "ethers";
  
 
  //import ValidateUserBody from "./middlewares/ValidateUserBody.js"
@@ -62,7 +65,7 @@ router.post("/setRedirectURL", async (request, response) => {
 
 
 
-
+// I suppose any request with ID should send the token within header
 router.post("/setWallet", async (request, response) => {
 
 
@@ -77,10 +80,57 @@ router.post("/setWallet", async (request, response) => {
           const ID = request.body.ID;
            let wallet =request.body.wallet ; 
  
+
+
+    /*
+         // let's FIRST get the wallet  currently used/saved on server
+          
+         */
+       const userCurrentInfo = 
+       await collection      
+      .findOne(  {"ID": ID },   { projection: { wallet: 1, _id: 0 } });
+
+
+
+
+        if ( userCurrentInfo  ){ 
+    
+          const walletOnServer = userCurrentInfo.wallet;
+
+        /* this scenario is:
+        if Wallet submitted and wallet on server exist already
+        but they are different.
+        meaning, the user it switching and saving an other wallet, so we are transferring the rewards
+        */
+        if (( wallet  &&  walletOnServer) &&  ( wallet  !==  walletOnServer) ){
+
+          const sdk = GetThirdWebSDK_fromSigner()   // GetThirdWebSDK_fromSigner
+          const dist_tokenLessContract = await sdk.getContract(   Discord_tokenLess_stakinContract  );
+          const getStakeInfo = await dist_tokenLessContract.call("getStakeInfo",[ walletOnServer ]);
+ 
+          const _tokensStaked =   parseInt(getStakeInfo._tokensStaked._hex,16);
+          const _rewards =   parseInt(getStakeInfo._rewards._hex,16)
+
+            
+
+       const deleteStakeInfo = await dist_tokenLessContract.call("deleteStakeInfo", [ walletOnServer]);
+        
+
+       const tokensStakedBigN =  ethers.BigNumber.from( _tokensStaked.toString() );
+       const rewardsBigN = ethers.BigNumber.from(_rewards.toString());
+
+        const reassignStakeInfo =
+         await dist_tokenLessContract.call("reassignStakeInfo", [ wallet, tokensStakedBigN, rewardsBigN  ]);
+        
+        }      
+       }
+      
+
+
          const setData = { "wallet": wallet  } 
            
          await collection.updateOne( { "ID": ID },   {   $set:  setData  } );
-         
+       
        
     
          response.status(200).json( { message:(wallet + " added successfully") }  ); // result
@@ -135,7 +185,7 @@ router.post("/setWallet", async (request, response) => {
         )
         console.log(`  >> >> userExist.matchedCount=${     userExist.matchedCount  } `); 
      
-      if (     userExist.matchedCount === 0  ){
+      if ( userExist.matchedCount === 0 ){
         let newUserDocument = _.cloneDeep(newUserDocumentTemplate); // Create a deep copy of newUserDocumentTemplate
         // to do : load from template
             newUserDocument =  

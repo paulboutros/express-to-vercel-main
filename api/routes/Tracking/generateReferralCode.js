@@ -369,12 +369,12 @@ const router = express.Router();
        const newInvReal  = await guild.invites.fetch()
        const newInvites = new Collection(newInvReal.map((invite) => [invite.code, invite.uses]));
 
-       console.log( "newInvites    == "  ,newInvites);
+        
 
 
 
       // modifiedInviteCode = "6za6sZyHDC";
-       console.log( "modifiedInviteCode    == "  ,modifiedInviteCode);
+        console.log( "modifiedInviteCode    == "  ,modifiedInviteCode);
        //const invite = await guild.invites.fetch({ code: modifiedInviteCode });
        
        // we change the inviteuses count of a temp list, to simulate a use change

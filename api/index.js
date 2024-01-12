@@ -279,12 +279,10 @@ discordClient.on(customEvent1,  async ( guild ) => {
 });
  //=======================================================================================================
  
- discordClient.on(Events.GuildMemberRemove, async member  => {  
-  const {mongoClient} = await connectToDataBase();
-  const db = mongoClient.db("wudb");
-  const collection = db.collection("discord_invites");
+
+ async function stepOne(guild ){
+
   
-   const guild = discordClient.guilds.cache.get( process.env.SERVER_ID );
   //===============================================================================
 
   // To compare, we need to load the current invite list.
@@ -299,28 +297,106 @@ discordClient.on(customEvent1,  async ( guild ) => {
 
     // This is the *existing* invitesBeforeJoin for the guild.
   const oldInvites = invitesBeforeJoin ;
-
-//   console.log(  " oldInvites  = "  ,oldInvites );
- //  console.log(  " newInvites  = "  ,newInvites );
-
+ 
 
  let modifiedInviteCode;
  newInvites.forEach((newUses, code) => {
   const oldUses = oldInvites.get(code);
    //console.log(  ">>> newUses  = "  , newUses  , "code  " , code );
 
+ const inviteDifference = newUses - oldUses;
+  if (oldUses !== undefined && ( inviteDifference !== 0 ) ) {
+    if (inviteDifference < 0 ){
+      console.log(`Invite ${code} has DECREASED uses from ${oldUses} to ${newUses}`);
+    }else{
+      console.log(`Invite ${code} has INCREASED uses from ${oldUses} to ${newUses}`);
 
-  if (oldUses !== undefined && newUses <  oldUses) {
-    console.log(`Invite ${code} has DECREASED uses from ${oldUses} to ${newUses}`);
+    }
+   
     modifiedInviteCode =  code;
   }
 });
 
+
+   return modifiedInviteCode;
+}
+
+ discordClient.on(Events.GuildMemberRemove, async member  => {  
+
+  const {mongoClient} = await connectToDataBase();
+  const db = mongoClient.db("wudb");
+  const collection = db.collection("discord_invites");
+  
+  const guild = discordClient.guilds.cache.get( process.env.SERVER_ID );
+  let modifiedInviteCode = await stepOne(guild);
+   
 /*====================================================================================
    Time to uplaod to mongo DB invite object
 ==================================================================================== */
+     
+
+      const result = await collection.updateOne(
+            { invite: modifiedInviteCode },
+          {
+            $pull: {
+              acceptedUsers: member.id,
+              mockMember: member.id
+            }
+          }
+        );
+     
+//==========================================================================================
+
+        let acceptedUsersLength;
+        if (result.modifiedCount === 1) {
+          // If the update was successful, 
+         //retrieve the updated document 
+         const updatedDocument = await collection.findOne({ invite: modifiedInviteCode });
    
-  
+         // Get the length of the "acceptedUsers" array in the updated document
+         // so we pass it as total amount to be staked on DIST contract
+           acceptedUsersLength = updatedDocument.acceptedUsers.length;
+   
+         console.log('Accepted Users Length:', acceptedUsersLength);
+       } else {
+         console.log('Update failed result=.' , result);
+       }
+  //=============================================================================================
+
+
+  const inviterFomMongo = await collection.findOne(
+    { invite: modifiedInviteCode },
+    { projection: { ID: 1  } }
+  );
+
+  console.log( "inviterFomMongo   " , inviterFomMongo);
+
+
+//=============================================================================
+ 
+let invite;
+try {
+  invite = await guild.invites.fetch({ code: modifiedInviteCode });
+} catch (error) {
+console.log(  " modifiedInviteCode  =  "  ,   modifiedInviteCode , " is not a invite on Discord or the count of uses did not change "   );
+return;
+}
+
+   //============================================================================
+
+   if ( !NewMemberShouldBeAllowedInServer(member)  ){
+              invite.uses -= 1; // decrencrement invite uses if member was kicked
+              invite.upload();
+          logChannel.send(`${ member.tag } joined and got Kicked right after because it doea not meet this server requierement.`)
+          member.kick();
+          }
+ 
+   addto_inviteStaking( inviterFomMongo.ID,  acceptedUsersLength );
+
+
+
+
+
 
  });
  ///check: emit/guildMemberAdd for mocking event
@@ -330,6 +406,7 @@ discordClient.on(customEvent1,  async ( guild ) => {
     const db = mongoClient.db("wudb");
     const collection = db.collection("discord_invites");
     
+    /*
      const guild = discordClient.guilds.cache.get( process.env.SERVER_ID );
     //===============================================================================
  
@@ -345,9 +422,6 @@ discordClient.on(customEvent1,  async ( guild ) => {
   
       // This is the *existing* invitesBeforeJoin for the guild.
     const oldInvites = invitesBeforeJoin ;
- 
- //   console.log(  " oldInvites  = "  ,oldInvites );
-   //  console.log(  " newInvites  = "  ,newInvites );
   
 
    let modifiedInviteCode;
@@ -360,7 +434,10 @@ discordClient.on(customEvent1,  async ( guild ) => {
       modifiedInviteCode =  code;
     }
   });
-  
+  */
+
+  const guild = discordClient.guilds.cache.get( process.env.SERVER_ID );
+  let modifiedInviteCode = await stepOne(guild);
   /*====================================================================================
      Time to uplaod to mongo DB invite object
   ==================================================================================== */
@@ -376,10 +453,12 @@ discordClient.on(customEvent1,  async ( guild ) => {
     );
      // Check if the update was successful
     if (result.modifiedCount === 1) {
-      // If the update was successful, retrieve the updated document
+       // If the update was successful, 
+      //retrieve the updated document 
       const updatedDocument = await collection.findOne({ invite: modifiedInviteCode });
 
       // Get the length of the "acceptedUsers" array in the updated document
+      // so we pass it as total amount to be staked on DIST contract
         acceptedUsersLength = updatedDocument.acceptedUsers.length;
 
       console.log('Accepted Users Length:', acceptedUsersLength);
@@ -389,7 +468,8 @@ discordClient.on(customEvent1,  async ( guild ) => {
  
     //we want the inviter we saved in the database, to whom we
     // assigned the invite code.
-    // in Discord, all invitesare from one inviter.. the wulibot
+    // in Discord, all invites are from one inviter.. the wulibot so we can
+    // not rely on Discord here to get the inviter... let's check our database
     const inviterFomMongo = await collection.findOne(
       { invite: modifiedInviteCode },
       { projection: { ID: 1  } }
@@ -400,7 +480,7 @@ discordClient.on(customEvent1,  async ( guild ) => {
 
  //=============================
  
- /* if the invite we submitted does not exist, or for some reason no invite uses difference
+ /* if the invite we submitted does not exist, or for some reason no invite_uses difference
  is found, we avoid app crash/ error
  */
  let invite;
@@ -646,8 +726,8 @@ app.use("/",SetRewardNextTime);
 // discord Oauth
 app.use('/', authorize);  
 app.use('/', callback);  
-//app.use('/', processReferral);  // moved under authenticate 
-//app.use('/', GetReferralCode);  // moved under authenticate     
+ app.use('/', processReferral);  //if you move it under authenticate, must include credential token 
+ app.use('/', GetReferralCode);  // moved under authenticate, must include credential token      
 
 app.use('/', globalData);    
 app.use('/', findUsersWithNonZeroProperties); // Mount the exampleRouter at /api
@@ -685,11 +765,14 @@ app.use('/', getLayers); // Mount the exampleRouter at /api
 ////app.use(allowOrigins);
 //apply middlewares
  
+
+// keep in mind that all request under
+// "authenticate" middleware must contains a valid token
  app.use(authenticate);
  
 
- app.use('/', processReferral);  
- app.use('/', GetReferralCode);  
+ //app.use('/', processReferral); // we currently do not require auth token in it ..  
+ //app.use('/', GetReferralCode);  // we currently do not require auth token in it .. 
 
 
  app.use('/', testToken); // Mount the exampleRouter at /api

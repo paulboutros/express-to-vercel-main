@@ -74,14 +74,9 @@ router.get("/getUserGuild", async (req, response) => {
     // 
     //return;
     if (!IDlist || IDlist.length === 0) {
-        // Create an error object with your custom error message
-        const error = new Error("'IDlist' should be set in you rerquest body");
-        
-        // Set the HTTP status code for the response to indicate an error (e.g., 400 Bad Request)
-        response.status(400);
-        
-        // Send the error message in the response
-        response.json({ success: false, error: error.message });
+         const error = new Error("'IDlist' should be set in you rerquest body");
+         response.status(400);
+         response.json({ success: false, error: error.message });
         
         return; // Stop further execution
       }
@@ -106,7 +101,7 @@ router.get("/getUserGuild", async (req, response) => {
                 _id: 0,
                 ID:1,
                 discord:1,
-                discordUserData:1,
+                discordUserData:1, // warning, this information are not up to date
               
              //   "scoreData.discord.invite_code": 1  ,
              //   "scoreData.discord.invite_use": 1 

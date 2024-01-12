@@ -5,14 +5,16 @@ export const FARMER_ADDRESS = '0x529a329595Fedd0a3741905232956bD3B99B6b22';
 export const STAKING_ADDRESS ="old farm game";// "0xeA5Dc787B867D98B0C67C714594a10D3BaDdED85"; 
 
 
-export const Discord_tokenLess_stakinContract ="0xc51b24DF16Cff2A60Ee7c7e677b3A2f14dF1D98A";
+export const Discord_tokenLess_stakinContract ="0xbfD443FFdF54B3B7b722a5fCB86Ec6B759AF7b62";
+export const REWARDS_ADDRESS = "0x7b9e863B9BDF4aa08686C531ceA6353f363E9d57"; //sepolia
+
 
 export const Discord_stake_contract ="0x7027758481Ab9490c74336eB8F06e5a02a7f44a6";
 export const Discord_invite_stake_token = "0x87b875631cA5f598A7e2a7a90bebA2e5B690F45E";
 
 
 
-export const REWARDS_ADDRESS = "0x7b9e863B9BDF4aa08686C531ceA6353f363E9d57"; //sepolia
+
 // "0x5f78270b403D5af05724A71688Db82A45993726c";// '0x6c66Ec1087419Da555ea989489f160B6e7f2E920';
 
  
@@ -35,3 +37,5 @@ export const REWARDS_ADDRESS = "0x7b9e863B9BDF4aa08686C531ceA6353f363E9d57"; //s
 
   export const botChannel='947487867658199071';
   export const wullirockTestUser = "969712435869122560";
+
+  export const PACK_ADDRESS= "0xd7c375463B1dE832fd8ff0Beffb9226a1fA189A3";

@@ -10,7 +10,7 @@ function calculate(){
         
         total = i ;
         supply +=total;
-        console.log("head design ", i,"=" , total);
+        console.log("design #", i,"=" , total);
         
     }
 console.log("==============================================" );  
@@ -25,7 +25,7 @@ function calculateLogarithmic() {
          total = Math.ceil(Math.log(i + 1) * 10);
         supply +=total;
      
-        console.log("head design ", i, "=", total);
+        console.log("design #", i, "=", total);
     }
  console.log("==============================================" );  
       calculatepacks( supply);
@@ -39,15 +39,17 @@ export function createPackSuppy(){
         
         tokenId = i ;
         supply +=total;
-        console.log("head design ", i,"=" , total);
+        console.log("design #", i,"=" , total);
         
     } 
 
 }
 
+
+// we tryed to way to generate card supply. we keep the first simple one
 calculate();
 
-calculateLogarithmic();
+//calculateLogarithmic();
 
 function calculatepacks( supply ) {
     
@@ -63,15 +65,15 @@ then find the varition total supply factor
 
 Our total supply is 275 so:
 
-1   >> 275 cards
-5   >> 55 cards
-11  >>  25 cards
-25  >>  11 cards
+1 pack   >> 275 cards per packs
+5 pack  >> 55 cards per packs
+11 pack  >>  25 cards per packs
+25 pack  >>  11 cards per packs
 
-55  >>   5 cards
+55 pack  >>   5 cards per packs
 
 
-275 >>   1 cards
+275 pack >>   1 cards per packs
 
 
 let's go with 55 pack of 5 card.

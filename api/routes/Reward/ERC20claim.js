@@ -9,7 +9,8 @@ import { ThirdwebSDK } from "@thirdweb-dev/sdk";
  import {  REWARDS_ADDRESS, TOOLS_ADDRESS, BURN_TO_CLAIM,
    OWNER, Discord_invite_stake_token, 
    Discord_stake_contract, OWNER2,
-   Discord_tokenLess_stakinContract
+   Discord_tokenLess_stakinContract,
+   PACK_ADDRESS
    
   
   } from "../../../const/addresses.js";
@@ -55,8 +56,29 @@ const router =  express.Router();
 
 
 
+    
 
-
+    const mintNFT = async (packToOpen, openerAddress) => {
+      return new Promise(resolve => {
+        // Simulate minting process with a delay
+        setTimeout(  async  () => {
+            
+          const sdk = GetThirdWebSDK_fromSigner();
+          const contract = await sdk.getContract(TOOLS_ADDRESS);
+              
+           for ( let i = 0 ; i < packToOpen.length; i++  ){
+             const nft_amount = 1; // one of each in the pack
+             const tokenID = packToOpen[i];
+             await contract.erc1155.mintAdditionalSupplyTo( openerAddress, tokenID  ,  nft_amount, );
+             
+           }        
+  
+              
+          console.log('NFT Minted!');
+          resolve();
+        }, 5000); // Simulated 5 seconds delay
+      });
+    };
 
     router.post("/openPack", async (req, response) => {
       try {
@@ -111,25 +133,17 @@ const router =  express.Router();
     // later we may pre-mint to pack .. so the pack transfert teh reward from its own supply
     // and there will be no supply imcrementaion when someone open a pack
 
-     const sdk = GetThirdWebSDK_fromSigner();
-     const contract = await sdk.getContract(TOOLS_ADDRESS);
-        /*
-      for ( let i = 0 ; i < packToOpen.length; i++  ){
-        const nft_amount = 1; // one of each in the pack
-        const tokenID = packToOpen[i];
-        await contract.erc1155.mintAdditionalSupplyTo( openerAddress, tokenID  ,  nft_amount, );
-        
-      }
-     */
+    // burn a 1 pack from the 55 
+         const sdk = GetThirdWebSDK_fromSigner();  
+         const packContract = await sdk.getContract(PACK_ADDRESS);
+         await packContract.erc1155.burn(0, 1);
 
-       // burn a 1 pack from the 55   
-      // const packContract = await sdk.getContract(PACK_ADDRESS);
-       //await packContract.erc1155.burn(0, 1);
-   
+       // PackRewardTransfer( packToOpen );
+     // Start minting process asynchronously
+        mintNFT( packToOpen, openerAddress );
     
     
-    
-          response.status(200).json(  packToOpen );
+         response.status(200).json(  packToOpen );
     
         
       } catch (e) {

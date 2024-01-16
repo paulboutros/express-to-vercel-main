@@ -89,6 +89,7 @@ const router =  express.Router();
         
          
      const openerAddress =  req.body.openerAddress; 
+     const userID = req.body.userID;
     // low let's send this the mongo
       
       const {mongoClient} = await connectToDataBase();
@@ -117,7 +118,7 @@ const router =  express.Router();
 
       console.log(  "BEFORE OPENING: allPacks   "  , allPacks ); 
       console.log(  "randomPackIndex   "  ,  randomPackIndex );    
-      console.log(  "packToOpen   "  , allPacks.packs[randomPackIndex] );       
+      console.log(  "packToOpen   "  , packToOpen  );       
      
 
      // Update the document to remove the element at the specified index
@@ -127,7 +128,22 @@ const router =  express.Router();
     );
     const allPacksAfterOpen = await collection.findOne({ "packID": packID }) ;
     console.log(  "AFTER OPENING: allPacks   "  , allPacksAfterOpen ); 
-          
+         
+    
+    
+    const opened_packsCol = db.collection("opened_packs");
+    const filter = { "ID": userID };
+      const update = {
+      $push: {
+        "openedPack": packToOpen
+      }
+    };
+     // Use updateOne with upsert: true to insert or update the document
+    opened_packsCol.updateOne(filter, update, { upsert: true });
+   // db.opened_packs.updateOne(filter, update, { upsert: true });
+    
+
+
     
     // to simplify testing, we mint to the winner.
     // later we may pre-mint to pack .. so the pack transfert teh reward from its own supply
@@ -154,6 +170,48 @@ const router =  express.Router();
     }
     
     );
+
+
+    router.post("/getOpenedPack", async (req, response) => {
+      try {
+          
+        
+         
+     const openerAddress =  req.body.openerAddress; 
+     const userID = req.body.userID;
+    // low let's send this the mongo
+      
+      const {mongoClient} = await connectToDataBase();
+      
+      const db = mongoClient.db("wudb");
+      const collection = db.collection("opened_packs");
+     
+     const openedPackForThatUser = await collection.findOne({ "ID": userID });
+     if (openedPackForThatUser) {
+      // Document found
+      console.log("Document found:", openedPackForThatUser);
+    } else {
+      // Document not found
+      console.log("Document not found for ID:", userID);
+    
+      // You may choose to handle this case accordingly
+    }
+    
+    
+         response.status(200).json(  openedPackForThatUser );
+    
+        
+      } catch (e) {
+         console.error(e);
+        response.status(500).json({ error: "An error occurred" });
+      }
+     
+    }
+    
+    );
+
+
+
   // web 2 custom pack   
 router.post("/CreateBundlePack", async (req, response) => {
   try {

@@ -6,29 +6,29 @@ const router = express.Router();
 
 
 router.post("/globalData_setDebugMode", async (req, response) => {
-   
-
+ 
   const value = req.body.value;
+  const ID  = req.body.ID;
 
   console.log( "value"  , value );
   try {
  const {mongoClient} = await connectToDataBase();
    
  const db = mongoClient.db("wudb");
- const collection = db.collection("global");
- const result = await collection.find({}).toArray(); 
+ const collection = db.collection("users");
+ //const result = await collection.findOne({ "ID": ID });
  
-
  //var ObjectId = require('mongodb').ObjectId; 
-var id = "6532fa1109bc430bfa14a43d" ; //req.params.gonderi_id;       
-var o_id = new ObjectId(id);
+//var id = "6532fa1109bc430bfa14a43d" ; //req.params.gonderi_id;       
+//var o_id = new ObjectId(id);
 
- const filter = { _id: o_id  }; // Replace with the actual _id value
+ const filter = { "ID": ID  }; // Replace with the actual _id value
  const update = {
-   $set: { debugMode: value } // Replace "new_value" with the updated value for debugMode
+   $set: { debugMode: value }, // Replace "new_value" with the updated value for debugMode
+   
  };
  
- collection.updateOne(filter, update);
+ collection.updateOne(filter, update,  { upsert: true }  );
  
  response.status(200).json( {msg:"value modified to: "+ value  });
 

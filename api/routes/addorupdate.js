@@ -13,22 +13,7 @@ import { ethers } from "ethers";
   const router = express.Router();
 
 
-
-/*
-const db = db.getSiblingDB('your_database'); // Replace 'your_database' with your actual database name
-const collection = db.your_collection; // Replace 'your_collection' with your actual collection name
-
-const query = { _id: yourDocumentId }; // Specify the document you want to update
-const update = {
-  $set: { redirectUrl: 'your_new_redirect_url' }, // Set the new value for the redirectUrl property
-};
-const options = { upsert: true }; // Set the upsert option to true
-
-// Perform the update operation
-collection.updateOne(query, update, options);
-
-
-*/
+ 
 router.post("/setRedirectURL", async (request, response) => {
 
 

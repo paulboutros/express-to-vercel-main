@@ -541,7 +541,7 @@ router.post("/ERC20claim", async (req, response) => {
 
 const reward_claim_for_tokenIDs=[ he_id.toString(),sh_id.toString(), we_id.toString(), be_id.toString(),kn_id.toString() ];
 
-
+ console.log( "reward_claim_for_tokenIDs =",  reward_claim_for_tokenIDs );
 
 // 1a) now we compare them with what this adress own
 const owned_tokenIDs=[];
@@ -550,20 +550,32 @@ ownedNfts.forEach(element => {
   owned_tokenIDs.push(  id.toString()  );
    
 }); 
-
+console.log( " owned_tokenIDs =",   owned_tokenIDs );
 const matchResult=[];
+/*
 owned_tokenIDs.forEach(id => {
     const res =  reward_claim_for_tokenIDs.includes( id );
+    console.log( " test ID  " , id   ,  "   res  =", res );
     matchResult.push( { id_required:id , result:res   });
+});*/
+
+
+reward_claim_for_tokenIDs.forEach(id => {     // user 5 tokenIDs submitted from client
+  const res =  owned_tokenIDs.includes( id ); // does user really owns these TokenIDs
+  console.log( " test ID  " , id   ,  "   res  =", res );
+  matchResult.push( { id_required:id , result:res   });
 });
-console.log( ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"  );
+
+
+
+console.log( " containsMissingTokenID >>>>>>>>>>>>>>  "  );
 const containsMissingTokenID = matchResult.some(item => item.result === false);
 /* some token ID are missing we can not go further
 
 */
 
 
-console.log( ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"  , containsMissingTokenID );
+console.log( "containsMissingTokenID  >>>>>"  , containsMissingTokenID );
 if (containsMissingTokenID){
   response.status(200).json( {
       containsMissingTokenID:containsMissingTokenID,

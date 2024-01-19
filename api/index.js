@@ -387,7 +387,7 @@ return;
    if ( !NewMemberShouldBeAllowedInServer(member)  ){
               invite.uses -= 1; // decrencrement invite uses if member was kicked
               invite.upload();
-          logChannel.send(`${ member.tag } joined and got Kicked right after because it doea not meet this server requierement.`)
+           logChannel.send(`${ member.tag } joined and got Kicked right after because it doea not meet this server requierement.`)
           member.kick();
           }
  

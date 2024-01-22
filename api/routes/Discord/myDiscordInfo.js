@@ -6,6 +6,7 @@ import { Client, Events, GatewayIntentBits } from 'discord.js' ;
 import { connectToDataBase } from "../../../lib/connectToDataBase.js";
 import express from "express";
 import { connectToDiscord } from '../../../lib/connectToBotClient.js';
+//import { discordClient } from "../../index.js";
  
 const guildId = process.env.SERVER_ID;
 
@@ -27,25 +28,33 @@ router.get("/getUserGuild", async (req, response) => {
    }
    try {
  
+
+     //console.log( ">>> getUserGuild   initiated " );
      const { discordClient } = await connectToDiscord();
-     const guild  =   discordClient.guilds.cache.get(guildId);
+ 
+
+     const guild  =    discordClient.guilds.cache.get(guildId);
          
-          const ServerMembers = await guild.members.fetch();
+         const ServerMembers = await guild.members.fetch();
 
           let result={   status:false, joinedAt:"" };
         
            const member =   guild.members.cache.get(ID) ;
+
+           
           if ( member )  {  
 
-            const userJoinTime = member.joinedAt 
+            const userJoinTime = member.joinedAt; 
             result  = {  status :true, joinedAt: userJoinTime  };
-           //  result.message+= ` members found  uer=  : ${  member   }  userJoinTime${  userJoinTime   }`;
+           
+            console.log( ">>> getUserGuild :member is defined " , result );
             // console.log( result.message );
            }else{
               result  = {  status :true, joinedAt: userJoinTime  };
              
           }
   
+          console.log( ">>>  response.status(200) result= " , result );
           response.status(200).json(  result  );
 
        //  });

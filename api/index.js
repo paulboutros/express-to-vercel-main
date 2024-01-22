@@ -152,7 +152,7 @@ create an end point, so app client,  call and ask if user is part of server
  */
 
 
-const { discordClient } = await connectToDiscord();
+export const { discordClient } = await connectToDiscord();
 async function someFunction() {
   try {
     

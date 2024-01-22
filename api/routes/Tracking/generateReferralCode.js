@@ -66,14 +66,30 @@ const router = express.Router();
        let result = await collection.updateOne(
       { "ID": ID },
       {
-        //uncomment this later if you want to push multiple ref link
+       
         // $push: { "referralCodes": one_referral_Code  },
         // override the full array with one element to limit to one ref code
         // $set: { "referralCodes": [one_referral_Code] }
          $set: { "referralCodes": referralData }
-      }
+      },
+      { upsert: true } // Add this option for upsert
        
     );
+    console.log(`shareableLink ${shareableLink}`);
+    if (result.upsertedCount === 1) {
+      // Document was inserted (upsert occurred)
+      console.log(`Document with ID ${ID} upserted successfully`);
+    } else if (result.matchedCount === 1) {
+      // Document was updated
+      console.log(`Document with ID ${ID} updated successfully`);
+    } else {
+      // No document was updated or inserted
+      console.log(`No document was updated or inserted for ID ${ID}`);
+    }
+
+
+
+
 
  
     

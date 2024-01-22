@@ -1,5 +1,5 @@
 import { connectToDataBase } from "../../lib/connectToDataBase.js";
-import { newUserDocumentTemplate , globalTemplate , CreateNewUserDocument} from "../../lib/documentTemplate.js";
+import { newUserDocumentTemplate ,   CreateNewUserDocument} from "../../lib/documentTemplate.js";
 import express from "express";
 import _ from 'lodash'
 import { GetThirdWebSDK_fromSigner } from "../../utils/thirdwebSdk.js";
@@ -7,8 +7,7 @@ import { Discord_tokenLess_stakinContract } from "../../const/addresses.js";
 import { ethers } from "ethers";
  
 
- //import ValidateUserBody from "./middlewares/ValidateUserBody.js"
-//api/addorupdate
+ 
 //export default async function hanfler(request , response){
   const router = express.Router();
 
@@ -149,13 +148,10 @@ router.post("/setWallet", async (request, response) => {
           
             const ID = request.body.ID;
              let wallet =request.body.wallet ;//"000000000000"; request.body.wallet;
-             if (!wallet ) {
-            //  wallet  ="000000000000"
-
-            }
+            
 
 
-    console.log(`  >> >> wallet  from body =${    wallet  } `); 
+   
 
            const discord         = request.body.discord;
            const discordUserData =  request.body.discordUserData;

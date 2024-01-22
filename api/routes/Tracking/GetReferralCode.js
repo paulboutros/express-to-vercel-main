@@ -14,9 +14,7 @@ import { customEvent1 } from '../../index.js';
 
 const router = express.Router();
 
- 
-  // do not forget to use the endpoint in index.js
-  // this is just to display a referral for specific user
+  
 
   router.get("/GetReferralCode", async (req, response) => {
     try {
@@ -26,7 +24,7 @@ const router = express.Router();
   
       const userID = req.query.ID;
    
-  
+     // check if referral code exist for this user
       const referrer_user = await collection.findOne(
         { ID: userID }, // look for this user
         { projection: { referralCodes: 1 } } // get the referral code
@@ -41,7 +39,7 @@ const router = express.Router();
     } else {
       // No referrer_user with the referral code was found
      
-        response.status(404).json({ error: "Referral code not found" });
+        response.status(200).json({ referralCode: null });
     }
        
       
@@ -116,7 +114,7 @@ const router = express.Router();
     } else {
       // No referrer_user with the referral code was found
       response.status(200).json(   {inviteData: null }  );
-       // response.status(404).json({ error: "Referral code not found" });
+        
     }
        
       
@@ -144,7 +142,7 @@ const router = express.Router();
     } else {
       // No referrer_user with the referral code was found
       response.status(200).json(   {inviteData: null }  );
-       // response.status(404).json({ error: "Referral code not found" });
+       
     }
        
       

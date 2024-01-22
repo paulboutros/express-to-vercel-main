@@ -1,7 +1,6 @@
 import { connectToDataBase } from "../../lib/connectToDataBase.js";
 
-//http://localhost:3000/api/addorupdate
-//api/addorupdate
+ 
 //export default async function hanfler(request , response){
 
 import express from "express";

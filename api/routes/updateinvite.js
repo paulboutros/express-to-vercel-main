@@ -1,7 +1,6 @@
 import { connectToDataBase } from "../../lib/connectToDataBase.js";
 
-//http://localhost:3000/api/addorupdate
-//api/addorupdate
+ 
 //export default async function hanfler(request , response){
 
 import express from "express";
@@ -21,10 +20,7 @@ const router = express.Router();
 
    let result = "";  
 
-
-   // http://localhost:3000/api/addorupdate
  
-          
 
                 const ID = request.body.ID;
            //    const wallet = request.body.wallet;

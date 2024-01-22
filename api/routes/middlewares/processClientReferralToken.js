@@ -5,7 +5,9 @@ import  {Push_giveaway_toList } from "../GiveAway/GiveAwayLayers.js"
 
 
 // this is a referral middleware that is used my egt user/me
-// so when the referred user get authenticated, this will kick
+// so when the referred user get authenticated, this will execute
+// obsiously at this point the referral code exist since it has be shared
+
 const processClientReferralToken = async (request, response, next) => {
 
   
@@ -44,43 +46,12 @@ const referrer_user = await user_tracking.findOne({
 });
 
     //console.log("  >>>>>>>>>>>>>>   middleware referralData: "   , referralCode);
-   //   console.log("  >>>>>>>>>>>>>>   middleware referrer_user: "  , referrer_user);
    
-
    
     if (referrer_user) {
-
-        
-
-      
-
-      
-     // const randomValue = Math.floor(Math.random() * 10) + 1;
-     // const availableCategories = ["he", "sh", "we"];
-    //  const randomCategory = availableCategories[Math.floor(Math.random() * availableCategories.length)];
-
-      // Assuming you have a MongoDB collection named 'yourCollection' and a document with the '_id' matching the target document
-      // You can push the random value into the selected category using MongoDB's updateOne function
-      
-      // give the reward
-      
-
-      // remove the referral
-       /*
-       await user_tracking.updateOne(
-        { ID: referrer_user.ID },  
-        { $set: { referralCodes: [] } }  
-      ); */
-
-      
-       
+  
       const  tempID =referrer_user.ID;  // this is wrong should eb replsced by REFERRED
-      /*
-      await user_tracking.updateOne(
-        { ID: referrer_user.ID },  
-        { $push: { "referralCodes.referredUser": tempID } }
-      );
-      */
+      
 
       const result = await user_tracking.updateOne(
         { ID: referrer_user.ID, "referralCodes.referredUser": { $ne: tempID } },  

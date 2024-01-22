@@ -832,7 +832,7 @@ router.post("/setRewardStatusAndaddDist", async (request, response) => {
            
           console.log(" ================= task taskID    = " , taskID);
           if (ID === null  || taskID === null ) {
-             throw new Error('/setUserTask :One or more required parameters are null.');
+              throw new Error('/setUserTask :One or more required parameters are null.');
           }
  
 

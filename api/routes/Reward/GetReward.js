@@ -129,7 +129,7 @@ const combination = {
 
 
 const totalCategoryPercentage = 20; // Total percentage allocated for all categories
-const rewardPool = 300; // Total reward pool amount
+const rewardPool = 10000000; // Total reward pool amount
 
 // Initialize the object to store partial rewards for each category
 const partialRewards = {};
@@ -168,7 +168,7 @@ rewardInfo.finalRewardPrice = finalRewardPrice
 //console.log("Reward Price:", rewardPrice);
 
 
-
+console.log("rewardInfo:", rewardInfo);
 
 
     response.status(200).json( rewardInfo );

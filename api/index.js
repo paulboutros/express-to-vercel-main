@@ -65,8 +65,7 @@ import GetReferralCode from "./routes/Tracking/GetReferralCode.js";
 import setClaimConditions from       "./routes/Reward/setClaimConditions.js"
 import ERC20claim, { addto_inviteStaking, transfertDIST } from       "./routes/Reward/ERC20claim.js"
 import GetReward from       "./routes/Reward/GetReward.js"
-import GetLayerSupply from  "./routes/Reward/GetLayerSupply.js"
-import SetLayerSupply from  "./routes/Reward/SetLayerSupply.js"
+ import SetLayerSupply from  "./routes/Reward/SetLayerSupply.js"
 
 
 
@@ -694,8 +693,7 @@ app.use("/", setClaimConditions);
 
 app.use("/", ERC20claim);
 app.use("/", GetReward);
-app.use("/", GetLayerSupply);
-app.use("/", SetLayerSupply);
+ app.use("/", SetLayerSupply);
 app.use("/", getTokenDetails);
 
 app.use("/", GetEthToUsdRate);
@@ -778,6 +776,8 @@ app.use('/', getLayers); // Mount the exampleRouter at /api
  app.use('/', testToken); // Mount the exampleRouter at /api
  app.use(processClientReferralToken);
  
+
+ app.use(corsMiddleware);
  app.use('/', userMe); // Mount the exampleRouter at /api
   
  

@@ -647,6 +647,18 @@ let reward_res = await axios.post(endpoint, dataToSend);
 
     const rewardAmountInEther = reward_result.finalRewardPrice; 
     const rewardAmountInWei = ethers.utils.parseUnits(rewardAmountInEther.toString(), "ether");
+    const rewardAmountInInteger = parseInt(rewardAmountInWei.toString());
+    
+    console.log( " >>>>>>   rewardAmountInInteger",  rewardAmountInInteger   );
+    
+
+   // response.status(200).json( {res: " ok " });
+
+
+  //  return;
+
+    console.log( " >>>>>>   rewardAmountInWei", rewardAmountInWei  );
+
      const tx1 = await contract.setRewardAmount(rewardAmountInWei 
     , {
          gasLimit: 200000 // Replace with an appropriate gas limit
@@ -670,7 +682,7 @@ console.log( " sh_id",  sh_id  );
 console.log( " we_id",  we_id  );
 console.log( " be_id",  be_id  );
 console.log( " kn_id",  kn_id  );
-
+//[29,2,40,19,33]
  let tokenIdsToBurn = [he_id, sh_id, we_id, be_id, kn_id];
 // let tokenIdsToBurn = [0, 12, 21, 34, 40];
 

@@ -153,7 +153,7 @@ const router = express.Router();
 
        let result;
        const IDlist = req.body.IDlist;
-       console.log(  ">>>>>>>>>>>  coxSSX IDlist "  , IDlist);
+      
        for (let i =0  ; i < IDlist.length; i++ ){
          req.query.ID = IDlist[ i ];
             result = await discord_invite_create( req, response );

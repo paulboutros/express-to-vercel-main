@@ -20,13 +20,15 @@ const router = express.Router();
   // do not forget to use the endpoint in index.js
 router.get("/user/me", async (req, res) => {
 
+  /*
    const origine = process.env.REACT_APP_URL;
-     // Set the CORS headers
+     
   res.header('Access-Control-Allow-Origin', origine);  // 'https://www.wuli.rocks'
   res.header('Access-Control-Allow-Methods', 'GET, POST');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   res.header('Access-Control-Allow-Credentials', 'true');
   res.header('Access-Control-Max-Age', '86400');
+*/
 
   // Your code to handle the "user/me" endpoint...
    const requestBody = req.state.user;
@@ -44,6 +46,11 @@ router.get("/user/me", async (req, res) => {
 
 
 })
+
+
+
+
+
 export default router;
 
  

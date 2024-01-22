@@ -1,6 +1,6 @@
  
 
-
+import axios from "axios";
 import { Client, Events, GatewayIntentBits } from 'discord.js' ;
 
 import { connectToDataBase } from "../../../lib/connectToDataBase.js";
@@ -196,6 +196,84 @@ router.get("/getUserGuild", async (req, response) => {
      
          }
 })
+
+
+ 
+// Go through a list of all collection related to the user and delete it
+router.get("/deleteAccount", async (req, res) => {
+ 
+ 
+
+  try {
+
+    const ID = req.query.ID;
+ 
+    let endpoint = `${process.env.SERVER_URL}discord_invite_delete?ID=${ID}`;
+    let reward_res = await fetch(endpoint);
+     
+
+  let result;
+    const { mongoClient } = await connectToDataBase();
+     const db = mongoClient.db("wudb");
+     
+
+    const opened_packs = db.collection("opened_packs");
+    result = await opened_packs.deleteOne({ ID: ID });
+
+    if (result.deletedCount === 1) {
+      // Deletion was successful
+      console.log(`opened_packs with ID ${ID} deleted successfully`);
+    } else {
+      // No document was deleted (document with given ID not found)
+      console.log(`opened_packs with ID ${ID} not found`);
+    }
+
+
+
+    const user_tracking = db.collection("user_tracking");
+    result = await user_tracking.deleteOne({ ID: ID });
+    
+    if (result.deletedCount === 1) {
+      // Deletion was successful
+      console.log(`user_tracking with ID ${ID} deleted successfully`);
+    } else {
+      // No document was deleted (document with given ID not found)
+      console.log(`user_tracking with ID ${ID} not found`);
+    }
+
+
+
+    const users = db.collection("users");
+    result = await users.deleteOne({ ID: ID });
+    
+    if (result.deletedCount === 1) {
+      // Deletion was successful
+      console.log(`users with ID ${ID} deleted successfully`);
+    } else {
+      // No document was deleted (document with given ID not found)
+      console.log(`users with ID ${ID} not found`);
+    }
+
+
+   
+     
+    res.status(200).json(   {message :"account deleted" }  );
+    
+  
+     
+    
+  } catch (e) {
+     console.error(e);
+     res.status(500).json({ error: "An error occurred" });
+  }
+
+  
+
+
+})
+
+
+
 
 export default router;
  

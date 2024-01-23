@@ -24,7 +24,7 @@ const processClientReferralToken = async (request, response, next) => {
     }
     const referralData = JSON.parse(request.cookies.referralData);
     const referralCode = referralData.referralCode;
-   // console.log("XXXXXXXXXXXXXXXXX   Referral Code: " + referralCode);
+   
 
     const { mongoClient } = await connectToDataBase();
     const db = mongoClient.db("wudb");
@@ -32,21 +32,11 @@ const processClientReferralToken = async (request, response, next) => {
 
 
 
-    /*
-    const referrer_user = await user_tracking.findOne({
-      "referralCodes": {
-        $elemMatch: {
-          $eq:  referralCode // Use referralData to access the referral code
-        }
-      }
-    });
-*/
+    
 const referrer_user = await user_tracking.findOne({
   "referralCodes.code": referralCode
 });
-
-    //console.log("  >>>>>>>>>>>>>>   middleware referralData: "   , referralCode);
-   
+ 
    
     if (referrer_user) {
   
@@ -70,7 +60,7 @@ const referrer_user = await user_tracking.findOne({
           // and we not not want to give away twice
         next();
        // return response.status(401)
-      //  .json({ message: `This user has already joined using the invite ${referralCode} !!` });
+ 
       } else {
         rewardedGiveAway = Push_giveaway_toList(referrer_user.ID,1);
         console.log(`GiveAwayLayers  >>Element ${tempID} was added to the array.`);

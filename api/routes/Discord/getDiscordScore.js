@@ -179,12 +179,9 @@ router.get("/getDiscordScoreMOCK", async (req, response) => {
         const db = mongoClient.db("wudb");
         const collection = db.collection("users");
         
+        /*
           result = await collection.aggregate([
-            //  {
-            //       $match: {
-            //          discord: { $ne: "Wulirocks" } // Exclude documents with ID "Wulirocks"
-            //       }
-            //   },
+           
             {
                $project: {
                 _id: 0,
@@ -198,8 +195,8 @@ router.get("/getDiscordScoreMOCK", async (req, response) => {
               },
             },
           ]).toArray();
-
-
+*/
+   
 
        //===================================================
       
@@ -208,53 +205,73 @@ router.get("/getDiscordScoreMOCK", async (req, response) => {
    
        const ID = req.query.ID;
     
-       result = await inv_collection.find({}).toArray();
+       const discordInvites = await inv_collection.find({}).toArray();
 
        //====================================
 
  
+ // STRUCT TO MATCH
+  //  list of this type of object must be provided with to the board
+    /*  
+       {
+    "_id": "658fe3536a88802f51d2fda0",
+    "discord": "481961368896143360",
+    "invite_code": "AV2yEaj7cV",
+    "id": "481961368896143360",
+    "data": {
+        "invite_use": 11,
+        "nextInviteMaxThreshhold": 20
+    },
+    "invite_share": "1.9678",
+    "tokenClaimPerDay": 200
+}
+     */
 
-          // great, this is an object that the data gris will use
-          // the data above can come from any source or form, as long
-         // as we compile here, with that form
-            const newResult = result.map(item => ({
-              wallet: "wallet_not_provided",
-              walletShort: "wall..ided",
-              discord:  item.ID, // Preserve the 'discord' property
-              socialScore: 0,
-              total: 0,
-              scoreShareAbsolute: 0,
-              invite_code:   item.invite,//   item.scoreData.discord.invite_code, // Preserve the 'scoreData.discord.invite_code' property
-              message: 50,
-              invite_sent: 0,
-              invite_use:   item.acceptedUsers.length,//    item.scoreData.discord.invite_use, // Preserve the 'scoreData.discord.invite_use' property
-              fake_invite: 0,
-              discord_score: 0,
-              id: item.ID,
+
+     console.log(   "  result    =  "  , result );
+
+        // great, this is an object that the data grid will use
+        // the data above can come from any source or form, as long
+         // as we compile here, with that data structur , this should match mock data as well
+
+         const newResult = discordInvites.map(item => ({
+        
+           invite_code :  item.invite ,
+           data : {
+              invite_use :  item.acceptedUsers.length,
+              nextInviteMaxThreshhold : 20
+            },
+            id: item.ID 
+           
+           
             }));
 
+              /*
+              const newResult = result.map(item => ({
+          //    wallet: "wallet_not_provided",
+          //    walletShort: "wall..ided",
+           //   discord:  item.ID, // Preserve the 'discord' property
+             // socialScore: 0,
+           //   total: 0,
+           //   scoreShareAbsolute: 0,
+            //  invite_code:   item.invite,//   item.scoreData.discord.invite_code, // Preserve the 'scoreData.discord.invite_code' property
+             // message: 50,
+           //   invite_sent: 0,
+             // invite_use:   item.acceptedUsers.length,//    item.scoreData.discord.invite_use, // Preserve the 'scoreData.discord.invite_use' property
+            //  fake_invite: 0,
+            //  discord_score: 0,
+             invite_code : "AV2yEaj7cV",
+             
+              data : {
+                 invite_use :  discordInvites.find(el => el.ID ==) ,
+                 nextInviteMaxThreshhold : 20
+             },
 
 
-         /*
-          const newResult = result.map(item => ({
-            wallet: "wallet_not_provided",
-            walletShort: "wall..ided",
-            discord:  item.discord, // Preserve the 'discord' property
-            socialScore: 0,
-            total: 0,
-            scoreShareAbsolute: 0,
-            invite_code:   item.scoreData.discord.invite_code  , // Preserve the 'scoreData.discord.invite_code' property
-            message: 50,
-            invite_sent: 0,
-            invite_use: item.scoreData.discord.invite_use, // Preserve the 'scoreData.discord.invite_use' property
-            fake_invite: 0,
-            discord_score: 0,
-            id: item.id,
-          }));
-          */
 
- 
-            
+              id: item.ID,
+              }));
+               */
      
                response.status(200).json(newResult);
           }catch(e){

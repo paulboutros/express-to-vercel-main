@@ -51,25 +51,18 @@ const router = express.Router();
 
        // Create a shareable link
        const shareableLink = `${process.env.REACT_APP_URL}?referralCode=${one_referral_Code}`;
-
-      // console.log(  "one_referral_Code   =  "   +  one_referral_Code);
-  
+ 
 
        const referralData ={
-         code: one_referral_Code,
-         referredUser:[] // people hwo have accepted
-
-
-       }
-
-          
+          code: one_referral_Code,
+          shareableLink: shareableLink,
+          referredUser:[] // people hwo have accepted
+        }
+           
        let result = await collection.updateOne(
       { "ID": ID },
       {
-       
-        // $push: { "referralCodes": one_referral_Code  },
-        // override the full array with one element to limit to one ref code
-        // $set: { "referralCodes": [one_referral_Code] }
+        
          $set: { "referralCodes": referralData }
       },
       { upsert: true } // Add this option for upsert
@@ -86,21 +79,14 @@ const router = express.Router();
       // No document was updated or inserted
       console.log(`No document was updated or inserted for ID ${ID}`);
     }
-
-
-
-
-
- 
     
-         // layer interaction
-   
       const responeToClient = {
          shareableLink :shareableLink
       };
  
-  
-      response.status(200).json(responeToClient);
+      response.status(200).json(referralData);
+      
+      // response.status(200).json(responeToClient);
     } catch (e) {
       console.error(e);
       response.status(500).json({ error: "An error occurred" });

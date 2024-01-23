@@ -16,11 +16,7 @@ router.post("/globalData_setDebugMode", async (req, response) => {
    
  const db = mongoClient.db("wudb");
  const collection = db.collection("users");
- //const result = await collection.findOne({ "ID": ID });
  
- //var ObjectId = require('mongodb').ObjectId; 
-//var id = "6532fa1109bc430bfa14a43d" ; //req.params.gonderi_id;       
-//var o_id = new ObjectId(id);
 
  const filter = { "ID": ID  }; // Replace with the actual _id value
  const update = {
@@ -28,7 +24,7 @@ router.post("/globalData_setDebugMode", async (req, response) => {
    
  };
  
- collection.updateOne(filter, update,  { upsert: true }  );
+ collection.updateOne(filter, update  ); // ,  { upsert: true } it should be created already
  
  response.status(200).json( {msg:"value modified to: "+ value  });
 

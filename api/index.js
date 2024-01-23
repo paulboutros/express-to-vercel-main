@@ -493,12 +493,9 @@ return;
     /* 
      const inviter = await discordClient.users.fetch(invite.inviter.id);
    */
-    
-
-
+  
     const logChannel = discordClient.channels.cache.get( botChannel );
- 
-      //member.guild.channels.cache.find(channel => channel.name === "join-logs");
+      
     // A real basic message with the information we need. 
     inviterFomMongo
       ? logChannel.send(`${ member.tag } joined using invite code ${modifiedInviteCode} from ${inviterFomMongo.ID }. Invite was used ${invite.uses} times since its creation.`)
@@ -509,7 +506,7 @@ return;
     
      if ( !NewMemberShouldBeAllowedInServer(member)  ){
              invite.uses -= 1; // decrencrement invite uses if member was kicked
-             invite.upload();
+            // invite.upload();  invite is not a fucntion error
        logChannel.send(`${ member.tag } joined and got Kicked right after because it doea not meet this server requierement.`)
         member.kick();
      }
@@ -558,29 +555,20 @@ export async function updateInvitesOnMongo ( collection , filter, action ){
 }
 
   function NewMemberShouldBeAllowedInServer(member) {
-
-    
-
-
-    let accountAge =  getAccountAge(member);
+      let accountAge =  getAccountAge(member);
        // is account age is > 90 days
-     let accountIsOldEnough = accountAge > 90; // this could be voted
-     let memberUsernameIsOk = true;// !member.username.startsWith("wulli");
-   
-   
-      if (!accountIsOldEnough){
+     let accountIsOldEnough = accountAge > 90; // this number could be voted by community
+    
+     if (!accountIsOldEnough){
          console.log( `Reject account because age is    >> ${accountAge} `);
-        return false;
-      } 
-       if ( !memberUsernameIsOk ){
-         console.log( " Reject account name start with wulli  ");
-        return false;
-      }
+         return false;
+     } 
+       
       return true;  
      
    }// age in day
    function getAccountAge(member) {
-     const createdAt = member.createdAt ;// member.user.createdAt;
+     const createdAt = member.createdAt ;// get age of account
      const now = new Date();
      const ageInMs = now - createdAt;
      const ageInDays = ageInMs / (1000 * 60 * 60 * 24); // convert milliseconds to days
@@ -768,10 +756,7 @@ app.use('/', getLayers); // Mount the exampleRouter at /api
 // "authenticate" middleware must contains a valid token
  app.use(authenticate);
  
-
- //app.use('/', processReferral); // we currently do not require auth token in it ..  
- //app.use('/', GetReferralCode);  // we currently do not require auth token in it .. 
-
+ 
 
  app.use('/', testToken); // Mount the exampleRouter at /api
  app.use(processClientReferralToken);

@@ -9,7 +9,7 @@ import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
 import { connectToDataBase } from "../../../lib/connectToDataBase.js";
 import { connectToDiscord } from '../../../lib/connectToBotClient.js';
-import { customEvent1 } from '../../index.js';
+import { customEvent1, set_inviteList_BeforeJoin } from '../../index.js';
   
 
 const router = express.Router();
@@ -182,11 +182,30 @@ const router = express.Router();
   });
 
   
+  router.get("/set_inviteList_BeforeJoin", async (req, response) => {
+    try {
+       
+       
+   
+      set_inviteList_BeforeJoin();
+      // No referrer_user with the referral code was found
+      response.status(200).json(   {message: "set_inviteList_BeforeJoin ok" }  );
+       
+     
+       
+      
+    } catch (e) {
+       console.error(e);
+      response.status(500).json({ error: "An error occurred" });
+    }
+  });
+  
+  
+
   router.get("/GetDiscordInviteCode", async (req, response) => {
 
     const currentTime = new Date();
-    console.log("GetDiscordInviteCode  time:  " , currentTime  )
-
+ 
     const { discordClient } = await connectToDiscord();
     const guild = discordClient.guilds.cache.get( process.env.SERVER_ID );
 
@@ -199,25 +218,21 @@ const router = express.Router();
    
       const inviteData = await collection.findOne(
         { ID: ID } // look for this user
-       // ,{ projection: { invite: 1 } } // get the invite/referral code
-      );
+       );
      if (inviteData ) { 
-        
-       
-     
-
-         console.log(  " >>>>>   inviteData   inviteCode  =  "  ,  inviteData.invite   );
+      
+     //    console.log(  " >>>>>   inviteData   inviteCode  =  "  ,  inviteData.invite   );
         
           try {
             const inviteCode =  inviteData.invite;
             const invite = await  guild.invites.fetch(inviteCode); 
-            console.log(  " inviteData.invite  =  "  ,   inviteData.invite , " is an invite on Discord "   );
+        //    console.log(  " inviteData.invite  =  "  ,   inviteData.invite , " is an invite on Discord "   );
           } catch (error) {
           //  console.error('Error fetching invite:', error.message);
             // Handle the case where the invite is not found
             const missingMatchingDiscordInviteCode = await collection.deleteOne({ ID: ID });
             inviteData=null;
-            console.log(  " inviteData.invite  =  "  ,   inviteData.invite , " is not a invite on Discord "   );
+       //     console.log(  " inviteData.invite  =  "  ,   inviteData.invite , " is not a invite on Discord "   );
           }
       
      }
@@ -229,12 +244,8 @@ const router = express.Router();
       const endpoint = `${process.env.SERVER_URL}discord_invite_create?ID=${ID}`; // make it specific (filter to twitter fields)
       const resultsPostJson = await fetch(endpoint);
       const resultsJson = await resultsPostJson.json();
-       console.log( " created invite  " , resultsJson );
-     // const resultsJson = await resultsPostJson.json();
-     // responseToClient.inviteData = inviteData ;/
-     // inviteData = resultsJson.inviteData = inviteData 
-      //client.emit(customEvent1, guild,'these params', 'will be logged', 'via the listener.');
-
+      // console.log( " created invite  " , resultsJson );
+     
    }
         //
 

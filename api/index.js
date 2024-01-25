@@ -16,7 +16,8 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
 import globalData from './routes/globalData.js';
-import findUsersWithNonZeroProperties from './routes/findUsersWithNonZeroProperties.js';
+
+//import findUsersWithNonZeroProperties from './routes/findUsersWithNonZeroProperties.js';
 
 import updateinvite from './routes/updateinvite.js';
 import updateAllInvite from './routes/updateAllInvite.js';
@@ -27,8 +28,7 @@ import getDiscordScore from './routes/Discord/getDiscordScore.js';
 import myDiscordInfo from './routes/Discord/myDiscordInfo.js';
 
 
-import bestInviteScore from './routes/bestInviteScore.js';
-import earnings from './routes/earnings.js';
+ import earnings from './routes/earnings.js';
 
 
 import getLayers from './routes/getLayers.js';
@@ -38,8 +38,7 @@ import userMe from './routes/userMe.js';
  
 import {spawn} from "child_process"
  
- import getSocialData from './routes/getSocialData.js';
-
+ 
 
 //registration
 import addorupdate from './routes/addorupdate.js';
@@ -64,24 +63,14 @@ import GetReferralCode from "./routes/Tracking/GetReferralCode.js";
  
 import setClaimConditions from       "./routes/Reward/setClaimConditions.js"
 import ERC20claim, { addto_inviteStaking, transfertDIST } from       "./routes/Reward/ERC20claim.js"
-import GetReward from       "./routes/Reward/GetReward.js"
- import SetLayerSupply from  "./routes/Reward/SetLayerSupply.js"
-
-
-
-import GetRewardNextTime from  "./routes/Reward/GetRewardNextTime.js"
-import SetRewardLastTiming from  "./routes/Reward/SetRewardLastTiming.js"
-import RevealAndAdd from  "./routes/Reward/RevealAndAdd.js"
+import  GetRewardPrice from       "./routes/Reward/GetRewardPrice.js"
  
- import SetRewardNextTime from  "./routes/Reward/SetRewardNextTime.js"
+
+ 
 
 
-//give away api:
- import GiveAwayLayers from  "./routes/GiveAway/GiveAwayLayers.js"
- import GetTempGiveAway from  "./routes/GiveAway/GetTempGiveAway.js"
-
- import StartGiveAwayShedule from  "./routes/GiveAway/StartGiveAwayShedule.js"
- import {functionStartGiveAwayShedule } from  "./routes/GiveAway/StartGiveAwayShedule.js"
+import RevealAndAdd from  "./routes/Reward/RevealAndAdd.js"
+   
 
  import update_real_discord_user from  "./routes/update_real_discord_user.js"
 
@@ -99,11 +88,9 @@ import GetContractThirdweb from "./routes/WEB3/GetContractThirdweb.js";
 //==============================================
 
 //import Discord from "discord.js";
-import { Client, Events, GatewayIntentBits, Collection } from 'discord.js' ;
-import { Discord_invite_stake_token, Discord_stake_contract, OWNER, STAKING_ADDRESS, botChannel } from '../const/addresses.js';
-import { GetThirdWebSDK_fromSigner } from '../utils/thirdwebSdk.js';
-import { debug } from 'console';
-
+import { Client, Events,   Collection } from 'discord.js' ;
+import { botChannel } from '../const/addresses.js';
+ 
 
  export const customEvent1="test";
 const targetChannelID = botChannel;
@@ -163,20 +150,10 @@ async function someFunction() {
          const channel = discordClient.channels.cache.get(targetChannelID);  
          channel.send('>>>>>>>>>  Hello, this is a message from the bot!');
          const guild = discordClient.guilds.cache.get( process.env.SERVER_ID );
-
-
-//=======================================================================
-  
-    
-        // Fetch all Guild Invites
-          //const firstInvites = await guild.invites.fetch();
-      
-         // invitesBeforeJoin = new Collection(firstInvites.map((invite) => [invite.code, invite.uses]));
-              
-            reset_invites_beforeJoin( guild );
-
-
-               console.log( `invitesBeforeJoin.size   >> ${invitesBeforeJoin.size}  invitesBeforeJoin: ${ invitesBeforeJoin }`);
+               
+          set_inviteList_BeforeJoin( guild );
+ 
+          console.log( `invitesBeforeJoin.size   >> ${invitesBeforeJoin.size}  invitesBeforeJoin: ${ invitesBeforeJoin }`);
        
   
    
@@ -197,7 +174,7 @@ async function someFunction() {
                     const username = user.username;
                     const userID = user.id;
 
-                     console.log( userID );
+                 //    console.log( userID );
 
 
 
@@ -259,21 +236,21 @@ export  async function modify_newInvites( guild,  inviteCodeToUpdate  , modif ){
 }
 
 
-export async  function reset_invites_beforeJoin( guild  ){
+export async  function set_inviteList_BeforeJoin( guild  ){
 
   const firstInvites = await guild.invites.fetch();
       
   invitesBeforeJoin = new Collection(firstInvites.map((invite) => [invite.code, invite.uses]));
               
-
+  console.log("  invitesBeforeJoin "  , invitesBeforeJoin)
 }
 // custom event
 // attach a listener function
 discordClient.on(customEvent1,  async ( guild ) => {   
   
-    console.log("  custom emitter  arg:guild "  , guild)  
+    console.log("  custom emitter  arg:guild "  , guild)  ;
   
-    reset_invites_beforeJoin(guild);
+    set_inviteList_BeforeJoin(guild);
 
 });
  //=======================================================================================================
@@ -296,14 +273,26 @@ discordClient.on(customEvent1,  async ( guild ) => {
 
     // This is the *existing* invitesBeforeJoin for the guild.
   const oldInvites = invitesBeforeJoin ;
- 
+  console.log(  ">>> oldInvites length  = "  , oldInvites.length  );
 
  let modifiedInviteCode;
  newInvites.forEach((newUses, code) => {
   const oldUses = oldInvites.get(code);
-   //console.log(  ">>> newUses  = "  , newUses  , "code  " , code );
+  console.log(  ">>> oldUses  = "  , oldUses );
+  if ( !oldUses){
 
+     console.error(`Invite code ${code} not found in oldInvites`);
+    
+  }
+   
+
+
+
+   console.log(  ">>> newUses  = "  , newUses  , "code  " , code );
+  
  const inviteDifference = newUses - oldUses;
+
+ console.log(  ">>> inviteDifference  = "  ,  inviteDifference );
   if (oldUses !== undefined && ( inviteDifference !== 0 ) ) {
     if (inviteDifference < 0 ){
       console.log(`Invite ${code} has DECREASED uses from ${oldUses} to ${newUses}`);
@@ -516,7 +505,7 @@ return;
   this is done once whenn the bot/client login, and now
   so next time some one koin it can compare with this list of [invitecode-inviteUses] mapping
 */
-//reset_invites_beforeJoin( guild );
+//set_inviteList_BeforeJoin( guild );
 
 
      //BLOCKCHAIN INTERRACTION
@@ -680,29 +669,19 @@ app.get("/pythonTest", (request, res) => {
 app.use("/", setClaimConditions);
 
 app.use("/", ERC20claim);
-app.use("/", GetReward);
- app.use("/", SetLayerSupply);
-app.use("/", getTokenDetails);
+app.use("/", GetRewardPrice);
+ app.use("/", getTokenDetails);
 
 app.use("/", GetEthToUsdRate);
 
 
 
 //GiveAway
-app.use("/",GiveAwayLayers);
-app.use("/",GetTempGiveAway);
-app.use("/",StartGiveAwayShedule);
+ 
 app.use("/",update_real_discord_user);
 
-
-
-app.use("/",SetRewardLastTiming);
-app.use("/",SetRewardNextTime);
-
-
-
-  app.use("/",GetRewardNextTime);
-  app.use("/",RevealAndAdd);
+ 
+app.use("/",RevealAndAdd);
 
 
 
@@ -716,8 +695,7 @@ app.use('/', callback);
  app.use('/', GetReferralCode);  // moved under authenticate, must include credential token      
 
 app.use('/', globalData);    
-app.use('/', findUsersWithNonZeroProperties); // Mount the exampleRouter at /api
-
+ 
 
 // Middleware to extract IP address
 app.use((req, res, next) => {
@@ -736,15 +714,11 @@ app.use('/', sendTracking);
  app.use('/', getDiscordScore);
 app.use('/', updateAllInvite);
 app.use('/', updateinvite);
-app.use('/', bestInviteScore);
-app.use('/', earnings); // Mount the exampleRouter at /api
+ app.use('/', earnings); // Mount the exampleRouter at /api
 app.use('/', getData); // Mount the exampleRouter at /api
 app.use('/', getLayers); // Mount the exampleRouter at /api
 
- //app.use('/', getDiscordData); // Mount the exampleRouter at /api
- //app.use('/', getTwitterData); // Mount the exampleRouter at /api
- app.use('/', getSocialData); // Mount the exampleRouter at /api
-
+ 
  app.use('/', addorupdate); // Mount the exampleRouter at /api
 
  //test

@@ -1,8 +1,6 @@
 import { connectToDataBase } from "../../../lib/connectToDataBase.js";
-import jwt from 'jsonwebtoken';
-import  {Push_giveaway_toList } from "../GiveAway/GiveAwayLayers.js"
-
-
+ 
+  
 
 // this is a referral middleware that is used my egt user/me
 // so when the referred user get authenticated, this will execute
@@ -62,7 +60,8 @@ const referrer_user = await user_tracking.findOne({
        // return response.status(401)
  
       } else {
-        rewardedGiveAway = Push_giveaway_toList(referrer_user.ID,1);
+        console.log(`TO DO: this should give away REWARD to the referrer`);
+      //  rewardedGiveAway = Push_giveaway_toList(referrer_user.ID,1);
         console.log(`GiveAwayLayers  >>Element ${tempID} was added to the array.`);
         // Perform your action if the element was added.
       }

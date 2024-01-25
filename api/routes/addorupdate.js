@@ -139,20 +139,14 @@ router.post("/setWallet", async (request, response) => {
    const collection = db.collection("users");
 
 
-   let result = "";  
-
+        let result = "";  
  
-
            let user;
 
           
             const ID = request.body.ID;
              let wallet =request.body.wallet ;//"000000000000"; request.body.wallet;
-            
-
-
-   
-
+ 
            const discord         = request.body.discord;
            const discordUserData =  request.body.discordUserData;
  
@@ -203,10 +197,7 @@ router.post("/setWallet", async (request, response) => {
         
       }
       result  += " userExist.matchedCount " +  userExist.matchedCount;
-      
-
-
-
+ 
        result  += " ID  " +  ID;
         result  += " wallet  " +  wallet;
         
@@ -216,15 +207,7 @@ router.post("/setWallet", async (request, response) => {
              userExist : userExist.matchedCount === 1  //userExist.matchedCount
        }
 
-       /*
-       console.log(  "================================================================================="  );
-       console.log(  "responseObj.user  "   , responseObj.user   );
-
-       console.log(  "responseObj.user.ID  "   , responseObj.user.ID   );
-       console.log(  "responseObj.user.wallet  "   ,responseObj.user.wallet   );
-       console.log(  "responseObj.user.discord  "   , responseObj.user.discord   );
-       console.log(  "================================================================================="  );
-*/
+       
            response.status(200).json( responseObj ); // result
     }catch(e){
            console.error(e);
@@ -234,9 +217,6 @@ router.post("/setWallet", async (request, response) => {
     }
 })
 
-
  
-
-
 
 export default router;

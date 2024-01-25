@@ -1,11 +1,10 @@
  
-
-import axios from "axios";
-import { Client, Events, GatewayIntentBits } from 'discord.js' ;
-
+ 
 import { connectToDataBase } from "../../../lib/connectToDataBase.js";
 import express from "express";
 import { connectToDiscord } from '../../../lib/connectToBotClient.js';
+import { GetThirdWebSDK_fromSigner } from "../../../utils/thirdwebSdk.js";
+import { Discord_tokenLess_stakinContract } from "../../../const/addresses.js";
 //import { discordClient } from "../../index.js";
  
 const guildId = process.env.SERVER_ID;
@@ -80,8 +79,8 @@ router.get("/getUserGuild", async (req, response) => {
 
     const IDlist = req.body.IDlist;
 
-    // 
-    //return;
+   console.log( "IDlist  = "  ,IDlist);
+
     if (!IDlist || IDlist.length === 0) {
          const error = new Error("'IDlist' should be set in you rerquest body");
          response.status(400);
@@ -111,16 +110,13 @@ router.get("/getUserGuild", async (req, response) => {
                 ID:1,
                 discord:1,
                 discordUserData:1, // warning, this information are not up to date
-              
-             //   "scoreData.discord.invite_code": 1  ,
-             //   "scoreData.discord.invite_use": 1 
-              
+         
               },
             },
           ]).toArray();
 
-
-
+          console.log( "from list : result  = "  ,result);
+          
           /*
           const { discordClient } = await connectToDiscord();
           const userIds = IDlist;
@@ -217,13 +213,17 @@ router.get("/deleteAccount", async (req, res) => {
 
     const ID = req.query.ID;
  
+    const { mongoClient } = await connectToDataBase();
+    const db = mongoClient.db("wudb");
+     
+
+ 
     let endpoint = `${process.env.SERVER_URL}discord_invite_delete?ID=${ID}`;
     let reward_res = await fetch(endpoint);
      
 
   let result;
-    const { mongoClient } = await connectToDataBase();
-     const db = mongoClient.db("wudb");
+   
      
 
     const opened_packs = db.collection("opened_packs");
@@ -249,11 +249,13 @@ router.get("/deleteAccount", async (req, res) => {
       // No document was deleted (document with given ID not found)
       console.log(`user_tracking with ID ${ID} not found`);
     }
+ 
 
+     const users = db.collection("users");
+     const  userOne = await users.findOne({ ID: ID });
+      const walletOnServer =   userOne.wallet;
 
-
-    const users = db.collection("users");
-    result = await users.deleteOne({ ID: ID });
+     result = await users.deleteOne({ ID: ID });
     
     if (result.deletedCount === 1) {
       // Deletion was successful
@@ -263,8 +265,14 @@ router.get("/deleteAccount", async (req, res) => {
       console.log(`users with ID ${ID} not found`);
     }
 
-
-   
+  // scenario where we create an account,we then delete the account but we did not
+  // saved our wallet on the server.. therfore "walletOnServer" is null
+     if ( walletOnServer ){
+    // web3 blochchain interactionL we delete/clean staking info for this staker/address
+    const sdk = GetThirdWebSDK_fromSigner();
+    const dist_tokenLessContract = await sdk.getContract(   Discord_tokenLess_stakinContract  );
+    const deleteStakeInfo = await dist_tokenLessContract.call("deleteStakeInfo", [ walletOnServer]);
+  }
      
     res.status(200).json(   {message :"account deleted" }  );
     

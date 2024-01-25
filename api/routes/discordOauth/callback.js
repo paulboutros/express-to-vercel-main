@@ -8,10 +8,7 @@ import { URLSearchParams } from 'url';
 import dotenv from 'dotenv';
 //import{ sign } from 'jsonwebtoken'
 import jwt from 'jsonwebtoken';
-
- //import {GiveAwayLayers} from "../GiveAway/GiveAwayLayers.js"
-
-  import {Push_giveaway_toList} from "../GiveAway/GiveAwayLayers.js"
+ 
  
 
 import { connectToDataBase } from "../../../lib/connectToDataBase.js";
@@ -145,8 +142,8 @@ router.get("/api/auth/callback/discord", async (request, response) => {
              // response.redirect('/');
              const baseurl = process.env.REACT_APP_URL;
 
-
-             Push_giveaway_toList(userinfo.data.id , 2 );
+             console.log( "TO DO : here the send the reward to the referrerwho brought new referree");
+           //  Push_giveaway_toList(userinfo.data.id , 2 );
         
               response.redirect( baseurl);
                    

@@ -85,7 +85,7 @@ router.get("/createDiscordMockData", async (req, response) => {
   console.log(  "resultsJson"  ,resultsJson);
 
    const listOfID = resultsJson.map(item => item.id);
-  // let referredUserListDetails  = await getManyUserData(  listOfID   );
+   
 
   const useMockData = true;
 

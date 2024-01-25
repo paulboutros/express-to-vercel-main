@@ -4,19 +4,13 @@
 import { ethers } from "ethers";
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 import dotenv from 'dotenv';
-import { FARMER_ADDRESS, REWARDS_ADDRESS, 
-    STAKING_ADDRESS, TOOLS_ADDRESS,
-     DROP_ADDRESS } from "../../../const/addresses.js";
+import {   REWARDS_ADDRESS,  TOOLS_ADDRESS  } from "../../../const/addresses.js";
+   
+    
 
 import express from "express";
 dotenv.config();
 
-
-async function test(){
- 
-
-
-}
  
 
 

@@ -18,7 +18,7 @@ import express from "express";
 import { wullirockTestUser } from "../../../const/addresses.js";
 import axios from "axios";
 import { Collection } from "discord.js";
-import { modify_newInvites } from "../../index.js";
+import { modify_newInvites, set_inviteList_BeforeJoin } from "../../index.js";
  
 const verificationChannel = '947487866655764556';
 const router = express.Router();
@@ -189,20 +189,13 @@ const router = express.Router();
   
       
   const ID = req.query.ID;
-
-
-
-
+ 
   if ( !ID ) {
       const error = new Error("'userId' should be set in you rerquest body");
-    //   response.status(400);
-    //  response.json(  { success: false, error: error.message }    );
-      
-      return  { code :400 , json: { success: false, error: error.message }     }; // Stop further execution
+       return  { code :400 , json: { success: false, error: error.message }     }; // Stop further execution
   }
   try {
-    // make sure an invite already assign to user does not exist;
-       const inviteWithThisID_exist = await collection.findOne({ID:ID})
+        const inviteWithThisID_exist = await collection.findOne({ID:ID})
        if (inviteWithThisID_exist ) {
            return  { code :400 , json: {  msg: `invite for this ID:${ID}exist already. Invite NOT created`
              }}; // Stop further execution
@@ -215,7 +208,7 @@ const router = express.Router();
      
       const { discordClient } = await connectToDiscord();
       const channel = discordClient.channels.cache.get(  verificationChannel  );  
-    
+      const guild   = discordClient.guilds.cache.get( process.env.SERVER_ID );
 
      let responseToClient = {inviteData: null}
        // cool strategy: let user once ev 3 days. create a 24 invite channel, allinvites count 1.5 weight then it expires
@@ -233,9 +226,12 @@ const router = express.Router();
 
                 responseToClient.inviteData = inviteData ;//.status = inv.code
               }
-          );
+       );
+
+       
+       set_inviteList_BeforeJoin(guild);
         
-     const result = await collection.insertOne( inviteData );
+       const result = await collection.insertOne( inviteData );
       
      return  { code :200 , json: responseToClient    }; // Stop further execution
      // response.status(200).json(  responseToClient  );
@@ -376,7 +372,7 @@ const router = express.Router();
 
 
       // modifiedInviteCode = "6za6sZyHDC";
-        console.log( "modifiedInviteCode    == "  ,modifiedInviteCode);
+        console.log( "emit/guildMemberAdd: modifiedInviteCode    == "  ,modifiedInviteCode);
        //const invite = await guild.invites.fetch({ code: modifiedInviteCode });
        
        // we change the inviteuses count of a temp list, to simulate a use change
@@ -474,8 +470,7 @@ https://stackoverflow.com/questions/64933979/discord-get-user-by-id
  // fetchedUser = { ...fetchedUser, isTestMember: true };
   client.emit('guildMemberAdd', fetchedUser);
  }
-
-
+ 
  // actual event listener "Events.GuildMemberAdd,"
   //is in index file
 // Simulate the GuildMemberAdd event
@@ -491,15 +486,33 @@ async function simulateGuildMemberRemove(client, userId ) {
   // fetchedUser = { ...fetchedUser, isTestMember: true };
    client.emit('guildMemberRemove', fetchedUser);
   }
+  
+  router.post("/GetManyUsersFromDiscord", async (req, response) => {
+  
+    try {
+     
+      const { discordClient } = await connectToDiscord();
+
+      const guild = discordClient.guilds.cache.get(guildId);
+   
+
+      const userIds = req.body.IDlist ;
+
+     // const userIds = ["523040251862712320","925073990656077824","964233683898867792","949424238442455070" ];
+      const discordUsersResult =[];
+       for (let i = 0; i < userIds.length; i++) {
+         const fetchedUser = await fetchUserById(discordClient, userIds[i]);
+         discordUsersResult.push(fetchedUser);
+       }
  
-
-
-
-
-
-
-
-
+       response.status(200).json(    discordUsersResult     );
+ 
+    } catch (e) {
+      console.error(e);
+      response.status(500).json({ error: "An error occurred" });
+    }
+  });
+ 
 // try will multiple add at once
 async function simulateGuildMemberAdd_many(client, userId ) {
    
@@ -526,19 +539,6 @@ router.get('/joindiscord/:inviteCode', (req, res) => {
   console.log(`User used invite code: ${inviteCode}`);
 });
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
   export default router;
   

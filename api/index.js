@@ -28,11 +28,11 @@ import getDiscordScore from './routes/Discord/getDiscordScore.js';
 import myDiscordInfo from './routes/Discord/myDiscordInfo.js';
 
 
- import earnings from './routes/earnings.js';
+ //import earnings from './routes/earnings.js';
 
 
-import getLayers from './routes/getLayers.js';
-import getData from './routes/getData.js';
+//import getLayers from './routes/getLayers.js';
+//import getData from './routes/getData.js';
 import testToken from './routes/testToken.js';
 import userMe from './routes/userMe.js';
  
@@ -61,7 +61,7 @@ import processReferral from "./routes/Tracking/processReferral.js";
 import GetReferralCode from "./routes/Tracking/GetReferralCode.js";
 
  
-import setClaimConditions from       "./routes/Reward/setClaimConditions.js"
+//import setClaimConditions from       "./routes/Reward/setClaimConditions.js"
 import ERC20claim, { addto_inviteStaking, transfertDIST } from       "./routes/Reward/ERC20claim.js"
 import  GetRewardPrice from       "./routes/Reward/GetRewardPrice.js"
  
@@ -153,7 +153,7 @@ async function someFunction() {
                
           set_inviteList_BeforeJoin( guild );
  
-          console.log( `invitesBeforeJoin.size   >> ${invitesBeforeJoin.size}  invitesBeforeJoin: ${ invitesBeforeJoin }`);
+        //  console.log( `invitesBeforeJoin.size   >> ${invitesBeforeJoin.size}  invitesBeforeJoin: ${ invitesBeforeJoin }`);
        
   
    
@@ -242,7 +242,7 @@ export async  function set_inviteList_BeforeJoin( guild  ){
       
   invitesBeforeJoin = new Collection(firstInvites.map((invite) => [invite.code, invite.uses]));
               
-  console.log("  invitesBeforeJoin "  , invitesBeforeJoin)
+ // console.log("  invitesBeforeJoin "  , invitesBeforeJoin)
 }
 // custom event
 // attach a listener function
@@ -273,7 +273,7 @@ discordClient.on(customEvent1,  async ( guild ) => {
 
     // This is the *existing* invitesBeforeJoin for the guild.
   const oldInvites = invitesBeforeJoin ;
-  console.log(  ">>> oldInvites length  = "  , oldInvites.length  );
+ // console.log(  ">>> oldInvites length  = "  , oldInvites.length  );
 
  let modifiedInviteCode;
  newInvites.forEach((newUses, code) => {
@@ -563,11 +563,7 @@ export async function updateInvitesOnMongo ( collection , filter, action ){
      const ageInDays = ageInMs / (1000 * 60 * 60 * 24); // convert milliseconds to days
      return ageInDays;
    }
-   
-
-
-
-  
+    
    
  //-================================
  discordClient.on(Events.MessageCreate, (message) => {
@@ -663,31 +659,18 @@ app.get("/pythonTest", (request, res) => {
   });
 
 })
-
-
-
-app.use("/", setClaimConditions);
-
+ 
 app.use("/", ERC20claim);
 app.use("/", GetRewardPrice);
  app.use("/", getTokenDetails);
 
 app.use("/", GetEthToUsdRate);
-
-
-
-//GiveAway
- 
+  
 app.use("/",update_real_discord_user);
 
  
 app.use("/",RevealAndAdd);
-
-
-
-
-
-
+ 
 // discord Oauth
 app.use('/', authorize);  
 app.use('/', callback);  
@@ -708,22 +691,14 @@ app.use((req, res, next) => {
 
 app.use('/', generateReferralCode);  
 app.use('/', sendTracking);   
-
-
+ 
  app.use('/', myDiscordInfo);
  app.use('/', getDiscordScore);
 app.use('/', updateAllInvite);
 app.use('/', updateinvite);
- app.use('/', earnings); // Mount the exampleRouter at /api
-app.use('/', getData); // Mount the exampleRouter at /api
-app.use('/', getLayers); // Mount the exampleRouter at /api
-
+ 
  
  app.use('/', addorupdate); // Mount the exampleRouter at /api
-
- //test
-////app.use(allowOrigins);
-//apply middlewares
  
 
 // keep in mind that all request under

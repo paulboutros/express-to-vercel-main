@@ -403,7 +403,7 @@ const router = express.Router();
         { invite: modifiedInviteCode },
         {
           // Add the member ID to the array of mock members so we can keep track of it and display that on the front end
-          $push: { mockMember: mock_joiningMember_ID }, 
+           $push: { mockMember: mock_joiningMember_ID }, 
         },
         { upsert: true } // Create the document if it doesn't exist
       );

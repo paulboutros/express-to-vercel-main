@@ -33,8 +33,7 @@ router.post("/globalData_setDebugMode", async (req, response) => {
     
  
 });
-
-
+ 
 router.post("/SetSimulatedWuUSDTpriceAPI", async (req, response) => {
   
   const value = req.body.value;
@@ -63,10 +62,7 @@ router.post("/SetSimulatedWuUSDTpriceAPI", async (req, response) => {
     
  
 });
-
-
-
-
+ 
   // do not forget to use the endpoint in index.js
   router.get("/globalData", async (req, response) => {
    

@@ -1,21 +1,11 @@
 import  { connectToDataBase } from "../../lib/connectToDataBase.js";
 
-   import { newUserDocumentTemplate,
-     globalTemplate,
-      CreateNewUserDocument,
-      calculateEarning
-    } from 
-      "../../lib/documentTemplate.js"// "../lib/documentTemplate.js";
+ import { newUserDocumentTemplate, CreateNewUserDocument} from  "../../lib/documentTemplate.js" 
  
- 
-
-      import _ from 'lodash'
+  import _ from 'lodash'
 
 import express from 'express';
-
-
  
-
 
 const reward_pool = 500;
 let maxSupply = 20;
@@ -29,9 +19,6 @@ let maxSupply = 20;
  
 const router = express.Router();
  
- 
-
-
 
 router.post('/update_real_discord_userXXX', async (request, response) => {
     
@@ -99,9 +86,7 @@ router.post('/update_real_discord_userXXX', async (request, response) => {
  })
  
 router.post('/update_real_discord_user', async (request, response) => {
-    
-
-
+ 
   const discordUserData = request.body.userlist;
  
   console.log("userList" ,   discordUserData );

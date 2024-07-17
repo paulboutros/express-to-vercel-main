@@ -214,8 +214,8 @@ async function someFunction() {
     console.error(error);
   }
 }
-
- someFunction();
+// the following starts the bot. We don't need the bot at the moment
+ //someFunction();
 
 
 // modif can be positif or negatif depending on Add or remove member

@@ -620,7 +620,7 @@ let reward_res = await axios.post(endpoint, dataToSend);
     
     const provider = new ethers.providers.JsonRpcProvider("https://sepolia.rpc.thirdweb.com"); // Replace with your Ethereum node URL
     
-    //const signer = new ethers.Wallet(process.env.REACT_APP_THIRDWEB_WALLET_PRIVATE_KEY  );
+   
     const signer = new ethers.Wallet(process.env.REACT_APP_THIRDWEB_WALLET_PRIVATE_KEY, provider); // Replace with the private key
     
     const contract = new ethers.Contract(contractAddress, contractABI, signer);

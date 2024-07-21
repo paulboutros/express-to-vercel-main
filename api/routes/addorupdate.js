@@ -217,6 +217,64 @@ router.post("/setWallet", async (request, response) => {
     }
 })
 
+
+
+
+router.post("/addorupdateWalletuser", async (request, response) => {
+
+
+  try {
+  
+ const {mongoClient} = await connectToDataBase();
+ 
+ const db = mongoClient.db("wudb");
+ const collection = db.collection("walletUsers");
+           
+           let walletUsers =request.body.wallet ; 
+           const currentTimestamp = new Date().toISOString();  // Example of ISO string format
+
+      const userExist  = await collection.updateOne(
+         { "walletUsers":  walletUsers   },
+         {  
+          
+          $set: { 
+            "walletUsers": walletUsers
+          },
+          $push: {
+            "timestamps": currentTimestamp  // Push the formatted timestamp to the timestamps array
+          }
+       
+          
+          } ,
+      
+
+        { upsert: true } // if it does not exist DO NOT create one at this stage
+      )
+      console.log(`  >> >> userExist.matchedCount=${     userExist.matchedCount  } `); 
+   
+    
+      
+     const responseObj={
+           user: userExist,
+           wallet : walletUsers,
+           userExist : userExist.matchedCount === 1  //userExist.matchedCount
+     }
+
+     
+         response.status(200).json( responseObj ); // result
+  }catch(e){
+         console.error(e);
+         response.status(500).json(e);
+
+
+  }
+})
+
+
+
+
+
+
  
 
 export default router;

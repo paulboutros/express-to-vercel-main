@@ -218,6 +218,100 @@ router.post("/setWallet", async (request, response) => {
 })
 
 
+//=====================================================================================
+
+ router.post("/updateChain", async (request, response) => {
+ 
+  try {
+  
+ const {mongoClient} = await connectToDataBase();
+ 
+ const db = mongoClient.db("wudb");
+ const collection = db.collection("walletUsers");
+           
+           let walletUsers = request.body.wallet; 
+           let chain       = request.body.chain;
+
+           const currentTimestamp = new Date().toISOString();  // Example of ISO string format
+
+      const userExist  = await collection.updateOne(
+         { "walletUsers":  walletUsers },
+         {  
+               $set: { 
+                   "walletUsers": walletUsers,
+                    "chain": chain // Set the chain property
+                  }   
+          
+          } ,
+      
+
+        { upsert: true } // if it does not exist DO NOT create one at this stage
+      )
+      console.log(`  >> >> userExist.matchedCount=${     userExist.matchedCount  }   ${chain}`); 
+       
+     const responseObj={
+           user: userExist,
+           wallet : walletUsers,
+           userExist : userExist.matchedCount === 1  //userExist.matchedCount
+     }
+
+     
+         response.status(200).json( responseObj ); // result
+  }catch(e){
+         console.error(e);
+         response.status(500).json(e);
+
+
+  }
+})
+
+//========================================================
+
+
+  router.get("/GetChain", async (req, response) => {
+ 
+ 
+    try {
+      const { mongoClient } = await connectToDataBase();
+      const db = mongoClient.db("wudb");
+      const collection = db.collection("walletUsers");
+  
+       const wallet = req.query.wallet;
+   
+       const userData = await collection.findOne( { walletUsers: wallet }  );
+ 
+       if (!userData) {
+         // No user found with the specified wallet
+          return response.status(404).json({ error: "User not found" });
+       }
+   
+       // Extract the chain value from the retrieved document
+       const chain = userData.chain;
+   
+       // Include chain value in the response
+       const responseObj = {
+         wallet: wallet,
+         chain: chain 
+        };
+
+
+
+
+         // No referrer_user with the referral code was found
+         response.status(200).json(  responseObj   );
+     
+      
+    } catch (e) {
+       console.error(e);
+      response.status(500).json({ error: "An error occurred" });
+    }
+ 
+
+  });
+
+
+
+
 
 
 router.post("/addorupdateWalletuser", async (request, response) => {

@@ -6,7 +6,7 @@ import { connectToDataBase } from "../../../lib/connectToDataBase.js";
 
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
-import {REWARDS_ADDRESS , TOOLS_ADDRESS } from '../../../const/addresses.js'; 
+import {  TOOLS_ADDRESS } from '../../../const/addresses.js'; 
 
 import {GetThirdWebSDK, GetThirdWebSDK_fromPrivateKey, GetThirdWebSDK_fromSigner } from "../../../utils/thirdwebSdk.js";
 

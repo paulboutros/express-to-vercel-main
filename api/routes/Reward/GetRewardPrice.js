@@ -6,7 +6,7 @@ import { connectToDataBase } from "../../../lib/connectToDataBase.js";
 
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
-import {REWARDS_ADDRESS , TOOLS_ADDRESS } from '../../../const/addresses.js'; 
+//import {REWARDS_ADDRESS , TOOLS_ADDRESS } from '../../../const/addresses.js'; 
 
 import {GetThirdWebSDK, GetThirdWebSDK_fromPrivateKey, GetThirdWebSDK_fromSigner } from "../../../utils/thirdwebSdk.js";
 
@@ -28,8 +28,13 @@ router.post("/GetRewardPrice", async (req, response) => {
     let reward_layerSupplies;
      let tokenIds;
   
-    const sdk = GetThirdWebSDK_fromSigner();
-    const contract = await sdk.getContract(TOOLS_ADDRESS);
+
+     const wuLayers =  req.body.wuLayersAddress
+      const chain  =  req.body.chain
+
+
+    const sdk = GetThirdWebSDK_fromSigner( chain );
+    const contract = await sdk.getContract( wuLayers ); // TOOLS_ADDRESS
 
 //To do, it may be faster to to one call for all and then sele
 

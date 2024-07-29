@@ -6,7 +6,7 @@ import axios from "axios";
 import { connectToDataBase } from "../../../lib/connectToDataBase.js";
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
  import { ethers } from "ethers";
- import {  REWARDS_ADDRESS, TOOLS_ADDRESS, BURN_TO_CLAIM,
+ import {  TOOLS_ADDRESS,//   REWARDS_ADDRESS,  BURN_TO_CLAIM,
    OWNER, Discord_invite_stake_token, 
    Discord_stake_contract, OWNER2,
    Discord_tokenLess_stakinContract,
@@ -18,13 +18,14 @@ import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 import {ABI} from "../../../public/ABI/burnToClaim.js"
   
+import {ABIBASE} from "../../../public/ABI/burnToClaimBase.js"   
+ 
   
 import {   createPacksWEB2, generateData } from './CreateBundlePack.js';
 
 const router =  express.Router();
 
-// const provider = new ethers.providers.JsonRpcProvider("https://sepolia.rpc.thirdweb.com"); // Replace with your Ethereum node URL
-    
+     
     //const signer = new ethers.Wallet(process.env.REACT_APP_THIRDWEB_WALLET_PRIVATE_KEY  );
     //const signer = new ethers.Wallet(process.env.REACT_APP_THIRDWEB_WALLET_PRIVATE_KEY, provider); // Replace with the private key
 
@@ -83,9 +84,7 @@ const router =  express.Router();
     router.post("/openPack", async (req, response) => {
       try {
           
-         // const sdk = await GetThirdWebSDK_fromSigner();// GetThirdWebSDK_fromPrivateKey();  //ThirdwebSDK.fromPrivateKey(process.env.PRIVATE_KEY, "mumbai");
-          // console.log( sdk);
-          // GetThirdWebSDK_fromSigner();
+         
         
          
      const openerAddress =  req.body.openerAddress; 
@@ -463,28 +462,28 @@ router.post("/mintAdditionalSupplyTo", async (req, response) => {
 );
 
 
-async function GiveBurToClaimApprovalToSpendFromRewardToken(){
+async function GiveBurToClaimApprovalToSpendFromRewardToken( burnContract, wucoin ){
 
  
   const sdk = GetThirdWebSDK_fromSigner();
-  const contract = await sdk.getContract(REWARDS_ADDRESS);
+  const contract = await sdk.getContract(wucoin);
 
-  //const burnAndClaimContract = await sdk.getContract(BURN_TO_CLAIM);
+   
  
-  const allowanceAmount = await contract.erc20.allowanceOf(OWNER, BURN_TO_CLAIM);
+  const allowanceAmount = await contract.erc20.allowanceOf(OWNER, burnContract);
   console.log( "allowanceAmount" , allowanceAmount );
    if ( allowanceAmount &&  allowanceAmount.displayValue  > 0) {
  
-      console.log( " " ,  BURN_TO_CLAIM , "is approved already " );
+      console.log( " " ,  burnContract , "is approved already " );
       // The contract is already approved
       // You can choose to skip the approval step
   } else {
     // i think this code was written for the case where the contract is deploy and used for the first time
       // The contract is not approved, proceed with the approval
-     // contract.approve( OWNER, BURN_TO_CLAIM );
+     // contract.approve( OWNER, BURN_ TO_CLAIM );
      // approve and set allowance at the same time for that amount of token in WEI
-     await contract.call("approve",  [BURN_TO_CLAIM, "5000000000000000000"]);
-     await contract.call("transfer", [BURN_TO_CLAIM, "5000000000000000000"]);
+     await contract.call("approve",  [burnContract, "5000000000000000000"]);
+     await contract.call("transfer", [burnContract, "5000000000000000000"]);
 
 
 
@@ -494,6 +493,7 @@ async function GiveBurToClaimApprovalToSpendFromRewardToken(){
 }
 
 
+// i think this is claled from Post man
 router.post("/tokenApprove", async (req, response) => {
   try {
 
@@ -521,7 +521,18 @@ router.post("/ERC20claim", async (req, response) => {
 
    let filteredImages    = req.body.filteredImages;
    let address  = req.body.address;
+   
 
+   let burnContract = req.body.burnContract;
+   let wucoin = req.body.wucoin;
+   let chain = req.body.chain;
+   let wuLayersAddress =  req.body.wuLayersAddress;
+   
+
+   console.log( "burnContract  >>>>>"  , burnContract );
+   console.log( "wucoin  >>>>>"  , wucoin );
+   console.log( "chain  >>>>>"  , chain );
+   console.log( "wuLayerAddress  >>>>>"  , wuLayersAddress );
 
 
    if ( filteredImages === null || address === null) {
@@ -529,7 +540,7 @@ router.post("/ERC20claim", async (req, response) => {
   }
 
  // compare combo layers that are about to be used to claim, with the layers that the user actually own
-  const ownedNfts = await getOwned( address);
+  const ownedNfts = await getOwned( address, wuLayersAddress, chain );
  
 // this is the sets of token requiered to get the reward the user is attempting to get
 
@@ -552,12 +563,7 @@ ownedNfts.forEach(element => {
 }); 
 console.log( " owned_tokenIDs =",   owned_tokenIDs );
 const matchResult=[];
-/*
-owned_tokenIDs.forEach(id => {
-    const res =  reward_claim_for_tokenIDs.includes( id );
-    console.log( " test ID  " , id   ,  "   res  =", res );
-    matchResult.push( { id_required:id , result:res   });
-});*/
+ 
 
 
 reward_claim_for_tokenIDs.forEach(id => {     // user 5 tokenIDs submitted from client
@@ -590,11 +596,17 @@ if (containsMissingTokenID){
 //2)   at this point we passed the test, and we have all the token ID required.
 // Now, let's recheck the rewards associated with this combo.
 let dataToSend = {
-he : {tokenID: he_id},sh :{tokenID: sh_id},we : {tokenID: we_id}, be : {tokenID: be_id}, kn : {tokenID: kn_id} }
- 
+   he : {tokenID: he_id},
+   sh :{tokenID: sh_id},
+   we : {tokenID: we_id},
+   be : {tokenID: be_id},
+   kn : {tokenID: kn_id}, 
+   chain : chain
+}
 
 
-let endpoint = `${process.env.SERVER_URL}GetReward`;
+
+let endpoint = `${process.env.SERVER_URL}GetRewardPrice`;// GetReward`;
 let reward_res = await axios.post(endpoint, dataToSend);
  let reward_result = reward_res.data;
 
@@ -615,15 +627,24 @@ let reward_res = await axios.post(endpoint, dataToSend);
 //================================================================================================================
     //============================================================================================================
 
-    const contractABI = ABI; // Replace with your contract's ABI
-    const contractAddress = BURN_TO_CLAIM; // Replace with your contract's address
+    let contractABI;; // Replace with your contract's ABI
+
+    if ( chain === "sepolia" ){ 
+      contractABI = ABI;
+    }else{
+
+      contractABI = ABIBASE;
+    }
+
+
+  //  const contractAddress = BURN _TO_CLAIM; // Replace with your contract's address
     
-    const provider = new ethers.providers.JsonRpcProvider("https://sepolia.rpc.thirdweb.com"); // Replace with your Ethereum node URL
+     const provider = new ethers.providers.JsonRpcProvider("https://sepolia.rpc.thirdweb.com"); // Replace with your Ethereum node URL
     
    
     const signer = new ethers.Wallet(process.env.REACT_APP_THIRDWEB_WALLET_PRIVATE_KEY, provider); // Replace with the private key
     
-    const contract = new ethers.Contract(contractAddress, contractABI, signer);
+    const contract = new ethers.Contract(  burnContract  , contractABI, signer);
 
 /*========================================================================================================
    CHECK FOR APPROVE FROM REWARD TOKEN CONTACT  or BURN TO CLAIM (BURN TO GET REWARD) WILL FAILS
@@ -637,8 +658,8 @@ let reward_res = await axios.post(endpoint, dataToSend);
     // Assuming `owner` is the owner's address and `spender` is the contract's address
     //const contract = await sdk.getContract(REWARDS_ADDRESS); 
     //to do: this function should be shared by multiple contract.. add arguments etc..
-      await GiveBurToClaimApprovalToSpendFromRewardToken();
-
+      await GiveBurToClaimApprovalToSpendFromRewardToken( burnContract, wucoin );
+       
 /*================================================================================================
                      END OF APPROVE  CHECK
 ==============================================================================================*/
@@ -885,16 +906,16 @@ export async function transfertDIST( recipientAddress){
     try {
  
         const address                = req.body.address;
-        
+        const chain                  = req.body.chain;
 
          if (address === null  ) {
           throw new Error('One or more required parameters are null.');
         }
 
-       // console.log( "ERC20claim address   = "  + address );
+        
        
 
-      const ownedNfts = await getOwned(address);
+      const ownedNfts = await getOwned(address, chain );
  
         response.status(200).json( ownedNfts );
  
@@ -920,10 +941,10 @@ export async function transfertDIST( recipientAddress){
   
    
 
-  async function getOwned(address){
+  async function getOwned(address, wuLayerAddress, chain ){
 
-    const sdk = GetThirdWebSDK_fromSigner();
-    const contract = await sdk.getContract(TOOLS_ADDRESS);
+    const sdk = GetThirdWebSDK_fromSigner( chain );
+    const contract = await sdk.getContract(wuLayerAddress);
   
     // For ERC1155
     const nfts = await contract.erc1155.getOwned(address);

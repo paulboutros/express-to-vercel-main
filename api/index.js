@@ -203,8 +203,8 @@ startServer();
 ); */
   const uiPath = path.join(__dirname, "../node_modules/@wulirocks/ui/src");
    app.use("/wuli-ui", express.static(uiPath));
- const queryEnginePath = path.join(__dirname, "../node_modules/@wulirocks/ui/src");
-   app.use("/wuli-ui", express.static(queryEnginePath));
+ //const queryEnginePath = path.join(__dirname, "../node_modules/@wulirocks/ui/src");
+   //app.use("/wuli-ui", express.static(queryEnginePath));
 
 
 // Serve static files (React app)

@@ -8,4 +8,7 @@ function corsMiddleware(req, res, next) {
     next();
   }
   
-  export default corsMiddleware;
+ 
+  module.exports ={ 
+    corsMiddleware
+  }

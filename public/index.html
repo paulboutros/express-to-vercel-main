@@ -3,16 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="./CSS/style.css">
     <title>Express.js on Vercel</title>
 </head>
 <body>
     <h1>Express App Responded port: 2000</h1>
-    <p>/about</p>
-    <p>/portfolio</p>
-    <p>/contact</p>
-
-    
      
+
+     <input
+        type="text"
+        id="traitSearch"
+        placeholder="Search traits…"
+        style="width:100%; padding:6px; margin-bottom:8px;"
+      />
+
+    <div id ="activeTraitBar" > </div>
+    <div id ="buttonSet2" > </div>
+     
+    <div id="final_traitList">
+     <div id="final_traitFILTERListContainer"></div>
+    </div> 
+
+    <script type="module" src="JS/main.js"></script>
+      
 </body>
 </html>

@@ -5,94 +5,35 @@
 https://www.youtube.com/watch?v=K8YELRmUb5o&list=PL08VAKnhpM86qszK0uKZ-FXQpVy3fv_dg&index=7
 */
 
-
- import express from 'express';
- import cors from 'cors';
-import dotenv from 'dotenv';
-import {connectToDataBase} from '../lib/connectToDataBase.js';
-import { connectToDiscord } from '../lib/connectToBotClient.js';
  
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+const path = require("path");
+const express = require("express");
+const cors = require("cors");
+const dotenv = require("dotenv");
 
-import globalData from './routes/globalData.js';
-
-//import findUsersWithNonZeroProperties from './routes/findUsersWithNonZeroProperties.js';
-
-import updateinvite from './routes/updateinvite.js';
-import updateAllInvite from './routes/updateAllInvite.js';
+const { connectToDataBase } = require("../lib/connectToDataBase");
  
+const cookieParser = require("cookie-parser");
 
-//import botTest from './routes/Discord/botTest.js';
-import getDiscordScore from './routes/Discord/getDiscordScore.js';
-import myDiscordInfo from './routes/Discord/myDiscordInfo.js';
+//const corsMiddleware = require("./routes/middlewares/corsMiddleware");
+//const authenticate = require("./routes/middlewares/authenticate");
+ const getTokenDetails = require("./routes/getTokenDetails");
 
-
- //import earnings from './routes/earnings.js';
-
-
-//import getLayers from './routes/getLayers.js';
-//import getData from './routes/getData.js';
-import testToken from './routes/testToken.js';
-import userMe from './routes/userMe.js';
- 
-import {spawn} from "child_process"
- 
+    const globalData = require("./routes/globalData");
  
 
-//registration
-import addorupdate from './routes/addorupdate.js';
+const allowCors = require("./routes/middlewares/allowOrigins");
 
- //discord oauth endpoint
-import authorize from './routes/discordOauth/authorize.js';
-import callback from './routes/discordOauth/callback.js';
+const { spawn, ChildProcess } = require("child_process");
 
+const { Client, Events, Collection } = require("discord.js");
 
-import cookieParser from 'cookie-parser' ;
-
-import corsMiddleware from "./routes/middlewares/corsMiddleware.js";
-import authenticate from "./routes/middlewares/authenticate.js";
-import processClientReferralToken from "./routes/middlewares/processClientReferralToken.js";
- 
-
-import sendTracking from "./routes/Tracking/sendTracking.js";
-import generateReferralCode from "./routes/Tracking/generateReferralCode.js";
-import processReferral from "./routes/Tracking/processReferral.js";
-import GetReferralCode from "./routes/Tracking/GetReferralCode.js";
-
- 
-//import setClaimConditions from       "./routes/Reward/setClaimConditions.js"
-import ERC20claim, { addto_inviteStaking, transfertDIST } from       "./routes/Reward/ERC20claim.js"
-import  GetRewardPrice from       "./routes/Reward/GetRewardPrice.js"
- 
-
- 
+const { botChannel } = require("../const/addresses");
 
 
-import RevealAndAdd from  "./routes/Reward/RevealAndAdd.js"
-   
-
- import update_real_discord_user from  "./routes/update_real_discord_user.js"
-
- import getTokenDetails from  "./routes/getTokenDetails.js"
-  
-
- import GetEthToUsdRate from "./routes/CryptoUtil/GetEthToUsdRate.js"  
-
-import allowCors from "./routes/middlewares/allowOrigins.js";
-import { ChildProcess } from 'child_process';
+ const customEvent1="test" ; 
 
 
-import GetAllNFTs from "./routes/WEB3/GetAllNFTs.js";
-import GetContractThirdweb from "./routes/WEB3/GetContractThirdweb.js";
-//==============================================
-
-//import Discord from "discord.js";
-import { Client, Events,   Collection } from 'discord.js' ;
-import { botChannel } from '../const/addresses.js';
- 
-
- export const customEvent1="test";
 const targetChannelID = botChannel;
 let invitesBeforeJoin = new Collection();
 
@@ -101,8 +42,8 @@ let invitesBeforeJoin = new Collection();
   // when off, it will get newInvites from the Discord server to check for real changes in invite
  let isSetBefore_due_to_debugMode = false;
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+//const __filename = fileURLToPath(import.meta.url);
+//const __dirname = dirname(__filename);
 
 // Now you can use __dirname as you would in CommonJS modules
 
@@ -139,87 +80,21 @@ create an end point, so app client,  call and ask if user is part of server
  */
 
 
-export const { discordClient } = await connectToDiscord();
-async function someFunction() {
-  try {
-    
-  
-    discordClient.on("ready", async () => {
-     
-      
-         const channel = discordClient.channels.cache.get(targetChannelID);  
-         channel.send('>>>>>>>>>  Hello, this is a message from the bot!');
-         const guild = discordClient.guilds.cache.get( process.env.SERVER_ID );
-               
-          set_inviteList_BeforeJoin( guild );
- 
-        //  console.log( `invitesBeforeJoin.size   >> ${invitesBeforeJoin.size}  invitesBeforeJoin: ${ invitesBeforeJoin }`);
-       
-  
-   
-//===========================================================
+async function startServer() {
 
-
-         const ServerMembers = await guild.members.fetch();
- 
-        //  const member =   guild.members.cache.get("928290103367958528") ;
-        
-         
-         const members = ServerMembers.filter(member => !member.user.bot);
-   
-       
-                  for (const member of members.values()) {
-                    const user = member.user;
-                    // Now you can access properties of the 'user' object
-                    const username = user.username;
-                    const userID = user.id;
-
-                 //    console.log( userID );
-
-
-
-//1007274102727385088', '535766913834418179
-
-
-                    // const avatarURL = user.avatarURL();
-
-                    // Use the 'user' properties as needed
-                     // console.log(`Username: ${username}, UserID: ${userID}, Avatar URL: ${avatarURL}`);
-                     //  console.log(`>>  member: ${member}`);
-
-                      
-                       
-
-                  
-                  }
     
 
+    // rest of startup...
 
-
-
-          if (guild) {
-               console.log(`Bot is a member of the guild: ${guild  }`);
-          } else {
-              console.log(`Bot is not a member of the specified guild.`);
-          }
-   
-  
-        });
-    
- 
-        console.log(' >> Ready!');
-
-
-  } catch (error) {
-    console.error(error);
-  }
 }
+
+startServer();
+
+ 
 // the following starts the bot. We don't need the bot at the moment
  //someFunction();
-
-
-// modif can be positif or negatif depending on Add or remove member
-export  async function modify_newInvites( guild,  inviteCodeToUpdate  , modif ){
+ // modif can be positif or negatif depending on Add or remove member
+   async function modify_newInvites( guild,  inviteCodeToUpdate  , modif ){
 
   isSetBefore_due_to_debugMode = true;
   // const  newInvites = invitesBeforeJoin;
@@ -229,14 +104,11 @@ export  async function modify_newInvites( guild,  inviteCodeToUpdate  , modif ){
  // const firstElementCode = invitesBeforeJoin[inviteCodeToUpdate] ;//   .firstKey(); // Get the key (invite code) of the first element
   const currentValue = newInvites.get(inviteCodeToUpdate);
   newInvites.set(inviteCodeToUpdate, currentValue + modif);
- 
-    
-
-
+  
 }
 
 
-export async  function set_inviteList_BeforeJoin( guild  ){
+  async  function set_inviteList_BeforeJoin( guild  ){
 
   const firstInvites = await guild.invites.fetch();
       
@@ -244,21 +116,9 @@ export async  function set_inviteList_BeforeJoin( guild  ){
               
  // console.log("  invitesBeforeJoin "  , invitesBeforeJoin)
 }
-// custom event
-// attach a listener function
-discordClient.on(customEvent1,  async ( guild ) => {   
-  
-    console.log("  custom emitter  arg:guild "  , guild)  ;
-  
-    set_inviteList_BeforeJoin(guild);
-
-});
- //=======================================================================================================
  
-
  async function stepOne(guild ){
-
-  
+   
   //===============================================================================
 
   // To compare, we need to load the current invite list.
@@ -308,240 +168,8 @@ discordClient.on(customEvent1,  async ( guild ) => {
 
    return modifiedInviteCode;
 }
-
- discordClient.on(Events.GuildMemberRemove, async member  => {  
-
-  const {mongoClient} = await connectToDataBase();
-  const db = mongoClient.db("wudb");
-  const collection = db.collection("discord_invites");
   
-  const guild = discordClient.guilds.cache.get( process.env.SERVER_ID );
-  let modifiedInviteCode = await stepOne(guild);
-   
-/*====================================================================================
-   Time to uplaod to mongo DB invite object
-==================================================================================== */
-     
-
-      const result = await collection.updateOne(
-            { invite: modifiedInviteCode },
-          {
-            $pull: {
-              acceptedUsers: member.id,
-              mockMember: member.id
-            }
-          }
-        );
-     
-//==========================================================================================
-
-        let acceptedUsersLength;
-        if (result.modifiedCount === 1) {
-          // If the update was successful, 
-         //retrieve the updated document 
-         const updatedDocument = await collection.findOne({ invite: modifiedInviteCode });
-   
-         // Get the length of the "acceptedUsers" array in the updated document
-         // so we pass it as total amount to be staked on DIST contract
-           acceptedUsersLength = updatedDocument.acceptedUsers.length;
-   
-         console.log('Accepted Users Length:', acceptedUsersLength);
-       } else {
-         console.log('Update failed result=.' , result);
-       }
-  //=============================================================================================
-
-
-  const inviterFomMongo = await collection.findOne(
-    { invite: modifiedInviteCode },
-    { projection: { ID: 1  } }
-  );
-
-  console.log( "inviterFomMongo   " , inviterFomMongo);
-
-
-//=============================================================================
- 
-let invite;
-try {
-  invite = await guild.invites.fetch({ code: modifiedInviteCode });
-} catch (error) {
-console.log(  " modifiedInviteCode  =  "  ,   modifiedInviteCode , " is not a invite on Discord or the count of uses did not change "   );
-return;
-}
-
-   //============================================================================
-
-   if ( !NewMemberShouldBeAllowedInServer(member)  ){
-              invite.uses -= 1; // decrencrement invite uses if member was kicked
-              invite.upload();
-           logChannel.send(`${ member.tag } joined and got Kicked right after because it doea not meet this server requierement.`)
-          member.kick();
-          }
- 
-   addto_inviteStaking( inviterFomMongo.ID,  acceptedUsersLength );
-
-
-
-
-
-
- });
- ///check: emit/guildMemberAdd for mocking event
- discordClient.on(Events.GuildMemberAdd, async member  => {  //memberWhoJoin
-         
-    const {mongoClient} = await connectToDataBase();
-    const db = mongoClient.db("wudb");
-    const collection = db.collection("discord_invites");
-    
-    /*
-     const guild = discordClient.guilds.cache.get( process.env.SERVER_ID );
-    //===============================================================================
- 
-    // To compare, we need to load the current invite list.
-       const newInvReal  = await guild.invites.fetch()
-      
-      if (!isSetBefore_due_to_debugMode){ 
-        newInvites = new Collection(newInvReal.map((invite) => [invite.code, invite.uses]));
-        isSetBefore_due_to_debugMode = false;// turn it back to a state so it can register 
-        //new invilsit // if we test with actual user
-        // it will be set to true everytime we simulate an emit memberAdd/remove event
-     }
   
-      // This is the *existing* invitesBeforeJoin for the guild.
-    const oldInvites = invitesBeforeJoin ;
-  
-
-   let modifiedInviteCode;
-   newInvites.forEach((newUses, code) => {
-    const oldUses = oldInvites.get(code);
-     //console.log(  ">>> newUses  = "  , newUses  , "code  " , code );
-
-    if (oldUses !== undefined && newUses > oldUses) {
-      console.log(`Invite ${code} has increased uses from ${oldUses} to ${newUses}`);
-      modifiedInviteCode =  code;
-    }
-  });
-  */
-
-  const guild = discordClient.guilds.cache.get( process.env.SERVER_ID );
-  let modifiedInviteCode = await stepOne(guild);
-  /*====================================================================================
-     Time to uplaod to mongo DB invite object
-  ==================================================================================== */
-
-
-    console.log('guild ADD:modifiedInviteCode:', modifiedInviteCode);
-    
-     let acceptedUsersLength;
-    // add th enew member to the collection
-     const result = await collection.updateOne(
-      { invite: modifiedInviteCode }, //< the invite that we detected has a change in uses
-      { $push: { acceptedUsers: member.id } }
-    );
-     // Check if the update was successful
-    if (result.modifiedCount === 1) {
-       // If the update was successful, 
-      //retrieve the updated document 
-      const updatedDocument = await collection.findOne({ invite: modifiedInviteCode });
-
-      // Get the length of the "acceptedUsers" array in the updated document
-      // so we pass it as total amount to be staked on DIST contract
-        acceptedUsersLength = updatedDocument.acceptedUsers.length;
-
-      console.log('Accepted Users Length:', acceptedUsersLength);
-    } else {
-      console.log('Update failed result=.' , result);
-    }
- 
-    //we want the inviter we saved in the database, to whom we
-    // assigned the invite code.
-    // in Discord, all invites are from one inviter.. the wulibot so we can
-    // not rely on Discord here to get the inviter... let's check our database
-    const inviterFomMongo = await collection.findOne(
-      { invite: modifiedInviteCode },
-      { projection: { ID: 1  } }
-    );
-  
-    console.log( "inviterFomMongo   " , inviterFomMongo);
- 
-
- //=============================
- 
- /* if the invite we submitted does not exist, or for some reason no invite_uses difference
- is found, we avoid app crash/ error
- */
- let invite;
- try {
-    invite = await guild.invites.fetch({ code: modifiedInviteCode });
-} catch (error) {
-  console.log(  " modifiedInviteCode  =  "  ,   modifiedInviteCode , " is not a invite on Discord or the count of uses did not change "   );
- return;
-}
-    // DO NOT USE inviter, all invites are form WuliBot.  inviter is ALWAYS wuliBot
-    /* 
-     const inviter = await discordClient.users.fetch(invite.inviter.id);
-   */
-  
-    const logChannel = discordClient.channels.cache.get( botChannel );
-      
-    // A real basic message with the information we need. 
-    inviterFomMongo
-      ? logChannel.send(`${ member.tag } joined using invite code ${modifiedInviteCode} from ${inviterFomMongo.ID }. Invite was used ${invite.uses} times since its creation.`)
-      : logChannel.send(`${ member.tag} joined but I couldn't find through which invite.`);
-  
-    // end from tutorial tracks invites
-    
-    
-     if ( !NewMemberShouldBeAllowedInServer(member)  ){
-             invite.uses -= 1; // decrencrement invite uses if member was kicked
-            // invite.upload();  invite is not a fucntion error
-       logChannel.send(`${ member.tag } joined and got Kicked right after because it doea not meet this server requierement.`)
-        member.kick();
-     }
-
-// set the invites be  bsfore join to current state
-/*
-  this is done once whenn the bot/client login, and now
-  so next time some one koin it can compare with this list of [invitecode-inviteUses] mapping
-*/
-//set_inviteList_BeforeJoin( guild );
-
-
-     //BLOCKCHAIN INTERRACTION
-     //to do: this function should be shared by multiple contract.. add arguments etc..
-
-     /*
-     note that $Wu token does not need to approve this contract, because this contract
-     does not transfert $wu token it mint them to the claimer.
-     See documentation:
-     https://www.notion.so/Discord-Invite-to-get-Dist-Stake-Tokens-f8e166b7bae942cb92bdf793073332d3
-     */
-     //await setApprovalandTransfertFromRewardToken( Discord_invite_stake_token, Discord_stake_contract);
-   
-   
-   
-   
-     addto_inviteStaking( inviterFomMongo.ID,  acceptedUsersLength );
-
-
-
-
-     // we no nlonger add a Dit token
-      //transfertDIST();
-     // now we nee to transfert some $DIST to user,
-      
-  });
-
- 
-  //collection will be the real and the fake/mock one if we test
-export async function updateInvitesOnMongo ( collection , filter, action ){
-  const result = await collection.updateOne(
-    filter,
-    action
-  );
-
-}
 
   function NewMemberShouldBeAllowedInServer(member) {
       let accountAge =  getAccountAge(member);
@@ -564,55 +192,24 @@ export async function updateInvitesOnMongo ( collection , filter, action ){
      return ageInDays;
    }
     
-   
- //-================================
- discordClient.on(Events.MessageCreate, (message) => {
-
-  if (message.author.bot) { return };
-  const channel = discordClient.channels.cache.get(botChannel);
-  
-  const tempMess = "reply from express server";
- 
-
-  discordClient.channels.cache.get(botChannel).send(tempMess);
- 
-   
-  console.log(">> ", tempMess  );
-  
-
-
-  //TO DO:
-  // bot on certain mode, could store user message if they get reactions from other
-  //then repost these message ... follow by a random question and random price..must connect to //blockchain
-  //   Who said that ? When was this said on the server?
-  // reward automatic on the blockchain via  smart contract
-
-
-  // for Shilling
-  // a bot can check for specific tags, and key words in Twitter tweets.
-  //=> Tweet  link submitted in a channel, the bot read the tweet look for the info 
-  // use already functionnal code we cereated in Visual Studio
-  // to send this to an data base  
-  // 
-});
+    
 
 
 //===========================
+ /*
+ app.use(
+  "/wuli-ui",
+  express.static(path.join(__dirname, "../node_modules/@wulirocks/ui/src"))
+); */
+  const uiPath = path.join(__dirname, "../node_modules/@wulirocks/ui/src");
+   app.use("/wuli-ui", express.static(uiPath));
+ const queryEnginePath = path.join(__dirname, "../node_modules/@wulirocks/ui/src");
+   app.use("/wuli-ui", express.static(queryEnginePath));
 
-
-/*
-app.get('/token/:contractAddress/:tokenId', (req, res) => {
-  const { contractAddress, tokenId } = req.params;
-
-  // Now you can use contractAddress and tokenId to fetch data or render the page
-  // For example, you might render a template or send JSON data based on these parameters
-
-  res.send(`Contract Address: ${contractAddress}, Token ID: ${tokenId}`);
-});
-*/
 
 // Serve static files (React app)
-//app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(express.static("public"));
+// app.use(express.static(path.join(__dirname, '..', 'public')));
 app.get("/", (request, response) => {
   
   app.use(allowCors);
@@ -627,8 +224,8 @@ app.get("/", (request, response) => {
 
 //WEB 3 test
 
-app.use("/",GetAllNFTs);
-app.use("/",GetContractThirdweb);
+ 
+ 
 
 
 app.get("/pythonTest", (request, res) => {
@@ -660,59 +257,30 @@ app.get("/pythonTest", (request, res) => {
 
 })
  
-app.use("/", ERC20claim);
-app.use("/", GetRewardPrice);
- app.use("/", getTokenDetails);
-
-app.use("/", GetEthToUsdRate);
   
-app.use("/",update_real_discord_user);
-
  
-app.use("/",RevealAndAdd);
  
 // discord Oauth
-app.use('/', authorize);  
-app.use('/', callback);  
- app.use('/', processReferral);  //if you move it under authenticate, must include credential token 
- app.use('/', GetReferralCode);  // moved under authenticate, must include credential token      
+   
+ //================================
+ app.use('/', globalData);
+app.use("/", getTokenDetails);
 
-app.use('/', globalData);    
- 
+ //===================================
 
 // Middleware to extract IP address
 app.use((req, res, next) => {
-  req.ipAddress = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+   req.ipAddress = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
   next();
 });
 //Tracking
 
 //app.use('/',botTest);
-
-app.use('/', generateReferralCode);  
-app.use('/', sendTracking);   
- 
- app.use('/', myDiscordInfo);
- app.use('/', getDiscordScore);
-app.use('/', updateAllInvite);
-app.use('/', updateinvite);
- 
- 
- app.use('/', addorupdate); // Mount the exampleRouter at /api
- 
-
-// keep in mind that all request under
-// "authenticate" middleware must contains a valid token
- app.use(authenticate);
  
  
 
- app.use('/', testToken); // Mount the exampleRouter at /api
- app.use(processClientReferralToken);
+ //app.use(corsMiddleware);
  
-
- app.use(corsMiddleware);
- app.use('/', userMe); // Mount the exampleRouter at /api
   
  
  
@@ -790,7 +358,11 @@ request.body= {
  //functionStartGiveAwayShedule( request , response );
 
 
-
+module.exports ={ 
+  customEvent1 ,
+  set_inviteList_BeforeJoin,
+  modify_newInvites
+}
 
 
 

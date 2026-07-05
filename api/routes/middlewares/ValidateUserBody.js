@@ -14,4 +14,4 @@ function validateRequestBody(req, res, next) {
   next();
 }
 
-export default validateRequestBody;
+   module.exports = validateRequestBody;

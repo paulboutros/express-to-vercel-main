@@ -1,12 +1,22 @@
 
 
-import { connectToDataBase } from "../../../lib/connectToDataBase.js";
-import jwt from 'jsonwebtoken';
+const { connectToDataBase } = require ( "../../../lib/connectToDataBase.js");
+const jwt = require ( 'jsonwebtoken');
 const authenticate = async (request, response, next) => {
 
   
 
     try {
+
+      const SKIP_AUTH = process.env.SKIP_AUTH === "true";
+
+    if (SKIP_AUTH) {
+        console.log("[DEV] Authentication skipped");
+        return next();
+    }
+
+    //================================================================================
+    //===================================================================================
         // Get the token from the cookie
         const token = request.cookies.token;
     
@@ -54,4 +64,7 @@ const authenticate = async (request, response, next) => {
 } 
  
 
-  export default authenticate;
+module.exports ={ 
+   authenticate
+}
+  //export default authenticate;

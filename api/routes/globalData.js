@@ -9,70 +9,135 @@ const { connectToDataBase } = require("../../lib/connectToDataBase");
 
 const engine = require("@wulirocks/collection-engine");
  
- const { featState } = require("@wulirocks/collection-engine/features/FeatureState/featureState.js");
+
  const QueryEngine   = require("@wulirocks/collection-engine/query/QueryEngine");
-  
-       const { 
+
+
+ //================================================================================================================
+ //=================================================================================================================
+
+ /*
+   const { featState } = require("@wulirocks/collection-engine/features/FeatureState/featureState.js");    
+   const { 
            get_featState,
            set_featState,
            createTraitFilterFeature,
-               applyTraitFilter , 
-              
-              rebuildActiveFilterMap
-            } = engine.features_traitFilters; 
+           applyTraitFilter , 
+           rebuildActiveFilterMap
+      } = engine.features_traitFilters; 
                      // require("@wulirocks/collection-engine/features/traitFilters/createTraitFilterFeature.js");
     set_featState(featState);
-    //console.log( "route load createTraitFilterFeature  " , createTraitFilterFeature  );
-
-//import {updateActiveTraitBar} from "/wuli-ui/filterPills.js";
-
-//console.log( " api script updateActiveTraitBar  " , updateActiveTraitBar );
-
+  
     const traitFilterFeature = createTraitFilterFeature(  
-         null,// featState,
-         {   
-            onTraitAdded(payload) {
+    null,// featState,
+    {   
+       onTraitAdded(payload) {
+       applyTraitFilter(payload.traitKey, payload.value, payload.ids);
+       rebuildActiveFilterMap();
+     } 
+    });
+*/
+ //=======================================================================================
+ //====================  api result/session state =====================================
 
-              //  console.log( " == CREATE WEB UI  PILLS =====  with data:  ["  ,  payload  )
-               
-                   applyTraitFilter(payload.traitKey, payload.value, payload.ids);
-              
-                   rebuildActiveFilterMap();
-                  
-             //  traitFilterController.applyTraitFilter(payload.traitKey, payload.value, payload.ids);
-             //  traitFilterController.updateActiveTraitBar();// contains or full DOM
-            } 
-           // ,jjjj(){}
-          }
+ let runQueryInputHandler_result = null;
 
-
-);
+//=======================================================================================
  
 
 const router = express.Router();
    
 
  router.post("/api/traitFilter/add", (req, res) => {
-  const { traitKey, value, ids, traitFilterData } = req.body;
+    const { traitKey, value, ids, traitFilterData } = req.body;
  
-  const result = traitFilterFeature.addTraitSelection(
-   
-     traitKey,
-     value,
-    ids 
-  );
+
+     //====================================  moved from global to this route========================================================
+     //===============================================================================================
+  
+   const { FeatureState } = require("@wulirocks/collection-engine/features/FeatureState/featureState.js");    
+
+   const featState = new FeatureState();
+   const { 
+    
+           get_featState,
+           set_featState,
+           createTraitFilterFeature,
+           applyTraitFilter , 
+           rebuildActiveFilterMap
+      } = engine.features_traitFilters; 
+                     // require("@wulirocks/collection-engine/features/traitFilters/createTraitFilterFeature.js");
+     set_featState(featState);
+  
+    const traitFilterFeature = createTraitFilterFeature(  
+    null,// featState, // i used set_featState() function above instead
+    {   
+       onTraitAdded(payload) {
+        applyTraitFilter(payload.traitKey, payload.value, payload.ids);
+        rebuildActiveFilterMap(  featState.getTraitUIResult().pills );
+
+     console.log( "==================================================== \n" ,
+                  "==================================================== \n" ,
+                   "================ get_featState().activeFilterMap_IDS===: \n" ,
+
+                           featState.activeFilterMap_IDS ,   "  \n" , 
+            "====================================================  "  
+     )
+        
+      } 
+    });
+      //getTraitUIResult
  
+
+      console.log( "  traitFilterData === =====   "   ,  traitFilterData  );
+     //===============================================================================================
+    //===============================================================================================
+    //===============================================================================================
+   const result = traitFilterFeature.addTraitSelection( traitKey, value, ids ,traitFilterData );
+    
+  
+  //===================================================================================================
+        result.activeFilterMap_IDS = featState .activeFilterMap_IDS;
+      // const pillsData =   get_featState().serializeActiveTraitUI();
+      //  console.log( "API trait/add pillsData :"  , pillsData   );
+
+
+
+
+
+
+
+
+
+
+
+ 
+       result.queryMode ="TRAIT_SEARCH"; 
+       result.raw="no_raw_input"; 
+        
+      // runQueryInputHandler_result = result;
  
   res.json(result);
 });
 
  
 router.post("/api/traitFilter/rebuildActiveFilterMap", (req, res) => {
-   const { pillData } = req.body;
+   const { traitType, value, uiResult } = req.body;
   
+  const pillData  = uiResult.pills;
+     
+        const {   rebuildActiveFilterMap , applyTraitFilter } = engine.features_traitFilters; 
+     
+         console.log(  "  req.body  pillData  =" , pillData  );
 
-       // console.log(  "  req.body  pillData  =" , pillData  );
-       const result = rebuildActiveFilterMap( pillData);
+     // applyTraitFilter(payload.traitKey, payload.value, payload.ids);
+    //  const result = rebuildActiveFilterMap( pillData);
+
+
+       const rarityCount =  engine.writeServices.get_rarityTraitCount();
+
+        const idsToRemove =  rarityCount[traitType][value];
+     result  = { idsToRemove :  idsToRemove   }
     
      // result  = { "ready to send: pillData " : pillData   }
   res.json(result);
@@ -81,7 +146,7 @@ router.post("/api/traitFilter/rebuildActiveFilterMap", (req, res) => {
 router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
    const { filterModeABS } = req.body;
   
-      get_featState().set_filterModeABS(filterModeABS);
+       get_featState().set_filterModeABS(filterModeABS);
       //  console.log(  "  filterModeABS  =" , filterModeABS  );
         
     
@@ -93,11 +158,13 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
 router.post("/api/query/runQueryInputHandler", (req, res) => {
     const { raw } = req.body;
   
-       let result = engine.queryEngine.runQueryInputHandler(raw);
-            console.log(  " runQueryInputHandler result  =" , result  );
+         let result = engine.queryEngine.runQueryInputHandler(raw);
+
+        // runQueryInputHandler_result = result;
+             //  console.log(  " runQueryInputHandler result  =" , result  );
         
-        if (!result || typeof result !== "object") {
-              result = { "res:raw " : raw   }
+         if (!result || typeof result !== "object") {
+               result = { "res:raw " : raw   }
         }
       
 
@@ -107,17 +174,69 @@ router.post("/api/query/runQueryInputHandler", (req, res) => {
  
  
   router.post("/api/generateAllTraitSheet", async (req, response) => {
+  
+  
+             // const {batchNumber}  = req.body;
+             var vidFilter = req.body.videoFilterObject // get_featState().get_VideoFilterObject();
+              //  vidFilter.batchNumber = batchNumber;
+              //  vidFilter.queryMode = runQueryInputHandler_result.queryMode ;
+              //  vidFilter.raw =       runQueryInputHandler_result.raw ;
+             // vidFilter.queryDNAObj = runQueryInputHandler_result.queryDNAObj;
  
-     //const value = req.body.value;
-    const renderTraitObject  = req.body.renderTraitObject;
 
-     // console.log( " engine.layoutSheetGen.generateAllTraitSheet();"    );
-       let result = await engine.layoutSheetGen.generateAllTraitSheet( renderTraitObject  );
+
+             console.log( "========================== vid filter =============================\n " ,
+                                     vidFilter  , "\n ",
+             "========================== vid filter end =============================  "
+
+         );
+
+
+       
+         const sheetHistData = engine.writeServices.get_sheetGenerationHistory();
+
+         let saveKey;// = runQueryInputHandler_result.queryDNAObj.queryDna;
+         if ( vidFilter.queryMode === "DSL" ){ 
+             saveKey =  vidFilter.queryDna;
+         }else{ 
+             saveKey =  vidFilter.sheetTitle   // runQueryInputHandler_result.queryDNAObj.queryDna;
+         }
+         /*
+          result.queryDNAObj ={ 
+          queryMode :"TRAIT_SEARCH",
+          raw:"no_raw_input", 
+          pillsData: pillsData
+      }*/
+
+
+          sheetHistData[saveKey] ={ 
+               IDSMatchCount:  vidFilter.activeFilterMap_IDS.length,//     ["IDS Match Count"],
+               queryMode:      vidFilter.queryMode ,
+               raw:            vidFilter.raw //,
+             //  queryDNAObj:    runQueryInputHandler_result.queryDNAObj
+           }
+
+         engine.writeServices.set_sheetGenerationHistory(sheetHistData);
+
+         engine.engineState.shared_state.currentPreviewURLList =[];
+ 
+         let result = await engine.layoutSheetGen.generateAllTraitSheet( 
+             vidFilter//    req.body
+         );
 
         let currentPreviewURLList = engine.engineState.shared_state.currentPreviewURLList;
+
+        var bufferDataLenghts = [];
+        for (let index = 0; index < currentPreviewURLList.length; index++) {
+           const datalenght = currentPreviewURLList[index].length;
+           
+            bufferDataLenghts.push(datalenght);
+        }
        try {
           response.status(200).json( {
-            
+               bufferCount : currentPreviewURLList.length,
+               bufferDataLenghts: bufferDataLenghts,
+              
               endpoint: "engine.layoutSheetGen.generateAllTraitSheet()",
                currentPreviewURLList: currentPreviewURLList 
           });

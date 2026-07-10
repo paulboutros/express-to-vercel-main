@@ -1,3 +1,19 @@
+
+
+#row1 {
+   padding: 10px;
+  display: flex;
+  font-family: sans-serif;
+  margin: 0;
+ /* height: 100vh;*/
+}
+#row2 {
+   padding: 10px;
+  display: flex;
+  font-family: sans-serif;
+  margin: 0;
+  height: 100vh;
+}
 /*=============================================================================
 
 Trait Selection Panel
@@ -5,20 +21,35 @@ Trait Selection Panel
 ======================================================================
 */
 
+#column1{
+   padding: 10px; 
+   width: 25%;
+}
+#column2{
+   padding: 10px;
+   width: 75%;
+}
 
 #traitListContainer,
 #final_traitFILTERListContainer,
 #final_traitListContainer,
 #exportTraitPanel
 {
+ 
+  
+  /* max-width: 150px;*/
+  /*
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));    /* three equal columns */
-    gap: 8px; /* spacing between cells */
-    align-items: center; /* vertical alignment */
+    grid-template-columns: repeat(3, minmax(0, 1fr));    
+    gap: 8px;  
+    align-items: center;  
+*/
 }
 
 
-
+#buttonSet2 { 
+  display: flex;
+}
 
 
 .trait-card:hover {
@@ -65,20 +96,29 @@ Trait Selection Panel
  
 
 .trait-block {
+   width: 100%;
   margin-bottom: 12px;
 }
 
 .trait-label {
+  
   display: block;
   font-weight: bold;
   margin-bottom: 4px;
 }
 
 .trait-row {
+  /* width: 100%;*/
   display: flex;
   gap: 6px;
   align-items: center;
 }
+
+ select {
+   width: 100%;
+  
+}
+
 
 .trait-toggle-btn {
   width: 32px;

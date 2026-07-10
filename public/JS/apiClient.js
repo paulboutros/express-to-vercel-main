@@ -50,9 +50,9 @@ export async function getTraitData() {
 
 }
 
-export async function generateTraitSheets(query) {
+export async function api_generateAllTraitSheet(query) {
 
-    return post("/api/generateTraitSheets", query);
+    return post("/api/generateAllTraitSheet", query);
 
 }
 
@@ -79,12 +79,12 @@ export async function api_addTraitSelection(traitKey, value, ids, traitFilterDat
      return await res.json();
 } 
  
-export async function api_rebuildActiveFilterMap( pillData ) {
+export async function api_rebuildActiveFilterMap( traitType, value, uiResult ) {
    const res = await fetch("/api/traitFilter/rebuildActiveFilterMap", {
      method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-         pillData
+        traitType, value, uiResult
     })
   });
 

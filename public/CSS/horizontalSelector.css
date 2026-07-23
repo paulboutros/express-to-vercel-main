@@ -1,0 +1,56 @@
+ 
+
+.horizontal-selector {
+    display: flex;
+    gap: 6px;
+}
+
+.horizontal-selector button {
+
+    
+
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    border: 1px solid #666;
+    background: var(--surface);/* #222;*/
+    color: white;
+    cursor: pointer;
+}
+ 
+ 
+
+.horizontal-selector {
+    display: flex;
+    gap: 6px;
+}
+ 
+.horizontal-selector button.active {
+    background: #4caf50;
+}
+
+.tabLabel {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.tabRange {
+    font-size: 10px;
+    opacity: 0.7;
+}
+
+/* =========================================*/
+
+ 
+
+.tabCount {
+    font-size: 11px;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+ 
+    
+ 

@@ -1,0 +1,173 @@
+/* ==========================================================
+   Query Box
+   ========================================================== */
+
+#queryBox{
+
+    position:relative;
+
+    width:100%;
+    height: 50px;
+
+}
+
+
+/* ==========================================================
+   Input
+   ========================================================== */
+
+.queryInput{
+
+    width:100%;
+
+    box-sizing:border-box;
+
+    padding:8px 10px;
+ 
+
+   /* border-radius:6px;*/
+
+    outline:none;
+
+    transition:border-radius .15s;
+
+}
+
+
+/* Optional focus style */
+
+.queryInput:focus{
+
+    border-color:#4d90fe;
+
+}
+
+
+/* ==========================================================
+   Dropdown
+   ========================================================== */
+
+ 
+.correctionAssistant,
+.queryDropdown{
+
+    display:none;
+
+    position:absolute;
+
+    top:100%;
+
+    left:0;
+
+    right:0;
+
+    margin-top:2px;
+
+    background:var(--surface);/*  #fff;*/
+
+    border:1px solid #888;
+
+    border-radius:6px;
+
+    box-shadow:0 6px 16px rgba(0,0,0,.18);
+
+    overflow-y:auto;
+
+    max-height:260px;
+
+    z-index:1000;
+
+}
+
+
+/* Open */
+
+.queryDropdown.visible{  display:block;}
+
+  
+.correctionAssistant.visible{  display:block;}
+
+
+
+/* ==========================================================
+   Open state
+   ========================================================== */
+
+#queryBox.open .queryInput{
+
+    border-bottom-left-radius:0;
+
+    border-bottom-right-radius:0;
+
+}
+
+
+#queryBox.open .queryDropdown{
+
+    margin-top:0;
+
+    border-top:none;
+
+    border-top-left-radius:0;
+
+    border-top-right-radius:0;
+
+}
+
+/* ======================================================================= */
+  
+/* ============================================================================  */
+
+/* ==========================================================
+   Items
+   ========================================================== */
+  
+.queryItem{
+
+    padding:8px 12px;
+
+    cursor:pointer;
+
+    user-select:none;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+}
+
+
+/* Mouse hover */
+
+.queryItem:hover{
+
+    background: var(--surface);
+
+}
+
+
+/* Keyboard selection */
+
+.queryItem.selected{
+
+    background:#4d90fe;
+
+    color:white;
+
+}
+
+
+/* Last item */
+
+.queryItem:last-child{
+
+    border-bottom:none;
+
+}
+
+.correctionItem{ 
+         padding:0px 0px;
+   
+ }

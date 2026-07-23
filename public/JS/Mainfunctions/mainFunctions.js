@@ -18,56 +18,56 @@ export const functionState={
     batchIndex:0
 }
 
-const preview = document.getElementById("sheetPreview");
+const previewImg = document.getElementById("previewImg");
+//const preview = document.getElementById("sheetPreview");
 
 
 
 export async function generateAllTraitSheet(batchNumber, incr , IDS_Match_Count){ 
                // functionState.batchIndex++;
                //   console.log("generateAllTraitSheet: renderTraitObject  =",  renderTraitObject);
-          const maxPerSheet = 6;
+           const maxPerSheet = 6;
           const totalSheetCount = Math.ceil(      get_UIstate().activeFilterMap_IDS.length   / maxPerSheet);
 
+
+                get_UIstate().totalSheetCount = totalSheetCount;
+           
                  functionState.batchIndex =  functionState.batchIndex % totalSheetCount; //reseting it first
                 functionState.batchIndex = (functionState.batchIndex + incr) % totalSheetCount;
                  if(functionState.batchIndex <0 )  { functionState.batchIndex = totalSheetCount-1 }
 
-                console.log(  " generateAllTraitSheet batchIndex: " ,  functionState.batchIndex);
+                console.log(  "generateAllTraitSheet() batchIndex: " ,  functionState.batchIndex);
                 // currentIndex = (currentIndex + 1) % nftListToRender.length;
 
 
-                 var vidFilter = get_VideoFilterObject(); // get_featState().get_VideoFilterObject();
-                 vidFilter.batchNumber = functionState.batchIndex;
-              //  vidFilter.activeFilterMap_IDS = get_UIstate().activeFilterMap_IDS ;
-             //   vidFilter.queryMode = get_UIstate().queryMode ;
-               //vidFilter.raw =       get_UIstate().raw ;
+                 
+        //==========================================================================
+        //===========================================================
 
 
-        //    activeTraitUI_toArray,
-     //  activeFilterMap_IDS, 
-    // filterModeABS,
-   //  queryMode,
-  //  sheetTitle,
-   // batchNumber,
-    // raw  
+                  var vidFilter = get_VideoFilterObject(); // get_featState().get_VideoFilterObject();
+                  vidFilter.batchNumber = functionState.batchIndex;
+                  if (batchNumber ){ 
+                      vidFilter.batchNumber = batchNumber;
+                  }
 
-
+                 console.log(  "generateAllTraitSheet() vidFilter: " ,  vidFilter);
+             
 
                  let result = await api_generateAllTraitSheet({
                      videoFilterObject : vidFilter 
                  
-                });
+                 });
                  
-                 
-              
-
                   
-                 
-                    preview.innerHTML = "";
+                  
+                  previewImg.innerHTML = "";
+                
               for (let index = 0; index <  result.currentPreviewURLList.length; index++) {
   
-               // const element = result.currentPreviewURLList[index];
-                  const img = document.createElement("img");
+               
+                   const img = document.createElement("img");
+                //  const img = document.getElementById("previewImg");
 
                      const bufferData =   result.currentPreviewURLList[index].data;
                     //  console.log( "jpegBuffer data = " , bufferData  );
@@ -87,7 +87,9 @@ export async function generateAllTraitSheet(batchNumber, incr , IDS_Match_Count)
 
                      let objUrl = URL.createObjectURL(blob);
                       img.src = objUrl;
-                     preview.appendChild(img); 
+                   //  preview.appendChild(img); 
+
+                     previewImg.appendChild(img); 
               }
  
             

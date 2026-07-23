@@ -1,0 +1,152 @@
+
+
+#row1 {
+  /* padding: 10px;*/
+  display: flex;
+  font-family: sans-serif;
+  margin: 0;
+ 
+}
+#row2 {
+   padding: 10px;
+  display: flex;
+  font-family: sans-serif;
+  margin: 0;
+  height: 100vh;
+}
+/*=============================================================================
+
+Trait Selection Panel
+
+======================================================================
+*/
+
+#column1{
+   padding: 10px; 
+   /* width: 25%;*/
+}
+#column2{
+   padding: 10px;
+   width: 75%;
+}
+
+
+
+
+#buttonSet2 {
+   /*display: flex;*//* this is will be assigned class .hidden,
+    that will attempt to set dislpay:none, flex will preventit by overridding it*/
+   display: flex;
+   border: 1px solid var(--border);
+   border-radius: var(--border-radius) var(--border-radius) 0 0;
+   padding: var(--space-md);
+   background: var(--surface);
+   margin-inline: var(--space-xs);
+   text-wrap-mode: nowrap;
+}
+
+  
+.trait-card:hover {
+  background:  var(--surface-active); 
+  border-color: #666;
+}
+
+.trait-card.active {
+  background: var(--surface-active); 
+  border-color: #4a7cff;
+}
+
+ 
+   
+.trait-card {
+  background:var(--surface); 
+ /* border: 1px solid #e5e7eb;*/
+  border-radius:  var(--border-radius);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+ 
+.trait-type {
+  font-size: 11px;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  margin-bottom: var( --space-xs);  /*  4px;*/  
+}
+
+.trait-value {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: var( --space-xs);  /*  4px;*/  
+  color: #111827;
+}
+
+.trait-count {
+     font-size: 14px;
+    color: #040404;
+}
+ 
+
+.trait-block {
+   width: 100%;
+  margin-bottom: var( --space-sm);  /*     12px; */ 
+}
+
+.trait-label {
+  
+  color:var(--text-muted);
+  display: block;
+  font-weight: bold;
+  font-size:var(--font-xxs);
+  margin-bottom: var( --space-xs);  /*  4px;*/  
+}
+
+.trait-row {
+  /* width: 100%;*/
+  display: flex;
+  gap: var( --space-sm);  /*  6px;*/
+  align-items: center;
+}
+
+ select {
+   width: 100%;
+  
+}
+
+
+.trait-toggle-btn {
+  width:  var(--button-height );/* this is a square.. height= width*/
+  font-weight: bold;
+  
+}
+
+.toggle-button {
+ 
+
+        border: 1px solid var(--border);
+       
+}
+       
+.active-Trait-Bar,
+.toggle-button {
+ align-self:center;
+}
+ 
+
+
+.trait-pill{
+    
+background: var(--surface);
+    
+/* padding:    var(--space-sm); */      /* 10px;*/
+    
+border: 1px solid var(--border);
+    
+height: var(--control-height-sm);
+    
+border-radius:  var(--border-radius);
+    
+font-size:var(--font-xxs);
+}

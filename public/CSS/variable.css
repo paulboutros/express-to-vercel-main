@@ -1,0 +1,72 @@
+:root{
+
+    --bg:              #181818;
+
+    --surface:         #232323;
+    --surface-active:  #2c2c2c;
+    --surface-2:       #2c2c2c;
+
+    --border:          #444;
+
+    --text:            #f2f2f2;
+    --text-muted:      #8b8b8b;
+
+    --accent:          #00bfff;
+    --accent-hover:    #33ccff;
+
+    --selection:         #ffb000; 
+
+    --danger:          #d9534f;
+    --success:         #4caf50;
+
+    --panel-padding-thin: 5px ;
+    --panel-padding: 10px ;
+    --border-radius: 6px ;
+    --borderStyle1:  1px solid #444;;
+    --title-card-margin: 4px; 
+    
+    --desktop-min-width:769px;
+    --large-desktop-min-width:1100px;
+
+
+    /*text font */
+
+   
+ /* Tiny */
+    --font-xxs: clamp(0.65rem, 0.62rem + 0.10vw, 0.72rem);
+
+    /* Small labels */
+    --font-xs:  clamp(0.75rem, 0.72rem + 0.15vw, 0.82rem);
+
+    /* Secondary text */
+    --font-sm:  clamp(0.85rem, 0.82rem + 0.20vw, 0.92rem);
+
+    /* Default UI text */
+    --font-md:  clamp(0.95rem, 0.90rem + 0.25vw, 1.05rem);
+
+    /* Large controls */
+    --font-lg:  clamp(1.10rem, 1.00rem + 0.35vw, 1.25rem);
+
+    /* Section titles */
+    --font-xl:  clamp(1.30rem, 1.15rem + 0.55vw, 1.55rem);
+
+    /* Main page titles */
+    --font-xxl: clamp(1.60rem, 1.35rem + 0.80vw, 2.10rem);
+
+    /* Hero / splash */
+    --font-display: clamp(2.00rem, 1.60rem + 1.40vw, 3.20rem);
+  
+       /* Spacing */
+    --space-xxs: clamp(2px, 0.15vw, 4px);
+    --space-xs:  clamp(4px, 0.30vw, 6px);
+    --space-sm:  clamp(6px, 0.50vw, 10px);
+    --space-md:  clamp(10px, 0.80vw, 16px);
+    --space-lg:  clamp(16px, 1.20vw, 24px);
+    --space-xl:  clamp(24px, 1.80vw, 36px);
+
+    /* Controls */
+     
+    --control-height-sm: clamp(24px, 1.2rem + 0.4vw, 34px);
+     --control-height: clamp(34px, 1.4rem + 0.5vw, 44px); /* md */
+    --border-radius: clamp(4px, 0.4vw, 8px);
+}

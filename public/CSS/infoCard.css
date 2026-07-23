@@ -1,0 +1,19 @@
+.infoCard{
+
+    display:flex;
+    flex-direction:column;
+
+    min-width:90px;
+
+    padding:8px 12px;
+
+    border:1px solid var(--border);
+    border-radius:var(--border-radius );
+
+     background: var(--surface); /*  #1f1f1f;*/
+
+}
+
+.infoCard-title{font-size: var(--space-md);font-weight:600;text-transform:uppercase;color:var(--text-muted);letter-spacing:.08em;margin-bottom: var(--title-card-margin);}
+
+.infoCard-value{font-size: var(--space-lg);font-weight:600;color:var(--text);}

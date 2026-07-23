@@ -4,43 +4,23 @@
  const express = require("express");
 const { connectToDataBase } = require("../../lib/connectToDataBase");
 // const { connectToDataBase } = require("../lib/connectToDataBase");
+const crypto = require("crypto");
+
 
  
 
 const engine = require("@wulirocks/collection-engine");
- 
+   const {rebuildActiveFilterMap} = engine.features_traitFilters; 
 
- const QueryEngine   = require("@wulirocks/collection-engine/query/QueryEngine");
+ const QueryEngine = require("@wulirocks/collection-engine/query/QueryEngine");
 
+  const rarityCount =  engine.writeServices.get_rarityTraitCount();
 
- //================================================================================================================
- //=================================================================================================================
+  const {getFirstInSet, getALL_NFTIDS } =    engine.metaDataAPI;
 
- /*
-   const { featState } = require("@wulirocks/collection-engine/features/FeatureState/featureState.js");    
-   const { 
-           get_featState,
-           set_featState,
-           createTraitFilterFeature,
-           applyTraitFilter , 
-           rebuildActiveFilterMap
-      } = engine.features_traitFilters; 
-                     // require("@wulirocks/collection-engine/features/traitFilters/createTraitFilterFeature.js");
-    set_featState(featState);
+  const { FeatureState } = require("@wulirocks/collection-engine/features/FeatureState/featureState.js"); 
   
-    const traitFilterFeature = createTraitFilterFeature(  
-    null,// featState,
-    {   
-       onTraitAdded(payload) {
-       applyTraitFilter(payload.traitKey, payload.value, payload.ids);
-       rebuildActiveFilterMap();
-     } 
-    });
-*/
- //=======================================================================================
- //====================  api result/session state =====================================
-
- let runQueryInputHandler_result = null;
+ 
 
 //=======================================================================================
  
@@ -48,123 +28,98 @@ const engine = require("@wulirocks/collection-engine");
 const router = express.Router();
    
 
- router.post("/api/traitFilter/add", (req, res) => {
-    const { traitKey, value, ids, traitFilterData } = req.body;
- 
-
-     //====================================  moved from global to this route========================================================
-     //===============================================================================================
-  
-   const { FeatureState } = require("@wulirocks/collection-engine/features/FeatureState/featureState.js");    
-
-   const featState = new FeatureState();
-   const { 
-    
-           get_featState,
-           set_featState,
-           createTraitFilterFeature,
-           applyTraitFilter , 
-           rebuildActiveFilterMap
-      } = engine.features_traitFilters; 
-                     // require("@wulirocks/collection-engine/features/traitFilters/createTraitFilterFeature.js");
-     set_featState(featState);
-  
-    const traitFilterFeature = createTraitFilterFeature(  
-    null,// featState, // i used set_featState() function above instead
-    {   
-       onTraitAdded(payload) {
-        applyTraitFilter(payload.traitKey, payload.value, payload.ids);
-        rebuildActiveFilterMap(  featState.getTraitUIResult().pills );
-
-     console.log( "==================================================== \n" ,
-                  "==================================================== \n" ,
-                   "================ get_featState().activeFilterMap_IDS===: \n" ,
-
-                           featState.activeFilterMap_IDS ,   "  \n" , 
-            "====================================================  "  
-     )
-        
-      } 
-    });
-      //getTraitUIResult
- 
-
-      console.log( "  traitFilterData === =====   "   ,  traitFilterData  );
-     //===============================================================================================
-    //===============================================================================================
-    //===============================================================================================
-   const result = traitFilterFeature.addTraitSelection( traitKey, value, ids ,traitFilterData );
-    
-  
-  //===================================================================================================
-        result.activeFilterMap_IDS = featState .activeFilterMap_IDS;
-      // const pillsData =   get_featState().serializeActiveTraitUI();
-      //  console.log( "API trait/add pillsData :"  , pillsData   );
-
-
-
-
-
-
-
-
-
-
-
- 
-       result.queryMode ="TRAIT_SEARCH"; 
-       result.raw="no_raw_input"; 
-        
-      // runQueryInputHandler_result = result;
- 
-  res.json(result);
-});
-
  
 router.post("/api/traitFilter/rebuildActiveFilterMap", (req, res) => {
-   const { traitType, value, uiResult } = req.body;
-  
-  const pillData  = uiResult.pills;
-     
-        const {   rebuildActiveFilterMap , applyTraitFilter } = engine.features_traitFilters; 
-     
-         console.log(  "  req.body  pillData  =" , pillData  );
 
-     // applyTraitFilter(payload.traitKey, payload.value, payload.ids);
-    //  const result = rebuildActiveFilterMap( pillData);
+   const {filterModeABS, serializeActivePills} = req.body;
 
+   console.log(  "api rebuildActiveFilterMap arg "     , filterModeABS  ,"serializeActivePills  "  , serializeActivePills   )
 
-       const rarityCount =  engine.writeServices.get_rarityTraitCount();
-
-        const idsToRemove =  rarityCount[traitType][value];
-     result  = { idsToRemove :  idsToRemove   }
+   const result = run_rebuildActiveFilterMap( filterModeABS, serializeActivePills );
+   
     
-     // result  = { "ready to send: pillData " : pillData   }
   res.json(result);
 });
 
 router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
-   const { filterModeABS } = req.body;
+   const {filterModeABS, serializeActivePills} = req.body;
+ 
+      
+  const result = run_rebuildActiveFilterMap( filterModeABS, serializeActivePills );
   
-       get_featState().set_filterModeABS(filterModeABS);
-      //  console.log(  "  filterModeABS  =" , filterModeABS  );
         
     
-       result  = { "res:set_filterModeABS " : filterModeABS   }
+       
   res.json(result);
+});
+
+
+
+ router.post("/api/traitFilter/add", (req, res) => {
+    const { traitKey, value, ids, objArg } = req.body;
+     
+      const featState =  new FeatureState({ nameArg: "=======traitFilter/add"});
+      const { /*set_featState,*/ rebuildActiveFilterMap} = engine.features_traitFilters; 
+    
+ ;
+      
+      featState.set_filterModeABS(objArg.filterModeABS);
+    
+    
+      rebuildActiveFilterMap(  {  featStateArg:featState,  serializeActivePills: objArg.serializeActivePills});
+
+      const result ={};
+            result.filterModeABS = objArg.filterModeABS;
+            result.queryMode     = "TRAIT_SEARCH"; 
+            result.raw           = "no_raw_input"; 
+
+       // log from API
+           
+            const suffleIDS = buildDisplayOrder(featState.activeFilterMap_IDS);
+            
+            result.activeFilterMap_suffleIDS  = suffleIDS;
+            result.activeFilterMap_IDS        = featState.activeFilterMap_IDS;
+            result.activeFilterMap_IDS_length = featState.activeFilterMap_IDS.length;
+           
+
+             console.log( "add trait .activeFilterMap_IDS " ,  suffleIDS  );
+        
+         res.json(result);
+  
+ 
+ // res.json(result);
 });
 
 //=======================================================
 router.post("/api/query/runQueryInputHandler", (req, res) => {
-    const { raw } = req.body;
-  
-         let result = engine.queryEngine.runQueryInputHandler(raw);
-
-        // runQueryInputHandler_result = result;
-             //  console.log(  " runQueryInputHandler result  =" , result  );
+     const { raw } = req.body;
         
-         if (!result || typeof result !== "object") {
-               result = { "res:raw " : raw   }
+     const featState = new FeatureState( 
+      {traitCounter_Data: rarityCount, 
+        getFirstInSet:getFirstInSet ,
+        getALL_NFTIDS:getALL_NFTIDS,
+        nameArg: "========state: Inputhandle"
+      
+       }
+    );
+     const {rebuildActiveFilterMap} = engine.features_traitFilters; 
+  
+                    engine.queryEngine.set_rebuildActiveFilterMap(
+                    () => rebuildActiveFilterMap({featStateArg: featState} )  
+                   // rebuildActiveFilterMap
+                  );
+      let result = engine.queryEngine.runQueryInputHandler(raw, featState);
+
+       // this works as alternative to callback above..
+       //rebuildActiveFilterMap({featStateArg: featState} );
+       
+        const suffleIDS = buildDisplayOrder(featState.activeFilterMap_IDS);
+        result.activeFilterMap_suffleIDS  = suffleIDS;
+
+      
+
+           if (!result || typeof result !== "object") {
+                 result = { "res:raw " : raw   }
         }
       
 
@@ -172,65 +127,94 @@ router.post("/api/query/runQueryInputHandler", (req, res) => {
 });
 
  
- 
+  router.post("/api/getQueryExample", async (req, response) => {
+        const sheetHistData = engine.writeServices.get_sheetGenerationHistory();
+         try {
+          response.status(200).json( sheetHistData );
+      } catch(e){ 
+          console.error(e); response.status(500).json(e);
+        }
+
+  });
+
   router.post("/api/generateAllTraitSheet", async (req, response) => {
   
-  
-             // const {batchNumber}  = req.body;
-             var vidFilter = req.body.videoFilterObject // get_featState().get_VideoFilterObject();
-              //  vidFilter.batchNumber = batchNumber;
-              //  vidFilter.queryMode = runQueryInputHandler_result.queryMode ;
-              //  vidFilter.raw =       runQueryInputHandler_result.raw ;
-             // vidFilter.queryDNAObj = runQueryInputHandler_result.queryDNAObj;
- 
+   
+               var vidFilter = req.body.videoFilterObject // get_featState().get_VideoFilterObject();
+           
+         const DEFAULT_CONFIG   =  engine.writeServices.get_UI_DEFAULT_CONFIG();
 
+            //===================  vidFilter endpoint modification ===============================
+             vidFilter.overrideConfig        =  DEFAULT_CONFIG.nftThumb500;
+             
+             vidFilter.activeFilterMap_suffleIDS  =   buildDisplayOrder(vidFilter.activeFilterMap_IDS);
+          //========================================================================
 
-             console.log( "========================== vid filter =============================\n " ,
-                                     vidFilter  , "\n ",
-             "========================== vid filter end =============================  "
+              console.log( "/api/generateAllTraitSheet========= vid filter  activeFilterMap_suffleIDS =============================\n " ,
+                                     vidFilter.activeFilterMap_suffleIDS  , "\n ",
+              "========================== vid filter end =============================  "
 
-         );
+          );
+
 
 
        
          const sheetHistData = engine.writeServices.get_sheetGenerationHistory();
 
-         let saveKey;// = runQueryInputHandler_result.queryDNAObj.queryDna;
+          let saveKey; 
+          let vidFilter_queryDna = null;
+          let vidFilter_filterModeABS = "";
          if ( vidFilter.queryMode === "DSL" ){ 
-             saveKey =  vidFilter.queryDna;
-         }else{ 
-             saveKey =  vidFilter.sheetTitle   // runQueryInputHandler_result.queryDNAObj.queryDna;
+              vidFilter_queryDna = vidFilter.dna ; 
+               //querymode does not count here
          }
-         /*
-          result.queryDNAObj ={ 
-          queryMode :"TRAIT_SEARCH",
-          raw:"no_raw_input", 
-          pillsData: pillsData
-      }*/
+         if ( vidFilter.queryMode === "TRAIT_SEARCH"){ 
+              vidFilter_queryDna      = vidFilter.sheetTitle;
+              vidFilter_filterModeABS = vidFilter.filterModeABS;
+            
+         }
+         if ( vidFilter.queryMode === "NFT_SEARCH"){ 
+              vidFilter_queryDna       = String(vidFilter.activeFilterMap_IDS);
+              //vidFilter_filterModeABS  = vidFilter.filterModeABS;
+          }
+
+          vidFilter_queryDna        = (vidFilter_queryDna +"|"+  vidFilter_filterModeABS);
+         /* vidFilter_filterModeABS   = vidFilter.filterModeABS;*/
+         
+           saveKey =    hashString(vidFilter_queryDna);
+ 
+           sheetHistData[saveKey] ={
+               dna:            vidFilter_queryDna,
+               raw:            vidFilter.raw,
+               queryData:       vidFilter.queryData,
 
 
-          sheetHistData[saveKey] ={ 
-               IDSMatchCount:  vidFilter.activeFilterMap_IDS.length,//     ["IDS Match Count"],
-               queryMode:      vidFilter.queryMode ,
-               raw:            vidFilter.raw //,
-             //  queryDNAObj:    runQueryInputHandler_result.queryDNAObj
+                IDSMatchCount:  vidFilter.activeFilterMap_IDS.length, 
+                queryMode:      vidFilter.queryMode  ,
+               filterModeABS:  vidFilter.filterModeABS  
+            
            }
 
-         engine.writeServices.set_sheetGenerationHistory(sheetHistData);
+           if ( sheetHistData[saveKey].IDSMatchCount > 0 ){ 
+                engine.writeServices.set_sheetGenerationHistory(sheetHistData);
+            }
 
-         engine.engineState.shared_state.currentPreviewURLList =[];
+
+
+       /*===========================================================================
+                               buffer generation for image rendering  
+        ========================================================================= */
+         engine.engineState.shared_state.currentPreviewURLList = [];
  
-         let result = await engine.layoutSheetGen.generateAllTraitSheet( 
-             vidFilter//    req.body
-         );
-
-        let currentPreviewURLList = engine.engineState.shared_state.currentPreviewURLList;
-
+         let result = await engine.layoutSheetGen.generateAllTraitSheet(vidFilter);
+ 
+         let currentPreviewURLList = engine.engineState.shared_state.currentPreviewURLList;
+         
         var bufferDataLenghts = [];
         for (let index = 0; index < currentPreviewURLList.length; index++) {
            const datalenght = currentPreviewURLList[index].length;
            
-            bufferDataLenghts.push(datalenght);
+              bufferDataLenghts.push(datalenght);
         }
        try {
           response.status(200).json( {
@@ -328,6 +312,103 @@ router.post("/api/set_activeFilterMap_IDS", async (req, response) => {
 
     }
 })
+
+//===========================================================
+
+function hashString(str) {
+
+    return crypto
+        .createHash("sha256")
+        .update(str)
+        .digest("hex");
+
+}
+//====================================================================================
+
+
+ function hashSeed(str) {
+
+    const hash = crypto
+        .createHash("sha256")
+        .update(str)
+        .digest("hex");
+
+    // Use the first 32 bits
+    return parseInt(hash.slice(0, 8), 16);
+}
+ //=========================================================================
+//===============================================================================
+// endpoint reusable function 
+ function buildDisplayOrder(ids) {
+
+    console.log("===buildDisplayOrder:", ids );
+
+
+    const seed = hashSeed(ids.join(","));
+
+    return seededShuffle(ids, seed);
+
+}
+function seededShuffle(array, seed) {
+
+    const result = [...array];
+
+    const rand = mulberry32(seed);
+
+    for (let i = result.length - 1; i > 0; i--) {
+
+        const j = Math.floor(rand() * (i + 1));
+
+        [result[i], result[j]] = [result[j], result[i]];
+    }
+
+    return result;
+}
+function mulberry32(seed) {
+  return function () {
+    let t = seed += 0x6D2B79F5;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function run_rebuildActiveFilterMap( filterModeABS, serializeActivePills ){
+        
+     const featState =  new FeatureState( { nameArg: "========ebuildActiveFilterMap"}  );
+  
+       console.log( "API run_rebuild ActiveFilterMap ======= filterModeABS" , filterModeABS    );
+       console.log( "API  serializeActivePills" , serializeActivePills    );
+      
+     featState.set_filterModeABS(filterModeABS);
+  
+     rebuildActiveFilterMap(  { featStateArg: featState ,serializeActivePills});
+    // rebuildActiveFilterMap(serializeActivePills);
+      const result ={};
+   
+       // send back parameters for conveniencce
+       result.filterModeABS = filterModeABS;
+
+       //ACTUAL RESULT from feature object
+       result.queryMode =                  featState.queryMode;// just to verify nothing changed in state...      "TRAIT_SEARCH"; 
+       
+       result.activeFilterMap_IDS =        featState.activeFilterMap_IDS;
+       result.activeFilterMap_IDS_length = featState.activeFilterMap_IDS.length;
+
+       const suffleIDS = buildDisplayOrder(featState.activeFilterMap_IDS);
+       result.activeFilterMap_suffleIDS  = suffleIDS;
+
+
+  // hard coded here
+       result.raw="no_raw_input"; 
+        
+     
+ return result;
+      //===========================================================
+}
+
+
+
 module.exports = router;
 
  

@@ -63,7 +63,7 @@ export async function searchCharacters(query) {
 }
 
 
-export async function api_addTraitSelection(traitKey, value, ids, traitFilterData) {
+export async function api_addTraitSelection(traitKey, value, ids, objArg) {
   const res = await fetch("/api/traitFilter/add", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -71,7 +71,7 @@ export async function api_addTraitSelection(traitKey, value, ids, traitFilterDat
       traitKey,
       value,
       ids,
-      traitFilterData
+      objArg
     })
   });
 
@@ -79,13 +79,26 @@ export async function api_addTraitSelection(traitKey, value, ids, traitFilterDat
      return await res.json();
 } 
  
-export async function api_rebuildActiveFilterMap( traitType, value, uiResult ) {
+
+ 
+export async function api_getQueryExample(dataArg) {
+   const res = await fetch("/api/getQueryExample", {
+     method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify( dataArg )
+  });
+
+  if (!res.ok) throw new Error("Failed to add trait selection");
+  return await res.json();
+} 
+
+
+
+export async function api_rebuildActiveFilterMap(dataArg) {
    const res = await fetch("/api/traitFilter/rebuildActiveFilterMap", {
      method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-        traitType, value, uiResult
-    })
+    body: JSON.stringify( dataArg )
   });
 
   if (!res.ok) throw new Error("Failed to add trait selection");
@@ -105,13 +118,11 @@ export async function api_runQueryInputHandler(raw) {
   if (!res.ok) throw new Error("Failed to add trait selection");
   return await res.json();
 } 
-export async function api_set_filterModeABS( filterModeABS ) {
+export async function api_set_filterModeABS( dataArg ) {
    const res = await fetch("/api/traitFilter/set_filterModeABS", {
      method: "POST",
     headers: { "Content-Type": "application/json" },
-     body: JSON.stringify({
-          filterModeABS
-    })
+     body: JSON.stringify( dataArg )
   });
 
   if (!res.ok) throw new Error("Failed to add trait selection");

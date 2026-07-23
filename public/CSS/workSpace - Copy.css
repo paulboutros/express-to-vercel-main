@@ -1,0 +1,294 @@
+/*=========================================================
+    WORKSPACE
+=========================================================*/
+:root {
+    --nav-width: 180px;
+    --panel-width: 320px;
+    --mobile-breakpoint: 768px;
+}
+
+
+#final_traitFILTERListContainer { 
+  
+display:grid;
+ 
+    gap:8px;
+    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+}
+
+/* desktop */
+#workspace{
+
+    display:grid;
+
+    width:100%;
+    
+    height:100vh;
+    height:100dvh;
+
+    grid-template-columns: var(--nav-width) 1fr var(--panel-width);
+    grid-template-rows: auto 1fr;
+
+    grid-template-areas:
+        "row1 row1 row1"
+        "grid sheet panel";
+
+    overflow:hidden;
+ 
+    
+}
+#panelToggle{
+
+    display:none;
+
+} 
+
+@media (max-width: 1100px) {
+
+    
+    #workspace {
+
+        grid-template-columns: 140px 1fr 260px;
+
+    }
+
+}
+ 
+/* ==========================================================
+   Mobile Layout
+   ========================================================== */
+
+@media (max-width: 768px) {
+
+    /* ---------- Workspace ---------- */
+
+
+    
+    #workspace {
+
+        height:  auto; 
+        overflow: visible;
+
+        grid-template-columns: 1fr;
+
+        grid-template-rows:
+             auto /*give whatever pixelsspace this component needs (if height+padding 60, then auto set to 60)*/
+            40vh /*view port percentage*/
+            40vh
+            auto;
+
+        grid-template-areas:
+            "row1"
+            "sheet"
+            "grid"
+            "panel";
+    }
+    /* ------ some buttons ------------------------*/
+    
+
+
+
+    /* ---------- Main regions ---------- */
+
+    #row1 {
+        grid-area: row1;
+    }
+
+
+    /*  =====================================================     */
+    #sheetPreview {
+        grid-area: sheet;
+
+        width: 100%;
+        min-height: 0;
+    }
+ 
+    
+/*  ========================================================    */
+      #result-area{
+      grid-area:grid;
+        width: 100%;
+        min-height: 0; 
+
+         display:flex;
+        flex-direction:column;
+       
+     }
+
+     
+
+
+     
+
+    #grid-container {
+         overflow-y:auto; 
+     }
+     #panelContainer {
+        grid-area: panel;
+    }
+
+    /* ---------- Navigator ---------- */
+
+    #nft-grid {
+ 
+        grid-template-columns: repeat(2, 1fr);
+        height: auto;
+ 
+    }
+
+    /* ---------- Panel ---------- */
+
+    #panelToggle {
+
+       display: block;
+       width: 100%;
+       padding: 12px;
+       height: 60px;
+
+    }
+    /*
+     #column1 {
+
+        display: none;
+    }
+
+    #column1.panel-open {
+
+        display: flex;
+        flex-direction: column;
+    }*/
+     #final_traitFILTERListContainer{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+/*=========================================================
+    QUERY
+=========================================================*/
+
+#row1{
+
+    grid-area:row1;
+    padding:12px;
+
+  /*  border-bottom:1px solid #444;*/
+
+}
+
+
+/*=========================================================
+    GRID RESULT STRIP result-chunk area
+=========================================================*/
+ #result-area{
+      grid-area:grid;
+
+      display:grid;
+      grid-template-rows:
+        auto    /* result count */
+        1fr;    /* scrolling thumbnails */
+
+      min-width:0;
+      min-height:0;
+      
+      
+ }
+
+
+#grid-container{
+    
+    overflow-y: auto;
+     
+}
+
+
+/*=========================================================
+    SHEET, big  sharp composite result area
+=========================================================*/
+ /*
+#sheetPreview{
+
+     grid-area:sheet;
+      min-width:0; 
+    
+ 
+}
+#sheetPreview img {
+
+    width: 100%; 
+    
+    object-fit: contain;  
+    border: 1px solid #666;
+
+}*/
+  
+#sheetPreview{
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    min-width:0;
+    min-height:0;
+
+    overflow:hidden;
+}
+#sheetPreview img{
+
+    max-width:100%;
+    max-height:100%;
+
+    width:auto;
+    height:auto;
+
+    object-fit:contain;
+
+    display:block;
+}
+
+
+/*=========================================================
+    TRAIT PANEL
+=========================================================*/
+
+#panelContainer{  
+/*
+    grid-area:panel;
+     display:flex;
+     flex-direction:column;
+     */
+       grid-area:panel;
+
+    display:grid;
+
+    grid-template-rows:
+        auto
+        auto
+        1fr;
+
+    min-width:0;
+    min-height:0;
+
+}
+
+#final_traitList  /* parent*/ {
+   /*  min-height:0;*/
+     overflow-y:auto;
+}
+
+
+/* ============================================*/
+.panel-hidden{
+
+    display:none;
+ }
+ .btn_navSheet { 
+        display:none;
+ }
+
+
+
+ 

@@ -1,0 +1,697 @@
+/*=========================================================
+    WORKSPACE
+=========================================================*/
+:root {
+    --nav-width: 180px;
+    --panel-width: 320px;
+   
+
+
+}
+ :root{
+
+       /* --control-height:64px;*/
+
+        --button-height:64px;
+
+        --input-height:64px;
+
+        --dropdown-height:64px;
+
+        --toolbar-height:50px;
+
+        --panel-toggle-height:0px;
+
+         --page-padding:16px;  
+         --section-gap:12px;
+/*
+        --space:4px;
+
+    --page-padding:calc(var(--space) * 4);   
+
+    --content-gap:calc(var(--space) * 2);     
+*/
+}
+  
+
+
+/*=========================================================
+    Base Layout (Mobile First)
+=========================================================*/
+
+#workspace{
+
+padding: var(--space-sm);
+
+display:grid;
+
+/* width:100%; */
+
+height:100vh;
+
+height:100dvh;
+
+/* height:auto;*/
+
+overflow:visible;
+
+grid-template-columns:1fr;
+
+gap: 0;
+
+grid-template-rows:
+            auto
+            auto  
+            50vh
+            auto;
+
+grid-template-areas:
+ "row1"
+ "sheet"
+ "grid"
+ "panel";
+}
+ 
+#row1{grid-area:row1;}
+ 
+#sheetPreview{
+
+     grid-area:sheet;
+     width:100%;
+ 
+   display:grid;
+     grid-template-columns:1fr;
+     /*
+   grid-template-rows:
+        auto     
+        1fr;    */
+
+      min-width:0;
+      min-height:0;
+
+}
+
+#result-area{
+
+    grid-area:grid;
+
+    width:100%;
+    min-height:0;
+
+    display:flex;
+    flex-direction:column;
+    
+    grid-template-rows:
+        auto
+        1fr;
+
+  /*  gap:var(--section-gap);*/
+
+
+}
+
+#buttonSet2{ 
+    display: none;
+ }
+
+ 
+#resultTitle{
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    padding:  var(--panel-padding-thin);
+    background: var(--surface);
+    margin-bottom: 0px; /*to override title card margin*/
+    margin-top:   var(--section-gap);
+}
+#grid-container{
+    border: 1px solid var(--border);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+   /* padding:  var(--panel-padding);  */
+
+    overflow-y:auto;
+
+}
+
+#panelContainer{
+
+    grid-area:panel;
+
+}
+ 
+ 
+#panelContainer{
+
+    position:fixed;
+
+    left:0;
+    right:0;
+    bottom:60px;   
+
+    max-height:70vh;  
+
+    /*overflow-y:auto;*/
+
+    z-index:999;
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+
+} 
+ 
+ #panelToggle {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 65px;
+    z-index: 1000;
+    margin: var(--space-xs);
+    /* margin-inline: var(--space-xs); */
+}
+ 
+
+
+
+#nft-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+    height:auto;
+
+}
+
+#final_traitFILTERListContainer{
+    
+     display:grid;
+     grid-template-columns:1fr;
+    
+}
+
+ 
+#row1,
+#sheetPreview,
+#result-area,
+#panelContainer{
+    
+padding-inline: 0;
+}
+ 
+#resultInfo {
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+}
+ .result-chunk {
+     
+padding: var(--space-sm);
+}
+
+
+
+
+/*=========================================================
+    Tablet / Small Desktop
+=========================================================*/
+/*  var(--desktop-min-width) 
+@media (min-width:  769px  ){ */
+
+   body[data-workspace="squareDesktop"]{
+ /* @media   (min-aspect-ratio: 85/100 ){ */ 
+       :root{
+
+       /* --control-height:64px;*/
+
+        --button-height:34px;
+
+        --input-height:34px;
+
+        --dropdown-height:34px;
+
+        --toolbar-height:50px;
+
+        --panel-toggle-height:0px;
+
+    }
+
+    #workspace{
+   padding: var(--space-sm);
+   /* padding: var(--page-padding); */
+   height:100vh;
+   height:100dvh;
+   gap:0;
+   overflow:hidden;
+   grid-template-columns: 1fr 4fr; /*  1fr 3fr 1fr;*/
+   grid-template-rows:
+            auto
+            1fr;
+   grid-template-areas:
+      "row1 row1"
+      "grid sheet"; /* "grid sheet panel"; there is no panel area  in this layout*/
+}
+
+    #buttonSet2,
+    #panelToggle{
+
+        display:none;
+
+    }
+
+    #nft-grid{
+
+        grid-template-columns:repeat(1,1fr);
+
+    }
+   #resultInfo{
+
+        grid-template-columns:1fr;
+    }
+    .result-chunk {
+     
+     padding: var(--space-sm);
+ 
+}
+/* does not exist for mobile*/
+ .sheet-hover{
+
+    outline:2px solid #00bfff;
+    outline-offset:-15px;
+
+}
+
+
+    #final_traitFILTERListContainer{
+
+        grid-template-columns:
+            repeat(auto-fit,minmax(180px,1fr));
+
+    }
+
+
+     #result-area{
+      grid-area:grid;
+
+      display:grid;
+      grid-template-rows:
+        auto     
+        1fr;    
+
+      min-width:0;
+      min-height:0;
+      
+      
+    }
+
+ 
+    #panelContainer{  
+ 
+    grid-area:panel;
+
+    /* "Go back to participating in the normal grid layout."
+     will set default right, left, top, bottom : auto;
+    */
+     position:static; 
+     z-index:auto;
+    
+     display:grid;
+
+    grid-template-rows:
+        auto
+        auto
+        1fr;
+
+    min-width:0;
+    min-height:0;
+     max-height:100vh;  
+    }  
+
+    #row1,
+    #sheetPreview,
+    #result-area,
+    #panelContainer{
+        
+        padding-inline:0px;
+    
+    }
+
+    #sheetPreview{
+        display:grid;
+       /* grid-template-rows:  2fr 1fr;*/
+      
+       
+      }
+
+
+
+
+    #panelToggle{
+
+        display:none;
+ 
+    }
+
+    
+
+
+  } 
+
+   body[data-workspace="desktop"]{
+   /*@media   (min-aspect-ratio: 14/10 ){ */ 
+    
+     :root{
+
+        /* --control-height:64px;*/
+
+        --button-height:34px;
+
+        --input-height:34px;
+
+        --dropdown-height:34px;
+
+        --toolbar-height:50px;
+
+        --panel-toggle-height:0px;
+
+    }
+
+    #workspace{
+   padding: var(--space-sm);
+   height:100vh;
+   height:100dvh;
+   overflow:hidden;
+   grid-template-columns:  1fr 3fr 1fr;
+   grid-template-rows:
+            auto
+            1fr;
+   grid-template-areas:
+   "row1 row1 row1"
+   "grid sheet panel";
+   }
+
+
+    #buttonSet2{
+        display: flex;
+        margin-bottom: 0;
+        padding: var(--panel-padding-thin);
+    }
+    #panelToggle{
+
+        display:none;
+
+    }
+
+    #nft-grid{
+
+        grid-template-columns:repeat(1,1fr);
+
+    }
+   #resultInfo{
+
+        grid-template-columns:1fr;
+    }
+    .result-chunk {
+     
+     padding: var(--space-sm);
+ 
+}
+/* does not exist for mobile*/
+ .sheet-hover{
+
+    outline:2px solid var(--accent);
+    outline-offset:-15px;
+
+}
+
+
+    #final_traitFILTERListContainer{
+
+        grid-template-columns:
+            repeat(auto-fit,minmax(180px,1fr));
+
+    }
+
+
+     #result-area{
+      grid-area:grid;
+
+      display:grid;
+      grid-template-rows:
+        auto     
+        1fr;    
+
+      min-width:0;
+      min-height:0;
+      
+      
+    }
+
+ 
+    #panelContainer{  
+ 
+    grid-area:panel;
+
+    /* "Go back to participating in the normal grid layout."
+     will set default right, left, top, bottom : auto;
+    */
+     position:static; 
+     z-index:auto;
+    
+     display:grid;
+
+    grid-template-rows:
+        auto
+        auto
+        1fr;
+
+    min-width:0;
+    min-height:0;
+     max-height:100vh;  
+    }  
+
+    #row1,
+    #sheetPreview,
+    #result-area,
+    #panelContainer{
+        
+        padding-inline:0px;
+    
+    }
+
+
+    #sheetPreview{
+
+   grid-template-columns: 1fr;
+
+   grid-template-rows:
+            auto
+            1fr;
+
+   display: grid;
+     min-width:0;
+    min-height:0;
+}
+
+
+
+
+
+
+    #panelToggle{
+
+        display:none;
+ 
+    }
+
+    
+
+
+}
+
+
+/*=========================================================
+    Large Desktop
+=========================================================*/
+/* var( --large-desktop-min-width)  */
+ 
+
+  
+
+/* ===========================================================  
+   GENERIC RULES 
+============================================================================*/
+
+#row1{
+     grid-area:row1;
+  /*  padding:12px;*/
+ 
+}
+
+
+/*=========================================================
+    GRID RESULT STRIP result-chunk area
+=========================================================*/
+
+/*
+ #result-area{
+      grid-area:grid;
+
+      display:grid;
+      grid-template-rows:
+        auto     
+        1fr;    
+
+      min-width:0;
+      min-height:0;
+      
+      
+ }
+*/
+
+#grid-container{
+    
+    overflow-y: auto;
+     
+}
+
+ 
+  /*
+#sheetPreview{
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    min-width:0;
+    min-height:0;
+
+    overflow:hidden;
+}
+*/
+/*
+#sheetPreview{
+
+   grid-template-columns: 1fr;
+
+   grid-template-rows:
+            auto
+            1fr;
+
+   display: grid;
+     min-width:0;
+    min-height:0;
+}
+   */
+
+/*
+  #previewImg{
+     min-height:0;
+    min-width:0;
+  }*/
+  /*
+#sheetPreview img{
+
+     
+     width:100%;
+    height:100%;
+
+    object-fit:contain;
+}*/
+#previewImg img{
+
+    max-width:100%;
+    max-height:100%;
+
+    width:auto;
+    height:auto;
+
+    object-fit:contain;
+
+}
+
+  #previewImg{
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+  
+    /*
+    min-width:0 means: "I am allowed to shrink smaller than my content if my parent tells me to."
+    */
+    min-width:0;
+    min-height:0;
+
+
+     /*
+      if you forget to add min-height:0; then default is  min-height:auto which means:
+       "My minimum height is whatever my content wants."
+       since in this case the content is the image, and that image height grows proportionally to width
+       min-height keeps growing
+       */
+}
+
+#final_traitList  /* parent*/ {
+    
+    border: 1px solid var(--border);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    padding: var(--space-md);
+    overflow-y: auto;
+    background: var(--surface);
+    flex: 1;
+    min-height: 0;
+    margin-inline: var(--space-xs);
+}
+
+/* ============================================*/
+.panel-hidden{
+
+    display:none;
+ }
+ .btn_navSheet { 
+        display:none;
+ }
+
+ /*=======================  panel   slot ============================ */
+/* horizontal slot */
+ #topTraitSlot{ 
+     flex: 1;
+
+    min-height:0;
+    min-width:0;
+
+    display:flex;
+    flex-direction:row;
+
+}
+#sheetTraitSlot{ 
+
+    
+
+    min-height:0;
+    min-width:0;
+
+    display:flex;
+    flex-direction:column;
+
+}
+ #panelTraitSlot{ 
+
+    min-height:0;
+    min-width:0;
+
+    display:flex;
+    flex-direction:column;
+ }
+
+
+ .active-Trait-Bar{
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:var(--space-xs);
+
+align-content:flex-start;
+
+}
+
+ 

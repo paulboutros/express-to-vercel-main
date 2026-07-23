@@ -1,0 +1,64 @@
+.assistantError{
+
+    padding:.35rem 0;
+
+    border-bottom:1px solid #333;
+
+}
+
+.assistantPreview{
+
+    font-family:monospace;
+
+}
+
+.traitValid{
+
+    color:#4b956f;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+}
+.traitError{
+
+    color:#ff5757;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+}
+
+.traitError:hover{
+
+    text-decoration:underline;
+
+}
+ 
+
+#queryAssistant{
+
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:.5rem;
+
+}
+
+ 
+
+.assistantError{
+
+    flex:0 0 auto;
+
+}
+
+.assistantPreview{
+
+    white-space:nowrap;
+
+}
+
+

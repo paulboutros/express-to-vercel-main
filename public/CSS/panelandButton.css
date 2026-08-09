@@ -1,6 +1,7 @@
 
 
 #row1 {
+    min-width: 0;
   /* padding: 10px;*/
   display: flex;
   font-family: sans-serif;

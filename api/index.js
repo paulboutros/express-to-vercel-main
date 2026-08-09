@@ -117,114 +117,45 @@ startServer();
  // console.log("  invitesBeforeJoin "  , invitesBeforeJoin)
 }
  
- async function stepOne(guild ){
-   
-  //===============================================================================
-
-  // To compare, we need to load the current invite list.
-     const newInvReal  = await guild.invites.fetch()
-    
-    if (!isSetBefore_due_to_debugMode){ 
-      newInvites = new Collection(newInvReal.map((invite) => [invite.code, invite.uses]));
-      isSetBefore_due_to_debugMode = false;// turn it back to a state so it can register 
-      //new invilsit // if we test with actual user
-      // it will be set to true everytime we simulate an emit memberAdd/remove event
-   }
-
-    // This is the *existing* invitesBeforeJoin for the guild.
-  const oldInvites = invitesBeforeJoin ;
- // console.log(  ">>> oldInvites length  = "  , oldInvites.length  );
-
- let modifiedInviteCode;
- newInvites.forEach((newUses, code) => {
-  const oldUses = oldInvites.get(code);
-  console.log(  ">>> oldUses  = "  , oldUses );
-  if ( !oldUses){
-
-     console.error(`Invite code ${code} not found in oldInvites`);
-    
-  }
-   
-
-
-
-   console.log(  ">>> newUses  = "  , newUses  , "code  " , code );
-  
- const inviteDifference = newUses - oldUses;
-
- console.log(  ">>> inviteDifference  = "  ,  inviteDifference );
-  if (oldUses !== undefined && ( inviteDifference !== 0 ) ) {
-    if (inviteDifference < 0 ){
-      console.log(`Invite ${code} has DECREASED uses from ${oldUses} to ${newUses}`);
-    }else{
-      console.log(`Invite ${code} has INCREASED uses from ${oldUses} to ${newUses}`);
-
-    }
-   
-    modifiedInviteCode =  code;
-  }
-});
-
-
-   return modifiedInviteCode;
-}
-  
-  
-
-  function NewMemberShouldBeAllowedInServer(member) {
-      let accountAge =  getAccountAge(member);
-       // is account age is > 90 days
-     let accountIsOldEnough = accountAge > 90; // this number could be voted by community
-    
-     if (!accountIsOldEnough){
-         console.log( `Reject account because age is    >> ${accountAge} `);
-         return false;
-     } 
-       
-      return true;  
      
-   }// age in day
-   function getAccountAge(member) {
-     const createdAt = member.createdAt ;// get age of account
-     const now = new Date();
-     const ageInMs = now - createdAt;
-     const ageInDays = ageInMs / (1000 * 60 * 60 * 24); // convert milliseconds to days
-     return ageInDays;
-   }
-    
-    
-
-
 //===========================
- /*
- app.use(
-  "/wuli-ui",
-  express.static(path.join(__dirname, "../node_modules/@wulirocks/ui/src"))
-); */
+ 
   const uiPath = path.join(__dirname, "../node_modules/@wulirocks/ui/src");
    app.use("/wuli-ui", express.static(uiPath));
- //const queryEnginePath = path.join(__dirname, "../node_modules/@wulirocks/ui/src");
-   //app.use("/wuli-ui", express.static(queryEnginePath));
+ 
 
 
-// Serve static files (React app)
+ 
 app.use(express.static("public"));
 // app.use(express.static(path.join(__dirname, '..', 'public')));
 app.get("/", (request, response) => {
   
   app.use(allowCors);
- 
-   
-    response.send(
+     response.send(
         "  login with discord:"+ "<a href="+process.env.YOUROAUTH2URL+">login</a>" )
     
-   
 })
-
-
-//WEB 3 test
-
  
+ app.get("/guide", (req, res) => {
+
+    res.sendFile(path.join(__dirname,'..',"public","index.html")); // guide
+
+});
+/* 
+app.get("/guide/:slug?", (req, res) => {
+
+    res.sendFile(
+        path.join(__dirname, "..", "public", "index.html") //guide
+    );
+
+});*/
+app.get("/:collection/:slug?", (req, res) => {
+
+    res.sendFile(
+        path.join(__dirname, "..", "public", "index.html")
+    );
+
+});
  
 
 
@@ -353,6 +284,81 @@ request.body= {
    }
  
 }
+
+
+ async function stepOne(guild ){
+   
+  //===============================================================================
+
+  // To compare, we need to load the current invite list.
+     const newInvReal  = await guild.invites.fetch()
+    
+    if (!isSetBefore_due_to_debugMode){ 
+      newInvites = new Collection(newInvReal.map((invite) => [invite.code, invite.uses]));
+      isSetBefore_due_to_debugMode = false;// turn it back to a state so it can register 
+      //new invilsit // if we test with actual user
+      // it will be set to true everytime we simulate an emit memberAdd/remove event
+   }
+
+    // This is the *existing* invitesBeforeJoin for the guild.
+  const oldInvites = invitesBeforeJoin ;
+ // console.log(  ">>> oldInvites length  = "  , oldInvites.length  );
+
+ let modifiedInviteCode;
+ newInvites.forEach((newUses, code) => {
+  const oldUses = oldInvites.get(code);
+  console.log(  ">>> oldUses  = "  , oldUses );
+  if ( !oldUses){
+
+     console.error(`Invite code ${code} not found in oldInvites`);
+    
+  }
+   
+
+
+
+   console.log(  ">>> newUses  = "  , newUses  , "code  " , code );
+  
+ const inviteDifference = newUses - oldUses;
+
+ console.log(  ">>> inviteDifference  = "  ,  inviteDifference );
+  if (oldUses !== undefined && ( inviteDifference !== 0 ) ) {
+    if (inviteDifference < 0 ){
+      console.log(`Invite ${code} has DECREASED uses from ${oldUses} to ${newUses}`);
+    }else{
+      console.log(`Invite ${code} has INCREASED uses from ${oldUses} to ${newUses}`);
+
+    }
+   
+    modifiedInviteCode =  code;
+  }
+});
+
+
+   return modifiedInviteCode;
+}
+   
+
+  function NewMemberShouldBeAllowedInServer(member) {
+      let accountAge =  getAccountAge(member);
+       // is account age is > 90 days
+     let accountIsOldEnough = accountAge > 90; // this number could be voted by community
+    
+     if (!accountIsOldEnough){
+         console.log( `Reject account because age is    >> ${accountAge} `);
+         return false;
+     } 
+       
+      return true;  
+     
+   }// age in day
+   function getAccountAge(member) {
+     const createdAt = member.createdAt ;// get age of account
+     const now = new Date();
+     const ageInMs = now - createdAt;
+     const ageInDays = ageInMs / (1000 * 60 * 60 * 24); // convert milliseconds to days
+     return ageInDays;
+   }
 
 // we handle these things usign the smart contract.. see stacking contract
  //functionStartGiveAwayShedule( request , response );

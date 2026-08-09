@@ -43,7 +43,11 @@ export async function post(path, data) {
 }
 
 
+export async function getPageData() {
 
+    return post("/api/getPageData" );
+
+}
 export async function getTraitData() {
 
     return post("/api/getTraitData");
@@ -106,13 +110,17 @@ export async function api_rebuildActiveFilterMap(dataArg) {
 } 
 
  
-export async function api_runQueryInputHandler(raw) {
+export async function api_runQueryInputHandler(obj) {
+
+
+console.log( "obj   == "   ,obj )
+
    const res = await fetch("/api/query/runQueryInputHandler", {
      method: "POST",
     headers: { "Content-Type": "application/json" },
-     body: JSON.stringify({
-          raw:raw
-    })
+     body: JSON.stringify(  obj ) //    {raw:raw}   )
+          
+    
   });
 
   if (!res.ok) throw new Error("Failed to add trait selection");

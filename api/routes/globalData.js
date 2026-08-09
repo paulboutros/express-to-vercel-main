@@ -9,14 +9,13 @@ const crypto = require("crypto");
 
  
 
-const engine = require("@wulirocks/collection-engine");
-   const {rebuildActiveFilterMap} = engine.features_traitFilters; 
+    const engine =   require("@wulirocks/collection-engine");
+    const {rebuildActiveFilterMap} = engine.features_traitFilters; 
 
- const QueryEngine = require("@wulirocks/collection-engine/query/QueryEngine");
+   const QueryEngine = require("@wulirocks/collection-engine/query/QueryEngine");
+   const rarityCount =  engine.writeServices.get_rarityTraitCount();
 
-  const rarityCount =  engine.writeServices.get_rarityTraitCount();
-
-  const {getFirstInSet, getALL_NFTIDS } =    engine.metaDataAPI;
+   const {getFirstInSet, getALL_NFTIDS } =    engine.metaDataAPI;
 
   const { FeatureState } = require("@wulirocks/collection-engine/features/FeatureState/featureState.js"); 
   
@@ -33,16 +32,16 @@ router.post("/api/traitFilter/rebuildActiveFilterMap", (req, res) => {
 
    const {filterModeABS, serializeActivePills} = req.body;
 
-   console.log(  "api rebuildActiveFilterMap arg "     , filterModeABS  ,"serializeActivePills  "  , serializeActivePills   )
+       console.log(  "api rebuildActiveFilterMap arg "     , filterModeABS  ,"serializeActivePills  "  , serializeActivePills   )
 
-   const result = run_rebuildActiveFilterMap( filterModeABS, serializeActivePills );
+      const result = run_rebuildActiveFilterMap( filterModeABS, serializeActivePills );
    
     
-  res.json(result);
+           res.json(result);
 });
 
 router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
-   const {filterModeABS, serializeActivePills} = req.body;
+     const {filterModeABS, serializeActivePills} = req.body;
  
       
   const result = run_rebuildActiveFilterMap( filterModeABS, serializeActivePills );
@@ -50,32 +49,32 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
         
     
        
-  res.json(result);
+          res.json(result);
 });
 
 
 
- router.post("/api/traitFilter/add", (req, res) => {
+   router.post("/api/traitFilter/add", (req, res) => {
     const { traitKey, value, ids, objArg } = req.body;
      
       const featState =  new FeatureState({ nameArg: "=======traitFilter/add"});
-      const { /*set_featState,*/ rebuildActiveFilterMap} = engine.features_traitFilters; 
+       const { /*set_featState,*/ rebuildActiveFilterMap} = engine.features_traitFilters; 
     
- ;
+  
       
-      featState.set_filterModeABS(objArg.filterModeABS);
+        featState.set_filterModeABS(objArg.filterModeABS);
     
     
       rebuildActiveFilterMap(  {  featStateArg:featState,  serializeActivePills: objArg.serializeActivePills});
 
-      const result ={};
-            result.filterModeABS = objArg.filterModeABS;
-            result.queryMode     = "TRAIT_SEARCH"; 
-            result.raw           = "no_raw_input"; 
+         const result ={};
+             result.filterModeABS = objArg.filterModeABS;
+             result.queryMode     = "TRAIT_SEARCH"; 
+             result.raw           = "no_raw_input"; 
 
        // log from API
            
-            const suffleIDS = buildDisplayOrder(featState.activeFilterMap_IDS);
+             const suffleIDS = buildDisplayOrder(featState.activeFilterMap_IDS);
             
             result.activeFilterMap_suffleIDS  = suffleIDS;
             result.activeFilterMap_IDS        = featState.activeFilterMap_IDS;
@@ -84,37 +83,43 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
 
              console.log( "add trait .activeFilterMap_IDS " ,  suffleIDS  );
         
-         res.json(result);
+          res.json(result);
   
  
- // res.json(result);
+  // res.json(result);
 });
 
 //=======================================================
-router.post("/api/query/runQueryInputHandler", (req, res) => {
-     const { raw } = req.body;
-        
+     router.post("/api/query/runQueryInputHandler", (req, res) => {
+      // const { raw } = req.body;
+             const obj  = req.body;
+ 
+          //  console.log( "req.body=",req.body   ,   "    obj=", obj  );
+
+     //   const raw = obj.raw;
+       
+      
      const featState = new FeatureState( 
       {traitCounter_Data: rarityCount, 
         getFirstInSet:getFirstInSet ,
         getALL_NFTIDS:getALL_NFTIDS,
-        nameArg: "========state: Inputhandle"
+                nameArg: "========state: Inputhandle"
       
        }
     );
-     const {rebuildActiveFilterMap} = engine.features_traitFilters; 
+       const {rebuildActiveFilterMap} = engine.features_traitFilters; 
   
-                    engine.queryEngine.set_rebuildActiveFilterMap(
+                          engine.queryEngine.set_rebuildActiveFilterMap(
                     () => rebuildActiveFilterMap({featStateArg: featState} )  
                    // rebuildActiveFilterMap
                   );
-      let result = engine.queryEngine.runQueryInputHandler(raw, featState);
+         let result = engine.queryEngine.runQueryInputHandler(  obj , featState); //raw
 
        // this works as alternative to callback above..
        //rebuildActiveFilterMap({featStateArg: featState} );
        
-        const suffleIDS = buildDisplayOrder(featState.activeFilterMap_IDS);
-        result.activeFilterMap_suffleIDS  = suffleIDS;
+         const suffleIDS = buildDisplayOrder(featState.activeFilterMap_IDS);
+         result.activeFilterMap_suffleIDS  = suffleIDS;
 
       
 
@@ -123,49 +128,55 @@ router.post("/api/query/runQueryInputHandler", (req, res) => {
         }
       
 
-  res.json(result);
+    res.json(result);
 });
 
  
   router.post("/api/getQueryExample", async (req, response) => {
         const sheetHistData = engine.writeServices.get_sheetGenerationHistory();
          try {
-          response.status(200).json( sheetHistData );
+           response.status(200).json( sheetHistData );
       } catch(e){ 
-          console.error(e); response.status(500).json(e);
+           console.error(e); response.status(500).json(e);
         }
 
   });
 
-  router.post("/api/generateAllTraitSheet", async (req, response) => {
+   router.post("/api/generateAllTraitSheet", async (req, response) => {
   
    
-               var vidFilter = req.body.videoFilterObject // get_featState().get_VideoFilterObject();
+           var vidFilter = req.body.videoFilterObject // get_featState().get_VideoFilterObject();
            
-         const DEFAULT_CONFIG   =  engine.writeServices.get_UI_DEFAULT_CONFIG();
+           const DEFAULT_CONFIG   =  engine.writeServices.get_UI_DEFAULT_CONFIG();
 
             //===================  vidFilter endpoint modification ===============================
-             vidFilter.overrideConfig        =  DEFAULT_CONFIG.nftThumb500;
-             
-             vidFilter.activeFilterMap_suffleIDS  =   buildDisplayOrder(vidFilter.activeFilterMap_IDS);
+               vidFilter.overrideConfig        =  DEFAULT_CONFIG.nftThumb500;
+               vidFilter.activeFilterMap_suffleIDS  =   buildDisplayOrder(vidFilter.activeFilterMap_IDS);
           //========================================================================
-
+           /*
               console.log( "/api/generateAllTraitSheet========= vid filter  activeFilterMap_suffleIDS =============================\n " ,
                                      vidFilter.activeFilterMap_suffleIDS  , "\n ",
-              "========================== vid filter end =============================  "
-
-          );
+             "========================== vid filter end =============================  "
+            );*/
 
 
 
        
-         const sheetHistData = engine.writeServices.get_sheetGenerationHistory();
+          const sheetHistData = engine.writeServices.get_sheetGenerationHistory();
 
           let saveKey; 
           let vidFilter_queryDna = null;
-          let vidFilter_filterModeABS = "";
+          let vidFilter_DSL_search_Dna = null;
+           let vidFilter_filterModeABS = "";
          if ( vidFilter.queryMode === "DSL" ){ 
-              vidFilter_queryDna = vidFilter.dna ; 
+           // vidFilter.dna;  this dna is build from include,inclusive & exclusive combo block trait result
+           // and different combo that produce the same nft list result. we prefer dna based on ordered ids list.
+             /// vidFilter_queryDna  = String(vidFilter.activeFilterMap_IDS);
+                //  vidFilter_queryDna  =    
+               const sorted = [...vidFilter.activeFilterMap_IDS].sort((a, b) => a - b);
+              vidFilter_queryDna = sorted.join(",");
+
+              vidFilter_DSL_search_Dna = vidFilter.dna
                //querymode does not count here
          }
          if ( vidFilter.queryMode === "TRAIT_SEARCH"){ 
@@ -175,16 +186,21 @@ router.post("/api/query/runQueryInputHandler", (req, res) => {
          }
          if ( vidFilter.queryMode === "NFT_SEARCH"){ 
               vidFilter_queryDna       = String(vidFilter.activeFilterMap_IDS);
-              //vidFilter_filterModeABS  = vidFilter.filterModeABS;
-          }
+         }
 
-          vidFilter_queryDna        = (vidFilter_queryDna +"|"+  vidFilter_filterModeABS);
+                vidFilter_queryDna   =  (vidFilter_queryDna +"|"+  vidFilter_filterModeABS);
          /* vidFilter_filterModeABS   = vidFilter.filterModeABS;*/
          
-           saveKey =    hashString(vidFilter_queryDna);
+                 saveKey =  hashString(vidFilter_queryDna);
+
+              let keyPath = "examples";
+           if(vidFilter.containsInvalidBlocks ){
+                 keyPath ="containsInvalidBlocks";
+           } 
  
-           sheetHistData[saveKey] ={
+              sheetHistData[keyPath][saveKey] ={
                dna:            vidFilter_queryDna,
+               search_dna:     vidFilter_DSL_search_Dna,
                raw:            vidFilter.raw,
                queryData:       vidFilter.queryData,
 
@@ -195,8 +211,8 @@ router.post("/api/query/runQueryInputHandler", (req, res) => {
             
            }
 
-           if ( sheetHistData[saveKey].IDSMatchCount > 0 ){ 
-                engine.writeServices.set_sheetGenerationHistory(sheetHistData);
+            if ( sheetHistData[keyPath][saveKey].IDSMatchCount > 0 ){ 
+                  engine.writeServices.set_sheetGenerationHistory(sheetHistData);
             }
 
 
@@ -206,23 +222,23 @@ router.post("/api/query/runQueryInputHandler", (req, res) => {
         ========================================================================= */
          engine.engineState.shared_state.currentPreviewURLList = [];
  
-         let result = await engine.layoutSheetGen.generateAllTraitSheet(vidFilter);
+        let result = await engine.layoutSheetGen.generateAllTraitSheet(vidFilter);
  
          let currentPreviewURLList = engine.engineState.shared_state.currentPreviewURLList;
          
-        var bufferDataLenghts = [];
-        for (let index = 0; index < currentPreviewURLList.length; index++) {
-           const datalenght = currentPreviewURLList[index].length;
+         var bufferDataLenghts = [];
+             for (let index = 0; index < currentPreviewURLList.length; index++) {
+            const datalenght = currentPreviewURLList[index].length;
            
-              bufferDataLenghts.push(datalenght);
+            bufferDataLenghts.push(datalenght);
         }
        try {
           response.status(200).json( {
                bufferCount : currentPreviewURLList.length,
-               bufferDataLenghts: bufferDataLenghts,
+                bufferDataLenghts: bufferDataLenghts,
               
-              endpoint: "engine.layoutSheetGen.generateAllTraitSheet()",
-               currentPreviewURLList: currentPreviewURLList 
+                endpoint: "engine.layoutSheetGen.generateAllTraitSheet()",
+                currentPreviewURLList: currentPreviewURLList 
           });
       } catch(e){ 
           console.error(e); response.status(500).json(e);
@@ -230,30 +246,46 @@ router.post("/api/query/runQueryInputHandler", (req, res) => {
   
 });
 
- router.post("/api/getTraitData", async (req, response) => {
+
+     router.post("/api/getPageData", async (req, response) => {
  
-      let result = await engine.writeServices.get_rarityTraitCount();
-      //  console.log( " getTraitData result "   , result  );
+     // const slug = req.body.slug;
+           let result = await engine.writeServices.get_PageData();
+
+
+   // console.log( "pageResult  ============== "  ,pageResult  , "  slug : ", slug);
+   // let result = pageResult[ slug];
+   // console.log( "pageResult  result  ============== "  ,  result  );
+
+      
+
   try {
       response.status(200).json(  result  );
       
  } catch(e){  console.error(e); response.status(500).json(e);}
-    
+ });
+ router.post("/api/getTraitData", async (req, response) => {
  
-});
+      let result = await engine.writeServices.get_rarityTraitCount();
+      
+  try {
+       response.status(200).json(   result  );
+      
+ } catch(e){   console.error(e); response.status(500).json(e);}
+ });
 
 
 
 
 
-router.post("/globalData_setDebugMode", async (req, response) => {
+router.post("/globalData_setDebugMode",   async (req, response) => {
  
-  const value = req.body.value;
+  const value =  req.body.value;
   const ID  = req.body.ID;
 
-  console.log( "value"  , value );
+      console.log( "value"  , value );
   try {
- const {mongoClient} = await connectToDataBase();
+  const {mongoClient} =   await connectToDataBase();
    
  const db = mongoClient.db("wudb");
  const collection = db.collection("users");
@@ -281,9 +313,9 @@ router.post("/api/set_activeFilterMap_IDS", async (req, response) => {
   const value = req.body.value;
    console.log( "value"  , value );
   try {
-  response.status(200).json( {msg:"value modified to: "+ value  });
+  response.status(200).json( {msg:"value modified to: "  + value  });
       
- } catch(e){  console.error(e); response.status(500).json(e);}
+ } catch(e){   console.error(e); response.status(500).json(e);}
     
  
 });
@@ -339,21 +371,20 @@ function hashString(str) {
  //=========================================================================
 //===============================================================================
 // endpoint reusable function 
- function buildDisplayOrder(ids) {
+  function buildDisplayOrder(ids) {
 
-    console.log("===buildDisplayOrder:", ids );
+    // console.log("===buildDisplayOrder:", ids );
+ 
+      const seed = hashSeed(ids.join(","));
 
-
-    const seed = hashSeed(ids.join(","));
-
-    return seededShuffle(ids, seed);
+      return seededShuffle(ids, seed);
 
 }
 function seededShuffle(array, seed) {
 
-    const result = [...array];
+      const result = [...array];
 
-    const rand = mulberry32(seed);
+      const rand = mulberry32(seed);
 
     for (let i = result.length - 1; i > 0; i--) {
 

@@ -1,6 +1,21 @@
 /*=========================================================
     WORKSPACE
 =========================================================*/
+/*---------------------------------------------------------
+  Workspace Grid
+
+  The workspace engine is only responsible for positioning
+  the main slots.
+
+  It NEVER controls the internal layout of a slot.
+  Each slot owns its own layout (layoutA, layoutB, ...).
+
+  Internal component ratios (Sheet, Guide, QueryBox, etc.)
+  belong to the slot layout, not to this grid.
+---------------------------------------------------------*/
+
+
+
 :root {
     --nav-width: 180px;
     --panel-width: 320px;
@@ -12,7 +27,7 @@
 
        /* --control-height:64px;*/
 
-        --button-height:64px;
+      
 
         --input-height:64px;
 
@@ -62,21 +77,21 @@ gap: 0;
 grid-template-rows:
             auto
             auto  
-            50vh
+            auto /*50vh*/
             auto;
 
 grid-template-areas:
  "row1"
- "sheet"
+ "mainMiddle"
  "grid"
  "panel";
 }
  
 #row1{grid-area:row1;}
  
-#sheetPreview{
+#mainSlotA{
 
-     grid-area:sheet;
+     grid-area:mainMiddle;
      width:100%;
  
    display:grid;
@@ -188,7 +203,7 @@ grid-template-areas:
 
  
 #row1,
-#sheetPreview,
+#mainSlotA,
 #result-area,
 #panelContainer{
     
@@ -214,37 +229,33 @@ padding: var(--space-sm);
 @media (min-width:  769px  ){ */
 
    body[data-workspace="squareDesktop"]{
- /* @media   (min-aspect-ratio: 85/100 ){ */ 
+ 
        :root{
-
-       /* --control-height:64px;*/
-
-        --button-height:34px;
-
-        --input-height:34px;
-
-        --dropdown-height:34px;
-
-        --toolbar-height:50px;
-
-        --panel-toggle-height:0px;
+          
+          --input-height:34px;
+          --dropdown-height:34px;
+          --toolbar-height:50px;
+          --panel-toggle-height:0px;
 
     }
 
     #workspace{
-   padding: var(--space-sm);
-   /* padding: var(--page-padding); */
-   height:100vh;
-   height:100dvh;
-   gap:0;
-   overflow:hidden;
-   grid-template-columns: 1fr 4fr; /*  1fr 3fr 1fr;*/
-   grid-template-rows:
-            auto
-            1fr;
-   grid-template-areas:
-      "row1 row1"
-      "grid sheet"; /* "grid sheet panel"; there is no panel area  in this layout*/
+   
+            padding: var(--space-sm);
+            height:100vh;
+            height:100dvh;
+            gap:0;
+            overflow:hidden;
+            
+            /*The workspace engine positions slots, not components.*/
+            grid-template-columns: 1fr 4fr; /*  1fr 3fr 1fr;*/
+            grid-template-rows:
+            auto /* [1] usually use bar querybox  */
+            1fr; /*[2] grid and mainMiddle hight*/
+            
+            grid-template-areas:
+            "row1 row1"  /* [1] usually use bar querybox  */
+            "grid mainMiddle"; /*[2] "grid sheet panel"; there is no panel area  in this layout*/
 }
 
     #buttonSet2,
@@ -323,7 +334,7 @@ padding: var(--space-sm);
     }  
 
     #row1,
-    #sheetPreview,
+    #mainSlotA,
     #result-area,
     #panelContainer{
         
@@ -331,7 +342,7 @@ padding: var(--space-sm);
     
     }
 
-    #sheetPreview{
+    #mainSlotA{
         display:grid;
        /* grid-template-rows:  2fr 1fr;*/
       
@@ -359,7 +370,7 @@ padding: var(--space-sm);
 
         /* --control-height:64px;*/
 
-        --button-height:34px;
+       
 
         --input-height:34px;
 
@@ -372,18 +383,35 @@ padding: var(--space-sm);
     }
 
     #workspace{
-   padding: var(--space-sm);
-   height:100vh;
-   height:100dvh;
-   overflow:hidden;
-   grid-template-columns:  1fr 3fr 1fr;
-   grid-template-rows:
+   
+padding: var(--space-sm);
+   
+height:100vh;
+   
+height:100dvh;
+   
+overflow:hidden;
+   
+grid-template-columns:  1fr 3fr 1fr;
+   
+grid-template-rows:
             auto
             1fr;
-   grid-template-areas:
-   "row1 row1 row1"
-   "grid sheet panel";
-   }
+   
+grid-template-areas:
+   
+ "row1 row1 row1"
+ "grid mainMiddle panel";
+   
+}
+/*
+#workspace
+┌────────────────────────────────────────────┐
+│ row1                                       │ ← auto
+├────────────┬───────────────────┬───────────┤
+│ grid       │ mainMiddle        │ panel     │ ← 1fr
+└────────────┴───────────────────┴───────────┘
+*/
 
 
     #buttonSet2{
@@ -466,7 +494,7 @@ padding: var(--space-sm);
     }  
 
     #row1,
-    #sheetPreview,
+    #mainSlotA,
     #result-area,
     #panelContainer{
         
@@ -475,7 +503,7 @@ padding: var(--space-sm);
     }
 
 
-    #sheetPreview{
+    #mainSlotA{
 
    grid-template-columns: 1fr;
 
@@ -550,50 +578,7 @@ padding: var(--space-sm);
      
 }
 
- 
-  /*
-#sheetPreview{
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    min-width:0;
-    min-height:0;
-
-    overflow:hidden;
-}
-*/
-/*
-#sheetPreview{
-
-   grid-template-columns: 1fr;
-
-   grid-template-rows:
-            auto
-            1fr;
-
-   display: grid;
-     min-width:0;
-    min-height:0;
-}
-   */
-
-/*
-  #previewImg{
-     min-height:0;
-    min-width:0;
-  }*/
-  /*
-#sheetPreview img{
-
-     
-     width:100%;
-    height:100%;
-
-    object-fit:contain;
-}*/
+  
 #previewImg img{
 
     max-width:100%;
@@ -645,8 +630,23 @@ padding: var(--space-sm);
 
     display:none;
  }
- .btn_navSheet { 
-        display:none;
+ .btn_navGuide { 
+    /*  height: var(--button-height);
+      width: var(--button-height);
+      */
+
+ }
+.guideNav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top: var(--space-lg);
+    gap:var(--space-xs);
+}
+
+
+ #navigButton{
+
  }
 
  /*=======================  panel   slot ============================ */
@@ -661,17 +661,136 @@ padding: var(--space-sm);
     flex-direction:row;
 
 }
-#sheetTraitSlot{ 
-
-    
-
-    min-height:0;
-    min-width:0;
+/*
+#mainSlotA{
 
     display:flex;
-    flex-direction:column;
 
+    align-items:center;
+    justify-content:center;
+
+    min-width:0;
+    min-height:0;
+
+    overflow:hidden;
 }
+*/
+
+
+
+/* demo */
+  body[data-page="demo"]{
+        #mainLayoutA{
+        
+        min-height:0;
+
+        min-width:0;
+
+        display:flex;
+
+        flex-direction:column;
+        
+        }
+  }
+ 
+/*guide */
+/*
+body[data-page="guide"]{
+  #mainLayoutA{
+      display:grid;
+     height:100%;
+
+    grid-template-rows:
+         auto
+         auto
+         auto;
+     overflow-y: auto;
+        
+   }
+ }*/
+ /*mobile*/
+body[data-page="guide"] #mainLayoutA{
+
+    display:block;
+    overflow-y:auto;
+
+} 
+body[data-page="guide"][data-workspace="squareDesktop"] #mainLayoutA{
+
+    display:grid;
+     height:100%;
+     grid-template-rows:
+         auto
+         auto
+         auto;
+
+    overflow-y:auto;
+ }
+
+
+/*
+ body[data-page="apiPipeline"][data-workspace="desktop"] #mainSlotA { 
+    
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr  minmax(0, 1fr);;
+        display: grid;
+        min-width: 0;
+        min-height: 0;
+    }*/
+/*
+body[data-page="apiPipeline"][data-workspace="desktop"] #workspace {
+    padding: var(--space-sm) clamp(6px, 0.50vw, 10px);
+
+    height: 100vh;
+    height: 100dvh;
+
+    overflow: hidden;
+
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
+
+    grid-template-areas:
+        "row1 row1 row1"
+        "grid mainMiddle panel";
+}
+*/
+
+ body[data-page="apiPipeline"][data-workspace="squareDesktop"] #mainLayoutA  
+  
+ {
+/*
+    display:grid;
+     height:100%;
+     grid-template-rows:
+         auto
+         auto
+         minmax(0, 1fr);
+
+    overflow: hidden;*/
+    display: grid;
+
+    height: 100%;
+    min-height: 0;
+
+    grid-template-rows:
+        auto
+        auto
+        minmax(0, 1fr);
+
+    overflow: hidden;
+
+ } 
+
+ 
+
+
+
+
+
+
+
+
+
  #panelTraitSlot{ 
 
     min-height:0;
@@ -694,4 +813,6 @@ align-content:flex-start;
 
 }
 
- 
+ .hidden {
+    display:none !important;
+}

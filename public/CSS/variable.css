@@ -21,7 +21,7 @@
 
     --panel-padding-thin: 5px ;
     --panel-padding: 10px ;
-    --border-radius: 6px ;
+    
     --borderStyle1:  1px solid #444;;
     --title-card-margin: 4px; 
     
@@ -34,26 +34,19 @@
    
  /* Tiny */
     --font-xxs: clamp(0.65rem, 0.62rem + 0.10vw, 0.72rem);
-
-    /* Small labels */
+     /* Small labels */
     --font-xs:  clamp(0.75rem, 0.72rem + 0.15vw, 0.82rem);
-
-    /* Secondary text */
+     /* Secondary text */
     --font-sm:  clamp(0.85rem, 0.82rem + 0.20vw, 0.92rem);
-
-    /* Default UI text */
+     /* Default UI text */
     --font-md:  clamp(0.95rem, 0.90rem + 0.25vw, 1.05rem);
-
-    /* Large controls */
+     /* Large controls */
     --font-lg:  clamp(1.10rem, 1.00rem + 0.35vw, 1.25rem);
-
-    /* Section titles */
+     /* Section titles */
     --font-xl:  clamp(1.30rem, 1.15rem + 0.55vw, 1.55rem);
-
-    /* Main page titles */
+     /* Main page titles */
     --font-xxl: clamp(1.60rem, 1.35rem + 0.80vw, 2.10rem);
-
-    /* Hero / splash */
+     /* Hero / splash */
     --font-display: clamp(2.00rem, 1.60rem + 1.40vw, 3.20rem);
   
        /* Spacing */
@@ -65,8 +58,41 @@
     --space-xl:  clamp(24px, 1.80vw, 36px);
 
     /* Controls */
-     
+     /*
     --control-height-sm: clamp(24px, 1.2rem + 0.4vw, 34px);
-     --control-height: clamp(34px, 1.4rem + 0.5vw, 44px); /* md */
+     --control-height: clamp(34px, 1.4rem + 0.5vw, 44px);  
+*/
     --border-radius: clamp(4px, 0.4vw, 8px);
+
+    /* Controls */
+
+--control-height-sm: clamp(24px, 1.2rem + 0.4vw, 34px);
+--control-height:    clamp(34px, 1.4rem + 0.5vw, 44px);
+
+/* Shared UI */
+
+--control-font-size: var(--font-md);
+--control-radius:    var(--border-radius);
+
+/* Buttons */
+
+--button-font-size:  var(--control-font-size);
+
+--button-padding-y:  calc(var(--space-xs) * 0.9);
+--button-padding-x:  var(--space-md);
+
+--button-gap:        var(--space-xs);
+
+--button-min-height: var(--control-height);
+
+--button-radius:     var(--control-radius);
+
+/* Optional variants */
+
+--button-padding-y-sm: var(--space-xs);
+--button-padding-x-sm: var(--space-sm);
+
+--button-padding-y-lg: var(--space-sm);
+--button-padding-x-lg: var(--space-lg);
+      
 }

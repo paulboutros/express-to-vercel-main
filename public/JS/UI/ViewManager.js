@@ -1,73 +1,3 @@
-// ViewManager.js
-/*
-const views = new Map();
-
-let activeView = null;
-
-export function registerView(name, view) {
-
-    views.set(name, view);
-
-}
-
-export function setInitialView(name){ 
-     showView(name);
-}
-export function showView(name) {
-
-    const nextView = views.get(name);
-
-    if (!nextView) {
-        console.warn(`Unknown view: ${name}`);
-        return;
-    }
-
-    if (activeView && activeView.hide) {
-        activeView.hide();
-    }
-
-
-   
-
-    activeView = nextView;
-
-    console.log("activeView: " , activeView );
-
-    if (activeView.show) {
-        activeView.show();
-    }
-
-}
- 
-export function show(name) {
-
-    const view = views.get(name);
-
-    if (!view) {
-        console.warn(`Unknown view: ${name}`);
-        return;
-    }
-
-    view.show();
-
-}
-export function toggle(name) {
-
-    const view = views.get(name);
-
-    if (!view) {
-        console.warn(`Unknown view: ${name}`);
-        return;
-    }
-
-    view.toggle();
-
-}
- 
-export function getActiveView() {
-    return activeView;
-}
-*/
  
 class ViewManager {
 
@@ -148,7 +78,7 @@ class ViewManager {
         const view = this.getView(name);
 
         if (!view)
-            return;
+              return;
 
         view.hide?.();
 

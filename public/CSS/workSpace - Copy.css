@@ -96,7 +96,7 @@ display:grid;
 
 
     /*  =====================================================     */
-    #sheetPreview {
+    #mainSlotA {
         grid-area: sheet;
 
         width: 100%;
@@ -208,14 +208,14 @@ display:grid;
     SHEET, big  sharp composite result area
 =========================================================*/
  /*
-#sheetPreview{
+#mainSlotA{
 
      grid-area:sheet;
       min-width:0; 
     
  
 }
-#sheetPreview img {
+#mainSlotA img {
 
     width: 100%; 
     
@@ -224,7 +224,7 @@ display:grid;
 
 }*/
   
-#sheetPreview{
+#mainSlotA{
 
     display:flex;
 
@@ -236,7 +236,7 @@ display:grid;
 
     overflow:hidden;
 }
-#sheetPreview img{
+#mainSlotA img{
 
     max-width:100%;
     max-height:100%;
@@ -285,7 +285,7 @@ display:grid;
 
     display:none;
  }
- .btn_navSheet { 
+ .btn_navGuide { 
         display:none;
  }
 

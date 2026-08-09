@@ -1,0 +1,40 @@
+.guideContent{
+/* max-width:900px; */
+margin:auto;
+padding: var(--space-lg);
+overflow-y:auto;
+}
+.guideTitle{
+font-size: var(--font-xl);
+font-weight:bold;
+margin-bottom: var(--space-lg);
+}
+.guideSummary{
+font-size: var(--font-md);
+opacity:.8;
+margin-bottom: var(--space-md);
+/* line-height:1.5; */
+}
+.guideSection{
+margin-bottom: var(--space-lg);
+}
+.guideParagraph{
+/* line-height:1.7; */
+font-size: var(--font-xs);
+}
+.guideNote{
+
+    border-left:4px solid #4da3ff;
+
+    padding-left:16px;
+
+    margin-top:12px;
+
+}
+.guideNoteTitle{
+
+    font-weight:bold;
+
+    margin-bottom:8px;
+
+}

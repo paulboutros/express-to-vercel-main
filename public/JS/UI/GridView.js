@@ -59,7 +59,7 @@ export default class GridView {
         this.clear();
 
 
-        console.log("this.activeNFTIds: " , this.activeNFTIds );
+        
         if (!this.activeNFTIds.length)
             return;
 
@@ -248,7 +248,7 @@ function applyClass( className ) {
     for (let i = start; i <= end && i < items.length; i++) {
         items[i].classList.add(className);
     }
-
+  
 }
 
 

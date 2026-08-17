@@ -43,6 +43,11 @@ export async function post(path, data) {
 }
 
 
+export async function getSiteNavigationData() {
+
+    return post("/api/getSiteNavigationData" );
+
+}
 export async function getPageData() {
 
     return post("/api/getPageData" );

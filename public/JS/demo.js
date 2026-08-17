@@ -190,7 +190,7 @@ const buttonSet2 = document.getElementById("buttonSet2") ;
 
                  // editingIncomplete
                   const editingIncomplete =
-                    result.queryResult.blocks.some(  block => block.editingValue?.editingIncomplete
+                    result.queryResult.blocks.some(  block => block?.editingValue?.editingIncomplete
                   );
 
                 if (editingIncomplete) {

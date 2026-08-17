@@ -145,13 +145,18 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
    router.post("/api/generateAllTraitSheet", async (req, response) => {
   
    
-           var vidFilter = req.body.videoFilterObject // get_featState().get_VideoFilterObject();
+             var vidFilter = req.body.videoFilterObject // get_featState().get_VideoFilterObject();
            
-           const DEFAULT_CONFIG   =  engine.writeServices.get_UI_DEFAULT_CONFIG();
+            const DEFAULT_CONFIG   =  engine.writeServices.get_UI_DEFAULT_CONFIG();
 
             //===================  vidFilter endpoint modification ===============================
-               vidFilter.overrideConfig        =  DEFAULT_CONFIG.nftThumb500;
-               vidFilter.activeFilterMap_suffleIDS  =   buildDisplayOrder(vidFilter.activeFilterMap_IDS);
+                  vidFilter.overrideConfig        =  DEFAULT_CONFIG.nftThumb500;
+                  vidFilter.activeFilterMap_suffleIDS  =   buildDisplayOrder(vidFilter.activeFilterMap_IDS);
+
+              //   vidFilter.cardToDisplay = "weapon_and_shield";  
+                  //vidFilter.cardToDisplay = "nft_id";
+
+
           //========================================================================
            /*
               console.log( "/api/generateAllTraitSheet========= vid filter  activeFilterMap_suffleIDS =============================\n " ,
@@ -176,22 +181,22 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
                const sorted = [...vidFilter.activeFilterMap_IDS].sort((a, b) => a - b);
               vidFilter_queryDna = sorted.join(",");
 
-              vidFilter_DSL_search_Dna = vidFilter.dna
+               vidFilter_DSL_search_Dna = vidFilter.dna
                //querymode does not count here
          }
          if ( vidFilter.queryMode === "TRAIT_SEARCH"){ 
-              vidFilter_queryDna      = vidFilter.sheetTitle;
-              vidFilter_filterModeABS = vidFilter.filterModeABS;
+               vidFilter_queryDna      = vidFilter.sheetTitle;
+                vidFilter_filterModeABS = vidFilter.filterModeABS;
             
          }
          if ( vidFilter.queryMode === "NFT_SEARCH"){ 
               vidFilter_queryDna       = String(vidFilter.activeFilterMap_IDS);
          }
 
-                vidFilter_queryDna   =  (vidFilter_queryDna +"|"+  vidFilter_filterModeABS);
+            vidFilter_queryDna   =  (vidFilter_queryDna +"|"+  vidFilter_filterModeABS);
          /* vidFilter_filterModeABS   = vidFilter.filterModeABS;*/
          
-                 saveKey =  hashString(vidFilter_queryDna);
+             saveKey =  hashString(vidFilter_queryDna);
 
               let keyPath = "examples";
            if(vidFilter.containsInvalidBlocks ){
@@ -212,7 +217,7 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
            }
 
             if ( sheetHistData[keyPath][saveKey].IDSMatchCount > 0 ){ 
-                  engine.writeServices.set_sheetGenerationHistory(sheetHistData);
+                   engine.writeServices.set_sheetGenerationHistory(sheetHistData);
             }
 
 
@@ -245,25 +250,25 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
         }
   
 });
+//==================================================
 
 
-     router.post("/api/getPageData", async (req, response) => {
+router.post("/api/getSiteNavigationData", async (req, response) => {
+         let result = await engine.writeServices.getSiteNavigationData();
  
-     // const slug = req.body.slug;
-           let result = await engine.writeServices.get_PageData();
-
-
-   // console.log( "pageResult  ============== "  ,pageResult  , "  slug : ", slug);
-   // let result = pageResult[ slug];
-   // console.log( "pageResult  result  ============== "  ,  result  );
-
-      
-
   try {
-      response.status(200).json(  result  );
-      
- } catch(e){  console.error(e); response.status(500).json(e);}
+        response.status(200).json(  result  );
+  } catch(e){  console.error(e); response.status(500).json(e);}
  });
+ //======================================
+ router.post("/api/getPageData", async (req, response) => {
+           let result = await engine.writeServices.get_PageData();
+ 
+  try {
+       response.status(200).json(  result  );
+  } catch(e){  console.error(e); response.status(500).json(e);}
+ });
+ //======================================
  router.post("/api/getTraitData", async (req, response) => {
  
       let result = await engine.writeServices.get_rarityTraitCount();
@@ -291,18 +296,18 @@ router.post("/globalData_setDebugMode",   async (req, response) => {
  const collection = db.collection("users");
  
 
- const filter = { "ID": ID  }; // Replace with the actual _id value
+ const  filter = {"ID":  ID  }; // Replace with the actual _id value
  const update = {
-   $set: { debugMode: value }, // Replace "new_value" with the updated value for debugMode
+     $set: { debugMode: value }, // Replace "new_value" with the updated value for debugMode
    
  };
  
- collection.updateOne(filter, update  ); // ,  { upsert: true } it should be created already
+        collection.updateOne(filter, update  ); // ,  { upsert: true } it should be created already
  
- response.status(200).json( {msg:"value modified to: "+ value  });
+ response.status(200).json(    {msg:"value modified to: "+ value  });
 
      
- } catch(e){  console.error(e); response.status(500).json(e);}
+ }      catch(e){  console.error(e); response.status(500).json(e);}
     
  
 });
@@ -310,7 +315,7 @@ router.post("/globalData_setDebugMode",   async (req, response) => {
 
 router.post("/api/set_activeFilterMap_IDS", async (req, response) => {
  
-  const value = req.body.value;
+   const value = req.body.value;
    console.log( "value"  , value );
   try {
   response.status(200).json( {msg:"value modified to: "  + value  });

@@ -52,43 +52,77 @@
      } from "./apiClient.js";
       import { generateAllTraitSheet, functionState,
             refreshQueryResult, setDOM,
-             refreshPipeline
+             refreshPipeline,
+             setPageDataset
         
            } from "./Mainfunctions/mainFunctions.js";
 import startLayoutEngine from "./LayoutEngine.js";
 import PayloadWidget from "./UI/widget/payloadWidget.js";
+import { renderNavigationTree } from "./navigationTree.js";
  
  
  
  //import guide_include_operator from "./guideContent/guide_include_operator.js";
+ let layoutEngine = null;
  let pathIndex =0;
 let guideComponent = null;
 let queryBox = null;
 let sheetCard = null;
+let foundCard = null;
 let traitPanelView = null;
 let payloadWidget =null;
 let gridView= null;
- let  sheetView = null;
+let sheetView = null;
+let siteNavigationDOM_created = false;
 
+ let navigationPaths =  null;
+let siteNavigationData = null;
+ let currentCollection;
 let uiComponentLoaded = false;
+
+
+ const final_traitList = document.getElementById("final_traitList");
+  const queryStore = new QueryStore();
+   queryBox = new QueryBox(
+                document.getElementById("queryBox"),
+                queryStore,
+                refreshQueryResult
+               );
+
+
 async function loadUIcomponent( objArg ){   // const raw = pageData.query;//    
 
+const  {collection, pageData} = objArg;
+
+ 
 if ( uiComponentLoaded) return;
 if (!uiComponentLoaded){uiComponentLoaded = true;}
+ 
 
 
+     
+
+
+  currentCollection = collection;
 
    
      sheetCard = new InfoCard( resultInfo,"SHEETS","0");
+     foundCard = new InfoCard(  resultInfo,"FOUND","0 NFTs");
+      
+        
+        
+    
+  
+
  
      traitPanelView = new ElementView( '[data-toggle="traits"]');
-   viewManager.register("TRAITS", traitPanelView);
-   viewManager.hide("TRAITS");
+     viewManager.register("TRAITS", traitPanelView);
+     viewManager.hide("TRAITS");
 
 
 
 
-   gridView = new GridView({ 
+     gridView = new GridView({ 
         container:document.getElementById("grid-container"),
          nftGrid: document.getElementById("nft-grid"),
          onSheetSelected : (page) => { 
@@ -99,55 +133,52 @@ if (!uiComponentLoaded){uiComponentLoaded = true;}
      sheetView = new SheetView(
              document.getElementById("mainSlotA")
       );
+ 
 
 
-
-
-
-const queryStore = new QueryStore();
  await queryStore.initialize(api_getQueryExample);
 
-const  {collection, pageData} = objArg;
+
 const raw = pageData.query;//    
 
  switch (collection) {
         case "guide":
             
-          //  if (!queryBox){
+           /*
                 queryBox = new QueryBox(
                 document.getElementById("queryBox"),
                 queryStore,
                 refreshQueryResult
-              );
-           // }
+               );*/
+            
              queryBox.input.setValue(raw);
+
+             
              refreshQueryResult({raw: raw, caret: raw.length,  action: null,  command:null });
-       break;
+               create_SiteNavigation();
+
+               setDOM(  {queryBox, activeCollection:collection, layoutEngine });
+ 
+             break;
        case "apiPipeline":
-           
-           
                    
+                      
+                     queryBox.collection = collection;
                   
-                      queryBox = new QueryBox(
-                      document.getElementById("queryBox"),
-                      queryStore,
-                      refreshQueryResult
-                    );
-       
-                  setDOM({queryBox, activeCollection:collection });
-
-
-                  
-                  //============================================================================
-                  
-                   
-
+        
+ 
+                   create_SiteNavigation();
+              
 
 
        
        break;
-       case "reference":
-       break;
+
+        case "purpose":
+        case "introduction":
+        case "reference":
+           create_SiteNavigation();
+        break;
      
         default:
             break;
@@ -157,8 +188,52 @@ const raw = pageData.query;//
 
 
 
+ async function create_SiteNavigation(){
 
- 
+  if (siteNavigationDOM_created ){ return; }
+      siteNavigationDOM_created = true;
+      
+
+    
+     console.log( "navigationPaths =" , navigationPaths  );
+
+                  renderNavigationTree(  
+                    siteNavigationData,
+                
+                    document.querySelector("#final_traitFILTERListContainer"),
+                     {
+                        currentPageId: "pipeline-search",
+                         onNavigate(node) {
+                             const collection = node.collection; 
+                             const slug = node.path;
+                             console.log("NAVIGATE:", node);
+
+                             const fullPath = `/${ collection}/${ slug}`;
+                             history.pushState({},"",fullPath);
+
+
+                           // console.log( "  currentCollection =   "  , currentCollection );
+
+         
+                             if (currentCollection === collection){
+
+                                 updatePage({ collection, slug });
+                             }else{ 
+                               
+                                updatePage({ collection, slug });
+                                //window.location.href = fullPath;
+                             } 
+                            
+
+
+                            
+                        
+                        }
+                 });
+                 final_traitList.classList.remove("panel-hidden");
+
+
+} 
 function getCurrentRoute() {
 
     const parts = window.location.pathname
@@ -206,16 +281,18 @@ window.addEventListener("popstate", () => {
 
 //let pageAlreadyRendered = false;
 async function updatePage({collection, slug}= getCurrentRoute() ){ 
-
-    
-
  
-     const allPageData     = await api.getPageData();
-     const pageData     = allPageData[collection].pages[slug];
-     const path         = allPageData.paths[collection];
-           pathIndex    = Number( path.indexOf(slug) );
+     setPageDataset();
+  
+     const allPageData    = await api.getPageData();
+     const pageData       = allPageData[collection].pages[slug];
+     const path           = navigationPaths[collection];// allPageData.paths[collection];
+           pathIndex      = Number( path.indexOf(slug) );
 
-           console.log( "path ====   " , path  )
+      // default 
+    get_UIstate().cardToDisplay = "nft_id";
+                //vidFilter.cardToDisplay = "weapon_and_shield";  
+                  //vidFilter.cardToDisplay = "nft_id";
     //================================================================
 
     
@@ -236,25 +313,51 @@ async function updatePage({collection, slug}= getCurrentRoute() ){
      await loadUIcomponent( {collection, pageData}); // const raw = pageData.query;//    
  
      switch (collection) {
+
         case "guide":
+         /*
+                queryBox = new QueryBox(
+                document.getElementById("queryBox"),
+                queryStore,
+                refreshQueryResult
+              );*/
             
+             setDOM({ activeCollection:collection, sheetCard,foundCard, viewManager, queryBox});
+             queryBox.input.setValue(raw);
+              
+             refreshQueryResult({raw: raw, caret: raw.length, action: null, command:null});
+        
        break;
-      
+        case "purpose":
+
+           //to do: replace by id page id = "games"
+            if (raw){
+               setDOM({ activeCollection:collection, sheetCard,foundCard, viewManager, queryBox});
+               queryBox.input.setValue(raw);
+
+                get_UIstate().cardToDisplay = "weapon_and_shield";
+                //vidFilter.cardToDisplay = "weapon_and_shield";  
+                  //vidFilter.cardToDisplay = "nft_id";
+               refreshQueryResult({raw: raw, caret: raw.length, action: null, command:null});
+            }
+
+        break;
        case "reference":
+
+
+
        break;
        
        case "apiPipeline":
                
-                     const testquery = {raw: raw, caret: raw.length,  action: null,  command:null } 
-                     const result = await refreshQueryResult(testquery);
+             const testquery = {raw: raw, caret: raw.length,  action: null,  command:null }
+             
+             setDOM({ activeCollection:collection, sheetCard,foundCard, viewManager, queryBox});
+             const result = await refreshQueryResult(testquery);
                    
-                 
-                    refreshPipeline(result);
-
-
-                 
-                 
-
+            
+            refreshPipeline(result);
+ 
        
        break;
 
@@ -263,124 +366,22 @@ async function updatePage({collection, slug}= getCurrentRoute() ){
      }
      
 
-     setDOM({ activeCollection:collection, sheetCard,viewManager,queryBox}); 
+     addNavigationButton(  path, pathIndex, collection );
+     
+      
      return { allPageData, pageData, path  }
 }
 
 
-
-
-
-export default async function initGuide({slug, collection} = getCurrentRoute()) {
- 
-    viewManager.register("SHEET GENERATION", sheetView);
-    viewManager.register("SEARCH RESULT", gridView);
-    viewManager.setInitialView("SHEET GENERATION");
-    const layoutEngine = startLayoutEngine({mode:"guide"});
- 
-     
-  
-  const { allPageData, pageData, path} = await updatePage({collection, slug});
- 
-  console.log(" init Guide  () = " );
-      
-
-let sheetTimer = null;
-const panel_ignored_traits = [ "NECKSTYLE","DNA","_BODY_","_HEAD_","COLORSQN","HELMCREST","WEAPON_PAT","MASK_PAT"] ;
- 
- //======================================================================================
-/*
-  const traitPanelView = new ElementView( '[data-toggle="traits"]');
-   viewManager.register("TRAITS", traitPanelView);
-   viewManager.hide("TRAITS");
-   */
-//===============================================================
-  
-      /*
-     const gridView = new GridView({ 
-        container:document.getElementById("grid-container"),
-         nftGrid: document.getElementById("nft-grid"),
-         onSheetSelected : (page) => { 
-                     timeout_generateAllTraitSheet( page, 0 );
-             } 
-         }
-     );
-      const sheetView = new SheetView(
-             document.getElementById("mainSlotA")
-      );
-      */
-     /*
-    viewManager.register("SHEET GENERATION", sheetView);
-    viewManager.register("SEARCH RESULT", gridView);
-    viewManager.setInitialView("SHEET GENERATION");
-    
-     
- const layoutEngine = startLayoutEngine({mode:"guide"});
-*/
-
-      setTraitUIHandlers({
-          onRemoveTrait(traitType, value, uiResult) {
-     
-  
-                     if (  uiResult.pills.length === 0 ){ 
-                        viewManager.hide("filterModeBTN");
-                     } 
-                    
-          
-          const apiCall =  async () => { 
-                    const result = await api_rebuildActiveFilterMap(
-                                    { filterModeABS:        get_UIstate().filterModeABS,
-                                     serializeActivePills:  get_UIstate().serializeActivePills
-                                    });
-               
-                     update_activeFilterMap(result);               
-            }
-            apiCall();
- 
-    // redraw result grid
-  }
-});
-
- 
-let ResultToClient={}; // result/response from api engine.
- 
-//=================================================================================
-const uiRegistry={};
-const row1 = document.getElementById("row1");
-//const buttonSet2 = document.getElementById("buttonSet2") ;
-
-const navigButton = document.getElementById("navigButton");
-   
- //===================================================================
-//============================   QUERY BOX =======================================
-        
- 
-   
-   //============================================================
-     console.log("slug=============" , slug )
-    
-
-         const pills = document.getElementById("trait-pill-container");pills?.classList.add("hidden");
-         const final_traitList = document.getElementById("final_traitList"); final_traitList?.classList.add("hidden"); 
-         const activeTraitBar  = document.getElementById("activeTraitBar"); activeTraitBar?.classList.add("hidden"); 
-         const panelTraitSlot  = document.getElementById("panelTraitSlot"); panelTraitSlot?.classList.add("hidden"); 
-         const panelToggle     = document.getElementById("panelToggle"); panelToggle?.classList.add("hidden"); 
-        // const result_area     = document.getElementById("result-area"); result_area?.classList.add("hidden"); 
-         const buttonSet2     = document.getElementById("buttonSet2"); buttonSet2?.classList.add("hidden"); 
- 
-          
-    
-    //===================================================== 
-  const prevBatchButton = new RunButton({
+function addNavigationButton( path, pathIndex, collection){ 
+     const navigButton = document.getElementById("guideNavigation");
+   const prevBatchButton = new RunButton({
         container:  navigButton  ,
         label :"<",
         onClick: async () => {
              const previousPage = path[pathIndex - 1] ?? null;
              if (previousPage) {
-             //  location.href =`/guide/${previousPage}`;
-               //initGuide(previousPage);
-                 // spa style
-                 history.pushState({},"",`/${collection}/${previousPage}`);
+                  history.pushState({},"",`/${collection}/${previousPage}`);
                  updatePage({collection, slug:previousPage});
             }
         }
@@ -404,16 +405,89 @@ const navigButton = document.getElementById("navigButton");
  
         }
     });
-   
     nextBatchButton.button.classList.add("btn");
+
+ }
+
+
+export default async function initGuide({slug, collection} = getCurrentRoute()) {
+ 
+    viewManager.register("SHEET GENERATION", sheetView);
+    viewManager.register("SEARCH RESULT", gridView);
+    viewManager.setInitialView("SHEET GENERATION");
+    layoutEngine = startLayoutEngine({mode:"guide"});
+      
+    siteNavigationData  = await api.getSiteNavigationData();
+    navigationPaths     = buildNavigationPaths( siteNavigationData);
+  
+    const { allPageData, pageData, path} = await updatePage({collection, slug});
+  
+let sheetTimer = null;
+const panel_ignored_traits = [ "NECKSTYLE","DNA","_BODY_","_HEAD_","COLORSQN","HELMCREST","WEAPON_PAT","MASK_PAT"] ;
+ 
+      setTraitUIHandlers({
+          onRemoveTrait(traitType, value, uiResult) {
+   
+                     if (  uiResult.pills.length === 0 ){ 
+                        viewManager.hide("filterModeBTN");
+                     } 
+           
+          const apiCall =  async () => { 
+                    const result = await api_rebuildActiveFilterMap(
+                                    { filterModeABS:        get_UIstate().filterModeABS,
+                                     serializeActivePills:  get_UIstate().serializeActivePills
+                                    });
+               
+                     update_activeFilterMap(result);               
+            }
+            apiCall();
+ 
+    // redraw result grid
+  }
+});
+
+ 
+let ResultToClient={}; // result/response from api engine.
+ 
+//=================================================================================
+const uiRegistry={};
+const row1 = document.getElementById("row1");
  
    
+   //============================================================
+     console.log("slug=============" , slug )
+    
+
+         const pills = document.getElementById("trait-pill-container");pills?.classList.add("hidden");
+         //final_traitList?.classList.add("hidden"); 
+         const activeTraitBar  = document.getElementById("activeTraitBar"); activeTraitBar?.classList.add("hidden"); 
+         const mainLayoutC  = document.getElementById("mainLayoutC");// mainLayoutC?.classList.add("hidden"); 
+         
+         const panelToggle     = document.getElementById("panelToggle");
+         // panelToggle?.classList.add("hidden"); 
+
+          
+         const buttonSet2     = document.getElementById("buttonSet2"); buttonSet2?.classList.add("hidden"); 
   
-   document.getElementById("panelToggle").addEventListener("click", (e) => {
+    panelToggle.addEventListener("click", (e) => {
+
+       
              viewManager.toggle("TRAITS");
     });
  
 //======================================================== 
+/*
+  const traitPanel = new TraitSelectorPanel({
+       container: document.getElementById("final_traitFILTERListContainer"),
+       panel_ignored_traits: panel_ignored_traits,
+      onAdd: ({ traitKey, value, ids }) => {
+             onTraitAdd(traitKey, value, ids) ;
+   
+      }
+   });
+    traitPanel.render(traitData);
+*/
+
 //======================================================== 
 const filterModeToggle = new ToggleButton({
 
@@ -473,17 +547,47 @@ const filterModeToggle = new ToggleButton({
                // get_UIstate().queryMode = "TRAIT_SEARCH";
          
           viewManager.show("filterModeBTN");
- 
- 
-}
-
-
   
-
-
- 
-
 }
  
-  
+}
  
+
+
+function buildNavigationPaths(siteNavigationData) {
+
+    const navigationPaths = {};
+  
+    function collect(nodes, collection = null) {
+
+        for (const node of nodes) {
+
+            const currentCollection =
+                 node.collection || collection;
+
+            if (node.path && currentCollection) {
+
+                if (!navigationPaths[currentCollection]) {
+                    navigationPaths[currentCollection] = [];
+                }
+
+                navigationPaths[currentCollection].push(
+                    node.path
+                );
+            }
+
+            if (node.children?.length) {
+
+                collect(
+                    node.children,
+                    currentCollection
+                );
+            }
+        }
+    }
+
+    collect(siteNavigationData);
+
+       return navigationPaths;
+}
+  

@@ -88,9 +88,12 @@ class ViewManager {
 
         const view = this.getView(name);
 
-        if (!view)
+        if (!view){ 
+            throw new Error(" toggle view is null");
             return;
-
+        }
+            
+  
         view.toggle?.();
 
     }

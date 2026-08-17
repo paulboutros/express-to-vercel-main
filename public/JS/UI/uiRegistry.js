@@ -4,8 +4,7 @@
 export const ui = {
 
     filterCard: null,
-
-    foundCard: null,
+     foundCard: null,
 
     
 

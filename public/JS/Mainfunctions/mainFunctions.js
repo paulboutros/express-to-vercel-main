@@ -4,11 +4,13 @@
 //import {  } from "../apiClient.js";
 import {  api_addTraitSelection ,api_rebuildActiveFilterMap,
           api_set_filterModeABS, api_runQueryInputHandler , api_getQueryExample ,
-         api_generateAllTraitSheet
+          api_generateAllTraitSheet
         //   api_generateAllTraitSheet
      } from "../apiClient.js"; 
 
-import { drawConnector,pt , layoutNodes } from "/wuli-ui/pipelineFunction.js";
+import { drawConnector,pt ,clearConnectors, layoutNodes,
+        getRequiredHorizontalWidth
+ } from "/wuli-ui/pipelineFunction.js";
 
 import RunButton     from "/wuli-ui/runButton.js";
 import QueryDropdown from "/wuli-ui/QueryBox/QueryDropdown.js";
@@ -17,8 +19,20 @@ import QueryDropdown from "/wuli-ui/QueryBox/QueryDropdown.js";
    import {updateActiveTraitBar , call_addTrait_inUI , setTraitUIHandlers ,get_UIstate ,
        get_VideoFilterObject
     } from "/wuli-ui/filterPills.js";
+import { appendTokenInfo } from "/wuli-ui/dataRepresentation/tokenDataToNode.js";
   //import { get } from "lodash";
  
+
+
+const maxDepthByTokenType = {
+
+    COMPLETE_PRODUCER: 1,
+    PARTIAL_PRODUCER: 1,
+    TRAIT: 2,
+    VALUE: 3 
+     
+
+};
 
 
 export const functionState={
@@ -30,7 +44,9 @@ export const functionState={
 
 const nodeGraph        = document.getElementById("nodeGraph"); 
 const nodeGraphScroll   = document.getElementById("nodeGraphScroll"); 
+const nodeGraphCanvas  = document.getElementById("nodeGraphCanvas"); 
 
+let queryAssistantContent  = document.getElementById("queryAssistantContent"); 
 
 const previewImg = document.getElementById("previewImg");
  
@@ -44,7 +60,26 @@ const previewImg = document.getElementById("previewImg");
   // let filterCard ;
  //  let foundCard ;  
   // let queryBox;
+export function setPageDataset(){ 
+ const path = window.location.pathname;
 
+ document.body.dataset.page = "demo";
+if (path.startsWith("/guide") ||
+      path.startsWith("/introduction") || 
+     path.startsWith("/reference")  || 
+      path.startsWith("/purpose") 
+    // path.startsWith("/apiPipeline")
+
+){ 
+     document.body.dataset.page = "guide";
+
+}  
+if ( path.startsWith("/apiPipeline")   ){ 
+      document.body.dataset.page = "apiPipeline";
+}
+  
+
+}
 
 export async function generateAllTraitSheet(batchNumber, incr , IDS_Match_Count){ 
                 
@@ -153,7 +188,7 @@ export async function refreshQueryResult ( obj ) { //raw
 
                  // editingIncomplete
                 const editingIncomplete =
-                    result.queryResult.blocks.some(  block => block.editingValue?.editingIncomplete
+                    result.queryResult.blocks.some(  block => block?.editingValue?.editingIncomplete
                 );
 
                 if (editingIncomplete) {
@@ -167,6 +202,7 @@ export async function refreshQueryResult ( obj ) { //raw
 
 
                  raw                    = result.queryResult.normalizedQuery;
+                /* raw+="                                ";*/
                  DOM.queryBox.input.setValue( result.queryResult.normalizedQuery );
                  DOM.queryBox.input.setCaret( result.queryResult.updatedCaret   );
   
@@ -179,17 +215,13 @@ export async function refreshQueryResult ( obj ) { //raw
                  result.queryResult.raw = raw;
                  DOM.queryBox.updateAssistant(result.queryResult);
 
-                
-                 //==========================
-              //   result.queryResult.blocks.forEach(block => {
+                  //==========================
+                  //   result.queryResult.blocks.forEach(block => {
 
                     const actionTrigger = result.queryResult.actionTrigger ;
                      console.log( " actionTrigger  =" ,   actionTrigger );
                     if ( actionTrigger){ 
-                                    //return;
-                                
-
-                            
+                             
                                 console.log( "actionTrigger.anchorPosition  =" ,   actionTrigger.anchorPosition );
             
                                 const blocks =       result.queryResult.blocks;
@@ -256,7 +288,7 @@ export function setDOM(config = {}) {
 
 
   const DOM = {
-
+    layoutEngine: null,
     activeCollection: null,
 
     sheetCard: null,
@@ -308,6 +340,14 @@ export function setDOM(config = {}) {
              //===========================================================================
 
            // different  action on query update based on collection or page.....
+
+                nodeGraphCanvas.innerHTML = "";
+                previewImg.innerHTML = "";
+
+
+
+      console.log(   " DOM.activeCollection   "   , DOM.activeCollection   );
+
                switch (DOM.activeCollection) {
                   case "apiPipeline":
                        refreshPipeline(result)
@@ -353,164 +393,348 @@ export function refreshPipeline (result){
                DOM.queryBox.updateAssistant(result.queryResult);
                 
                   let xOffset = 0;
-                 
+                
                   const nodeColumns = [];
                   const blocks = result.queryResult.blocks;
                    for (let index = 0; index < blocks.length; index++) {
                      const block = blocks[index];
-                     const visibleTokens = block.tokens.filter(t => t.type !== "RAW");
+                     const visibleTokens =
+                      block.tokens.filter(t => t.type !== "RAW" && t.type !== "END_OF_QUERY" );
                     
                     const count = visibleTokens.length;
-                    const nodes = []; 
+                  //  const nodes = []; 
                        
                           const column = [];
                           visibleTokens.forEach((token, index) => {
-      
-                          
+        
+                                     
+                                         const maxDepth =
+                                            maxDepthByTokenType[token.type] ?? 1;
 
-                           
-    
-                      
-                                        let tokenNode  = buildNodeAndDOM(token, block,  result, 0);
-                                        let lexerNode  = buildNodeAndDOM(token, block, result , 1 );
-                                        let parsertNode = buildNodeAndDOM(token, block, result , 2 );
-                                        let resultNode = buildNodeAndDOM(token, block, result , 3 );
-                                        let responsetNode = buildNodeAndDOM(token, block, result , 4 );
+                                        const nodes = [];
 
-                                         nodeColumns.push(
-                                             [tokenNode,lexerNode,parsertNode, resultNode ,responsetNode ] 
-                                            ); 
-                                         
-                                      
-                                 
+                                        for (let depth = 0; depth < maxDepth; depth++) {
+
+                                            const node =
+                                                buildNodeAndDOM(
+                                                    token,
+                                                    block,
+                                                    result,
+                                                    depth
+                                                );
+
+                                            if (!node) break;
+
+                                            nodes.push(node);
+                                        }
+
+                                        nodeColumns.push(nodes);
+                                  
                           });
-                 
-                        
- 
+                  }
 
-                   
-                 }
-
+                 let layoutMode = 
+                     "horizontal";
+                   //"vertical";
                    nodeGraphCanvas.style.minHeight = "0px"; 
-                   //  nodeGraph.style.minHeight = "0px"; 
+                    
+                  const assistant_scroll_width = DOM.queryBox.assistant.container.scrollWidth; 
+                      
                     let layoutOptions=
                             {
                                 container: nodeGraph,
-                                mode: "horizontal",
-                                containerMaxHeight:800
+                                mode: layoutMode,
+                                containerMaxHeight:801,
+                                assistant_scroll_width ,
+ 
+                                baseX: nodeColumns[0][0].x,
+                                 rawQuery: result.raw,
+
+                                updatedCaret: result.queryResult.updatedCaret
                             }
-                 
+
+                             
+                   
+
+
+                      // layoutOptions.assistant_scroll_width = requiredWidth;
+                    //   nodeGraphCanvas.style.width  =    `${ requiredWidth   }px`; 
+                     
+           
                       
 
              for (let tokenIndex = 0; tokenIndex < nodeColumns.length; tokenIndex++) {
                      const column = nodeColumns[tokenIndex];
                      for (let depth = 0; depth < column.length; depth++) {
-
-
-
+                  
                     const node = nodeColumns[tokenIndex][depth];
-                     const currentHeight =  node.instance.getRect().height;
-                    node.height = currentHeight;
+                    
+
+                    // size is set in .css (getBoundingClientRect() is for computed value)
+                        const pipelineNode = node.instance.el.querySelector(".pipelineNode");
+                       
+                        const nodeRect = pipelineNode.getBoundingClientRect();
+                        node.width  = nodeRect.width;
+                        node.height = nodeRect.height;
+                        
+                         // node.width  = pipelineNode.style.minWidth;
+                      //  node.height = pipelineNode.style.minHeight;
+                      
+
+                    }
+                }
+ //===================================================
+                     const {  
+                           requiredWidth,
+                           columnWidths
+                     } =
+                     getRequiredHorizontalWidth(
+                        nodeColumns,
+                        layoutOptions
+                      ); 
+
+                      layoutOptions.assistant_scroll_width =  requiredWidth;
+                      layoutOptions.requiredWidth = requiredWidth;
+                      layoutOptions.columnWidths = columnWidths;
 
 
-                    console.log( 
-                        "el:",   node.instance.el,
-                        "tok id: " ,   node.token.id , "depth", depth,
-                        " node.height  :" , node.height)
-                    //====================
-                     
-                      //  DOM.queryBox.
+                       nodeGraphCanvas.style.width = `${requiredWidth}px`; 
+
+                      
+                     queryAssistantContent =   document.getElementById("queryAssistantContent"); 
+                     // console.log( " queryAssistantContent   =====  "   ,  queryAssistantContent );
+                    //  queryAssistantContent.style.width =`${requiredWidth}px`;
+    
+                     // nodeGraphScroll.style.width  =    `${requiredWidth}px`;
+                    console.log( " ==============  width adjustment:",  {
+                           requiredWidth,
+                           assistant_scroll_width
+                     })
+                    //nodeGraphCanvas.style.width  =    `${ assistant_scroll_width   }px`; 
+
+
+ //====================================
+                
+             for (let tokenIndex = 0; tokenIndex < nodeColumns.length; tokenIndex++) {
+                     const column = nodeColumns[tokenIndex];
+                     for (let depth = 0; depth < column.length; depth++) {
+ 
+                    const node = nodeColumns[tokenIndex][depth];
+                    // const currentHeight =  node.instance.getRect().height;
+                    
+   
                             layoutNodes(
                             nodeColumns,
                             tokenIndex,
                             depth,
-                            layoutOptions
-                            
-                        );
+                            layoutOptions);
+                         
                     }
                 }
+
+
+
+
+
+
+
+                  //layoutOptions
+                DOM.queryBox.layoutOptions = layoutOptions;
+
                 nodeGraphCanvas.style.height = `${ layoutOptions.containerMaxHeight}px`;
                 console.log("layoutOptions.requiredHeight " ,  layoutOptions.containerMaxHeight  );
-                //nodeGraphCanvas.style.height = `${requiredHeight}px`;
-             //  nodeGraph.style.minHeight =`${layoutOptions.containerMaxHeight}px`;
+              
      //============================================  connector =================================
+ 
+                     connectNodes(nodeColumns,layoutOptions);
+    
 
-                  for (let tokenIndex = 0; tokenIndex < nodeColumns.length; tokenIndex++) {
 
-    const column = nodeColumns[tokenIndex];
+  }
+function connectNodes(nodeColumns, layoutOptions){
 
-    for (let depth = 0; depth < column.length; depth++) {
-
-        const node = column[depth];
-
-        if (!node) continue;
-
-        const offx =
-            node.instance.getRect().width / 2;
-
-        drawConnector(
-            nodeGraphScroll,//  nodeGraph,// document.body,
-            [
-                pt(
-                    node.anchorPos.x,
-                    node.anchorPos.y
-                ),
-
-                pt(
-                    node.anchorPos.x,
-                    node.anchorPos.y + 15
-                ),
-
-                pt(
-                    node.x + offx,
-                    node.anchorPos.y + 15
-                ),
-
-                pt(
-                    node.x + offx,
-                    node.y
-                )
-            ]
-        );
+     clearConnectors(nodeGraphScroll);
+    
+     
+    if (layoutOptions.mode === "vertical"){ 
+         connectNodes_vertical(nodeColumns, layoutOptions)
+      }else{ 
+          connectNodes_horizontal(nodeColumns, layoutOptions)
     }
-             }
 
+}
+  function connectNodes_vertical(nodeColumns, layoutOptions){ 
+         for (let tokenIndex = 0; tokenIndex < nodeColumns.length; tokenIndex++) {
+            const column = nodeColumns[tokenIndex];
+              for (let depth = 1; depth < column.length; depth++) {
+
+    const previousNode = column[depth - 1];
+    const node = column[depth];
+
+    if (!previousNode || !node) continue;
+ 
+    const currentWidth = node.instance.getRect().width;
+        
+    //--------------------------------------------------
+    // Connector
+    //--------------------------------------------------
+           let iniPosX =0;
+            
+              if (depth >= 1){ 
+                 // previousNode_width = previousNode.width;
+                  iniPosX = previousNode.x + previousNode.width;
+             }else{
+                   iniPosX = 0;
+                 // previousNode_width = 0;
+             }
+         
+             
+              
+                const from = pt(
+                    // column[0].x ,//
+                   // iniPosX,
+                     previousNode.x + previousNode.width,
+                    previousNode.y +  previousNode.height / 2
+                );
+            
+
+                const to = pt(
+                    node.x,
+                    node.y  + node.height / 2
+                );
+
+
+               // if (depth === 1){ 
+                  console.log("HORIZONTAL CONNECTOR", {
+                    depth,
+                    nodeTitle:  node.renderSpec.title.textContent,
+                    from,
+                    to,
+                    dx: to.x - from.x,
+                    dy: to.y - from.y
+                   });
+                //}
+                 
+
+               
+                drawConnector(
+                    nodeGraphScroll,
+                    [from, to]
+                );   
+
+        
+
+ 
+
+}
+         }
+
+  }
+
+
+  function connectNodes_horizontal(nodeColumns){ 
+        let yoffSet =0;
+        let yoffSetIncr = 2;
+
+        
+        const anchorToNodeYspace =  nodeColumns[0][0].y -  nodeColumns[0][0].anchorPos.y- 4  ;
+         
+         for (let tokenIndex = 0; tokenIndex < nodeColumns.length; tokenIndex++) {
+            const column = nodeColumns[tokenIndex];
+             for (let depth = 0; depth < column.length; depth++) {
+
+                const node = column[depth];
+
+                if (!node) continue;
+
+                
+                const offx = node.instance.getRect().width / 2;
+  
+                 const incr =  ( anchorToNodeYspace / nodeColumns.length )
+                 yoffSet =   incr * tokenIndex ;//+= yoffSetIncr;  
+                if (depth === 0){ 
+
+      
+             
+
+                     drawConnector(
+                    nodeGraphScroll, 
+                    [
+                        pt(
+                            node.anchorPos.x,
+                            node.anchorPos.y  
+                        ),
+
+                        pt(
+                            node.anchorPos.x,
+                            node.anchorPos.y - yoffSet + anchorToNodeYspace
+                        ),
+
+                        pt(
+                            node.x + offx,
+                            node.anchorPos.y - yoffSet + anchorToNodeYspace
+                        ),
+
+                        pt(
+                            node.x + offx,
+                            node.y
+                        )
+                    ]
+                   );
+                }else{ 
+                  const previousNode  = column[depth-1];      
+                 const from = pt(
+                            previousNode.x + previousNode.instance.getRect().width / 2,// offx,
+                            previousNode.y + previousNode.height
+                        );
+
+                 const to = pt( node.x + offx, node.y );
+                  
+                    drawConnector(
+                        nodeGraphScroll,
+                        [from, to]
+                    ); 
+                }   
+               
+            }
+         }
 
   }
 
   function buildNodeAndDOM(token, block, result, depth ){ 
                        const div = document.createElement("div");
                             div.classList.add("correctionAssistant");
-                           div.classList.add("pipelineWidget");  
+                            div.classList.add("pipelineWidget"); 
+                           // div.style.overflowY = "hidden"; 
 
-                           nodeGraphScroll.appendChild(div);   
+                            nodeGraphScroll.appendChild(div);   
                          //  nodeGraph.appendChild(div);   
                           //  DOM.queryBox.container.appendChild(div);  
 
                             const nodeInstance = new QueryDropdown(div);
+                                  nodeInstance.queryBox = DOM.queryBox;
 
                            
                             // create fresh node
-                            const node =  DOM.queryBox.buildPipelineNodes(token, block, nodeInstance,
-                                ()=>{ return DOM.queryBox.getRenderList_tokens(token);},
+                            let node = DOM.queryBox.buildPipelineNodes(token, block, nodeInstance,
+                                
+                                  null ,
 
+                                   //nodeGraphScroll
+                                  nodeGraph,
                                   nodeGraphScroll
-                                 // nodeGraph
                              );
-                              
-                              
-                            
-                             
-                                 //====================================================   
-                              const spanValues = token.start +"-"+ token.end;
-                              node.type = "Producer";
-                              node.raw  = "+";
-                              node.normalized = "+v";
-                              node.details = [
-                                        { key:"Raw", value:"+" },
-                                        { key:"Canonical", value:"+v" },
-                                        { key:"Span", value:spanValues }  //"0-2"
-                               ];
+                             // if (!node)return
+                  
+
+                                 //==================================================== 
+                            const appendNodeInfo = appendTokenInfo({node, token, block, depth, queryBox:DOM.queryBox });
+                               
+                                   node ={ 
+                                    ...node,
+                                    ...appendNodeInfo
+                                   };
+ 
                                const stateKey =`${block.blockId}:${token.id}:${depth}`;
                                let state = pipelineState.get(stateKey);
                                 if (!state) {
@@ -543,17 +767,14 @@ export function refreshPipeline (result){
                                  console.log(   " register state  node",   node );
                                  refreshPipeline (result);
                               };
-                             
-
-                              //====================================================
-
-
-
+                              
 
 
             return node;   
   }
  
+ 
+
 
   /*
   click
@@ -577,3 +798,68 @@ layout
 nodes underneath move down
   
   */
+ /*
+ node graph purpose of guide page in general:
+ -Data representation — the broad technical term.
+-View model / presentation model — the data structure prepared specifically for a UI.
+-Projection — taking the same underlying data and exposing only the aspects relevant to a particular view.
+-Information visualization — presenting relationships and state visually rather than as raw data.
+-Progressive disclosure — showing the essential information first, with deeper information available on demand.
+-Explainability / interpretability layer — explaining why the system produced a result, not merely showing the result.
+-Multiple views of the same model — probably the simplest description of what you're actually doing.
+                    SAME ENGINE
+                        │
+             ┌──────────┼──────────┐ 
+             ▼          ▼          ▼
+          Lexer       Parser     Search
+           view        view       view
+             │          │          │
+             ▼          ▼          ▼
+         "What is     "What did   "What
+          this?"       it mean?"   can I
+                                  choose?"
+ */
+
+/*=====================================================================
+                ENGINE
+                   │
+                   ▼
+                token
+                   │
+                   ▼
+            buildPipelineNode()
+                   │
+                   ▼
+                 NODE(UI)
+        ┌──────────┼───────────┐
+        │          │           │
+       data       state       action
+        │          │           │
+        └──────────┼───────────┘
+                   ▼
+             QueryDropdown
+                   │
+                   ▼
+                  DOM
+
+=================================================================*/
+/*======================================================================= */
+
+/*
+
+[✓] Query engine
+[✓] Mirror / live language representation
+[✓] Pipeline visualization
+[✓] Survivor/exclusion explanation
+[✓] Responsive layouts
+[✓] Horizontal / vertical modes
+[✓] Guides
+[ ] Global navigation tree
+[ ] Canonical page identities/routes
+[ ] Complete first-time-user path
+[ ] Error/empty/no-result states
+[ ] Deep linking
+[ ] Final visual consistency pass
+[ ] Basic performance sanity check
+
+*/

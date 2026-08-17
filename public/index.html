@@ -7,19 +7,23 @@
 
       <link rel="stylesheet" href="/CSS/guideContent.css"> 
       <link rel="stylesheet" href="/CSS/variable.css"> 
-        <link rel="stylesheet" href="/CSS/style.css">
+      <link rel="stylesheet" href="/CSS/style.css">
 
-       <link rel="stylesheet" href="/CSS/sheetPreview.css">
-       <link rel="stylesheet" href="/CSS/queryBox.css">
-        <link rel="stylesheet" href="/CSS/horizontalSelector.css">
-       <link rel="stylesheet" href="/CSS/gridView.css">
-        <link rel="stylesheet" href="/CSS/workSpace.css"> 
-     <link rel="stylesheet" href="/CSS/infoCard.css"> 
-     <link rel="stylesheet" href="/CSS/assistant.css"> 
+      <link rel="stylesheet" href="/CSS/sheetPreview.css">
+      <link rel="stylesheet" href="/CSS/queryBox.css">
+      <link rel="stylesheet" href="/CSS/horizontalSelector.css">
+      <link rel="stylesheet" href="/CSS/gridView.css">
+      <link rel="stylesheet" href="/CSS/workSpace.css"> 
+      <link rel="stylesheet" href="/CSS/infoCard.css"> 
+      <link rel="stylesheet" href="/CSS/assistant.css"> 
      
-        <link rel="stylesheet" href="/CSS/panelandButton.css">
-           <link rel="stylesheet" href="/CSS/pipeline.css">
-              <link rel="stylesheet" href="/CSS/pipelineNode.css">
+      <link rel="stylesheet" href="/CSS/panelandButton.css">
+      <link rel="stylesheet" href="/CSS/pipeline.css">
+      <link rel="stylesheet" href="/CSS/pipelineNode.css">
+
+      <link rel="stylesheet" href="/CSS/navigationTree.css">
+       <link rel="stylesheet" href="/CSS/diagram.css">
+      
       
           
     <title>Wulirocks</title>
@@ -28,22 +32,26 @@
 
  <div id="workspace">
 
-      <div id ="row1" >  
+    <div id ="row1" >  
         <div id="topTraitSlot"></div>
          <div id="queryBox">
+           <div class="queryCaret">
+             <span class="queryCaretText"></span><span class="caretBar"></span>
+
+           </div> 
             <input class="queryInput" id="queryInput">
 
              <div id="queryDropdown" class="queryDropdown" hidden></div>
               <div id="queryAssistant" class="queryAssistant"  ></div>
                <div id="correctionAssistant" class="correctionAssistant"  ></div>
        </div>
-   </div>
+    </div>
      
-    <div id="result-area">
+ <div id="mainSlotB">
         
      <div id="resultInfo">  </div> 
-  
-     <div id="resultTitle" class="infoCard-title" >search result </div> 
+      <div id="resultTitle" class="infoCard-title" >search result </div> 
+       
      <div id="grid-container">
              <div id="nft-grid"></div>
      </div>
@@ -56,9 +64,9 @@
    <div id="previewImg"> </div>
   </div>
 
- <div id="panelContainer" data-toggle="traits" >
+ <div id="mainSlotC" data-toggle="traits" >
  
-          <div id="panelTraitSlot"></div> 
+          <div id="mainLayoutC"></div> 
 
 
        <div id ="activeTraitBar"> </div>

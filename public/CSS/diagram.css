@@ -1,0 +1,577 @@
+.guideDiagram {
+    margin: var(--space-lg) 0;
+}
+
+
+.guideDiagramTitle {
+    margin-bottom: var(--space-md);
+
+    font-size: var(--font-sm);
+    font-weight: 600;
+
+    color: var(--text-muted);
+}
+
+
+/* Vertical flow */
+
+.guideDiagramFlow {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+}
+
+
+.guideDiagramStep {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+}
+
+
+/* Individual diagram node */
+
+.guideDiagramBox {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: var(--control-height-sm);
+
+    padding: var(--space-xs) var(--space-lg);
+
+    border: var(--borderStyle1);
+    border-radius: var(--border-radius);
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    font-size: var(--font-sm);
+    font-weight: 600;
+
+    text-align: center;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease;
+}
+
+
+/* Slightly emphasize the nodes on hover */
+
+.guideDiagramBox:hover {
+
+    background: var(--surface-active);
+
+    border-color: var(--accent);
+}
+
+
+/* Arrow between nodes */
+
+.guideDiagramArrow {
+
+    padding: var(--space-xs) 0;
+
+    color: var(--text-muted);
+
+    font-size: var(--font-md);
+    line-height: 1;
+}
+
+
+
+ /* =========================================================
+   Architecture Diagram
+   ========================================================= */
+
+.guideArchitecture {
+
+    margin: var(--space-lg) 0;
+
+    padding: var(--space-lg);
+
+    background: var(--surface);
+
+    border: var(--borderStyle1);
+    border-radius: var(--border-radius);
+
+    overflow-x: auto;
+}
+
+
+.guideArchitectureTitle {
+
+    margin-bottom: var(--space-lg);
+
+    color: var(--text-muted);
+
+    font-size: var(--font-sm);
+    font-weight: 600;
+}
+
+
+/* Main architecture flow */
+
+.guideArchitectureFlow {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-width: 500px;
+}
+
+
+/* ---------------------------------------------------------
+   Nodes
+   --------------------------------------------------------- */
+
+.guideArchitectureNode {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 120px;
+    min-height: var(--control-height-sm);
+
+    padding:
+        var(--space-xs)
+        var(--space-md);
+
+    background: var(--surface-2);
+
+    border: var(--borderStyle1);
+    border-radius: var(--border-radius);
+
+    color: var(--text);
+
+    font-size: var(--font-sm);
+    font-weight: 600;
+
+    text-align: center;
+
+    white-space: nowrap;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease;
+}
+
+
+.guideArchitectureNode:hover {
+
+    background: var(--surface-active);
+
+    border-color: var(--accent);
+}
+
+
+.guideArchitectureRoot {
+
+    border-color: var(--accent);
+
+    color: var(--accent);
+}
+
+
+/* ---------------------------------------------------------
+   Vertical connector
+   --------------------------------------------------------- */
+
+.guideArchitectureConnector {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: 34px;
+}
+
+
+.guideArchitectureLine {
+
+    width: 1px;
+    height: 20px;
+
+    background: var(--border);
+}
+
+
+.guideArchitectureArrow {
+
+    height: 14px;
+
+    color: var(--text-muted);
+
+    font-size: var(--font-xs);
+
+    line-height: 14px;
+}
+
+
+/* ---------------------------------------------------------
+   Branch connector
+   --------------------------------------------------------- */
+
+.guideArchitectureBranchConnector {
+
+    width: 80%;
+    height: 35px;
+}
+
+
+.guideArchitectureBranchConnectorGrid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            var(--branch-count),
+            minmax(0, 1fr)
+        );
+
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+}
+
+
+/*
+ * Vertical line coming down from the parent.
+ */
+
+.guideArchitectureBranchConnectorGrid::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 0;
+
+    width: 1px;
+    height: 18px;
+
+    background: var(--border);
+}
+
+
+/*
+ * Horizontal branch line.
+ */
+
+.guideArchitectureBranchConnectorGrid::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: calc(50% / var(--branch-count));
+    right: calc(50% / var(--branch-count));
+
+    top: 18px;
+
+    height: 1px;
+
+    background: var(--border);
+}
+
+
+/*
+ * Individual vertical connections.
+ */
+
+.guideArchitectureBranchConnectorCell {
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+}
+
+
+.guideArchitectureBranchLine {
+
+    width: 1px;
+    height: 17px;
+
+    margin-top: 18px;
+
+    background: var(--border);
+}
+
+
+/* ---------------------------------------------------------
+   Branch nodes
+   --------------------------------------------------------- */
+
+.guideArchitectureBranches {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            var(--branch-count),
+            minmax(100px, 1fr)
+        );
+
+    gap: var(--space-md);
+
+    width: 80%;
+}
+
+
+.guideArchitectureBranch {
+
+    display: flex;
+
+    justify-content: center;
+}
+
+
+/* ---------------------------------------------------------
+   Continuation after branches
+   --------------------------------------------------------- */
+
+.guideArchitectureContinuation {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* =========================================================
+   Architecture Branch Merge
+   ========================================================= */
+
+.guideArchitectureMerge {
+
+    width: 80%;
+    height: 35px;
+
+    position: relative;
+}
+
+
+.guideArchitectureMergeLines {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            var(--branch-count),
+            minmax(0, 1fr)
+        );
+
+    width: 100%;
+    height: 18px;
+}
+
+
+.guideArchitectureMergeLine {
+
+    justify-self: center;
+
+    width: 1px;
+    height: 18px;
+
+    background: var(--border);
+}
+
+
+/*
+ * Horizontal line connecting all branch lines.
+ */
+
+.guideArchitectureMergeHorizontal {
+
+    position: absolute;
+
+    left: calc(50% / var(--branch-count));
+    right: calc(50% / var(--branch-count));
+
+    top: 18px;
+
+    height: 1px;
+
+    background: var(--border);
+}
+
+
+/*
+ * Central line continuing downward
+ * from the merged branches.
+ */
+
+.guideArchitectureMergeVertical {
+
+    position: absolute;
+
+    left: 50%;
+    top: 18px;
+
+    width: 1px;
+    height: 17px;
+
+    background: var(--border);
+}
+.guideArchitectureMergeArrow {
+
+    position: absolute;
+
+    left: 50%;
+    top: 16px;
+
+    transform: translateX(-50%);
+
+    color: var(--text-muted);
+
+    font-size: var(--font-xs);
+
+    line-height: 14px;
+}
+
+
+
+/* ======================= tree ===========================================
+
+*/
+ .guideTree {
+
+    margin: var(--space-lg) 0;
+
+    padding: var(--space-lg);
+
+    /*background: var(--surface);*/
+
+    /*border: var(--borderStyle1);*/
+   /* border-radius: var(--border-radius);*/
+
+    overflow-x: auto;
+}
+
+
+.guideTreeTitle {
+
+    margin-bottom: var(--space-lg);
+
+    color: var(--text-muted);
+
+    font-size: var(--font-sm);
+    font-weight: 600;
+}
+
+/*
+.guideTreeContent {
+
+    min-width: 420px;
+
+    font-family: monospace;
+}*/
+
+
+/* Root */
+ 
+.guideTreeRoot {
+
+    display: inline-flex;
+    align-items: center;
+
+    min-height: var(--control-height-sm);
+
+    padding:
+        var(--space-xs)
+        var(--space-md);
+
+    margin-left: 4ch;
+    margin-bottom: var(--space-xs);
+
+    background: var(--surface-2);
+
+    border: 1px solid var(--accent);
+    border-radius: var(--border-radius);
+
+    color: var(--accent);
+
+    font-size: var(--font-sm);
+    font-weight: 600;
+}
+
+ 
+/* Tree */
+
+.guideTreeNodes {
+
+    color: var(--text);
+}
+
+
+.guideTreeNode {
+
+    white-space: nowrap;
+}
+
+
+.guideTreeRow {
+
+    display: flex;
+    align-items: center;
+
+    min-height: 0;
+
+    line-height: 1.25;
+}
+
+
+.guideTreeConnector {
+
+    flex-shrink: 0;
+
+    color: var(--text-muted);
+
+    white-space: pre;
+
+    font-family: monospace;
+}
+
+
+.guideTreeItem {
+
+    color: var(--text);
+
+    font-family: inherit;
+
+    font-size: var(--font-sm);
+}
+
+
+.guideTreeChildren {
+
+    padding: 0;
+}
+
+
+.guideTreeContent {
+    --tree-indent: 4ch;
+
+    min-width: 420px;
+
+    padding-left: var(--tree-indent);
+
+    font-family: monospace;
+}
+.guideTreeRoot {
+    margin-left: 0;
+}

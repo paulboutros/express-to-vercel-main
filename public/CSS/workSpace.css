@@ -48,11 +48,19 @@
 */
 }
   
+#queryBox,
+ #guideTextBlock,
+ #mainLayoutA {
+  min-width:0;
+  } 
 
+   
 
 /*=========================================================
     Base Layout (Mobile First)
 =========================================================*/
+
+
 
 #workspace{
 
@@ -91,22 +99,20 @@ grid-template-areas:
  
 #mainSlotA{
 
-     grid-area:mainMiddle;
-     width:100%;
- 
-   display:grid;
-     grid-template-columns:1fr;
-     /*
-   grid-template-rows:
-        auto     
-        1fr;    */
+grid-area:mainMiddle;
 
-      min-width:0;
-      min-height:0;
+width:100%;
 
+display:grid;
+
+grid-template-columns:1fr;
+
+min-width:0;
+
+min-height:0;
 }
 
-#result-area{
+#mainSlotB{
 
     grid-area:grid;
 
@@ -147,14 +153,14 @@ grid-template-areas:
 
 }
 
-#panelContainer{
+#mainSlotC{
 
     grid-area:panel;
 
 }
  
  
-#panelContainer{
+#mainSlotC{
 
     position:fixed;
 
@@ -203,11 +209,11 @@ grid-template-areas:
 
  
 #row1,
-#mainSlotA,
-#result-area,
-#panelContainer{
+/*#mainSlotA,*/
+#mainSlotB,
+#mainSlotC{
     
-padding-inline: 0;
+    padding-inline: 0; 
 }
  
 #resultInfo {
@@ -228,7 +234,7 @@ padding: var(--space-sm);
 /*  var(--desktop-min-width) 
 @media (min-width:  769px  ){ */
 
-   body[data-workspace="squareDesktop"]{
+body[data-workspace="squareDesktop"]{
  
        :root{
           
@@ -237,7 +243,7 @@ padding: var(--space-sm);
           --toolbar-height:50px;
           --panel-toggle-height:0px;
 
-    }
+       }
 
     #workspace{
    
@@ -296,7 +302,7 @@ padding: var(--space-sm);
     }
 
 
-     #result-area{
+     #mainSlotB{
       grid-area:grid;
 
       display:grid;
@@ -311,7 +317,7 @@ padding: var(--space-sm);
     }
 
  
-    #panelContainer{  
+    #mainSlotC{  
  
     grid-area:panel;
 
@@ -334,44 +340,30 @@ padding: var(--space-sm);
     }  
 
     #row1,
-    #mainSlotA,
-    #result-area,
-    #panelContainer{
+     #mainSlotB,
+    #mainSlotC{
         
         padding-inline:0px;
     
     }
 
     #mainSlotA{
-        display:grid;
-       /* grid-template-rows:  2fr 1fr;*/
-      
-       
+        /* display:grid; */
       }
-
-
-
-
+ 
     #panelToggle{
 
         display:none;
  
     }
-
-    
-
+ 
 
   } 
 
-   body[data-workspace="desktop"]{
-   /*@media   (min-aspect-ratio: 14/10 ){ */ 
-    
+ body[data-workspace="desktop"]{
+     
      :root{
-
-        /* --control-height:64px;*/
-
-       
-
+ 
         --input-height:34px;
 
         --dropdown-height:34px;
@@ -385,22 +377,18 @@ padding: var(--space-sm);
     #workspace{
    
 padding: var(--space-sm);
+ height:100vh;
+ height:100dvh;
+ overflow:hidden;
    
-height:100vh;
-   
-height:100dvh;
-   
-overflow:hidden;
-   
-grid-template-columns:  1fr 3fr 1fr;
-   
-grid-template-rows:
+/* ============================================================*/
+ grid-template-columns:  1fr 3fr 1fr;
+ grid-template-rows:
             auto
             1fr;
    
 grid-template-areas:
-   
- "row1 row1 row1"
+  "row1 row1 row1"
  "grid mainMiddle panel";
    
 }
@@ -448,7 +436,7 @@ grid-template-areas:
 }
 
 
-    #final_traitFILTERListContainer{
+  #final_traitFILTERListContainer{
 
         grid-template-columns:
             repeat(auto-fit,minmax(180px,1fr));
@@ -456,7 +444,7 @@ grid-template-areas:
     }
 
 
-     #result-area{
+     #mainSlotB{
       grid-area:grid;
 
       display:grid;
@@ -471,7 +459,7 @@ grid-template-areas:
     }
 
  
-    #panelContainer{  
+    #mainSlotC{  
  
     grid-area:panel;
 
@@ -494,9 +482,9 @@ grid-template-areas:
     }  
 
     #row1,
-    #mainSlotA,
-    #result-area,
-    #panelContainer{
+     
+    #mainSlotB,
+    #mainSlotC{
         
         padding-inline:0px;
     
@@ -504,7 +492,7 @@ grid-template-areas:
 
 
     #mainSlotA{
-
+ 
    grid-template-columns: 1fr;
 
    grid-template-rows:
@@ -555,22 +543,7 @@ grid-template-areas:
 /*=========================================================
     GRID RESULT STRIP result-chunk area
 =========================================================*/
-
-/*
- #result-area{
-      grid-area:grid;
-
-      display:grid;
-      grid-template-rows:
-        auto     
-        1fr;    
-
-      min-width:0;
-      min-height:0;
-      
-      
- }
-*/
+ 
 
 #grid-container{
     
@@ -612,30 +585,14 @@ grid-template-areas:
        min-height keeps growing
        */
 }
-
-#final_traitList  /* parent*/ {
-    
-    border: 1px solid var(--border);
-    border-radius: 0 0 var(--border-radius) var(--border-radius);
-    padding: var(--space-md);
-    overflow-y: auto;
-    background: var(--surface);
-    flex: 1;
-    min-height: 0;
-    margin-inline: var(--space-xs);
-}
+ 
 
 /* ============================================*/
 .panel-hidden{
 
     display:none;
  }
- .btn_navGuide { 
-    /*  height: var(--button-height);
-      width: var(--button-height);
-      */
-
- }
+  
 .guideNav{
     display:flex;
     justify-content:space-between;
@@ -645,9 +602,6 @@ grid-template-areas:
 }
 
 
- #navigButton{
-
- }
 
  /*=======================  panel   slot ============================ */
 /* horizontal slot */
@@ -661,54 +615,55 @@ grid-template-areas:
     flex-direction:row;
 
 }
-/*
-#mainSlotA{
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    min-width:0;
-    min-height:0;
-
-    overflow:hidden;
-}
-*/
+ 
 
 
 
 /* demo */
-  body[data-page="demo"]{
-        #mainLayoutA{
-        
-        min-height:0;
+ body[data-page="demo"]{
+      #mainLayoutA{
+         min-height:0;
+         min-width:0;
+         display:flex;
+         flex-direction:column;
+      }
 
-        min-width:0;
-
-        display:flex;
-
-        flex-direction:column;
-        
-        }
-  }
- 
-/*guide */
-/*
-body[data-page="guide"]{
-  #mainLayoutA{
-      display:grid;
-     height:100%;
-
-    grid-template-rows:
-         auto
-         auto
-         auto;
-     overflow-y: auto;
-        
+    #final_traitList  {
+    
+    border: 1px solid var(--border);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    padding: var(--space-md);
+    overflow-y: auto;
+    background: var(--surface);
+    flex: 1;
+    min-height: 0;
+    margin-inline: var(--space-xs);
+    
    }
- }*/
- /*mobile*/
+
+  }
+
+
+   
+ body[data-page="demo"][data-workspace="mobile"]{
+    #final_traitList  {
+           max-height: 50vh;
+    }
+ } 
+    
+     
+ 
+ body[data-page="guide"] #nodeGraph{
+
+    display:none;
+    
+
+} 
+
+
+ 
+
+
 body[data-page="guide"] #mainLayoutA{
 
     display:block;
@@ -727,70 +682,207 @@ body[data-page="guide"][data-workspace="squareDesktop"] #mainLayoutA{
     overflow-y:auto;
  }
 
-
-/*
- body[data-page="apiPipeline"][data-workspace="desktop"] #mainSlotA { 
-    
-        grid-template-columns: 1fr;
-        grid-template-rows: auto 1fr  minmax(0, 1fr);;
-        display: grid;
-        min-width: 0;
-        min-height: 0;
-    }*/
-/*
-body[data-page="apiPipeline"][data-workspace="desktop"] #workspace {
-    padding: var(--space-sm) clamp(6px, 0.50vw, 10px);
-
-    height: 100vh;
-    height: 100dvh;
-
-    overflow: hidden;
-
-    grid-template-columns: 1fr 3fr 1fr;
-    grid-template-rows: auto minmax(0, 1fr);
-
-    grid-template-areas:
-        "row1 row1 row1"
-        "grid mainMiddle panel";
-}
-*/
-
- body[data-page="apiPipeline"][data-workspace="squareDesktop"] #mainLayoutA  
-  
- {
-/*
-    display:grid;
-     height:100%;
-     grid-template-rows:
-         auto
-         auto
-         minmax(0, 1fr);
-
-    overflow: hidden;*/
-    display: grid;
-
-    height: 100%;
-    min-height: 0;
-
-    grid-template-rows:
-        auto
-        auto
-        minmax(0, 1fr);
-
-    overflow: hidden;
-
- } 
-
  
 
+body[data-page="apiPipeline"][data-workspace="mobile"]{ 
+    #mainSlotB,
+    /* #panelTraitSlot,*/
+      #topTraitSlot, #row1{ 
+    
+        /* grid-area:grid;*/
+
+        display:none;
+    
+    }
+
+} 
+
+body[data-page="purpose"][data-workspace="squareDesktop"],
+body[data-page="introduction"][data-workspace="squareDesktop"],
+body[data-page="reference"][data-workspace="squareDesktop"],
+body[data-page="guide"][data-workspace="squareDesktop"],
+body[data-page="apiPipeline"][data-workspace="squareDesktop"],
 
 
 
+body[data-page="purpose"][data-workspace="desktop"],
+body[data-page="introduction"][data-workspace="desktop"],
+body[data-page="reference"][data-workspace="desktop"],
+body[data-page="guide"][data-workspace="desktop"], 
+body[data-page="apiPipeline"][data-workspace="desktop"]{ 
+ #mainSlotB {
+    grid-area: grid;
+
+    display: grid;
+
+    width: 100%;
+    height: 100%;
+
+    min-width: 0;
+    min-height: 0;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 6fr;
+}
+
+
+ #final_traitList  {
+
+         /*  border: 1px solid var(--border);*/
+          /*  border-radius: 0 0 var(--border-radius) var(--border-radius);*/
+           /* padding: var(--space-md);*/
+            overflow-y: auto;
+           /* background: var(--surface);*/
+            flex: 1;
+            min-height: 0;
+           /* margin-inline: var(--space-xs);*/
+
+          
+   }
+
+
+         
+
+        .navigationContainer {
+            min-height: 0;
+        }
+
+        #siteNavigation {
+            min-height: 0;
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: auto;
+        }
+
+
+}
+
+
+ 
+ 
+ body[data-page="guide"],
+ body[data-page="apiPipeline"]{
+    #grid-container,
+    #navigButton{
+        display: none;
+    }
+ }
+ 
+ body[data-page="apiPipeline"]{ 
+
+    
+    #previewImg 
+    {
+        display: none;
+    }
+
+    
+    
+ }
+ 
+ body[data-page="apiPipeline"][data-workspace="mobile"]{ 
+
+    #workspace{
+        grid-template-rows: 1fr;
+        grid-template-areas:
+       "mainMiddle";
+    }
+
+    #mainSlotA{
+        min-width:0;
+    }
+    #mainLayoutA {
+        padding: var(--space-md);
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+        flex: 1;
+    }
+ 
+  }
 
 
 
+  body[data-page="purpose"][data-workspace="mobile"],
+body[data-page="introduction"][data-workspace="mobile"],
+body[data-page="reference"][data-workspace="mobile"],
+body[data-page="guide"][data-workspace="mobile"],
+body[data-page="apiPipeline"][data-workspace="mobile"]{
+      #final_traitList  {
+
+            border: 1px solid var(--border);
+            border-radius: 0 0 var(--border-radius) var(--border-radius); 
+            padding: var(--space-md); 
+            overflow-y: auto;
+             background: var(--surface); 
+            flex: 1;
+            min-height: 0;
+            margin-inline: var(--space-xs); 
+ 
+           /* set fixed height to allow scrolling*/
+            max-height: 50vh;
+    }
+
+}
+
+  
+  /* ============================================================== */
+ 
+ body[data-page="apiPipeline"][data-workspace="squareDesktop"]{ 
+
+    #mainSlotA{
+       min-width:0;
+       padding-left: var(--space-sm);
+   }
+   #mainLayoutA {
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    flex: 1;
+   }
+  }
+  /* =========================================================================*/
+  body[data-page="apiPipeline"][data-workspace="desktop"] {
+
+     
+   #workspace{
+
+       padding: var(--space-sm);
+        height: 100vh;
+        height: 100dvh;
+        gap: 0;
+        overflow: hidden;
+        grid-template-columns: 1fr 4fr;
+        grid-template-rows: auto /* [1] usually use bar querybox */ 1fr;
+        grid-template-areas:         "row1 row1" /* [1] usually use bar querybox */        "grid mainMiddle";
+
+  }  
+   #mainSlotA{
+        grid-area: mainMiddle;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        min-width: 0;
+        min-height: 0;
+  }
+
+  #mainLayoutA {
+        padding: var(--space-lg);
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+
+        flex: 1;
+    }
 
 
+ }     
+
+
+  
+  
  #panelTraitSlot{ 
 
     min-height:0;
@@ -816,3 +908,4 @@ align-content:flex-start;
  .hidden {
     display:none !important;
 }
+ 

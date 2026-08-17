@@ -1,26 +1,53 @@
 .guideContent{
-/* max-width:900px; */
-margin:auto;
-padding: var(--space-lg);
-overflow-y:auto;
+
+/* max-width:900px; */
+
+margin:auto;
+
+/* padding: var(--space-lg); */
+
+overflow-y:auto;
 }
 .guideTitle{
-font-size: var(--font-xl);
-font-weight:bold;
-margin-bottom: var(--space-lg);
+
+font-size: var(--font-xl);
+
+font-weight:bold;
+
+
 }
+.paragraph-title{
+
+font-size: var(--font-lg);
+
+font-weight:bold;
+
+
+}
+ 
+.guideSpacer {
+    height: var(--space-lg);
+}
+
 .guideSummary{
-font-size: var(--font-md);
-opacity:.8;
-margin-bottom: var(--space-md);
-/* line-height:1.5; */
+
+font-size: var(--font-md);
+
+opacity:.8;
+
+margin-bottom: var(--space-md);
+
+/* line-height:1.5; */
 }
 .guideSection{
-margin-bottom: var(--space-lg);
+
+margin-bottom: var(--space-lg);
 }
 .guideParagraph{
-/* line-height:1.7; */
-font-size: var(--font-xs);
+
+/* line-height:1.7; */
+
+font-size: var(--font-xs);
 }
 .guideNote{
 
@@ -37,4 +64,70 @@
 
     margin-bottom:8px;
 
+}
+
+
+.guideNavigation {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-left: auto;
+}
+
+.guideNavButton {
+    /*
+    border: 0;
+    background: none;
+    padding: 2px 5px;
+    cursor: pointer;*/
+}
+.guideTitleRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+}
+
+.guideList {
+    margin: var(--space-lg) 0;
+}
+
+
+.guideListTitle {
+
+    margin-bottom: var(--space-sm);
+
+    color: var(--text-muted);
+
+    font-size: var(--font-sm);
+    font-weight: 600;
+}
+
+
+.guideListItems {
+
+    margin: 0;
+    padding-left: var(--space-lg);
+
+    color: var(--text);
+
+    font-size: var(--font-sm);
+
+    line-height: 1.7;
+}
+
+
+.guideListItems li {
+
+    padding-left: var(--space-xs);
+
+}
+
+
+.guideListItems li::marker {
+
+    color: var(--accent);
+
+    font-size: 0.8em;
 }

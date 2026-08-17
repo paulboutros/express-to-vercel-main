@@ -1,3 +1,201 @@
+.assistantError{
+
+    padding:.35rem 0;
+     border-bottom:1px solid #333;
+
+}
+
+ 
+
+.traitValue,
+.traitValid {
+ 
+color:#43a33e;
+ 
+}
+
+.queryCaretText,
+.queryInput,
+.queryAssistant{
+   font-weight:600;
+
+}
+
+/* ==========================================================
+   Producer Token
+   ========================================================== */
+
+.producerToken {
+
+    /* Recommended (Indigo) */
+    color: #7C83FD;
+
+    /* Alternatives */
+    /* color: #569CD6; */ /* VS Code blue */
+    /* color: #5AA9FF; */ /* Electric blue */
+    /* color: #4FC3F7; */ /* Bright cyan */
+    /* color: #A78BFA; */ /* Soft purple */
+    /* color: #C084FC; */ /* Lavender */
+    /* color: #B388FF; */ /* Neon purple */
+
+}
+
+.traitValueError,
+.traitError{
+
+    color:#ff5757;
+
+   /* cursor:pointer;*/
+ 
+
+}
+
+
+
+
+
+.traitError:hover{
+
+    text-decoration:underline;
+
+}
+ 
+
+
+ 
+
+.assistantError{
+
+    flex:0 0 auto;
+
+}
+
+.assistantPreview{
+
+white-space: break-spaces;
+
+/* white-space:nowrap; */
+}
+
+
+
+
+.assistantInfo{
+
+    padding:6px 10px;
+
+    font-size:12px;
+
+    border-top:1px solid var(--border);
+
+}
+
+.assistantInfo--warning{
+
+    color:#d7ba7d;
+
+}
+
+.assistantInfo--error{
+
+    color:#f48771;
+
+}
+
+.assistantInfo--count{
+
+    color:#9cdcfe;
+
+}
+
+.assistantInfo--hint{
+
+    color:#aaaaaa;
+
+}
+ 
+ /* =============================  input and assistant ===========*/
+#queryAssistant{
+
+/*margin-top: -30px; */
+
+  margin-left: 10px; 
+
+margin-top: -28px;
+
+min-width:0;
+
+overflow-x:hidden;
+
+overflow-y:hidden;
+
+pointer-events: none;
+} 
+  /*
+ .queryCaret {
+    position: absolute;
+    display: flex;
+    pointer-events: none;
+}
+
+.queryCaretText {
+    visibility: hidden;
+    white-space: pre;
+}
+
+ .caretBar {
+    margin-left: 10px;
+    width: 3px;
+    height: 20px;
+    
+    background: #fdfdfd;
+    animation: caretBlink 1s steps(1, end) infinite;
+}
+
+@keyframes caretBlink {
+    0%, 50% {
+        opacity: 1;
+         
+    }
+
+    50.01%, 100% {
+        opacity: 0;
+          
+    }
+}
+*/
+.queryInput{
+ 
+ color: rgba(255, 255, 255, 0.58) ;  /*  transparent;*/ 
+  /*color:   transparent;  */
+
+ caret-color: var( --text-muted ) ;
+ /*caret-color:  transparent;*/
+
+
+     width:100%;
+     box-sizing:border-box;
+
+     /*padding:8px 10px;*/
+     padding:0px 10px;
+ 
+    outline:none;
+
+    transition:border-radius .15s;
+
+}
+
+
+
+
+/* ==== ======================================*/
+  
+.queryAssistantContent{display:inline-flex;}
+ 
+
+
+
+
 /* ==========================================================
    Query Box
    ========================================================== */
@@ -7,31 +205,11 @@
     position:relative;
 
     width:100%;
-    height: 50px;
+    height: 25px; /* 50px;*/
 
 }
 
 
-/* ==========================================================
-   Input
-   ========================================================== */
-
-.queryInput{
-
-    width:100%;
-
-    box-sizing:border-box;
-
-    padding:8px 10px;
- 
-
-   /* border-radius:6px;*/
-
-    outline:none;
-
-    transition:border-radius .15s;
-
-}
 
 
 /* Optional focus style */

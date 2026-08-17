@@ -13,17 +13,20 @@
 const layoutManager = new LayoutManager();
 
 layoutManager.registerSlot( mainMiddle,document.getElementById("mainLayoutA"));//was sheettraitslot
-layoutManager.registerSlot( "panel", document.getElementById("panelTraitSlot"));
+layoutManager.registerSlot( "panel", document.getElementById("mainLayoutC"));
 layoutManager.registerSlot( "top", document.getElementById("topTraitSlot"));
+layoutManager.registerSlot( "grid", document.getElementById("mainSlotB"));
  
  
 
 layoutManager.registerComponent("traitPills",      document.getElementById("trait-pill-container"));
 layoutManager.registerComponent("previewImg", document.getElementById("previewImg"));  
 layoutManager.registerComponent("final_traitList", document.getElementById("final_traitList")); 
+layoutManager.registerComponent("siteNavigation", document.getElementById("siteNavigation")); 
+
 layoutManager.registerComponent("buttonSet2", document.getElementById("buttonSet2")); 
 layoutManager.registerComponent("queryBox", document.getElementById("queryBox")); 
-layoutManager.registerComponent("result-area", document.getElementById("result-area"));
+layoutManager.registerComponent("mainSlotB", document.getElementById("mainSlotB"));
 layoutManager.registerComponent("guideTextBlock", document.getElementById("guideTextBlock")); 
 layoutManager.registerComponent("navigButton", document.getElementById("navigButton"));
  
@@ -77,12 +80,16 @@ switch ( mode ) {
          { 
             //   traitPills:mainMiddle,
                 guideTextBlock:  mainMiddle,//  mainMiddle,
-                queryBox:mainMiddle,
-                previewImg:mainMiddle,
-                nodeGraph:   mainMiddle,
-                  lexerWidget :mainMiddle,
+                queryBox:        mainMiddle,
+                previewImg:      mainMiddle,
+                nodeGraph:       mainMiddle,
+                lexerWidget:     mainMiddle,
                 
-                buttonSet2:"panel" 
+                buttonSet2:"panel" ,
+                //siteNavigation:"panel" ,
+                final_traitList:"panel" ,
+
+               //  navigButton:     mainMiddle,
                 
          });
 
@@ -92,30 +99,30 @@ switch ( mode ) {
            queryBox:        mainMiddle ,
           
            nodeGraph:   mainMiddle,
-             lexerWidget :mainMiddle,
-           previewImg:      mainMiddle ,
-
-
-
-           navigButton:     mainMiddle,
+           lexerWidget :mainMiddle,
+           previewImg:      mainMiddle  ,
+           //navigButton:     mainMiddle,
+           final_traitList:"grid" ,
        });
      
 
  
      layoutManager.registerLayout("desktop",
-      {  //traitPills: mainMiddle, 
-        // buttonSet2:"panel", 
+      {   
+        
             guideTextBlock:  mainMiddle,//  mainMiddle,
             queryBox:        mainMiddle ,
-            
-            nodeGraph:   mainMiddle,
-              lexerWidget :mainMiddle,
-            previewImg:      mainMiddle ,
-            navigButton:     mainMiddle,
-         // final_traitList:"panel" ,
+             nodeGraph:   mainMiddle,
+            lexerWidget :mainMiddle,
+            previewImg:      mainMiddle , 
+             
+           // navigButton:     mainMiddle,
+            //final_traitList:"panel" ,
+             final_traitList:"grid" ,
          
      });
 
+     /*
      layoutManager.registerLayout("largeDesktop", 
          {
             
@@ -127,7 +134,7 @@ switch ( mode ) {
            previewImg:      mainMiddle ,
           
      });
-  
+  */
    
  
  // layoutManager.registerLayout("compactDesktop", { traitPills: mainMiddle  });

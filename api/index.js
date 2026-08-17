@@ -13,7 +13,7 @@ const dotenv = require("dotenv");
 
 const { connectToDataBase } = require("../lib/connectToDataBase");
  
-const cookieParser = require("cookie-parser");
+//const cookieParser = require("cookie-parser");
 
 //const corsMiddleware = require("./routes/middlewares/corsMiddleware");
 //const authenticate = require("./routes/middlewares/authenticate");
@@ -26,7 +26,7 @@ const allowCors = require("./routes/middlewares/allowOrigins");
 
 const { spawn, ChildProcess } = require("child_process");
 
-const { Client, Events, Collection } = require("discord.js");
+//const { Client, Events, Collection } = require("discord.js");
 
 const { botChannel } = require("../const/addresses");
 
@@ -35,9 +35,11 @@ const { botChannel } = require("../const/addresses");
 
 
 const targetChannelID = botChannel;
+/*
 let invitesBeforeJoin = new Collection();
-
  let newInvites = new Collection();
+*/
+
   // will be set to true, when we trigger event, so we can modify newInvites 
   // when off, it will get newInvites from the Discord server to check for real changes in invite
  let isSetBefore_due_to_debugMode = false;
@@ -56,7 +58,7 @@ const router = express.Router();
   
 app.use(express.json());
 // Use the cookie-parser middleware
-app.use(cookieParser());
+//app.use(cookieParser());
 // Parse URL-encoded request bodies
 app.use(express.urlencoded({ extended: true }));
 // Enable CORS for all routes
@@ -94,26 +96,26 @@ startServer();
 // the following starts the bot. We don't need the bot at the moment
  //someFunction();
  // modif can be positif or negatif depending on Add or remove member
-   async function modify_newInvites( guild,  inviteCodeToUpdate  , modif ){
-
-  isSetBefore_due_to_debugMode = true;
-  // const  newInvites = invitesBeforeJoin;
-  const newInvReal  = await guild.invites.fetch()
-    newInvites = new Collection(newInvReal.map((invite) => [invite.code, invite.uses]));
-   
- // const firstElementCode = invitesBeforeJoin[inviteCodeToUpdate] ;//   .firstKey(); // Get the key (invite code) of the first element
-  const currentValue = newInvites.get(inviteCodeToUpdate);
-  newInvites.set(inviteCodeToUpdate, currentValue + modif);
-  
+ async function modify_newInvites( guild,  inviteCodeToUpdate  , modif ){
+   /*
+    isSetBefore_due_to_debugMode = true;
+    
+    const newInvReal  = await guild.invites.fetch()
+      newInvites = new Collection(newInvReal.map((invite) => [invite.code, invite.uses]));
+    
+  // const firstElementCode = invitesBeforeJoin[inviteCodeToUpdate] ;//   .firstKey(); // Get the key (invite code) of the first element
+    const currentValue = newInvites.get(inviteCodeToUpdate);
+    newInvites.set(inviteCodeToUpdate, currentValue + modif);
+   */
 }
 
 
   async  function set_inviteList_BeforeJoin( guild  ){
-
+  /*
   const firstInvites = await guild.invites.fetch();
       
   invitesBeforeJoin = new Collection(firstInvites.map((invite) => [invite.code, invite.uses]));
-              
+        */      
  // console.log("  invitesBeforeJoin "  , invitesBeforeJoin)
 }
  
@@ -126,7 +128,7 @@ startServer();
 
 
  
-app.use(express.static("public"));
+ app.use(express.static("public"));
 // app.use(express.static(path.join(__dirname, '..', 'public')));
 app.get("/", (request, response) => {
   

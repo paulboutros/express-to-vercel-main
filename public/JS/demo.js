@@ -1,5 +1,4 @@
-//D:\GIT\hashLipsWuli\hashlips_art_engine\utils\NFT_ELECTRON\UI_element
-
+ 
  
 
  

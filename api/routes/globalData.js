@@ -1,15 +1,18 @@
- 
- 
- 
- const express = require("express");
+  
+const path = require("path");
+const express = require("express");
 const { connectToDataBase } = require("../../lib/connectToDataBase");
-// const { connectToDataBase } = require("../lib/connectToDataBase");
+ 
 const crypto = require("crypto");
 
 
+const { performance } = require("perf_hooks");
+
+
+ 
  
 
-    const engine =   require("@wulirocks/collection-engine");
+     const engine =    require("@wulirocks/collection-engine");
     const {rebuildActiveFilterMap} = engine.features_traitFilters; 
 
    const QueryEngine = require("@wulirocks/collection-engine/query/QueryEngine");
@@ -17,7 +20,7 @@ const crypto = require("crypto");
 
    const {getFirstInSet, getALL_NFTIDS } =    engine.metaDataAPI;
 
-  const { FeatureState } = require("@wulirocks/collection-engine/features/FeatureState/featureState.js"); 
+   const { FeatureState } = require("@wulirocks/collection-engine/features/FeatureState/featureState.js"); 
   
  
 
@@ -123,19 +126,19 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
 
       
 
-           if (!result || typeof result !== "object") {
+            if (!result || typeof result !== "object") {
                  result = { "res:raw " : raw   }
         }
       
 
-    res.json(result);
+     res.json(result);
 });
 
  
   router.post("/api/getQueryExample", async (req, response) => {
         const sheetHistData = engine.writeServices.get_sheetGenerationHistory();
          try {
-           response.status(200).json( sheetHistData );
+            response.status(200).json( sheetHistData );
       } catch(e){ 
            console.error(e); response.status(500).json(e);
         }
@@ -144,28 +147,17 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
 
    router.post("/api/generateAllTraitSheet", async (req, response) => {
   
-   
-             var vidFilter = req.body.videoFilterObject // get_featState().get_VideoFilterObject();
+    const assetRoot = path.join(process.cwd(), "public", "IMG");
+      const t0 = performance.now();
+    
+              var vidFilter = req.body.videoFilterObject // get_featState().get_VideoFilterObject();
            
-            const DEFAULT_CONFIG   =  engine.writeServices.get_UI_DEFAULT_CONFIG();
+             const DEFAULT_CONFIG   =  engine.writeServices.get_UI_DEFAULT_CONFIG();
 
             //===================  vidFilter endpoint modification ===============================
                   vidFilter.overrideConfig        =  DEFAULT_CONFIG.nftThumb500;
                   vidFilter.activeFilterMap_suffleIDS  =   buildDisplayOrder(vidFilter.activeFilterMap_IDS);
-
-              //   vidFilter.cardToDisplay = "weapon_and_shield";  
-                  //vidFilter.cardToDisplay = "nft_id";
-
-
-          //========================================================================
-           /*
-              console.log( "/api/generateAllTraitSheet========= vid filter  activeFilterMap_suffleIDS =============================\n " ,
-                                     vidFilter.activeFilterMap_suffleIDS  , "\n ",
-             "========================== vid filter end =============================  "
-            );*/
-
-
-
+                   vidFilter.assetRoot = assetRoot; 
        
           const sheetHistData = engine.writeServices.get_sheetGenerationHistory();
 
@@ -237,6 +229,16 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
            
             bufferDataLenghts.push(datalenght);
         }
+
+
+
+
+      const t1 = performance.now();
+       console.log({
+            engine: `${(t1 - t0).toFixed(1)} ms`}
+          );
+
+
        try {
           response.status(200).json( {
                bufferCount : currentPreviewURLList.length,

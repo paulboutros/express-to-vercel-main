@@ -1,4 +1,4 @@
-//D:\GIT\hashLipsWuli\hashlips_art_engine\utils\NFT_ELECTRON\UI_element
+ 
 
  /* SPA:
  That's an excellent question, and the answer is actually one of the key concepts behind SPAs.

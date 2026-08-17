@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@wulirocks/collection-engine": "0.1.0",
+    "@wulirocks/collection-engine": "^0.1.0",
     "@wulirocks/ui": "0.0.1",
     "cors": "^2.8.5",
     "crypto-random-string": "^5.0.0",

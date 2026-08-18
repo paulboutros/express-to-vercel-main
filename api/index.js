@@ -137,7 +137,7 @@ app.get("/guide", (req, res) => {
 
 });
 
-
+/*
 // Collection / SPA routes
 app.get("/:collection/:slug?", (req, res) => {
 
@@ -145,7 +145,23 @@ app.get("/:collection/:slug?", (req, res) => {
         path.join(publicPath, "index.html")
     );
 
+});*/
+app.get("/:collection/:slug?", (req, res, next) => {
+
+    // Never use the SPA fallback for files/assets.
+    if (path.extname(req.path)) {
+        return next();
+    }
+
+    res.sendFile(
+        path.join(publicPath, "index.html")
+    );
+
 });
+
+
+
+
 
 
 // --------------------------------------------------

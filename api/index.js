@@ -90,7 +90,9 @@ app.get("/:collection/:slug?", (req, res, next) => {
 
 app.use("/", globalData);
 
-
+app.get("/api-test", (req, res) => {
+    res.send("EXPRESS INDEX IS RUNNING");
+});
 // --------------------------------------------------
 // Vercel export
 // --------------------------------------------------

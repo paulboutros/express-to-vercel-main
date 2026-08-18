@@ -114,21 +114,8 @@ if (process.env.VERCEL !== "1") {
 }
      //app.use(express.static(publicPath));
 
-
-// --------------------------------------------------
-// Routes
-// --------------------------------------------------
-
-// Root / login
-app.get("/", (req, res) => {
-
-    app.use(allowCors);
-
-    res.send(
-        "login with discord: " +
-        `<a href="${process.env.YOUROAUTH2URL}">login</a>`
-    );
-});
+ 
+ 
 
 
 // Guide / SPA entry

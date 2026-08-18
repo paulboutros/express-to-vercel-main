@@ -25,7 +25,7 @@ const { connectToDataBase } = require("../../lib/connectToDataBase");
  
 
 //=======================================================================================
- 
+  const isVercel = process.env.VERCEL === "1";
 
 const router = express.Router();
    
@@ -150,7 +150,7 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
     const assetRoot = path.join(process.cwd(), "public", "IMG");
       const t0 = performance.now();
     
-              var vidFilter = req.body.videoFilterObject // get_featState().get_VideoFilterObject();
+           var vidFilter = req.body.videoFilterObject // get_featState().get_VideoFilterObject();
            
              const DEFAULT_CONFIG   =  engine.writeServices.get_UI_DEFAULT_CONFIG();
 
@@ -159,8 +159,15 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
                   vidFilter.activeFilterMap_suffleIDS  =   buildDisplayOrder(vidFilter.activeFilterMap_IDS);
                    vidFilter.assetRoot = assetRoot; 
        
-          const sheetHistData = engine.writeServices.get_sheetGenerationHistory();
 
+
+         //if (process.env.VERCEL !== "1") {
+            save_sheetGenerationHistory_local(engine, vidFilter);// not on Vercel
+
+         
+        /*
+
+         const sheetHistData = engine.writeServices.get_sheetGenerationHistory();
           let saveKey; 
           let vidFilter_queryDna = null;
           let vidFilter_DSL_search_Dna = null;
@@ -186,7 +193,7 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
          }
 
             vidFilter_queryDna   =  (vidFilter_queryDna +"|"+  vidFilter_filterModeABS);
-         /* vidFilter_filterModeABS   = vidFilter.filterModeABS;*/
+            // vidFilter_filterModeABS   = vidFilter.filterModeABS; 
          
              saveKey =  hashString(vidFilter_queryDna);
 
@@ -212,6 +219,8 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
                    engine.writeServices.set_sheetGenerationHistory(sheetHistData);
             }
 
+
+     */
 
 
        /*===========================================================================
@@ -445,6 +454,69 @@ function run_rebuildActiveFilterMap( filterModeABS, serializeActivePills ){
       //===========================================================
 }
 
+function save_sheetGenerationHistory_local(engine, vidFilter){ 
+    
+  console.log("save_sheetGeneration: isVercel   ===" , isVercel )
+      if (isVercel) return;
+   
+      
+         const sheetHistData = engine.writeServices.get_sheetGenerationHistory();
+          let saveKey; 
+          let vidFilter_queryDna = null;
+          let vidFilter_DSL_search_Dna = null;
+           let vidFilter_filterModeABS = "";
+         if ( vidFilter.queryMode === "DSL" ){ 
+           // vidFilter.dna;  this dna is build from include,inclusive & exclusive combo block trait result
+           // and different combo that produce the same nft list result. we prefer dna based on ordered ids list.
+             /// vidFilter_queryDna  = String(vidFilter.activeFilterMap_IDS);
+                //  vidFilter_queryDna  =    
+               const sorted = [...vidFilter.activeFilterMap_IDS].sort((a, b) => a - b);
+              vidFilter_queryDna = sorted.join(",");
+
+               vidFilter_DSL_search_Dna = vidFilter.dna
+               //querymode does not count here
+         }
+         if ( vidFilter.queryMode === "TRAIT_SEARCH"){ 
+               vidFilter_queryDna      = vidFilter.sheetTitle;
+                vidFilter_filterModeABS = vidFilter.filterModeABS;
+            
+         }
+         if ( vidFilter.queryMode === "NFT_SEARCH"){ 
+              vidFilter_queryDna       = String(vidFilter.activeFilterMap_IDS);
+         }
+
+            vidFilter_queryDna   =  (vidFilter_queryDna +"|"+  vidFilter_filterModeABS);
+            // vidFilter_filterModeABS   = vidFilter.filterModeABS; 
+         
+             saveKey =  hashString(vidFilter_queryDna);
+
+              let keyPath = "examples";
+           if(vidFilter.containsInvalidBlocks ){
+                 keyPath ="containsInvalidBlocks";
+           } 
+ 
+              sheetHistData[keyPath][saveKey] ={
+               dna:            vidFilter_queryDna,
+               search_dna:     vidFilter_DSL_search_Dna,
+               raw:            vidFilter.raw,
+               queryData:      vidFilter.queryData,
+
+
+                IDSMatchCount:  vidFilter.activeFilterMap_IDS.length, 
+                queryMode:      vidFilter.queryMode  ,
+               filterModeABS:   vidFilter.filterModeABS  
+            
+           }
+
+            if ( sheetHistData[keyPath][saveKey].IDSMatchCount > 0 ){ 
+                   engine.writeServices.set_sheetGenerationHistory(sheetHistData);
+            }
+
+
+
+     
+
+}
 
 
 module.exports = router;

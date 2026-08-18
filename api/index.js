@@ -31,7 +31,7 @@ const { spawn, ChildProcess } = require("child_process");
 const { botChannel } = require("../const/addresses");
 
 
- const customEvent1="test" ; 
+   
 
 
 const targetChannelID = botChannel;
@@ -62,9 +62,11 @@ app.use(express.json());
 // Parse URL-encoded request bodies
 app.use(express.urlencoded({ extended: true }));
 // Enable CORS for all routes
-const baseurl =   process.env.REACT_APP_URL;// "http://localhost:3000" ;// process.env.REACT_APP_URL;// 'http://localhost:3000';
-console.log('REACT_APP_URL:', process.env.REACT_APP_URL);
-app.use( // cors(  {credentials: true }  )
+//const baseurl =   process.env.REACT_APP_URL;// "http://localhost:3000" ;// process.env.REACT_APP_URL;// 'http://localhost:3000';
+//console.log('REACT_APP_URL:', process.env.REACT_APP_URL);
+
+/*
+app.use(  
    
   cors({
     credentials: true,
@@ -72,6 +74,7 @@ app.use( // cors(  {credentials: true }  )
   })
    
 );
+*/
  
 
  
@@ -96,28 +99,8 @@ startServer();
 // the following starts the bot. We don't need the bot at the moment
  //someFunction();
  // modif can be positif or negatif depending on Add or remove member
- async function modify_newInvites( guild,  inviteCodeToUpdate  , modif ){
-   /*
-    isSetBefore_due_to_debugMode = true;
-    
-    const newInvReal  = await guild.invites.fetch()
-      newInvites = new Collection(newInvReal.map((invite) => [invite.code, invite.uses]));
-    
-  // const firstElementCode = invitesBeforeJoin[inviteCodeToUpdate] ;//   .firstKey(); // Get the key (invite code) of the first element
-    const currentValue = newInvites.get(inviteCodeToUpdate);
-    newInvites.set(inviteCodeToUpdate, currentValue + modif);
-   */
-}
+  
 
-
-  async  function set_inviteList_BeforeJoin( guild  ){
-  /*
-  const firstInvites = await guild.invites.fetch();
-      
-  invitesBeforeJoin = new Collection(firstInvites.map((invite) => [invite.code, invite.uses]));
-        */      
- // console.log("  invitesBeforeJoin "  , invitesBeforeJoin)
-}
  
      
 //===========================
@@ -249,17 +232,16 @@ app.get('/contact', async (req, response) =>{
 // end of adding
  
  
-
+/*
  console.log(`Server is running on port: ${process.env.PORT}`);
-
- app.listen(process.env.PORT || 1999 );
-
+  app.listen(process.env.PORT || 1999 );
+*/
 
   
 
 
 const data = { 
-   ID : "423608837900206091",
+    ID : "423608837900206091",
    duration : 
     {
        days :  0 ,
@@ -366,11 +348,7 @@ request.body= {
  //functionStartGiveAwayShedule( request , response );
 
 
-module.exports ={ 
-  customEvent1 ,
-  set_inviteList_BeforeJoin,
-  modify_newInvites
-}
+module.exports =   app  ;
 
 
 

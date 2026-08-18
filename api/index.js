@@ -16,6 +16,7 @@ const app = express();
 
 const publicPath = path.join(__dirname, "..", "public");
 
+/*
 const uiPath = path.join(
     __dirname,
     "..",
@@ -24,6 +25,7 @@ const uiPath = path.join(
     "ui",
     "src"
 );
+*/
 
 
 // --------------------------------------------------
@@ -37,9 +39,11 @@ app.use(express.urlencoded({ extended: true }));
 // --------------------------------------------------
 // Static files
 // --------------------------------------------------
-
+ /*
 // Wuli UI package
 app.use("/wuli-ui", express.static(uiPath));
+*/
+
 
 // Local development only.
 // In Vercel, public/ should be served directly by Vercel.

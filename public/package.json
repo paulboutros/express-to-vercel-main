@@ -1,5 +1,8 @@
 {
   "name": "@wulirocks/frontend",
   "private": true,
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "@wulirocks/ui": "^0.0.1"
+  }
 }

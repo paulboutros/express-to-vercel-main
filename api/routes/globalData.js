@@ -3,17 +3,17 @@ const path = require("path");
 const express = require("express");
 const { connectToDataBase } = require("../../lib/connectToDataBase");
  
-const crypto = require("crypto");
+   const crypto = require("crypto");
 
 
-const { performance } = require("perf_hooks");
+    const { performance } = require("perf_hooks");
 
 
  
  
 
-     const engine =    require("@wulirocks/collection-engine");
-    const {rebuildActiveFilterMap} = engine.features_traitFilters; 
+       const engine = require("@wulirocks/collection-engine");
+     const {rebuildActiveFilterMap} = engine.features_traitFilters; 
 
    const QueryEngine = require("@wulirocks/collection-engine/query/QueryEngine");
    const rarityCount =  engine.writeServices.get_rarityTraitCount();

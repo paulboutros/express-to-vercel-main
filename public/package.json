@@ -1,0 +1,5 @@
+{
+  "name": "@wulirocks/frontend",
+  "private": true,
+  "type": "module"
+}

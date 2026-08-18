@@ -10,16 +10,16 @@ import {  api_addTraitSelection ,api_rebuildActiveFilterMap,
 
 import { drawConnector,pt ,clearConnectors, layoutNodes,
         getRequiredHorizontalWidth
- } from "@wulirocks/ui/pipelineFunction.js";
+ } from "/wuli-ui/pipelineFunction.js";
 
-import RunButton     from "@wulirocks/ui/runButton.js";
-import QueryDropdown from "@wulirocks/ui/QueryBox/QueryDropdown.js";
+import RunButton     from "/wuli-ui/runButton.js";
+import QueryDropdown from "/wuli-ui/QueryBox/QueryDropdown.js";
      
 
    import {updateActiveTraitBar , call_addTrait_inUI , setTraitUIHandlers ,get_UIstate ,
        get_VideoFilterObject
-    } from "@wulirocks/ui/filterPills.js";
-import { appendTokenInfo } from "@wulirocks/ui/dataRepresentation/tokenDataToNode.js";
+    } from "/wuli-ui/filterPills.js";
+import { appendTokenInfo } from "/wuli-ui/dataRepresentation/tokenDataToNode.js";
   //import { get } from "lodash";
  
 

@@ -17,13 +17,13 @@
    
      // wuli ui oackage    "@wulirocks/collection-engine"
      import TraitSelectorPanel from "./wuli-ui/traitSelectorPanel.js";
-     import  ToggleButton   from "./wuli-ui/ToggleButton.js";
+     import  ToggleButton   from "./wuli-ui/toggleButton.js";
      import  RunButton from "./wuli-ui/runButton.js";
      import QueryBox from "./wuli-ui/QueryBox/QueryBox.js";
      import QueryStore from "./wuli-ui/QueryBox/QueryStore.js";
      import QueryDropdown from "./wuli-ui/QueryBox/QueryDropdown.js";
      import QueryAssistant from "./wuli-ui/QueryBox/QueryAssistant.js";
-     import HorizontalSelector from "./wuli-ui/HorizontalSelector.js";
+     import HorizontalSelector from "./wuli-ui/horizontalSelector.js";
 
       // ui webapp specific
      //==================================================================================
@@ -34,7 +34,7 @@
     import PanelToggle from "./UI/PanelToggle.js";
     import { ElementView } from "./UI/elementView.js";
     import InfoCard from "./UI/infoCard.js";
-    import GuideComponent from "./UI/guideComponent.js";
+    import GuideComponent from "./UI/GuideComponent.js";
   
     //======================================================================================
       import {updateActiveTraitBar , call_addTrait_inUI , setTraitUIHandlers ,get_UIstate ,

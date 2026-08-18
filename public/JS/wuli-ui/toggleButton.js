@@ -1,46 +1,4 @@
-
-/*
-class ToggleButton {
-    constructor({
-        containerId,
-        label = "Toggle",
-        initialState = false,
-        onChange = null
-    }) 
-    {
-        this.container = document.getElementById(containerId);
-        this.label = label;
-        this.state = initialState;
-        this.onChange = onChange;
-
-        this.buildUI();
-        this.updateUI();
-       }
-
  
-
-    toggle() {
-        this.state = !this.state;
-        this.updateUI();
-
-        if (this.onChange) {
-            this.onChange(this.state);
-        }
-    }
-
-    setState(value) {
-        this.state = Boolean(value);
-        this.updateUI();
-    }
-
-    getState() {
-        return this.state;
-    }
-}
-export default ToggleButton;
-
-*/
-
 class ToggleButton {
 
     constructor({

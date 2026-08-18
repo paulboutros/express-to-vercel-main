@@ -12,14 +12,14 @@
    
      // wuli ui oackage
      import TraitSelectorPanel from "./wuli-ui/traitSelectorPanel.js";
-     import  ToggleButton   from "./wuli-ui/ToggleButton.js";
+     import  ToggleButton   from "./wuli-ui/toggleButton.js";
      import  RunButton from "./wuli-ui/runButton.js";
      import QueryBox from "./wuli-ui/QueryBox/QueryBox.js";
      import QueryStore from "./wuli-ui/QueryBox/QueryStore.js";
      import QueryDropdown from "./wuli-ui/QueryBox/QueryDropdown.js";
     
 
-      import HorizontalSelector from "./wuli-ui/HorizontalSelector.js";
+      import HorizontalSelector from "./wuli-ui/horizontalSelector.js";
 
       // ui webapp specific
      //==================================================================================

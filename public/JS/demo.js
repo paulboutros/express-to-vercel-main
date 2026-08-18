@@ -11,15 +11,15 @@
      const traitData = await api.getTraitData();
    
      // wuli ui oackage
-     import TraitSelectorPanel from "/wuli-ui/traitSelectorPanel.js";
-     import  ToggleButton   from "/wuli-ui/ToggleButton.js";
-     import  RunButton from "/wuli-ui/runButton.js";
-     import QueryBox from "/wuli-ui/QueryBox/QueryBox.js";
-     import QueryStore from "/wuli-ui/QueryBox/QueryStore.js";
-     import QueryDropdown from "/wuli-ui/QueryBox/QueryDropdown.js";
+     import TraitSelectorPanel from "./wuli-ui/traitSelectorPanel.js";
+     import  ToggleButton   from "./wuli-ui/ToggleButton.js";
+     import  RunButton from "./wuli-ui/runButton.js";
+     import QueryBox from "./wuli-ui/QueryBox/QueryBox.js";
+     import QueryStore from "./wuli-ui/QueryBox/QueryStore.js";
+     import QueryDropdown from "./wuli-ui/QueryBox/QueryDropdown.js";
     
 
-      import HorizontalSelector from "/wuli-ui/HorizontalSelector.js";
+      import HorizontalSelector from "./wuli-ui/HorizontalSelector.js";
 
       // ui webapp specific
      //==================================================================================
@@ -35,8 +35,8 @@
     //======================================================================================
       import {updateActiveTraitBar , call_addTrait_inUI , setTraitUIHandlers ,get_UIstate ,
        get_VideoFilterObject
-    } from "/wuli-ui/filterPills.js";
-     import { applyTraitSearchBlock  } from "/wuli-ui/displayBlocksFromSearch.js";
+    } from "./wuli-ui/filterPills.js";
+     import { applyTraitSearchBlock  } from "./wuli-ui/displayBlocksFromSearch.js";
    
      import {  api_addTraitSelection ,api_rebuildActiveFilterMap,
           api_set_filterModeABS, api_runQueryInputHandler , api_getQueryExample//,

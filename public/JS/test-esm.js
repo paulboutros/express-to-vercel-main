@@ -1,3 +1,3 @@
 import "./nothing.js";
 
-console.log("HELLO ESM");
+    console.log("HELLO ESM");

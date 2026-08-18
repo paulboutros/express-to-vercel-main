@@ -106,10 +106,13 @@ app.use(express.urlencoded({ extended: true }));
 
 
 // Wuli UI package
-app.use("/wuli-ui", express.static(uiPath));
+ app.use("/wuli-ui", express.static(uiPath));
 
 // Main public/static files
-app.use(express.static(publicPath));
+if (process.env.VERCEL !== "1") {
+    app.use(express.static(path.join(__dirname, "../public")));
+}
+     //app.use(express.static(publicPath));
 
 
 // --------------------------------------------------

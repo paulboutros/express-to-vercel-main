@@ -1,19 +1,38 @@
  
-const sharp = require("sharp");
+
 
 const fs = require("fs");
 const path = require("path");
- 
-const fontPath = path.join(
-     __dirname,  
-    // "../fonts/DejaVuSansMono-Bold.ttf"
-    "../fonts/LiberationSans-Bold.ttf"
-);
   
+
+const fontConfigPath = path.join(
+    __dirname,
+    "../fonts/fontconfig/fonts.conf"
+);
+const fontPath = path.join( __dirname, "../fonts/Pacifico.ttf");
+ 
+process.env.FONTCONFIG_FILE = fontConfigPath;
+
+//**********************************************
+ 
+const fontDir = path.join(__dirname, "../fonts");
+const fontConfigDir = path.join(__dirname, "../fonts/fontconfig");
+
+process.env.FONTCONFIG_PATH = fontConfigDir;
+process.env.FONTCONFIG_FILE = path.join(
+    fontConfigDir,
+    "fonts.conf"
+);
+
+
+
+//-=================================
+
+
+const sharp = require("sharp");
+ 
 const fontBase64 = fs.readFileSync(fontPath).toString("base64");
-
-
-
+  
 function escapeXml(str) {
   return String(str)
     .replace(/&/g, "&amp;")
@@ -37,6 +56,9 @@ function renderSingleLineSvg({
   anchor,
   style
 }) {
+
+console.log("style.fontFamily   = " , style.fontFamily );
+ 
   return `
  
 <text
@@ -55,7 +77,7 @@ function renderSingleLineSvg({
  * Generic text buffer creator
  * Keeps your layout logic, but lets you swap the SVG text renderer
  */
-async function createTextBuffer(
+async function createTextBuffer(  
   text,
   width,
   height,
@@ -65,13 +87,15 @@ async function createTextBuffer(
   svgRenderer = renderSingleLineSvg
 ) {
   style = {
-    position: "absolute",
+     position: "absolute",
     justify: "center", // left | center | right
     align: "middle",   // top | middle | bottom
 
-    fontFamily:  "WuliFont",// "sans-serif",// "Arial",
+    fontFamily: "Bungee",//  "Pacifico",// "Wingdings",// "Arial",// "WuliFont",// "sans-serif",// "Arial",
     fontSize: 32,//64,
-    fontWeight: "bold",
+   //  fontWeight: "bold",
+    fontWeight: "normal",
+    
     color: "#000000",
 
     marginX: 0,
@@ -79,13 +103,13 @@ async function createTextBuffer(
 
     ...style
   };
-
+   
   //-------------------------
   // Horizontal text anchor
   //-------------------------
+   
 
-
-
+//  style.fontFamily = "Dubai";//   "WuliFont";// "sans-serif",// "Arial",
   // console.log(  "canvasWidth" , canvasWidth    ,  "  canvasHeight   "  , canvasHeight )
   let x;
   let anchor;
@@ -179,32 +203,44 @@ async function createTextBuffer(
     style
   });
 
-  /*
+    
   const svg = `
 <svg xmlns="http://www.w3.org/2000/svg"
      width="${width}"
      height="${height}">
   ${innerSvg}
-</svg>`;*/
+</svg>`; 
+  
+ 
+  
+
+
+ /*
 const svg = `
 <svg xmlns="http://www.w3.org/2000/svg"
      width="${width}"
      height="${height}">
 
-  <style>
-    @font-face {
-      font-family: "WuliFont";
-       src: url("data:font/ttf;base64,${fontBase64}") format("truetype");
-    }
-  </style>
+  <defs>
+    <style>
+      @font-face {
+        font-family: "WuliFont"; 
+        src: url("data:font/ttf;base64,${fontBase64}") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+  </defs>
 
   ${innerSvg}
 
 </svg>`;
+*/
+
+ 
 
 
-
-
+   console.log(svg.substring(0, 500));
 
   const buffer = await sharp(Buffer.from(svg)).png().toBuffer();
 

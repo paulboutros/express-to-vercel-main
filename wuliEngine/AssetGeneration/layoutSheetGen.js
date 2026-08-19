@@ -144,8 +144,9 @@ async function createLayoutObject(
       }
     
       
-    
+     /*
    saveReviewSheetData (reviewSheetData);
+*/
 
    //   console.log(  "layoutData   "   , layoutData   );
 
@@ -171,7 +172,8 @@ async function createLayoutObject(
 async function generateAllTraitSheet(   argObj ,  fullTrait = false  ) {
 
  //let sheetTitle ;//=`${traitType}:${traitValue} ${sheetInfo}`;
-  reviewSheetData = getReviewSheetData();
+  reviewSheetData = {};  // getReviewSheetData();
+  //reviewSheetData = getReviewSheetData();
   rarityDocData   = getRarityDoc();
 
 

@@ -23,14 +23,17 @@ process.env.FONTCONFIG_FILE = path.join(
     fontConfigDir,
     "fonts.conf"
 );
-
-
+ 
 
 //-=================================
 
 
 const sharp = require("sharp");
  
+
+ 
+
+
 const fontBase64 = fs.readFileSync(fontPath).toString("base64");
   
 function escapeXml(str) {
@@ -57,7 +60,7 @@ function renderSingleLineSvg({
   style
 }) {
 
-console.log("style.fontFamily   = " , style.fontFamily );
+ 
  
   return `
  
@@ -91,10 +94,10 @@ async function createTextBuffer(
     justify: "center", // left | center | right
     align: "middle",   // top | middle | bottom
 
-    fontFamily: "Bungee",//  "Pacifico",// "Wingdings",// "Arial",// "WuliFont",// "sans-serif",// "Arial",
+    fontFamily:"LiberationSans" ,// "Bungee" , //"Pacifico",// "Wingdings",// "Arial",// "WuliFont",// "sans-serif",// "Arial",
     fontSize: 32,//64,
-   //  fontWeight: "bold",
-    fontWeight: "normal",
+      fontWeight: "bold",
+   //  fontWeight: "normal", //font with no matching weigh will trigger fallback unknown font
     
     color: "#000000",
 
@@ -240,7 +243,7 @@ const svg = `
  
 
 
-   console.log(svg.substring(0, 500));
+  // console.log(svg.substring(0, 500));
 
   const buffer = await sharp(Buffer.from(svg)).png().toBuffer();
 

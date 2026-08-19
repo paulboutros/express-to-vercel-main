@@ -55,7 +55,7 @@ async function createTextBuffer(
     justify: "center", // left | center | right
     align: "middle",   // top | middle | bottom
 
-    fontFamily: "Arial",
+    fontFamily: "sans-serif",// "Arial",
     fontSize: 32,//64,
     fontWeight: "bold",
     color: "#000000",

@@ -1,6 +1,19 @@
  
 const sharp = require("sharp");
 
+const fs = require("fs");
+const path = require("path");
+ 
+const fontPath = path.join(
+     __dirname,  
+    // "../fonts/DejaVuSansMono-Bold.ttf"
+    "../fonts/LiberationSans-Bold.ttf"
+);
+  
+const fontBase64 = fs.readFileSync(fontPath).toString("base64");
+
+
+
 function escapeXml(str) {
   return String(str)
     .replace(/&/g, "&amp;")
@@ -25,6 +38,7 @@ function renderSingleLineSvg({
   style
 }) {
   return `
+ 
 <text
     x="${x}"
     y="${y}"
@@ -55,7 +69,7 @@ async function createTextBuffer(
     justify: "center", // left | center | right
     align: "middle",   // top | middle | bottom
 
-    fontFamily: "sans-serif",// "Arial",
+    fontFamily:  "WuliFont",// "sans-serif",// "Arial",
     fontSize: 32,//64,
     fontWeight: "bold",
     color: "#000000",
@@ -165,12 +179,32 @@ async function createTextBuffer(
     style
   });
 
+  /*
   const svg = `
 <svg xmlns="http://www.w3.org/2000/svg"
      width="${width}"
      height="${height}">
   ${innerSvg}
+</svg>`;*/
+const svg = `
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="${width}"
+     height="${height}">
+
+  <style>
+    @font-face {
+      font-family: "WuliFont";
+       src: url("data:font/ttf;base64,${fontBase64}") format("truetype");
+    }
+  </style>
+
+  ${innerSvg}
+
 </svg>`;
+
+
+
+
 
   const buffer = await sharp(Buffer.from(svg)).png().toBuffer();
 

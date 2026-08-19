@@ -94,9 +94,9 @@ async function createTextBuffer(
     justify: "center", // left | center | right
     align: "middle",   // top | middle | bottom
 
-    fontFamily:"LiberationSans" ,// "Bungee" , //"Pacifico",// "Wingdings",// "Arial",// "WuliFont",// "sans-serif",// "Arial",
+    fontFamily:"Liberation Sans" ,// "Bungee" , //"Pacifico",// "Wingdings",// "Arial",// "WuliFont",// "sans-serif",// "Arial",
     fontSize: 32,//64,
-      fontWeight: "bold",
+       fontWeight: "bold",
    //  fontWeight: "normal", //font with no matching weigh will trigger fallback unknown font
     
     color: "#000000",

@@ -1,0 +1,176 @@
+{
+  "CLAN": {
+    
+    "NO_CLAN":[],
+    "Azurcrest": [
+       
+ 
+    ] ,
+ 
+     "Grey Maw":[ 
+
+     ],
+  
+    "Black Ash":[ 
+
+    ],
+     "Venom Pact":[ 
+    ] 
+
+
+  },
+  "CLASS": {
+
+    "Sentinel":[],
+    "Reaver":[], 
+    "Templar":[],
+    "Shadow": [],
+    "Vanguard": [],
+    "Seer": []
+  } ,
+
+"description": {
+  "Reaver": "Reavers walk the outer edge of order.\nUntamed in spirit yet loyal in blood, they strike hard and vanish faster, carrying the raw force of the Clan into hostile ground.",
+
+  "Templar": "Templars bind arcane discipline to martial precision.\nNeither priest nor knight alone, they are the Clan’s sacred edge in times of war.",
+
+  "Shadow": "Shadows move where banners cannot.\nSilent, deliberate, and unseen, they protect the Clan through knowledge and decisive action.",
+
+  "Vanguard": "The Vanguard hold the line where others would falter.\nShield-bound and oath-driven, they are the visible strength of the Clan and the first to answer any threat.",
+
+  "Seer": "Seers see beyond steel and shadow.\nGuardians of ritual and foresight, they shape fate before blades are ever drawn.",
+
+  "Sentinel": "Sentinels stand where passage must be earned.\nWatchful and steadfast, they guard the Clan’s gates, roads, and strongholds, meeting every threat before it can advance."
+
+},
+"description2": {
+  "Reaver": "Reavers are the Clan’s force of impact.\nThey operate beyond fortified lines, applying decisive violence where resistance must be broken.",
+
+  "Templar": "Templars unite sanctioned arcana with martial discipline.\nThey serve as the consecrated blade of the Clan, enforcing doctrine through steel and ritual alike.",
+
+  "Shadow": "Shadows execute operations unseen and unrecorded.\nTheir presence is measured not in banners raised, but in threats removed before they surface.",
+
+  "Vanguard": "The Vanguard form the defensive core of the Clan.\nShield-bearing and oath-bound, they establish the line from which no ground is surrendered.",
+
+  "Seer": "Seers maintain the Clan’s arcane authority.\nThrough foresight, ritual, and interpretation, they shape outcomes long before conflict begins."
+},
+
+"SEARCH_QUERY":{
+    "CLASS": { 
+      "Shadow":"+[HOODIE] -[HORNS] -v[HOODIE:[wolf]]",
+      "Vanguard": "+[HEAD] -v[HEAD:[Wolf]] -v[HORNS:[Celest]]" ,
+
+      
+
+
+
+      "Templar": "+[HEAD] -v[HEAD:[Wolf]] +v[HORNS:[Celest]]" ,
+      "Seer":"+[HORNS] +v[HORNS:[Celest]] -v[HEAD:[wolf]] -v[HEAD:[helm]]",
+      "Seer head#":"1135,301,1147,1150",
+
+      "wolf hoodie#":"996,1574,1000",
+
+       "wolf helmet ": "+v[HEAD:[Wolf]] -v[HEAD:[hood]]",
+       "wolf helmet with mask ": "+[HEAD] +v[HEAD:[Wolf]] -v[HEAD:[hood]] +v[MASK:[skull]]" ,
+
+
+    "helm and double pad": "+[HEAD] -v[HEAD:[hood]] +v[SHOULDER:[double]]",
+    "hood with double pad":"+[HEAD] -v[HEAD:[helm]] +v[SHOULDER:[double]]",
+
+    "hoods ": "+[HEAD] +v[HEAD:[hood]]",
+    
+    "/* hash gneration test*/":"========================================================",
+     "test:hoods and wolfhood NO horns:HEA, ho  ":"+v[HEA:[hoo]]  -[HORNS]",
+     "test:hoods and wolfhood NO horns:ho  ":"+v[HEAD:[ho]]   -[HORNS]",
+     "test:hoods and wolfhood NO horns:hoo ":"+v[HEAD:[hoo]]  -[HORNS]",
+
+    "hoods and wolfhood NO horns":"+[HEAD] +v[HEAD:[hood]] -[HORNS]",
+    "hoods NO DOWNhood NO wolfhood NO horns":"+[HEAD] +v[HEAD:[hood]] -v[HEAD:[Wolf,Down]] -[HORNS]",
+
+
+ "wolf helmet last rendered batch":"#2342,2346,2348,3396,3401,2614,2620,3032,3382,3384,3387",
+
+        
+
+       "Templar 2": "+[HORNS] +v[HORNS:[Celest]] -v[HEAD:[hood]]",
+       "Templar 2 head slitted": "1981,",
+       "Templar 2 head eyeVis": "1698,1699,2076",
+
+
+      "Templar no Boots, no pant":"+[HEAD] -v[HEAD:[Wolf]] +v[HORNS:[Celest]] -v[LEGWEAR:[Pan,boot]]",
+
+      "All celest horns": "+[HORNS] +v[HORNS:[Celest]]",
+
+      "missing trait CLASS": "+[HEAD] -[CLASS]",
+      "mecha with hood": "+[HOODIE] +v[MASK:[mecha]]",
+
+      "all mecha mask":  "+[FACEGEAR] +v[FACEGEAR:[mech]]",
+
+      "all without mask":"+[FACEGEAR] +v[FACEGEAR:[bar]]",
+      "all without shield":"+[HEAD] +v[SHIELD:[Empty]]",
+
+
+
+      
+
+      "all gold":"+[TYPE] +v[TYPE:[gold] +v[HEAD:[gold]] +v[LEGWEAR:[gold]]",
+      "all yellow":"+[TYPE] +v[TYPE:[yellow] +v[HEAD:[bronze]] +v[LEGWEAR:[yellow]] +v[SHOULDER:[yellow]]" , 
+
+
+      "class filtering ":" =================================================== ",
+
+      "sentinel": "++v[CLASS:[vang,shad,reav, templ]] ++v[WEAPON:[spear]]",
+      "class vanguard with specific weapon V1": "++v[CLASS:[van]] ++v[WEAPON:[red dragon st]]" , 
+
+      "class vanguard with specific weapon V3 ": "++v[CLASS:[van]] ++v[WEAPON:[red dragon s]]",   
+
+      "other example: class see, with red dragon shaff, no shouler: doub, rage,  fur" : "++v[CLASS:[see]] ++v[WEAPON:[red dragon staff]] -v[SHOULDER:[do,rag,fu]]",
+      
+
+      "hood with chain issue":"++v[HEAD:[hoo]] ++v[NECKSTYLE:[0]]"
+     
+
+  },
+  "CLAN": { 
+     "Black Ash":"+[TYPE] +v[TYPE:[black] -v[HEAD:[teal,blue,gold,brown]] -v[TORSO:[teal]] -v[CAPE:[blue]]",
+
+     "Venom Pact": "+[HEAD] +v[HEAD:[teal]] +v[CAPE:[teal]] +v[LEGWEAR:[teal]] +[SHOULDER:[teal]]",
+
+
+     "Azurcrest": " defined by by_group: Balck yellow cyan ",
+
+
+
+     "purple fang":"+[TYPE] +v[TYPE:[Purpl]] -v[CLAN:[veno]]",
+
+
+     "white clan": "snow on wood and rocks, white sand, bone Ark, White Rocks, Bone Tree " ,
+
+
+
+     "only Grey Maw":"+[HEAD] +v[HEAD:[teal]] +v[CAPE:[teal]] +v[LEGWEAR:[teal]] +[SHOULDER:[teal]] -v[CLAN:[ven,azu,bla]]"
+
+
+
+
+  }
+               
+  
+},
+
+"VISUAL_REF":{
+   "CLAN": { 
+     
+
+     "Venom Pact": ["Thorn Sorcery Mage","Nerscylla gear Monster Hunter","Sylvaneth War Hammer" ]
+  }
+
+  
+
+}
+
+
+}
+
+
+ 

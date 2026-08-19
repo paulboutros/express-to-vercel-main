@@ -1,0 +1,459 @@
+{
+  "WEAPON": {
+    "Hazel Root Saber": {
+      "Venom Pact": 51,
+      "Grey Maw": 21,
+      "Black Ash": 22,
+      "Azurcrest": 26
+    },
+    "Long Mace": {
+      "Black Ash": 56,
+      "Azurcrest": 45,
+      "Grey Maw": 26,
+      "Venom Pact": 11
+    },
+    "Bone Wild Saber": {
+      "Grey Maw": 109,
+      "Black Ash": 10,
+      "Azurcrest": 9,
+      "Venom Pact": 1
+    },
+    "Green Ivy Sword": {
+      "Venom Pact": 37,
+      "Azurcrest": 5,
+      "Grey Maw": 3,
+      "Black Ash": 3
+    },
+    "Red Wild Axe": {
+      "Azurcrest": 5,
+      "Venom Pact": 27,
+      "Grey Maw": 4,
+      "Black Ash": 1
+    },
+    "Silver Axe": {
+      "Azurcrest": 7,
+      "Black Ash": 20,
+      "Grey Maw": 1,
+      "Venom Pact": 1
+    },
+    "Bone Wild Hammer": {
+      "Black Ash": 4,
+      "Grey Maw": 40,
+      "Venom Pact": 6,
+      "Azurcrest": 6
+    },
+    "Green Ivy Spear": {
+      "Venom Pact": 105,
+      "Azurcrest": 3,
+      "Grey Maw": 2
+    },
+    "Skull Encrusted Sword": {
+      "Grey Maw": 44,
+      "Black Ash": 16,
+      "Azurcrest": 7
+    },
+    "Red Dragon Staff": {
+      "Venom Pact": 4,
+      "Black Ash": 5,
+      "Azurcrest": 17,
+      "Grey Maw": 4
+    },
+    "Ruby Staff": {
+      "Azurcrest": 3,
+      "Venom Pact": 3,
+      "Grey Maw": 1,
+      "Black Ash": 1
+    },
+    "Bone Baphomet Staff": {
+      "Grey Maw": 13,
+      "Azurcrest": 2,
+      "Venom Pact": 2
+    },
+    "Dragon Hammer": {
+      "Black Ash": 16,
+      "Azurcrest": 44,
+      "Grey Maw": 9,
+      "Venom Pact": 4
+    },
+    "Red Axe": {
+      "Grey Maw": 12,
+      "Black Ash": 11,
+      "Azurcrest": 56,
+      "Venom Pact": 5
+    },
+    "Undead Dragon Staff": {
+      "Azurcrest": 2,
+      "Venom Pact": 6,
+      "Black Ash": 10
+    },
+    "Dark Axe": {
+      "Black Ash": 10,
+      "Venom Pact": 2
+    },
+    "Black Skull Saber": {
+      "Black Ash": 69,
+      "Azurcrest": 31,
+      "Grey Maw": 12,
+      "Venom Pact": 11
+    },
+    "Green Wild Axe": {
+      "Venom Pact": 20,
+      "Grey Maw": 2,
+      "Black Ash": 1,
+      "Azurcrest": 4
+    },
+    "Red Skull Sword": {
+      "Black Ash": 32,
+      "Venom Pact": 4,
+      "Grey Maw": 2,
+      "Azurcrest": 1
+    },
+    "Skull Spear": {
+      "Azurcrest": 31,
+      "Black Ash": 62,
+      "Grey Maw": 22,
+      "Venom Pact": 5
+    },
+    "Bone Root Saber": {
+      "Grey Maw": 68,
+      "Azurcrest": 7,
+      "Venom Pact": 2
+    },
+    "Red Dragon Saber": {
+      "Black Ash": 4,
+      "Grey Maw": 3,
+      "Azurcrest": 10,
+      "Venom Pact": 1
+    },
+    "Dark Sword": {
+      "Venom Pact": 4,
+      "Black Ash": 12,
+      "Grey Maw": 2
+    },
+    "Wood Mace": {
+      "Black Ash": 34,
+      "Grey Maw": 50,
+      "Azurcrest": 23,
+      "Venom Pact": 18
+    },
+    "Red Root Saber": {
+      "Venom Pact": 62,
+      "Azurcrest": 5,
+      "Grey Maw": 3,
+      "Black Ash": 3
+    },
+    "Red Eagle Staff": {
+      "Azurcrest": 7,
+      "Grey Maw": 2,
+      "Black Ash": 2,
+      "Venom Pact": 1
+    },
+    "Dual Skull Axe": {
+      "Grey Maw": 15,
+      "Azurcrest": 22,
+      "Black Ash": 26,
+      "Venom Pact": 2
+    },
+    "Wyrm Sword": {
+      "Black Ash": 16,
+      "Grey Maw": 4,
+      "Azurcrest": 39,
+      "Venom Pact": 4
+    },
+    "Spirit Staff": {
+      "Grey Maw": 2,
+      "Black Ash": 3,
+      "Venom Pact": 1,
+      "Azurcrest": 2
+    },
+    "Greenwood Eagle Staff": {
+      "Venom Pact": 8,
+      "Azurcrest": 1,
+      "Black Ash": 1
+    },
+    "Green Root Saber": {
+      "Venom Pact": 47,
+      "Grey Maw": 1,
+      "Azurcrest": 1
+    },
+    "Bone Wild Axe": {
+      "Grey Maw": 42,
+      "Black Ash": 3,
+      "Azurcrest": 7,
+      "Venom Pact": 4
+    },
+    "Skull Axe": {
+      "Black Ash": 18,
+      "Azurcrest": 8,
+      "Grey Maw": 3,
+      "Venom Pact": 3
+    },
+    "Legendary Dragon Sword": {
+      "Grey Maw": 2,
+      "Venom Pact": 1
+    },
+    "Dragon Axe": {
+      "Azurcrest": 6,
+      "Black Ash": 30,
+      "Grey Maw": 3
+    },
+    "Emerald Staff": {
+      "Azurcrest": 9,
+      "Grey Maw": 3,
+      "Venom Pact": 17
+    },
+    "Green Wild Saber": {
+      "Venom Pact": 18
+    },
+    "Silver Dragon Sword": {
+      "Azurcrest": 12,
+      "Black Ash": 1,
+      "Venom Pact": 1
+    },
+    "Green Dragon Staff": {
+      "Venom Pact": 4,
+      "Azurcrest": 2
+    },
+    "Red Skull Hammer": {
+      "Black Ash": 38,
+      "Venom Pact": 9,
+      "Azurcrest": 5,
+      "Grey Maw": 3
+    },
+    "Wyrm Spear": {
+      "Azurcrest": 35,
+      "Grey Maw": 8,
+      "Black Ash": 9,
+      "Venom Pact": 5
+    },
+    "Ruby Eagle Staff": {
+      "Venom Pact": 3,
+      "Azurcrest": 6
+    },
+    "Gold Mace": {
+      "Black Ash": 1,
+      "Azurcrest": 1
+    },
+    "Crystal Axe": {
+      "Azurcrest": 12,
+      "Black Ash": 1,
+      "Venom Pact": 2
+    },
+    "Gold Baphomet Staff": {
+      "Azurcrest": 2,
+      "Grey Maw": 2,
+      "Venom Pact": 2,
+      "Black Ash": 2
+    },
+    "Short Skull Sword": {
+      "Black Ash": 1,
+      "Azurcrest": 1,
+      "Venom Pact": 1
+    },
+    "Gold Sickle": {
+      "Azurcrest": 2,
+      "Grey Maw": 5,
+      "Black Ash": 1,
+      "Venom Pact": 2
+    },
+    "Legendary Sword": {
+      "Black Ash": 1
+    }
+  },
+  "SHIELD": {
+    "Green Oval Root": {
+      "Venom Pact": 118,
+      "Azurcrest": 5,
+      "Grey Maw": 7,
+      "Black Ash": 2
+    },
+    "Blackgold Round Dragon": {
+      "Black Ash": 61,
+      "Azurcrest": 18,
+      "Grey Maw": 6,
+      "Venom Pact": 1
+    },
+    "Brown Round Baphomet": {
+      "Grey Maw": 73,
+      "Black Ash": 38,
+      "Azurcrest": 4,
+      "Venom Pact": 2
+    },
+    "Empty": {
+      "Venom Pact": 78,
+      "Black Ash": 140,
+      "Grey Maw": 131,
+      "Azurcrest": 84
+    },
+    "Brown Oval Runeforge": {
+      "Azurcrest": 105,
+      "Black Ash": 17,
+      "Venom Pact": 9,
+      "Grey Maw": 8
+    },
+    "Bone Heater Twinflame": {
+      "Azurcrest": 48,
+      "Black Ash": 4,
+      "Grey Maw": 6,
+      "Venom Pact": 1
+    },
+    "Redgreen Oval Root": {
+      "Venom Pact": 75,
+      "Grey Maw": 4,
+      "Azurcrest": 2
+    },
+    "Brown Long Dragon": {
+      "Azurcrest": 33,
+      "Grey Maw": 11,
+      "Venom Pact": 4,
+      "Black Ash": 2
+    },
+    "Bone Long Root": {
+      "Grey Maw": 36,
+      "Venom Pact": 3,
+      "Black Ash": 1
+    },
+    "Hazelred Long Guardian": {
+      "Venom Pact": 3,
+      "Black Ash": 8,
+      "Azurcrest": 21,
+      "Grey Maw": 1
+    },
+    "Blackgold Long Wolf": {
+      "Black Ash": 74,
+      "Azurcrest": 5,
+      "Venom Pact": 12,
+      "Grey Maw": 3
+    },
+    "Bone Oval Root": {
+      "Grey Maw": 126,
+      "Azurcrest": 6,
+      "Venom Pact": 4,
+      "Black Ash": 2
+    },
+    "Green Long Root": {
+      "Venom Pact": 34,
+      "Black Ash": 2
+    },
+    "Blackgold Oval Runeforge": {
+      "Black Ash": 125,
+      "Venom Pact": 6,
+      "Azurcrest": 8,
+      "Grey Maw": 9
+    },
+    "Hazelred Oval Tulip": {
+      "Venom Pact": 59,
+      "Grey Maw": 6,
+      "Black Ash": 1,
+      "Azurcrest": 6
+    },
+    "Redgold Round Dragon": {
+      "Venom Pact": 3,
+      "Azurcrest": 45,
+      "Black Ash": 8
+    },
+    "Blackgold Oval Twinflame": {
+      "Azurcrest": 3,
+      "Venom Pact": 3
+    },
+    "Redbrown Oval Root": {
+      "Venom Pact": 34,
+      "Azurcrest": 2,
+      "Black Ash": 10,
+      "Grey Maw": 4
+    },
+    "Blackred Round Dragon": {
+      "Black Ash": 20,
+      "Grey Maw": 4,
+      "Venom Pact": 7,
+      "Azurcrest": 8
+    },
+    "Red Heater Castlebound": {
+      "Azurcrest": 14,
+      "Black Ash": 1,
+      "Grey Maw": 2
+    },
+    "Bone Wild Root": {
+      "Azurcrest": 5,
+      "Grey Maw": 74,
+      "Venom Pact": 5,
+      "Black Ash": 2
+    },
+    "Blackgold Heater Twinflame": {
+      "Black Ash": 12,
+      "Grey Maw": 2,
+      "Azurcrest": 3
+    },
+    "Darkgreen Heater Castlebound": {
+      "Venom Pact": 7
+    },
+    "Brown Heater Tulip": {
+      "Azurcrest": 5,
+      "Venom Pact": 8,
+      "Grey Maw": 5
+    },
+    "Redgold Oval Wolf": {
+      "Azurcrest": 26,
+      "Venom Pact": 5
+    },
+    "Brown Round Tulip": {
+      "Venom Pact": 12,
+      "Grey Maw": 3,
+      "Black Ash": 2
+    },
+    "Darkgreen Long Dragon": {
+      "Venom Pact": 4,
+      "Azurcrest": 2,
+      "Black Ash": 1,
+      "Grey Maw": 1
+    },
+    "Redgold Oval Castlebound": {
+      "Azurcrest": 33,
+      "Venom Pact": 3,
+      "Black Ash": 1
+    },
+    "Red Round Baphomet": {
+      "Grey Maw": 12,
+      "Black Ash": 5,
+      "Venom Pact": 1
+    },
+    "Green Heater Tulip": {
+      "Venom Pact": 18
+    },
+    "Red Long Guardian": {
+      "Azurcrest": 19,
+      "Grey Maw": 3,
+      "Black Ash": 7
+    },
+    "Hazelred Round Dragon": {
+      "Azurcrest": 4,
+      "Black Ash": 1,
+      "Grey Maw": 2
+    },
+    "Blackgold Oval Wolf": {
+      "Black Ash": 1,
+      "Azurcrest": 2,
+      "Grey Maw": 2
+    },
+    "Brown Long Guardian": {
+      "Grey Maw": 1,
+      "Azurcrest": 8,
+      "Black Ash": 6
+    },
+    "Darkgreen Long Guardian": {
+      "Azurcrest": 3,
+      "Black Ash": 1,
+      "Venom Pact": 7,
+      "Grey Maw": 3
+    },
+    "Hazelgold Long Guardian": {
+      "Azurcrest": 2,
+      "Grey Maw": 2,
+      "Black Ash": 1,
+      "Venom Pact": 1
+    },
+    "Supreme": {
+      "Grey Maw": 1
+    }
+  }
+}

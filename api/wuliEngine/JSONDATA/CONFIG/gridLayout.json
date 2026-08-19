@@ -1,0 +1,67 @@
+ {
+   
+
+
+   "this key is added to prove this file is never used. all override and config data are stored in inputConfig.js":{ 
+
+
+     "layoutGrid": {
+        "snapX": 840,
+        "snapY": 1160,
+        "snap_offsetX": 50,
+        "snap_offsetY": 500,
+        "snap_rowLength": 6,
+
+        "crop.top":40,
+        "crop.left":250
+     },
+ 
+
+     "//": "All crop values are expressed in SOURCE IMAGE pixels (2048x2048).",
+    "canvas": {
+        
+        "background": "#202020"
+    },
+
+   "//spaceX & spaceY": "Pixels in between after crop result",
+    "grid": {
+        "rowLength": 3,
+        "spaceX": 100,
+        "spaceY": 10
+    },
+
+"//crop": " crop never affect cell size ",
+    "crop": {
+      "left": 250,
+      "top": 40,
+      "width": 1770,
+      "height": 2000
+    },
+
+     
+
+ "padding": {
+        "left": 50,
+        "right": 50,
+        "top": 80,
+        "bottom": 80
+    },
+
+
+    "cell": {
+        "width": 900,
+        "height": 1000
+    },
+
+    "images": [
+        2164,
+    2192,
+    2198,
+    2346,
+    2366,
+    2882 
+    ]
+
+
+    }
+}

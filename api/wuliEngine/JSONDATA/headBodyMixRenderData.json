@@ -1,0 +1,46 @@
+{
+  "destNFTID": 3871,
+  "head": 411,
+  "bodies": [
+    {
+      "body": 1506
+    },
+    {
+      "body": 1506
+    },
+    {
+      "body": 1506
+    },
+    {
+      "body": 1506
+    },
+    {
+      "body": 1506
+    },
+    {
+      "body": 1544
+    },
+    {
+      "body": 1544
+    },
+    {
+      "body": 1544
+    },
+    {
+      "body": 1544
+    },
+    {
+      "body": 1544
+    }
+  ],
+  "mergeWithBodies": {
+    "1506": {
+      "MERGE_with": "Brown Fur",
+      "colorMatch": false
+    },
+    "1544": {
+      "MERGE_with": "Kaki Fur",
+      "colorMatch": false
+    }
+  }
+}

@@ -1,0 +1,8642 @@
+{
+  "2121": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2122": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2123": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2124": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "2125": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2126": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2127": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2128": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2129": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2130": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2161": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "2162": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "2163": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2164": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2165": {
+    "CLAN": "Black Ash",
+    "CLASS": "Seer"
+  },
+  "2166": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "2167": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2168": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "2169": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "2170": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "2181": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "2182": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2183": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2184": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2185": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2186": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2187": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2188": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2189": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "2190": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2191": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "2192": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2193": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2194": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2195": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2196": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2197": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2198": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2199": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2200": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2201": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2202": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "2203": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "2204": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2205": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2206": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2207": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2208": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2209": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "2210": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2211": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2212": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2213": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2214": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2215": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2216": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2217": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2218": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2219": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2220": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2221": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2222": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "2223": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2224": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "2225": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2226": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2227": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "2228": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2229": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2230": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2231": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "2232": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2233": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2234": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Seer"
+  },
+  "2235": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "2236": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2237": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2238": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "2239": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2240": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "2241": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2242": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2243": {
+    "CLAN": "Black Ash",
+    "CLASS": "Seer"
+  },
+  "2244": {
+    "CLAN": "Black Ash",
+    "CLASS": "Seer"
+  },
+  "2245": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2246": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2247": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2248": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2249": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2250": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2251": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2252": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2253": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2254": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "2255": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "2256": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2257": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "2258": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2259": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2260": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "2261": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2262": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "2263": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2264": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2265": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "2266": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2267": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2268": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2269": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2270": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2271": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2272": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "2273": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2274": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2275": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2276": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2277": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2278": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2279": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2280": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2281": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2282": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2283": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2284": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2285": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2286": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2287": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2288": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2289": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2290": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2291": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2292": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2293": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2294": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2295": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "2296": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2297": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2298": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "2299": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2300": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "2301": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2302": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2303": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2304": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2305": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2306": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "2307": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2308": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2309": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2310": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2311": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2312": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "2313": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2314": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2315": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "2316": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "2317": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2318": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2319": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "2320": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "2321": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2322": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2323": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2324": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2325": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2326": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "2327": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2328": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2329": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2330": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "2331": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "2332": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2333": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2334": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "2335": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "2336": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2337": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2338": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2339": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2340": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2341": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2342": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2343": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2344": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2345": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "2346": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2347": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2348": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2349": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2350": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2351": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2352": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2353": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2354": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2355": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2356": {
+    "CLAN": "Black Ash",
+    "CLASS": "Seer"
+  },
+  "2357": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2358": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2359": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2360": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2361": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2362": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2363": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "2364": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2365": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2366": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2367": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2368": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "2369": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2370": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2371": {
+    "CLAN": "Black Ash",
+    "CLASS": "Seer"
+  },
+  "2372": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "2373": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "2374": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "2375": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2376": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2377": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "2378": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2379": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2380": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2381": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2382": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2383": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2384": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2385": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2386": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2387": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "2388": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2389": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2390": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2391": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "2392": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "2393": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "2394": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "2395": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2396": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2397": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2398": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2399": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2400": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2401": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2402": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "2403": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2404": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2405": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2406": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2407": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2408": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2409": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2410": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2411": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2412": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2413": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2414": {
+    "CLAN": "Black Ash",
+    "CLASS": "Seer"
+  },
+  "2415": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2416": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2417": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2418": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2419": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2420": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2421": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "2422": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "2423": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2424": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2425": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2426": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2427": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2428": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2429": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2430": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2431": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2432": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2433": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "2434": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "2435": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2436": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "2437": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2438": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2439": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2440": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "2441": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2442": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2443": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2444": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2445": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2446": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2447": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "2448": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "2449": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2450": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2451": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2452": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "2453": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2454": {
+    "CLAN": "Black Ash",
+    "CLASS": "Seer"
+  },
+  "2455": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2456": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "2457": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "2458": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2459": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2460": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2461": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2462": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2463": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2464": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2465": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2466": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2467": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2468": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2469": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2470": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2471": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2472": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2473": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2474": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2475": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2476": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2477": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2478": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "2479": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2480": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2481": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2482": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2483": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2484": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Seer"
+  },
+  "2485": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2486": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2487": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2488": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2489": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2490": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2491": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2492": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "2493": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2494": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "2495": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2496": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2497": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2498": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2499": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2500": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2501": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2502": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2503": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2504": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2505": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2506": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "2507": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2508": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2509": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Seer"
+  },
+  "2510": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2511": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2512": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2513": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "2514": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2515": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2516": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2517": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2518": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "2519": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2520": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2521": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2522": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2523": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "2524": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2525": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "2526": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2527": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2528": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2529": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2530": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2531": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "2532": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2533": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2534": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2535": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "2536": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "2537": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2538": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2539": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2540": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2541": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2542": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2543": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2544": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2545": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "2546": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2547": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2548": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2549": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2550": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2551": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2552": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2553": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2554": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2555": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2556": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2557": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2558": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2559": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2560": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2561": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2562": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2563": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2564": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2565": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2566": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2567": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2568": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2569": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "2570": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2571": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Seer"
+  },
+  "2572": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2573": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2574": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "2575": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "2576": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "2577": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2578": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2579": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "2580": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2581": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2582": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "2583": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2584": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2585": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2586": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "2587": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2588": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2589": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2590": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2591": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2592": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2593": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2594": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2595": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2596": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "2597": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2598": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2599": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2600": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2601": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2602": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2603": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2604": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2605": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2606": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2607": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2608": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2609": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2610": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2611": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2612": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2613": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "2614": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2615": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2616": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2617": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2618": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2619": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2620": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2621": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2622": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2623": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2624": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2625": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2626": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2627": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2628": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2629": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2630": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2651": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2652": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2653": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Seer"
+  },
+  "2654": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2655": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2656": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2657": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2658": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2659": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2660": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "2661": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "2662": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2663": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2664": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2665": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2666": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "2667": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2668": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2669": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2670": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2671": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2672": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2673": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2674": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2675": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2676": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2677": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2678": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2679": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2680": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2681": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2682": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2683": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2684": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2685": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2686": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "2687": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2688": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2689": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "2690": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2691": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2692": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2693": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2694": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "2695": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "2696": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "2697": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "2698": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2699": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2700": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2701": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "2702": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "2703": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2704": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2705": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2706": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2707": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2708": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2709": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2710": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2711": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2712": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2713": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "2714": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2715": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "2716": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2717": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "2718": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2719": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2720": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2721": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2722": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2723": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2724": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2725": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2726": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2727": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2728": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "2729": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2730": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "2731": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2732": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2733": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "2734": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2735": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2736": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2737": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2738": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2739": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2740": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2741": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2742": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2743": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2744": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2745": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2746": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2747": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2748": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2749": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "2750": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2751": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2752": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "2753": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2754": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2755": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2756": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2757": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "2758": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2759": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "2760": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2761": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "2762": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2763": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2764": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "2765": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2766": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2767": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "2768": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2769": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2770": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2771": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2772": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2773": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2774": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Seer"
+  },
+  "2775": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2776": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2777": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2778": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2779": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "2780": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2781": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2782": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2783": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2784": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2785": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2786": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2787": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2788": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2789": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2790": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2791": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2792": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "2793": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2794": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2795": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2796": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2797": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2798": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2799": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2800": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2801": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2802": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2803": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "2804": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2805": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2806": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "2807": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2808": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2809": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2810": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2811": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2812": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2813": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2814": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "2815": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2816": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2817": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "2818": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2819": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2820": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "2821": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2822": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2823": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2824": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2825": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "2826": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "2827": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2828": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2829": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2830": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2831": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2832": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "2833": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2834": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2835": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2836": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2837": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "2838": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "2839": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2840": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2841": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "2842": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2843": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2844": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2845": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2846": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2847": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2848": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2849": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2850": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "2851": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2852": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2853": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2854": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2855": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2856": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2857": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "2858": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2859": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2860": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2861": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2862": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2863": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "2864": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2865": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2866": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2867": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2868": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "2869": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2870": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2871": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2872": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2873": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2874": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2875": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2876": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2877": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2878": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2879": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2880": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2881": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2882": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2883": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2884": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "2885": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2886": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2887": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2888": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2889": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2890": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "2891": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2892": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "2893": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2894": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2895": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "2896": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2897": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2898": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "2899": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2900": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2901": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2902": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2903": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2904": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2905": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2906": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "2907": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2908": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2909": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2910": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "2911": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2912": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2913": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "2914": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "2915": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2916": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2917": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2918": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2919": {
+    "CLAN": "Black Ash",
+    "CLASS": "Seer"
+  },
+  "2920": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "2921": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2922": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2923": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2924": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2925": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2926": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "2927": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2928": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2929": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2930": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2931": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2932": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2933": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "2934": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2935": {
+    "CLAN": "Black Ash",
+    "CLASS": "Seer"
+  },
+  "2936": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2937": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2938": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2939": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2940": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2941": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2942": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "2943": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "2944": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2945": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2946": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2947": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2948": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2949": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2950": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2951": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "2952": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2953": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2954": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "2955": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2956": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "2957": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "2958": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2959": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2960": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2961": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2962": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2963": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2964": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2965": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2966": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2967": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2968": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2969": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2970": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2971": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2972": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2973": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "2974": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "2975": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2976": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2977": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "2978": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2979": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2980": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2981": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2982": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2983": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "2984": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2985": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2986": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2987": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2988": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "2989": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "2990": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "2991": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "2992": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "2993": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "2994": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "2995": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "2996": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "2997": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "2998": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "2999": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3000": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3001": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3002": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3003": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3004": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3005": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3006": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3007": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3008": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3009": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3010": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3011": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3012": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "3013": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3014": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3015": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3016": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3017": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3018": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3019": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "3020": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3021": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3022": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3023": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3024": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3025": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3026": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3027": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3028": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3029": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3030": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3031": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3032": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3033": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3034": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3035": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3036": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3037": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3038": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3039": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3040": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3041": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "3042": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "3043": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3044": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3045": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3046": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3047": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3048": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3049": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3050": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3051": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "3052": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3053": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3054": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3055": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3056": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3057": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3058": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3059": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3060": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3061": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3062": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3063": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3064": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "3065": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3066": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3067": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3068": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3069": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3070": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "3071": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3072": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3073": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3074": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3075": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3076": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3077": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "3078": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3079": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3080": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3081": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3082": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3083": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "3084": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3085": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "3086": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3087": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3088": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3089": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3090": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "3091": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3092": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3093": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3094": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "3095": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3096": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "3097": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3098": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3099": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3100": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3101": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3102": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3103": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3104": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "3105": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "3106": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3107": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "3108": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3109": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3110": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3111": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "3112": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "3113": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "3114": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "3115": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3116": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3117": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "3118": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "3119": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3120": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3121": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3122": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3123": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "3124": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "3125": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "3126": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3127": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3128": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3129": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "3130": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "3131": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3132": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "3133": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "3134": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3135": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3136": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3137": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3138": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3139": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3140": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3141": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "3142": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3143": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3144": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3145": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3146": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "3147": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3148": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3149": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "3150": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "3151": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3152": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3153": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3154": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3155": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3156": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3157": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3158": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "3159": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3160": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3161": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3162": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3163": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3164": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3165": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3166": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3167": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3168": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3169": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3170": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3171": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3172": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3173": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "3174": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3175": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3176": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3177": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3178": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3179": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3180": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3181": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3182": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3183": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3184": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3185": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3186": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3187": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "3188": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3189": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3190": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3191": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "3192": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3193": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3194": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3195": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3196": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3197": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3198": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3199": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3200": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "3201": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "3202": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "3203": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3204": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3205": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "3206": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3207": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3208": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3209": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "3210": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3211": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3212": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3213": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3214": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3215": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "3216": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3217": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3218": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3219": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3220": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3221": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3222": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3223": {
+    "CLAN": "Black Ash",
+    "CLASS": "Seer"
+  },
+  "3224": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3225": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3226": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3227": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3228": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3229": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3230": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3231": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3232": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3233": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3234": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3235": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3236": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3237": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3238": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3239": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3240": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3241": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3242": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3243": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3244": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3245": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3246": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3247": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3248": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3249": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3250": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3251": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3252": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3253": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3254": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3255": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3256": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3257": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3258": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3259": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3260": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3261": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3262": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3263": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3264": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "3265": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3266": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3267": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3268": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "3269": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3270": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3271": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3272": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3273": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "3274": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3275": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3276": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3277": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3278": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3279": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3280": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3281": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3282": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3283": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3284": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "3285": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3286": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Seer"
+  },
+  "3287": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3288": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3289": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3290": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3291": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3292": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3293": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3294": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3295": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3296": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3297": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3298": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3299": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3300": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3301": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3302": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3303": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3304": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3305": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3306": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3307": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3308": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3309": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3310": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3311": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3312": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3313": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3314": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3315": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3316": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3317": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3318": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3319": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3320": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3321": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3322": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3323": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3324": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3325": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3326": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3327": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3328": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3329": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3330": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3331": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3332": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3333": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3334": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3335": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3336": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3337": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3338": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3339": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3340": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3341": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3342": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3343": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3344": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3345": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3346": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3347": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3348": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3349": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3350": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3351": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3352": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3353": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3354": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3355": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3356": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3357": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3358": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3359": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3360": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3361": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3362": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3363": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "3364": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3365": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3366": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3367": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3368": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3369": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3370": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3371": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3372": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3373": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3374": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3375": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3376": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3377": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3378": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3379": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3380": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "3381": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3382": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3383": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3384": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3385": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3386": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3387": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3388": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3389": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3390": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3391": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3392": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3393": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3394": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3395": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3396": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "3397": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3398": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3399": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3400": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "3401": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3402": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3403": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3404": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3405": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "3406": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3407": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3408": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3409": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3410": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3411": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3412": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3413": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3414": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3415": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3416": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3417": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3418": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "3419": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3420": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3421": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3422": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3423": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3424": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3425": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3426": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3427": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3428": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3429": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3430": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3431": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3432": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3433": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3434": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3435": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3436": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3437": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3438": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3439": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "3440": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3441": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3442": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3443": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3444": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "3445": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3446": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3447": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3448": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3449": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "3450": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3451": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3452": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3453": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3454": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3455": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3456": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3457": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3458": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3459": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3460": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3461": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3462": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3463": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3464": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3465": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3466": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3467": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3468": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3469": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3470": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3471": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3472": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3473": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3474": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3475": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3476": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3477": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3478": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3479": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3480": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3481": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3482": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3483": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3484": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3485": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3486": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3487": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3488": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3489": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3490": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3491": {
+    "CLAN": "Black Ash",
+    "CLASS": "Seer"
+  },
+  "3492": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3493": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "3494": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "3495": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "3496": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3497": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3498": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3499": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "3500": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3501": {
+    "CLAN": "Black Ash",
+    "CLASS": "Seer"
+  },
+  "3502": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3503": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3504": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3505": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "3506": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3507": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "3508": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3509": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "3510": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3511": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3512": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3513": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "3514": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3515": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3516": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3517": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3518": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3519": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3520": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3521": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3522": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3523": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3524": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3525": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3526": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3527": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3528": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3529": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3530": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3531": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3532": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "3533": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3534": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3535": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "3536": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3537": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3538": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3539": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3540": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3541": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "3542": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "3543": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3544": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3545": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3546": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3547": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3548": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3549": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3550": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3551": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3552": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3553": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3554": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "3555": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3556": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3557": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3558": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3559": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3560": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3561": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3562": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3563": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3564": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3565": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3566": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3567": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3568": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3569": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3570": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3571": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3572": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3573": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "3574": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3575": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3576": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "3577": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "3578": {
+    "CLAN": "Black Ash",
+    "CLASS": "Seer"
+  },
+  "3579": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3580": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3581": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3582": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3583": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3584": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3585": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3586": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "3587": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3588": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3589": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3590": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3591": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3592": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3593": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3594": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3595": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3596": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3597": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3598": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3599": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3600": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3601": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3602": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3603": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3604": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "3605": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3606": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3607": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3608": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3609": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3610": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3611": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3612": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3613": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3614": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3615": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "3616": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3617": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3618": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3619": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3620": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3621": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3622": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3623": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3624": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3625": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3626": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3627": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3628": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "3629": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3630": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3631": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3632": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3633": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "3634": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3635": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3636": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3637": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3638": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3639": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3640": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3641": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "3642": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3643": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "3644": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3645": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3646": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3647": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3648": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3649": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "3650": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3651": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3652": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3653": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3654": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3655": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3656": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3657": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3658": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3659": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3660": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3661": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3662": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3663": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3664": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3665": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3666": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3667": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3668": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3669": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "3670": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3671": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "3672": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "3673": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3674": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3675": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3676": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3677": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3678": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3679": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3680": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3681": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3682": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3683": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3684": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3685": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3686": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3687": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3688": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3689": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "3690": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3691": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3692": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3693": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3694": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3695": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3696": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3697": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3698": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3699": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3700": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3701": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3702": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3703": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3704": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "3705": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3706": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3707": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3708": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3709": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3710": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3711": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3712": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3713": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3714": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3715": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3716": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3717": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3718": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3719": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3720": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3721": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3722": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3723": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3724": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "3725": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3726": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3727": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3728": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3729": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3730": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3731": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3732": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3733": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3734": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3735": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3736": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3737": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3738": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3739": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3740": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3741": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3742": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "3743": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3744": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3745": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3746": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3747": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "3748": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3749": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3750": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3751": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3752": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3753": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3754": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3755": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3756": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3757": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "3758": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3759": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3760": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3761": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "3762": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3763": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3764": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3765": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3766": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Seer"
+  },
+  "3767": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3768": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "3769": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3770": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3771": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Seer"
+  },
+  "3772": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3773": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "3774": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "3775": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3776": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3777": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "3778": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3779": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3780": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3781": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3782": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3783": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3784": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3785": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3786": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3787": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3788": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "3789": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3790": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3791": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3792": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3793": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3794": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3795": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3796": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "3797": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3798": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3799": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3800": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "3801": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3802": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "3803": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "3804": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3805": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3806": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3807": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3808": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3809": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "3810": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3811": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "3812": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3813": {
+    "CLAN": "Black Ash",
+    "CLASS": "Seer"
+  },
+  "3814": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3815": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "3816": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "3817": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3818": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3819": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3820": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3821": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "3822": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "3823": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3824": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "3825": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3826": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3827": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3828": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "3829": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3830": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "3831": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "3832": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3833": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3834": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3835": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3836": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3837": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3838": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3839": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3840": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3841": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3842": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3843": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3844": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3845": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3846": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3847": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3848": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3849": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3850": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3851": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3852": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "3853": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3854": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3855": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3856": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3857": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3858": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "3859": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3860": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3861": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3862": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3863": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3864": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3865": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3866": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3867": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3868": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "3869": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3870": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3871": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3872": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3873": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3874": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3875": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3876": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "3877": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3878": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3879": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3880": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3881": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "3882": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3883": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3884": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3885": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3886": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3887": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3888": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3889": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "3890": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3891": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3892": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "3893": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3894": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "3895": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3896": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3897": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3898": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "3899": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3900": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3901": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3902": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3903": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3904": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3905": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3906": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3907": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3908": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3909": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3910": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3911": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "3912": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3913": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3914": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3915": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3916": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3917": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3918": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3919": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3920": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3921": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3922": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3923": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3924": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3925": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3926": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "3927": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3928": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "3929": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3930": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "3931": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3932": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3933": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3934": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3935": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3936": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3937": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3938": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Seer"
+  },
+  "3939": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3940": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3941": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3942": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3943": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3944": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "3945": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3946": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3947": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3948": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3949": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3950": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "3951": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3952": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3953": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3954": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3955": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3956": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3957": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "3958": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3959": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3960": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3961": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3962": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "3963": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3964": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3965": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3966": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "3967": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "3968": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3969": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "3970": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "3971": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3972": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3973": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3974": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3975": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3976": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "3977": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3978": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3979": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3980": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3981": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3982": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3983": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3984": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "3985": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3986": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "3987": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "3988": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3989": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "3990": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3991": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "3992": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3993": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3994": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "3995": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3996": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3997": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "3998": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "3999": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "4000": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4001": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4002": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4003": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "4004": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4005": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "4006": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "4007": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "4008": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "4009": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4010": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "4011": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "4012": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "4013": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "4014": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "4015": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "4016": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Shadow"
+  },
+  "4017": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Shadow"
+  },
+  "4018": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "4019": {
+    "CLAN": "Black Ash",
+    "CLASS": "Shadow"
+  },
+  "4020": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "4021": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "4022": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "4023": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4024": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "4025": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4026": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "4027": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "4028": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "4029": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Shadow"
+  },
+  "4030": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "4031": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "4032": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4033": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "4034": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "4035": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "4036": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "4037": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4038": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "4039": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "4040": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4041": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4042": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4043": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "4044": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4045": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4046": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "4047": {
+    "CLAN": "Black Ash",
+    "CLASS": "Seer"
+  },
+  "4048": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "4049": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "4050": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "4051": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "4052": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "4053": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "4054": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "4055": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "4056": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "4057": {
+    "CLAN": "Black Ash",
+    "CLASS": "Seer"
+  },
+  "4058": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4059": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4060": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4061": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "4062": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "4063": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4064": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "4065": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4066": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "4067": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "4068": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4069": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "4070": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4071": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4072": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4073": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "4074": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4075": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "4076": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "4077": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4078": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "4079": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4080": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "4081": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "4082": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "4083": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "4084": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4085": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "4086": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4087": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "4088": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "4089": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "4090": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "4091": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4092": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "4093": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4094": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4095": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "4096": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4097": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "4098": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "4099": {
+    "CLAN": "Black Ash",
+    "CLASS": "Seer"
+  },
+  "4100": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4101": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "4102": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4103": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "4104": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4105": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "4106": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4107": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "4108": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "4109": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4110": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4111": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "4112": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "4113": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4114": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "4115": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "4116": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "4117": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4118": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4119": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "4120": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "4121": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4122": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "4123": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "4124": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "4125": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4126": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4127": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "4128": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "4129": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "4130": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "4131": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4132": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "4133": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4134": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4135": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "4136": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4137": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4138": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "4139": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "4140": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "4141": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4142": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "4143": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "4144": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "4145": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "4146": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4147": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4148": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "4149": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4150": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4151": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "4152": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "4153": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4154": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "4155": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "4156": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "4157": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4158": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "4159": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "4160": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "4161": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "4162": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "4163": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "4164": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4165": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "4166": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4167": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4168": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "4169": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4170": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "4171": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4172": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4173": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "4174": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4175": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4176": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "4177": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4178": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4179": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "4180": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4181": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "4182": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4183": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4184": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "4185": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "4186": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "4187": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4188": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "4189": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "4190": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4191": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "4192": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "4193": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4194": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4195": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4196": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4197": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "4198": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4199": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4200": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "4201": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4202": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "4203": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "4204": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "4205": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "4206": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4207": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4208": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Sentinel"
+  },
+  "4209": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "4210": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "4211": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4212": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "4213": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "4214": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4215": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4216": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "4217": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "4218": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4219": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "4220": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4221": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "4222": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4223": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "4224": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4225": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "4226": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4227": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4228": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "4229": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4230": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "4231": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "4232": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "4233": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4234": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4235": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4236": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4237": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4238": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "4239": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4240": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "4241": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4242": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4243": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "4244": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "4245": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "4246": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4247": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "4248": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "4249": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "4250": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "4251": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "4252": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "4253": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "4254": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "4255": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "4256": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "4257": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4258": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4259": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "4260": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "4261": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "4262": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "4263": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Seer"
+  },
+  "4264": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "4265": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4266": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "4267": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "4268": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "4269": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "4270": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "4271": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Vanguard"
+  },
+  "4272": {
+    "CLAN": "Black Ash",
+    "CLASS": "Seer"
+  },
+  "4273": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "4274": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4275": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "4276": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "4277": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "4278": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "4279": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4280": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "4281": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "4282": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4283": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "4284": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "4285": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4286": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Vanguard"
+  },
+  "4287": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "4288": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4289": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "4290": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "4291": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4292": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4293": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "4294": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4295": {
+    "CLAN": "Black Ash",
+    "CLASS": "Templar"
+  },
+  "4296": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "4297": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4298": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "4299": {
+    "CLAN": "Black Ash",
+    "CLASS": "Sentinel"
+  },
+  "4300": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4301": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "4302": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Sentinel"
+  },
+  "4303": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4304": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "4305": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "4306": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "4307": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4308": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4309": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "4310": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "4311": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "4312": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4313": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "4314": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Sentinel"
+  },
+  "4315": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4316": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4317": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "4318": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Templar"
+  },
+  "4319": {
+    "CLAN": "Black Ash",
+    "CLASS": "Seer"
+  },
+  "4320": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "4321": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4322": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "4323": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "4324": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Seer"
+  },
+  "4325": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4326": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4327": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4328": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "4329": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4330": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Reaver"
+  },
+  "4331": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4332": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  },
+  "4333": {
+    "CLAN": "Black Ash",
+    "CLASS": "Vanguard"
+  },
+  "4334": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Templar"
+  },
+  "4335": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4336": {
+    "CLAN": "Azurcrest",
+    "CLASS": "Vanguard"
+  },
+  "4337": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Templar"
+  },
+  "4338": {
+    "CLAN": "Venom Pact",
+    "CLASS": "Reaver"
+  },
+  "4339": {
+    "CLAN": "Grey Maw",
+    "CLASS": "Reaver"
+  },
+  "4340": {
+    "CLAN": "Black Ash",
+    "CLASS": "Reaver"
+  }
+}

@@ -1,0 +1,70 @@
+
+
+{ 
+
+ 
+
+ Contract: WulirocksNFT
+Network: Polygon Mainnet
+contract Address: 0x9995CcBc044FB80522F8B64C8B5d5066f3cbc3f2
+ownerDeployer:    0x3c3512b04e178c68fe7861944d1c66af5f873565
+Deploy TX: 0x...
+Compiler: 0.8.30
+Date: 2026-06-22
+Base URI: initialBaseURI: ipfs://bafybeigfzkwjf7lgwckkyr4rcumloycdcs6wf5huip75pdinygtnftzm5q/
+
+}
+
+
+
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/Strings.sol";
+
+contract MyNFT is ERC721, Ownable {
+    using Strings for uint256;
+
+    uint256 public constant MAX_SUPPLY = 11;
+    uint256 public totalMinted;
+
+    string public baseURI;
+
+    // FIX: Renamed parameter to initialBaseURI to prevent variable shadowing
+    constructor(string memory initialBaseURI)
+        ERC721("MyNFT", "MNFT")
+        Ownable(msg.sender)
+    {
+        baseURI = initialBaseURI;
+    }
+
+    function _baseURI() internal view override returns (string memory) {
+        return baseURI;
+    }
+
+    function mint(address to) external onlyOwner {
+        require(totalMinted < MAX_SUPPLY, "Max supply reached");
+
+        uint256 tokenId = totalMinted + 1;
+        totalMinted++;
+
+        _safeMint(to, tokenId);
+    }
+
+    function tokenURI(uint256 tokenId)
+        public
+        view
+        override
+        returns (string memory)
+    {
+        _requireOwned(tokenId);
+
+        if (bytes(baseURI).length == 0) {
+            return "";
+        }
+
+        return string(abi.encodePacked(baseURI, tokenId.toString(), ".json"));
+    }
+}

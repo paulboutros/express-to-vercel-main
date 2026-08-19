@@ -1,0 +1,35 @@
+{
+  "scrollTop": 0,
+  "gridCellSize": 300,
+  "updateMode": "NO",
+  "imageLocalNumber": 2,
+  "mixData": {},
+  "gridRenderMode": "",
+  "traitsUI": {
+    "filterModeABS": "OR",
+    "TRAIT_MODE": "FILTER_BASKET",
+    "pills": [
+      {
+        "traitKey": "LEGWEAR",
+        "value": "Red Wraps"
+      },
+      {
+        "traitKey": "SHOULDER",
+        "value": "Kaki Warfur"
+      }
+    ]
+  },
+  "selectedKeysABS": [],
+  "DOsaveJSON": false,
+  "DOsaveRender": true,
+  "currentDisplayData": {
+    "currentIndex": 82,
+    "nft_exportID": 0,
+    "reviewOriginalId": 0
+  },
+  "currentFrame_data": {
+    "currentIndex": 2,
+    "nft_exportID": 724,
+    "reviewOriginalId": 2414
+  }
+}

@@ -1,0 +1,850 @@
+{
+    "yellow_gray": {
+        "horn_track": "black",
+        "head_track": "yellow",
+        "hoodie_cape_track": "yellow",
+        "skinColor": "gray",
+        "weapon": "red",
+        "mask_track": "yellow"
+    },
+    "yellow_brown": {
+        "horn_track": "black",
+        "head_track": "yellow",
+        "hoodie_cape_track": "yellow",
+        "skinColor": "brown",
+        "weapon": "red",
+        "mask_track": "yellow"
+    },
+    "yellow_origin": {
+        "horn_track": "black",
+        "head_track": "yellow",
+        "hoodie_cape_track": "yellow",
+        "skinColor": "origin",
+        "weapon": "red",
+        "mask_track": "yellow"
+    },
+    "yellow_black": {
+        "horn_track": "black",
+        "head_track": "yellow",
+        "hoodie_cape_track": "yellow",
+        "skinColor": "black",
+        "weapon": "red",
+        "mask_track": "yellow"
+    },
+    "yellow_blue": {
+        "horn_track": "black",
+        "head_track": "yellow",
+        "hoodie_cape_track": "yellow",
+        "skinColor": "blue",
+        "weapon": "red",
+        "mask_track": "yellow"
+    },
+    "yellow_yellow": {
+        "horn_track": "black",
+        "head_track": "yellow",
+        "hoodie_cape_track": "yellow",
+        "skinColor": "yellow",
+        "weapon": "red",
+        "mask_track": "yellow"
+    },
+    "green2_gray": {
+        "horn_track": "black",
+        "head_track": "green2",
+        "hoodie_cape_track": "green2",
+        "skinColor": "gray",
+        "weapon": "red",
+        "mask_track": "green2"
+    },
+    "green2_origin": {
+        "horn_track": "black",
+        "head_track": "green2",
+        "hoodie_cape_track": "green2",
+        "skinColor": "origin",
+        "weapon": "red",
+        "mask_track": "green2"
+    },
+    "green2_blue": {
+        "horn_track": "black",
+        "head_track": "green2",
+        "hoodie_cape_track": "green2",
+        "skinColor": "blue",
+        "weapon": "red",
+        "mask_track": "green2"
+    },
+    "green2_brown": {
+        "horn_track": "",
+        "head_track": "green2",
+        "hoodie_cape_track": "green2",
+        "skinColor": "brown",
+        "weapon": "red",
+        "mask_track": "green2"
+    },
+    "green2_purple_puple": {
+        "horn_track": "black",
+        "head_track": "green2",
+        "hoodie_cape_track": "purpleDarkGray",
+        "skinColor": "purple",
+        "weapon": "black",
+        "mask_track": "green2"
+    },
+    "green_purple_purple": {
+        "horn_track": "greenThorn",
+        "head_track": "purpleDarkGray",
+        "hoodie_cape_track": "purpleDarkGray",
+        "skinColor": "purple",
+        "weapon": "black",
+        "mask_track": "purpleDarkGray"
+    },
+    "blue_black_purple": {
+        "horn_track": "blue",
+        "head_track": "black",
+        "hoodie_cape_track": "purpleDarkGray",
+        "skinColor": "purple",
+        "weapon": "black",
+        "mask_track": "blue"
+    },
+    "darkGreen_brown": {
+        "horn_track": "black",
+        "head_track": "dark_green",
+        "hoodie_cape_track": "dark_green",
+        "skinColor": "brown",
+        "weapon": "black",
+        "mask_track": "dark_green"
+    },
+    "darkGreen_grayGreen_black_brown": {
+        "horn_track": "black",
+        "head_track": "dark_green",
+        "hoodie_cape_track": "gray_green",
+        "skinColor": "brown",
+        "weapon": "black",
+        "mask_track": "dark_green"
+    },
+    "darkGreen_grayGreen_black_gray": {
+        "horn_track": "black",
+        "head_track": "dark_green",
+        "hoodie_cape_track": "gray_green",
+        "skinColor": "gray",
+        "weapon": "black",
+        "mask_track": "dark_green"
+    },
+    "darkGreen_gray": {
+        "horn_track": "",
+        "head_track": "dark_green",
+        "hoodie_cape_track": "gray_green",
+        "skinColor": "gray",
+        "weapon": "black",
+        "mask_track": "dark_green"
+    },
+    "darkGreen_red_gray": {
+        "horn_track": "",
+        "head_track": "dark_green",
+        "hoodie_cape_track": "red",
+        "skinColor": "gray",
+        "weapon": "black",
+        "mask_track": "dark_green"
+    },
+    "darkGreen_bone_brown": {
+        "horn_track": "dark_green",
+        "head_track": "dark_green",
+        "hoodie_cape_track": "blueBeige2",
+        "skinColor": "brown",
+        "weapon": "black",
+        "mask_track": "dark_green"
+    },
+    "darkGreen_red_origin": {
+        "horn_track": "dark_green",
+        "head_track": "dark_green",
+        "hoodie_cape_track": "red",
+        "skinColor": "origin",
+        "weapon": "black",
+        "mask_track": "dark_green"
+    },
+    "HOalmond_darkGreen_grayGreen_black_gray": {
+        "horn_track": "brown_almond",
+        "head_track": "dark_green",
+        "hoodie_cape_track": "gray_green",
+        "skinColor": "gray",
+        "weapon": "black",
+        "mask_track": "dark_green"
+    },
+    "HOdarkGreen_darkGreen_grayGreen_black_gray": {
+        "horn_track": "dark_green",
+        "head_track": "dark_green",
+        "hoodie_cape_track": "gray_green",
+        "skinColor": "gray",
+        "weapon": "black",
+        "mask_track": "dark_green"
+    },
+    "greenThorn_gray": {
+        "horn_track": "",
+        "head_track": "greenThorn",
+        "hoodie_cape_track": "greenThorn",
+        "skinColor": "gray",
+        "weapon": "red",
+        "mask_track": "greenThorn"
+    },
+    "red_yellow": {
+        "horn_track": "black",
+        "head_track": "red",
+        "hoodie_cape_track": "red",
+        "skinColor": "yellow",
+        "weapon": "red",
+        "mask_track": "red"
+    },
+    "red_purple": {
+        "horn_track": "black",
+        "head_track": "red",
+        "hoodie_cape_track": "red",
+        "skinColor": "purple",
+        "weapon": "red",
+        "mask_track": "red"
+    },
+    "red_black": {
+        "horn_track": "",
+        "head_track": "red",
+        "hoodie_cape_track": "red",
+        "skinColor": "black",
+        "weapon": "red",
+        "mask_track": "red"
+    },
+    "red_origin": {
+        "horn_track": "black",
+        "head_track": "red",
+        "hoodie_cape_track": "red",
+        "skinColor": "origin",
+        "weapon": "red",
+        "mask_track": "red"
+    },
+    "red_gray": {
+        "horn_track": "black",
+        "head_track": "red",
+        "hoodie_cape_track": "red",
+        "skinColor": "gray",
+        "weapon": "red",
+        "mask_track": "red"
+    },
+    "bone_greenAlien": {
+        "horn_track": "blueBeige2",
+        "head_track": "blueBeige2",
+        "hoodie_cape_track": "blueBeige2",
+        "skinColor": "greenAlien",
+        "weapon": "red",
+        "mask_track": "blueBeige2"
+    },
+    "bone_gray": {
+        "horn_track": "blueBeige2",
+        "head_track": "blueBeige2",
+        "hoodie_cape_track": "blueBeige2",
+        "skinColor": "gray",
+        "weapon": "red",
+        "mask_track": "blueBeige2"
+    },
+    "bone_red": {
+        "horn_track": "blueBeige2",
+        "head_track": "blueBeige2",
+        "hoodie_cape_track": "blueBeige2",
+        "skinColor": "red",
+        "weapon": "red",
+        "mask_track": "blueBeige2"
+    },
+    "bone_origin": {
+        "horn_track": "blueBeige2",
+        "head_track": "blueBeige2",
+        "hoodie_cape_track": "blueBeige2",
+        "skinColor": "origin",
+        "weapon": "red",
+        "mask_track": "blueBeige2"
+    },
+    "bone_black": {
+        "horn_track": "blueBeige2",
+        "head_track": "blueBeige2",
+        "hoodie_cape_track": "blueBeige2",
+        "skinColor": "black",
+        "weapon": "red",
+        "mask_track": "blueBeige2"
+    },
+    "bone_brown": {
+        "horn_track": "blueBeige2",
+        "head_track": "blueBeige2",
+        "hoodie_cape_track": "blueBeige2",
+        "skinColor": "brown",
+        "weapon": "red",
+        "mask_track": "blueBeige2"
+    },
+    "bone_blue": {
+        "horn_track": "blueBeige2",
+        "head_track": "blueBeige2",
+        "hoodie_cape_track": "blueBeige2",
+        "skinColor": "blue",
+        "weapon": "red",
+        "mask_track": "blueBeige2"
+    },
+    "bore_red": {
+        "horn_track": "blueBeige2",
+        "head_track": "blueBeige2",
+        "hoodie_cape_track": "blueBeige2",
+        "skinColor": "red",
+        "weapon": "red",
+        "mask_track": "blueBeige2"
+    },
+    "bone_cremeRed_blue": {
+        "horn_track": "blueBeige2",
+        "head_track": "creme_red",
+        "hoodie_cape_track": "blueBeige2",
+        "skinColor": "blue",
+        "weapon": "red",
+        "mask_track": "creme_red"
+    },
+    "bone_purple_blue": {
+        "horn_track": "blueBeige2",
+        "head_track": "purpleDarkGray",
+        "hoodie_cape_track": "blueBeige2",
+        "skinColor": "blue",
+        "weapon": "red",
+        "mask_track": "purpleDarkGray"
+    },
+    "bone_paleRed_brown": {
+        "horn_track": "blueBeige2",
+        "head_track": "gray_pale_red",
+        "hoodie_cape_track": "blueBeige2",
+        "skinColor": "brown",
+        "weapon": "red",
+        "mask_track": "gray_pale_red"
+    },
+    "bone_cremeRed_black": {
+        "horn_track": "blueBeige2",
+        "head_track": "creme_red",
+        "hoodie_cape_track": "blueBeige2",
+        "skinColor": "black",
+        "weapon": "red",
+        "mask_track": "creme_red"
+    },
+    "cremeRed_red": {
+        "horn_track": "black",
+        "head_track": "creme_red",
+        "hoodie_cape_track": "creme_red",
+        "skinColor": "red",
+        "weapon": "black",
+        "mask_track": "creme_red"
+    },
+    "cremeRed_gray": {
+        "horn_track": "black",
+        "head_track": "creme_red",
+        "hoodie_cape_track": "creme_red",
+        "skinColor": "gray",
+        "weapon": "black",
+        "mask_track": "creme_red"
+    },
+    "cremeRed_brown": {
+        "horn_track": "black",
+        "head_track": "creme_red",
+        "hoodie_cape_track": "creme_red",
+        "skinColor": "brown",
+        "weapon": "black",
+        "mask_track": "creme_red"
+    },
+    "cremeRed_brown_hornRed": {
+        "horn_track": "creme_red",
+        "head_track": "creme_red",
+        "hoodie_cape_track": "creme_red",
+        "skinColor": "brown",
+        "weapon": "black",
+        "mask_track": "creme_red"
+    },
+    "cremeRed_black": {
+        "horn_track": "black",
+        "head_track": "creme_red",
+        "hoodie_cape_track": "creme_red",
+        "skinColor": "black",
+        "weapon": "black",
+        "mask_track": "creme_red"
+    },
+    "cremeRed_origin": {
+        "horn_track": "black",
+        "head_track": "creme_red",
+        "hoodie_cape_track": "creme_red",
+        "skinColor": "origin",
+        "weapon": "black",
+        "mask_track": "creme_red"
+    },
+    "cremeRed_blue": {
+        "horn_track": "black",
+        "head_track": "creme_red",
+        "hoodie_cape_track": "creme_red",
+        "skinColor": "blue",
+        "weapon": "black",
+        "mask_track": "creme_red"
+    },
+    "cremeRed_blue_hornRed": {
+        "horn_track": "creme_red",
+        "head_track": "creme_red",
+        "hoodie_cape_track": "creme_red",
+        "skinColor": "blue",
+        "weapon": "red",
+        "mask_track": "creme_red"
+    },
+    "brownAlmond_brownOrange_origin": {
+        "horn_track": "",
+        "head_track": "brownAlmOrange",
+        "hoodie_cape_track": "brown_orange",
+        "skinColor": "origin",
+        "weapon": "red",
+        "mask_track": "brownAlmOrange"
+    },
+    "brownAlmond_origin": {
+        "horn_track": "",
+        "head_track": "brown_almond",
+        "hoodie_cape_track": "brown_almond",
+        "skinColor": "origin",
+        "weapon": "brown_almond",
+        "mask_track": "brown_almond"
+    },
+    "creme2_brown": {
+        "horn_track": "",
+        "head_track": "creme2",
+        "hoodie_cape_track": "creme2",
+        "skinColor": "brown",
+        "weapon": "black",
+        "mask_track": "greenThorn"
+    },
+    "creme2_origin": {
+        "horn_track": "black",
+        "head_track": "creme2",
+        "hoodie_cape_track": "creme2",
+        "skinColor": "origin",
+        "weapon": "black",
+        "mask_track": "creme2"
+    },
+    "creme2_greenAlien": {
+        "horn_track": "black",
+        "head_track": "creme2",
+        "hoodie_cape_track": "creme2",
+        "skinColor": "greenAlien",
+        "weapon": "black",
+        "mask_track": "creme2"
+    },
+    "creme2_blue": {
+        "horn_track": "black",
+        "head_track": "creme2",
+        "hoodie_cape_track": "creme2",
+        "skinColor": "blue",
+        "weapon": "black",
+        "mask_track": "creme2"
+    },
+    "creme2_purple": {
+        "horn_track": "black",
+        "head_track": "creme2",
+        "hoodie_cape_track": "creme2",
+        "skinColor": "purple",
+        "weapon": "black",
+        "mask_track": "creme2"
+    },
+    "creme2_gray": {
+        "horn_track": "brown",
+        "head_track": "creme2",
+        "hoodie_cape_track": "creme2",
+        "skinColor": "gray",
+        "weapon": "black",
+        "mask_track": "creme2"
+    },
+    "creme2_yellow": {
+        "horn_track": "brown",
+        "head_track": "creme2",
+        "hoodie_cape_track": "creme2",
+        "skinColor": "yellow",
+        "weapon": "black",
+        "mask_track": "creme2"
+    },
+    "creme2_red": {
+        "horn_track": "brown",
+        "head_track": "creme2",
+        "hoodie_cape_track": "creme2",
+        "skinColor": "red",
+        "weapon": "black",
+        "mask_track": "creme2"
+    },
+    "blue_origin": {
+        "horn_track": "black",
+        "head_track": "blue",
+        "hoodie_cape_track": "blue",
+        "skinColor": "origin",
+        "weapon": "blue",
+        "mask_track": "blue"
+    },
+    "blue_blue": {
+        "horn_track": "black",
+        "head_track": "blue",
+        "hoodie_cape_track": "blue",
+        "skinColor": "blue",
+        "weapon": "blue",
+        "mask_track": "blue"
+    },
+    "blue_gray": {
+        "horn_track": "black",
+        "head_track": "blue",
+        "hoodie_cape_track": "blue",
+        "skinColor": "gray",
+        "weapon": "blue",
+        "mask_track": "blue"
+    },
+    "brown_origin": {
+        "horn_track": "black",
+        "head_track": "brown",
+        "hoodie_cape_track": "brown",
+        "skinColor": "origin",
+        "weapon": "black",
+        "mask_track": "brown"
+    },
+    "brown_purple": {
+        "horn_track": "black",
+        "head_track": "brown",
+        "hoodie_cape_track": "brown",
+        "skinColor": "purple",
+        "weapon": "black",
+        "mask_track": "brown"
+    },
+    "brown_grayGreen_gray": {
+        "horn_track": "gray_green",
+        "head_track": "brown",
+        "hoodie_cape_track": "gray_green",
+        "skinColor": "gray",
+        "weapon": "brown",
+        "mask_track": "brown"
+    },
+    "beige2_red": {
+        "horn_track": "black",
+        "head_track": "beige2",
+        "hoodie_cape_track": "beige2",
+        "skinColor": "red",
+        "weapon": "black",
+        "mask_track": "beige2"
+    },
+    "beige2_blue": {
+        "horn_track": "black",
+        "head_track": "beige2",
+        "hoodie_cape_track": "beige2",
+        "skinColor": "blue",
+        "weapon": "black",
+        "mask_track": "beige2"
+    },
+    "beige2_greenAlien": {
+        "horn_track": "black",
+        "head_track": "beige2",
+        "hoodie_cape_track": "beige2",
+        "skinColor": "greenAlien",
+        "weapon": "black",
+        "mask_track": "beige2"
+    },
+    "beige2_brown": {
+        "horn_track": "black",
+        "head_track": "beige2",
+        "hoodie_cape_track": "beige2",
+        "skinColor": "brown",
+        "weapon": "black",
+        "mask_track": "beige2"
+    },
+    "grayGreen_origin": {
+        "horn_track": "black",
+        "head_track": "gray_green",
+        "hoodie_cape_track": "gray_green",
+        "skinColor": "origin",
+        "weapon": "black",
+        "mask_track": "gray_green"
+    },
+    "grayGreen_gray": {
+        "horn_track": "black",
+        "head_track": "gray_green",
+        "hoodie_cape_track": "gray_green",
+        "skinColor": "gray",
+        "weapon": "black",
+        "mask_track": "gray_green"
+    },
+    "grayGreen_black": {
+        "horn_track": "black",
+        "head_track": "gray_green",
+        "hoodie_cape_track": "gray_green",
+        "skinColor": "black",
+        "weapon": "black",
+        "mask_track": "gray_green"
+    },
+    "grayGreen_blue": {
+        "horn_track": "black",
+        "head_track": "gray_green",
+        "hoodie_cape_track": "gray_green",
+        "skinColor": "blue",
+        "weapon": "black",
+        "mask_track": "gray_green"
+    },
+    "grayGreen_brown": {
+        "horn_track": "black",
+        "head_track": "gray_green",
+        "hoodie_cape_track": "gray_green",
+        "skinColor": "brown",
+        "weapon": "black",
+        "mask_track": "gray_green"
+    },
+    "grayGreen_red": {
+        "horn_track": "black",
+        "head_track": "gray_green",
+        "hoodie_cape_track": "gray_green",
+        "skinColor": "red",
+        "weapon": "black",
+        "mask_track": "gray_green"
+    },
+    "grayDarkBrown_gray": {
+        "horn_track": "black",
+        "head_track": "gray_dark_brown",
+        "hoodie_cape_track": "gray_dark_brown",
+        "skinColor": "gray",
+        "weapon": "black",
+        "mask_track": "gray_dark_brown"
+    },
+    "grayDarkBrown_brown": {
+        "horn_track": "black",
+        "head_track": "gray_dark_brown",
+        "hoodie_cape_track": "gray_dark_brown",
+        "skinColor": "brown",
+        "weapon": "brown",
+        "mask_track": "gray_dark_brown"
+    },
+    "grayDarkBrown_greenAlien": {
+        "horn_track": "black",
+        "head_track": "gray_dark_brown",
+        "hoodie_cape_track": "gray_dark_brown",
+        "skinColor": "greenAlien",
+        "weapon": "brown",
+        "mask_track": "gray_dark_brown"
+    },
+    "purple_gray": {
+        "horn_track": "",
+        "head_track": "purpleDarkGray",
+        "hoodie_cape_track": "purpleDarkGray",
+        "skinColor": "gray",
+        "weapon": "black",
+        "mask_track": "purpleDarkGray"
+    },
+    "purple_origin": {
+        "horn_track": "",
+        "head_track": "purpleDarkGray",
+        "hoodie_cape_track": "purpleDarkGray",
+        "skinColor": "origin",
+        "weapon": "black",
+        "mask_track": "purpleDarkGray"
+    },
+    "purple_brown": {
+        "horn_track": "",
+        "head_track": "purpleDarkGray",
+        "hoodie_cape_track": "purpleDarkGray",
+        "skinColor": "brown",
+        "weapon": "black",
+        "mask_track": "purpleDarkGray"
+    },
+    "purple_purple": {
+        "horn_track": "",
+        "head_track": "purpleDarkGray",
+        "hoodie_cape_track": "purpleDarkGray",
+        "skinColor": "purple",
+        "weapon": "black",
+        "mask_track": "purpleDarkGray"
+    },
+    "purple_red": {
+        "horn_track": "black",
+        "head_track": "purpleDarkGray",
+        "hoodie_cape_track": "purpleDarkGray",
+        "skinColor": "red",
+        "weapon": "black",
+        "mask_track": "purpleDarkGray"
+    },
+    "purple_blue": {
+        "horn_track": "black",
+        "head_track": "purpleDarkGray",
+        "hoodie_cape_track": "purpleDarkGray",
+        "skinColor": "blue",
+        "weapon": "black",
+        "mask_track": "purpleDarkGray"
+    },
+    "purple_yellow": {
+        "horn_track": "black",
+        "head_track": "purpleDarkGray",
+        "hoodie_cape_track": "purpleDarkGray",
+        "skinColor": "yellow",
+        "weapon": "black",
+        "mask_track": "purpleDarkGray"
+    },
+    "paleRed_brown": {
+        "horn_track": "black",
+        "head_track": "gray_pale_red",
+        "hoodie_cape_track": "gray_pale_red",
+        "skinColor": "brown",
+        "weapon": "black",
+        "mask_track": "gray_pale_red"
+    },
+    "paleRed_yellow": {
+        "horn_track": "black",
+        "head_track": "gray_pale_red",
+        "hoodie_cape_track": "gray_pale_red",
+        "skinColor": "yellow",
+        "weapon": "black",
+        "mask_track": "gray_pale_red"
+    },
+    "cyanGold_blue": {
+        "horn_track": "black",
+        "head_track": "cyan_gold",
+        "hoodie_cape_track": "cyan_gold",
+        "skinColor": "blue",
+        "weapon": "black",
+        "mask_track": "cyan_gold"
+    },
+    "cyanGold_origin": {
+        "horn_track": "black",
+        "head_track": "cyan_gold",
+        "hoodie_cape_track": "cyan_gold",
+        "skinColor": "origin",
+        "weapon": "black",
+        "mask_track": "cyan_gold"
+    },
+    "cyanGold_red": {
+        "horn_track": "black",
+        "head_track": "cyan_gold",
+        "hoodie_cape_track": "cyan_gold",
+        "skinColor": "red",
+        "weapon": "black",
+        "mask_track": "cyan_gold"
+    },
+    "cyanGold_black": {
+        "horn_track": "black",
+        "head_track": "cyan_gold",
+        "hoodie_cape_track": "cyan_gold",
+        "skinColor": "black",
+        "weapon": "black",
+        "mask_track": "cyan_gold"
+    },
+    "cyanGold_gray": {
+        "horn_track": "black",
+        "head_track": "cyan_gold",
+        "hoodie_cape_track": "cyan_gold",
+        "skinColor": "gray",
+        "weapon": "black",
+        "mask_track": "cyan_gold"
+    },
+    "cyanGold_brown": {
+        "horn_track": "blueBeige2",
+        "head_track": "cyan_gold",
+        "hoodie_cape_track": "cyan_gold",
+        "skinColor": "brown",
+        "weapon": "black",
+        "mask_track": "cyan_gold"
+    },
+    "cyanGold_bone_blue": {
+        "horn_track": "black",
+        "head_track": "blueBeige2",
+        "hoodie_cape_track": "cyan_gold",
+        "skinColor": "blue",
+        "weapon": "black",
+        "mask_track": "blueBeige2"
+    },
+    "cyanGold_purple_blue": {
+        "horn_track": "black",
+        "head_track": "purple",
+        "hoodie_cape_track": "cyan_gold",
+        "skinColor": "blue",
+        "weapon": "black",
+        "mask_track": "purple"
+    },
+    "cyanGold_black_greenAlien": {
+        "horn_track": "black",
+        "head_track": "black",
+        "hoodie_cape_track": "cyan_gold",
+        "skinColor": "greenAlien",
+        "weapon": "black",
+        "mask_track": "black"
+    },
+    "cyanGold_creme2_black": {
+        "horn_track": "black",
+        "head_track": "creme2",
+        "hoodie_cape_track": "cyan_gold",
+        "skinColor": "black",
+        "weapon": "black",
+        "mask_track": "creme2"
+    },
+    "cyanGold_grayGreen_gray": {
+        "horn_track": "black",
+        "head_track": "gray_green",
+        "hoodie_cape_track": "cyan_gold",
+        "skinColor": "gray",
+        "weapon": "black",
+        "mask_track": "gray_green"
+    },
+    "cyanGold_yellow_yellow": {
+        "horn_track": "black",
+        "head_track": "yellow",
+        "hoodie_cape_track": "cyan_gold",
+        "skinColor": "yellow",
+        "weapon": "black",
+        "mask_track": "yellow"
+    },
+    "black_red": {
+        "horn_track": "black",
+        "head_track": "black",
+        "hoodie_cape_track": "black",
+        "skinColor": "red",
+        "weapon": "black",
+        "mask_track": "black"
+    },
+    "black_origin": {
+        "horn_track": "black",
+        "head_track": "black",
+        "hoodie_cape_track": "black",
+        "skinColor": "origin",
+        "weapon": "black",
+        "mask_track": "black"
+    },
+    "black_gray": {
+        "horn_track": "black",
+        "head_track": "black",
+        "hoodie_cape_track": "black",
+        "skinColor": "gray",
+        "weapon": "black",
+        "mask_track": "black"
+    },
+    "black_yellow": {
+        "horn_track": "black",
+        "head_track": "black",
+        "hoodie_cape_track": "black",
+        "skinColor": "yellow",
+        "weapon": "black",
+        "mask_track": "black"
+    },
+    "black_purple": {
+        "horn_track": "black",
+        "head_track": "black",
+        "hoodie_cape_track": "black",
+        "skinColor": "purple",
+        "weapon": "black",
+        "mask_track": "black"
+    },
+    "black_blue": {
+        "horn_track": "black",
+        "head_track": "black",
+        "hoodie_cape_track": "black",
+        "skinColor": "blue",
+        "weapon": "black",
+        "mask_track": "black"
+    },
+    "black_brown": {
+        "horn_track": "black",
+        "head_track": "black",
+        "hoodie_cape_track": "black",
+        "skinColor": "brown",
+        "weapon": "black",
+        "mask_track": "black"
+    },
+    "yellow_red": {
+        "horn_track": "black",
+        "head_track": "yellow",
+        "hoodie_cape_track": "yellow",
+        "skinColor": "red",
+        "weapon": "black",
+        "mask_track": "yellow"
+    }
+}

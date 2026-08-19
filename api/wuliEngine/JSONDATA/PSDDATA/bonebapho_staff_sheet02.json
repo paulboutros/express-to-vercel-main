@@ -1,0 +1,254 @@
+{
+  "NFTimageList": [
+    "2164",
+    "3881",
+    "4066",
+    "2923",
+    "4142",
+    "3108",
+    "3667",
+    "4088",
+    "2346",
+    "4108"
+  ],
+  "docDNA": [
+    "gr_CA_IM",
+    "gr_CA_IM",
+    "gr_CA_IM",
+    "gr_CA_IM",
+    "gr_CA_IM",
+    "gr_CA_IM",
+    "gr_CA_IM",
+    "gr_CA_IM",
+    "gr_CA_IM",
+    "gr_CA_IM",
+    "ly"
+  ],
+  "docRootNode": {
+    "name": "bonebapho_staff_sheet02.psd",
+    "kind": "document",
+    "children": [
+      {
+        "layerName": "2164",
+        "kind": "group",
+        "type": "PSTYPE",
+        "children": [
+          {
+            "layerName": "2164",
+            "kind": "smartObject",
+            "type": "NFTcards",
+            "children": []
+          },
+          {
+            "layerName": "2164",
+            "kind": "smartObject",
+            "type": "NFTimage",
+            "children": []
+          }
+        ]
+      },
+      {
+        "layerName": "3881",
+        "kind": "group",
+        "type": "PSTYPE",
+        "children": [
+          {
+            "layerName": "3881",
+            "kind": "smartObject",
+            "type": "NFTcards",
+            "children": []
+          },
+          {
+            "layerName": "3881",
+            "kind": "smartObject",
+            "type": "NFTimage",
+            "children": []
+          }
+        ]
+      },
+      {
+        "layerName": "4066",
+        "kind": "group",
+        "type": "PSTYPE",
+        "children": [
+          {
+            "layerName": "4066",
+            "kind": "smartObject",
+            "type": "NFTcards",
+            "children": []
+          },
+          {
+            "layerName": "4066",
+            "kind": "smartObject",
+            "type": "NFTimage",
+            "children": []
+          }
+        ]
+      },
+      {
+        "layerName": "2923",
+        "kind": "group",
+        "type": "PSTYPE",
+        "children": [
+          {
+            "layerName": "2923",
+            "kind": "smartObject",
+            "type": "NFTcards",
+            "children": []
+          },
+          {
+            "layerName": "2923",
+            "kind": "smartObject",
+            "type": "NFTimage",
+            "children": []
+          }
+        ]
+      },
+      {
+        "layerName": "4142",
+        "kind": "group",
+        "type": "PSTYPE",
+        "children": [
+          {
+            "layerName": "4142",
+            "kind": "smartObject",
+            "type": "NFTcards",
+            "children": []
+          },
+          {
+            "layerName": "4142",
+            "kind": "smartObject",
+            "type": "NFTimage",
+            "children": []
+          }
+        ]
+      },
+      {
+        "layerName": "3108",
+        "kind": "group",
+        "type": "PSTYPE",
+        "children": [
+          {
+            "layerName": "3108",
+            "kind": "smartObject",
+            "type": "NFTcards",
+            "children": []
+          },
+          {
+            "layerName": "3108",
+            "kind": "smartObject",
+            "type": "NFTimage",
+            "children": []
+          }
+        ]
+      },
+      {
+        "layerName": "3667",
+        "kind": "group",
+        "type": "PSTYPE",
+        "children": [
+          {
+            "layerName": "3667",
+            "kind": "smartObject",
+            "type": "NFTcards",
+            "children": []
+          },
+          {
+            "layerName": "3667",
+            "kind": "smartObject",
+            "type": "NFTimage",
+            "children": []
+          }
+        ]
+      },
+      {
+        "layerName": "4088",
+        "kind": "group",
+        "type": "PSTYPE",
+        "children": [
+          {
+            "layerName": "4088",
+            "kind": "smartObject",
+            "type": "NFTcards",
+            "children": []
+          },
+          {
+            "layerName": "4088",
+            "kind": "smartObject",
+            "type": "NFTimage",
+            "children": []
+          }
+        ]
+      },
+      {
+        "layerName": "2346",
+        "kind": "group",
+        "type": "PSTYPE",
+        "children": [
+          {
+            "layerName": "2346",
+            "kind": "smartObject",
+            "type": "NFTcards",
+            "children": []
+          },
+          {
+            "layerName": "2346",
+            "kind": "smartObject",
+            "type": "NFTimage",
+            "children": []
+          }
+        ]
+      },
+      {
+        "layerName": "4108",
+        "kind": "group",
+        "type": "PSTYPE",
+        "children": [
+          {
+            "layerName": "4108",
+            "kind": "smartObject",
+            "type": "NFTcards",
+            "children": []
+          },
+          {
+            "layerName": "4108",
+            "kind": "smartObject",
+            "type": "NFTimage",
+            "children": []
+          }
+        ]
+      },
+      {
+        "layerName": "Layer 1",
+        "kind": "artLayer",
+        "type": "PSTYPE",
+        "children": []
+      }
+    ]
+  },
+  "profile": "gr_CA_IM",
+  "config": {
+     "traitsUI": {
+      "filterModeABS": "OR",
+      "TRAIT_MODE": "FILTER_BASKET",
+      "pills": [
+        {
+          "traitKey": "WEAPON",
+          "value": "Bone Baphomet Staff"
+        }
+      ]
+     },
+    "layoutGrid": {
+      "snapX": "962",
+      "snap_rowLength": "5",
+      "snap_offsetY": "580"
+    },
+    "charaTest": {},
+    "swapSetup": {},
+    "exportSetup": {}
+  },
+  "dependencies": [
+    "NFTCard_exist"
+  ],
+  "docName": "bonebapho_staff_sheet02"
+}

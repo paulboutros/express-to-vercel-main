@@ -1,0 +1,4 @@
+{
+  "propList": ["NFToutput","headColor","hoodie","skinColor","type", "feetType","feetColor","feetWraps","knees","handType","handCol","eyeType","eyeCol","wolfhelmet","helmPeak","shape","shapeCol","filter2","color_filter","shoulType","shoulderColor","weapon","weapCol","weapHeadCol","torsoType","torsoCol","hornType","hornCol","faceMask","fmaskColor","clothing"],
+  "PREVpropList": ["NFToutput","headColor","hoodie","skinColor","type","feetColor","feetWraps","knees","handType","handCol","eyeType","eyeCol","wolfhelmet","helmPeak","shape","shapeCol","filter2","color_filter","shoulType","shoulderColor","weapon","weapCol","weapHeadCol","torsoType","torsoCol","hornType","hornCol","faceMask","fmaskColor","clothing"]
+}

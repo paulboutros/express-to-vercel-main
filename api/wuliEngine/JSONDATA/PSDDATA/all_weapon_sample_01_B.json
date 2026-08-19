@@ -1,0 +1,246 @@
+{
+  "NFTimageList": [
+    "2412",
+    "2460",
+    "3504",
+    "3470",
+    "4318",
+    "3803",
+    "4030",
+    "4061",
+    "4094",
+    "4104"
+  ],
+  "docDNA": [
+    "gr_CA_IM",
+    "gr_CA_IM",
+    "gr_CA_IM",
+    "gr_CA_IM",
+    "gr_CA_IM",
+    "gr_CA_IM",
+    "gr_CA_IM",
+    "gr_CA_IM",
+    "gr_CA_IM",
+    "gr_CA_IM",
+    "ly"
+  ],
+  "docRootNode": {
+    "name": "all_weapon_sample_01_B.psd",
+    "kind": "document",
+    "children": [
+      {
+        "layerName": "2412",
+        "kind": "group",
+        "type": "PSTYPE",
+        "children": [
+          {
+            "layerName": "2412",
+            "kind": "smartObject",
+            "type": "NFTcards",
+            "children": []
+          },
+          {
+            "layerName": "2412",
+            "kind": "smartObject",
+            "type": "NFTimage",
+            "children": []
+          }
+        ]
+      },
+      {
+        "layerName": "2460",
+        "kind": "group",
+        "type": "PSTYPE",
+        "children": [
+          {
+            "layerName": "2460",
+            "kind": "smartObject",
+            "type": "NFTcards",
+            "children": []
+          },
+          {
+            "layerName": "2460",
+            "kind": "smartObject",
+            "type": "NFTimage",
+            "children": []
+          }
+        ]
+      },
+      {
+        "layerName": "3504",
+        "kind": "group",
+        "type": "PSTYPE",
+        "children": [
+          {
+            "layerName": "3504",
+            "kind": "smartObject",
+            "type": "NFTcards",
+            "children": []
+          },
+          {
+            "layerName": "3504",
+            "kind": "smartObject",
+            "type": "NFTimage",
+            "children": []
+          }
+        ]
+      },
+      {
+        "layerName": "3470",
+        "kind": "group",
+        "type": "PSTYPE",
+        "children": [
+          {
+            "layerName": "3470",
+            "kind": "smartObject",
+            "type": "NFTcards",
+            "children": []
+          },
+          {
+            "layerName": "3470",
+            "kind": "smartObject",
+            "type": "NFTimage",
+            "children": []
+          }
+        ]
+      },
+      {
+        "layerName": "4318",
+        "kind": "group",
+        "type": "PSTYPE",
+        "children": [
+          {
+            "layerName": "4318",
+            "kind": "smartObject",
+            "type": "NFTcards",
+            "children": []
+          },
+          {
+            "layerName": "4318",
+            "kind": "smartObject",
+            "type": "NFTimage",
+            "children": []
+          }
+        ]
+      },
+      {
+        "layerName": "3803",
+        "kind": "group",
+        "type": "PSTYPE",
+        "children": [
+          {
+            "layerName": "3803",
+            "kind": "smartObject",
+            "type": "NFTcards",
+            "children": []
+          },
+          {
+            "layerName": "3803",
+            "kind": "smartObject",
+            "type": "NFTimage",
+            "children": []
+          }
+        ]
+      },
+      {
+        "layerName": "4030",
+        "kind": "group",
+        "type": "PSTYPE",
+        "children": [
+          {
+            "layerName": "4030",
+            "kind": "smartObject",
+            "type": "NFTcards",
+            "children": []
+          },
+          {
+            "layerName": "4030",
+            "kind": "smartObject",
+            "type": "NFTimage",
+            "children": []
+          }
+        ]
+      },
+      {
+        "layerName": "4061",
+        "kind": "group",
+        "type": "PSTYPE",
+        "children": [
+          {
+            "layerName": "4061",
+            "kind": "smartObject",
+            "type": "NFTcards",
+            "children": []
+          },
+          {
+            "layerName": "4061",
+            "kind": "smartObject",
+            "type": "NFTimage",
+            "children": []
+          }
+        ]
+      },
+      {
+        "layerName": "4094",
+        "kind": "group",
+        "type": "PSTYPE",
+        "children": [
+          {
+            "layerName": "4094",
+            "kind": "smartObject",
+            "type": "NFTcards",
+            "children": []
+          },
+          {
+            "layerName": "4094",
+            "kind": "smartObject",
+            "type": "NFTimage",
+            "children": []
+          }
+        ]
+      },
+      {
+        "layerName": "4104",
+        "kind": "group",
+        "type": "PSTYPE",
+        "children": [
+          {
+            "layerName": "4104",
+            "kind": "smartObject",
+            "type": "NFTcards",
+            "children": []
+          },
+          {
+            "layerName": "4104",
+            "kind": "smartObject",
+            "type": "NFTimage",
+            "children": []
+          }
+        ]
+      },
+      {
+        "layerName": "Layer 1",
+        "kind": "artLayer",
+        "type": "PSTYPE",
+        "children": []
+      }
+    ]
+  },
+  "profile": "gr_CA_IM",
+  "config": {
+    "traitsUI": {},
+    "layoutGrid": {
+      "crop.left": "254",
+      "cell.width": "902",
+      "cell.height": "1000",
+      "grid.rowLength": "4"
+    },
+    "charaTest": {},
+    "swapSetup": {},
+    "exportSetup": {},
+    "layoutGridsharp": {}
+  },
+  "dependencies": [
+    "NFTCard_exist"
+  ]
+}

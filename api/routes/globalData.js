@@ -3,7 +3,7 @@ const path = require("path");
 const express = require("express");
 const { connectToDataBase } = require("../../lib/connectToDataBase");
  
-   const crypto = require("crypto");
+    const crypto = require("crypto");
 
 
     const { performance } = require("perf_hooks");
@@ -11,16 +11,18 @@ const { connectToDataBase } = require("../../lib/connectToDataBase");
 
  
  
-
-       const engine = require("@wulirocks/collection-engine");
+     const engine = require("../wuliEngine/index.js");
+       //const engine = require("@wulirocks/collection-engine");
      const {rebuildActiveFilterMap} = engine.features_traitFilters; 
 
-   const QueryEngine = require("@wulirocks/collection-engine/query/QueryEngine");
+   const QueryEngine = engine.queryEngine ;;   //require("@wulirocks/collection-engine/query/QueryEngine");
    const rarityCount =  engine.writeServices.get_rarityTraitCount();
 
    const {getFirstInSet, getALL_NFTIDS } =    engine.metaDataAPI;
 
-   const { FeatureState } = require("@wulirocks/collection-engine/features/FeatureState/featureState.js"); 
+   const { FeatureState } =   engine.featureState;
+  
+  // const { FeatureState } = require("@wulirocks/collection-engine/features/FeatureState/featureState.js"); 
   
  
 
@@ -136,7 +138,7 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
 
  
   router.post("/api/getQueryExample", async (req, response) => {
-        const sheetHistData = engine.writeServices.get_sheetGenerationHistory();
+         const sheetHistData = engine.writeServices.get_sheetGenerationHistory();
          try {
             response.status(200).json( sheetHistData );
       } catch(e){ 
@@ -147,6 +149,11 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
 
    router.post("/api/generateAllTraitSheet", async (req, response) => {
   
+
+
+   console.log( " /api/generateAllTraitSheet  "  );
+
+
     const assetRoot = path.join(process.cwd(), "public", "IMG");
       const t0 = performance.now();
     
@@ -456,7 +463,7 @@ function run_rebuildActiveFilterMap( filterModeABS, serializeActivePills ){
 
 function save_sheetGenerationHistory_local(engine, vidFilter){ 
     
-  console.log("save_sheetGeneration: isVercel   ===" , isVercel )
+  //console.log("save_sheetGeneration: isVercel   ===" , isVercel )
       if (isVercel) return;
    
       

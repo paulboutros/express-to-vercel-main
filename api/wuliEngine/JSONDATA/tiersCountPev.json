@@ -1,0 +1,110 @@
+{
+  "WEAPON": {
+    "common": {
+      "saber_root_hazel": 120,
+      "mace_01_2hands": 139,
+      "ven_temp_wp_06_bone": 124,
+      "woodMace": 130,
+      "saber_02_black": 124,
+      "spear 03 spear": 122
+    },
+    "uncommon": {
+      "spear 01 spear": 100,
+      "saber_ash": 67,
+      "Stonebreak Maul hammer": 72,
+      "saber_root_bone": 76,
+      "hammerSpike": 73,
+      "saber_root_red": 73,
+      "spear_02_01": 60,
+      "Sandcleaver axe": 65,
+      "Sunforged Soulreaper sword": 65
+    },
+    "rare": {
+      "ven_temp_wp_05": 48,
+      "ven_temp_wp_08_yel": 34,
+      "ash_wp_08": 27,
+      "ash_wp_01": 29,
+      "Ironhowl axe": 26,
+      "Dragon Staff 01": 21,
+      "ven_temp_wp_08_green": 27,
+      "sword_01_red": 39,
+      "saber_root_green": 51,
+      "ven_temp_wp_08_bone": 57,
+      "Dawnbreak axe": 32,
+      "Grimholt Warpillar hammer": 55,
+      "Nightflare axe": 39,
+      "ash_wp_03_darkGreen": 29,
+      "hammer_01_redBrown": 52
+    },
+    "epic": {
+      "ash_wp_03": 8,
+      "baho Staff 01": 17,
+      "ash_wp_09": 12,
+      "ash_wp_05": 19,
+      "ash_wp_07_evil": 18,
+      "ven_temp_wp_02": 10,
+      "ven_temp_wp_06_green": 18,
+      "sword_08": 14,
+      "ash_wp_04": 10,
+      "ash_wp_02": 12,
+      "syth_01_green": 8,
+      "ash_wp_10": 8,
+      "syth 01": 14
+    },
+    "legendary": {
+      "ven_temp_wp_01": 6,
+      "sword_09": 3,
+      "hammer 04": 3,
+      "stone Hammer": 3,
+      "ash_wp_07": 1
+    }
+  },
+  "SHIELD": {
+    "common": {
+      "venom_S1_root_green": 129,
+      "Brown Baphomet": 125,
+      "Brown Runeforge": 137,
+      "BlackGold Runeforge": 143,
+      "venom_S1_root_bone": 137
+    },
+    "uncommon": {
+      "circle dragon": 77,
+      "sh_01_root_redBrown": 62,
+      "venom_S1_root_red": 79,
+      "wolf_s1_blackGold": 93,
+      "ash_sh_01": 65,
+      "ven_temp_sh_04": 66,
+      "ven_temp_sh_08_root": 83
+    },
+    "rare": {
+      "Bone Twinflame": 59,
+      "dragFront_S1_brown": 51,
+      "03_root_bone": 39,
+      "Red Hazel Guardian": 32,
+      "03_S2_root_green": 37,
+      "Red Castlebound": 26,
+      "sh_04_dragRootRedBrown": 39,
+      "venom_S3_red_emblem": 30,
+      "ven_temp_sh_08_rootRed": 38,
+      "Red Baphomet": 29,
+      "Red Studded Guardian": 28
+    },
+    "epic": {
+      "BlackGold Twinflame": 17,
+      "Dark Green Castlebound": 7,
+      "ven_temp_sh_02": 18,
+      "ash_sh_0": 17,
+      "dragFront_S1_darkGreen": 10,
+      "ven_temp_sh_0": 18,
+      "circle_dragon_HazelRed": 7,
+      "Brown Studded Guardian": 15,
+      "Dark Green Guardian": 14
+    },
+    "legendary": {
+      "blackGold Shield": 6,
+      "Light Brown Guardian": 6,
+      "Bone Shield": 4,
+      "ash_sh_04": 1
+    }
+  }
+}

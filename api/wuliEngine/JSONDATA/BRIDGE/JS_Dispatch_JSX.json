@@ -1,0 +1,9 @@
+{
+  "scriptDispatcher": {
+    "arguments": [
+      "getActiveDoc.jsx",
+      "JS_APP_requestActiveDoc",
+      {}
+    ]
+  }
+}

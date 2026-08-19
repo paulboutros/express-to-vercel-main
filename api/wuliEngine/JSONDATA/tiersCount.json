@@ -1,0 +1,260 @@
+{
+  "TIER_RULES": {
+    "WEAPON": [
+      {
+        "name": "common",
+        "min": 120,
+        "max": 10000,
+        "targetCount": 6
+      },
+      {
+        "name": "uncommon",
+        "min": 60,
+        "max": 119,
+        "targetCount": 8
+      },
+      {
+        "name": "rare",
+        "min": 20,
+        "max": 59,
+        "targetCount": 14
+      },
+      {
+        "name": "epic",
+        "min": 7,
+        "max": 19,
+        "targetCount": 14
+      },
+      {
+        "name": "legendary",
+        "min": 1,
+        "max": 6,
+        "targetCount": 6
+      }
+    ],
+    "SHIELD": [
+      {
+        "name": "common",
+        "min": 120,
+        "max": 10000,
+        "targetCount": 4
+      },
+      {
+        "name": "uncommon",
+        "min": 60,
+        "max": 119,
+        "targetCount": 6
+      },
+      {
+        "name": "rare",
+        "min": 20,
+        "max": 59,
+        "targetCount": 11
+      },
+      {
+        "name": "epic",
+        "min": 7,
+        "max": 19,
+        "targetCount": 11
+      },
+      {
+        "name": "legendary",
+        "min": 1,
+        "max": 6,
+        "targetCount": 4
+      }
+    ]
+  },
+  "WEAPON": {
+    "common": {
+      "targetCount": 6,
+      "currentCount": 6,
+      "range": [
+        120,
+        10000
+      ],
+      "content": {
+        "mace_01_2hands": 138,
+        "ven_temp_wp_06_bone": 129,
+        "woodMace": 125,
+        "saber_02_black": 123,
+        "saber_root_hazel": 120,
+        "spear_03": 120
+      }
+    },
+    "uncommon": {
+      "targetCount": 8,
+      "currentCount": 8,
+      "range": [
+        60,
+        119
+      ],
+      "content": {
+        "spear_01": 110,
+        "hammerSpike": 84,
+        "saber_root_bone": 77,
+        "hammer_03": 73,
+        "saber_root_red": 73,
+        "saber_ash": 67,
+        "axe_03": 65,
+        "sword_06": 63
+      }
+    },
+    "rare": {
+      "targetCount": 14,
+      "currentCount": 14,
+      "range": [
+        20,
+        59
+      ],
+      "content": {
+        "spear_02_01": 57,
+        "hammer_02": 56,
+        "ven_temp_wp_08_bone": 56,
+        "hammer_01_redBrown": 55,
+        "saber_root_green": 49,
+        "ven_temp_wp_05": 48,
+        "sword_01_red": 39,
+        "axe_01": 39,
+        "ven_temp_wp_08_yel": 37,
+        "axe_04": 32,
+        "ash_wp_01": 30,
+        "hammer_04": 29,
+        "ash_wp_03_darkGreen": 29,
+        "ven_temp_wp_08_green": 27
+      }
+    },
+    "epic": {
+      "targetCount": 14,
+      "currentCount": 15,
+      "range": [
+        7,
+        19
+      ],
+      "content": {
+        "dragonStaff_01": 18,
+        "ash_wp_05": 18,
+        "ash_wp_07_evil": 18,
+        "ven_temp_wp_06_green": 18,
+        "baho_staff_01": 17,
+        "axe_02": 15,
+        "sword_08": 14,
+        "ash_wp_09": 12,
+        "ash_wp_02": 12,
+        "ven_temp_wp_02": 10,
+        "syth_01": 10,
+        "ash_wp_04": 9,
+        "ash_wp_03": 8,
+        "syth_01_green": 8,
+        "ash_wp_10": 8
+      },
+      "warning": "Expected 14, found 15"
+    },
+    "legendary": {
+      "targetCount": 6,
+      "currentCount": 5,
+      "range": [
+        1,
+        6
+      ],
+      "content": {
+        "ven_temp_wp_01": 6,
+        "sword_09": 3,
+        "stoneHammer": 3,
+        "ash_wp_08": 2,
+        "ash_wp_07": 1
+      },
+      "warning": "Expected 6, found 5"
+    }
+  },
+  "SHIELD": {
+    "common": {
+      "targetCount": 4,
+      "currentCount": 5,
+      "range": [
+        120,
+        10000
+      ],
+      "content": {
+        "undefined": 433,
+        "BlackGold_Runeforge": 148,
+        "Brown_Runeforge": 139,
+        "venom_S1_root_bone": 138,
+        "venom_S1_root_green": 132
+      },
+      "warning": "Expected 4, found 5"
+    },
+    "uncommon": {
+      "targetCount": 6,
+      "currentCount": 6,
+      "range": [
+        60,
+        119
+      ],
+      "content": {
+        "Brown_Baphomet": 117,
+        "wolf_s1_blackGold": 94,
+        "circle_dragon_blackgold": 86,
+        "ven_temp_sh_08_root": 86,
+        "venom_S1_root_red": 81,
+        "ash_sh_01": 72
+      }
+    },
+    "rare": {
+      "targetCount": 11,
+      "currentCount": 11,
+      "range": [
+        20,
+        59
+      ],
+      "content": {
+        "Bone_Twinflame": 59,
+        "ven_temp_sh_04": 56,
+        "dragFront_S1_brown": 50,
+        "sh_01_root_redBrown": 50,
+        "03_root_bone": 40,
+        "sh_04_dragRootRedBrown": 39,
+        "ven_temp_sh_08_rootRed": 37,
+        "03_S2_root_green": 36,
+        "RedHazel_Guardian": 33,
+        "venom_S3_red_emblem": 31,
+        "Red_Studded_Guardian": 29
+      }
+    },
+    "epic": {
+      "targetCount": 11,
+      "currentCount": 11,
+      "range": [
+        7,
+        19
+      ],
+      "content": {
+        "ven_temp_sh_02": 18,
+        "02_04": 18,
+        "ven_temp_sh_0": 18,
+        "Red_Castlebound": 17,
+        "BlackGold_Twinflame": 17,
+        "ash_sh_0": 17,
+        "Brown_Studded_Guardian": 15,
+        "Dark_Green_Guardian": 14,
+        "dragFront_S1_darkGreen": 8,
+        "Dark_Green_Castlebound": 7,
+        "circle_dragon_HazelRed": 7
+      }
+    },
+    "legendary": {
+      "targetCount": 4,
+      "currentCount": 4,
+      "range": [
+        1,
+        6
+      ],
+      "content": {
+        "04_05": 6,
+        "03_03": 6,
+        "04_03": 5,
+        "ash_sh_04": 1
+      }
+    }
+  }
+}

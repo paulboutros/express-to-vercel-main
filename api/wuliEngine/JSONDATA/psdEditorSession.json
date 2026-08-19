@@ -1,0 +1,53 @@
+{
+  "snap": {
+    "x": "267",
+    "y": "141",
+
+     "offsetX":"0" ,
+     "offsetY":"0" ,
+  },
+  "nextImageFromActiveSel": {
+    "mode": "list_random"
+  },
+  "swapSO": {
+    "direction": "left"
+  },
+  "placeCard": {
+    "cardType": "NFTcards",
+    "offset": {
+      "x": 0,
+      "y": 0
+    }
+  },
+  "scriptDispatcher": {
+    "arguments": [
+      "warning.jsx",
+      "ScanDoc",
+      {
+        "layerID": 42,
+        "message": "Document needs scan"
+      }
+    ],
+    "argumentsJS": [
+      "warning.js",
+      "sendWarning",
+      {
+        "responseType": "ScanDocCompleted",
+        "executionTime": 42,
+        "message": "scan completed"
+      }
+    ]
+  },
+  "NFTsource": {
+    "mode": "NFTgrid"
+  },
+  "shieldSource": {
+    "mode": "NFTgrid"
+  },
+  "charaXweapon": {
+    "nftToRender": 3796
+  },
+  "saveCharaXweapon": {
+    "toID": 2163
+  }
+}

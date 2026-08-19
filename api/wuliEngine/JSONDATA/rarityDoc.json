@@ -1,0 +1,19 @@
+{
+  "WEAPON": {
+    "Red Eagle Staff": [
+      "ash_wp_02.json"
+    ],
+    "Ruby Staff": [
+      "ash_wp_03.json"
+    ],
+    "Dark Sword": [
+      "ash_wp_07_evil_S9X2.json",
+      "ash_wp_07_evil_sheet01.json",
+      "ash_wp_07_evil_sheet02.json"
+    ],
+    "Bone Baphomet Staff": [
+      "bonebapho_staff_sheet01.json",
+      "bonebapho_staff_sheet02.json"
+    ]
+  }
+}

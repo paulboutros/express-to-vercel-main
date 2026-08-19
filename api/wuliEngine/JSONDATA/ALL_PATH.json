@@ -1,0 +1,101 @@
+{
+
+
+    "BASE_PATH":{
+      "JSONPATH":"D:/GIT/wuliEngine/JSONDATA/"
+    },
+	"photoshopResponse":{
+		"BASE_PATH":"JSONPATH",
+		"path":"D:/GIT/wuliEngine/JSONDATA/psResponse.json"
+	},
+	"traitCounter":{
+		"path":"D:/GIT/wuliEngine/JSONDATA/traitCounter.json"
+	},
+	"psResponse":{
+      "path":"D:/GIT/wuliEngine/JSONDATA/psResponse.json"
+	},
+	"psdEditorSession":{
+      "path":"D:/GIT/hashLipsWuli/hashlips_art_engine/utils/NFT_ELECTRON/PSDEDITOR/psdEditorSession.json"
+	},
+
+
+	"write_PSD_response":{
+      "path":"D:/GIT/hashLipsWuli/hashlips_art_engine/utils/WEAPON_ANGLE_MODIFICATION/utils/JSX/SERVICE/write_PSD_response.jsx"
+	},
+	"selectionAPI":{
+      "path":"D:/GIT/hashLipsWuli/hashlips_art_engine/utils/WEAPON_ANGLE_MODIFICATION/utils/JSX/UTILITY/selectionAPI.jsx"
+	},
+	"DOMexplore":{
+      "path":"D:/GIT/hashLipsWuli/hashlips_art_engine/utils/WEAPON_ANGLE_MODIFICATION/utils/JSX/UTILITY/DOMexplore.jsx"
+	},
+	"layerPosition":{
+      "path":"D:/GIT/hashLipsWuli/hashlips_art_engine/utils/WEAPON_ANGLE_MODIFICATION/utils/JSX/UTILITY/layerPosition.jsx"
+	},
+	"DOMPlacementManager":{
+      "path":"D:/GIT/hashLipsWuli/hashlips_art_engine/utils/WEAPON_ANGLE_MODIFICATION/utils/JSX/SERVICE/DOMPlacementManager.jsx"
+	} ,
+	"layerTypeService":{
+      "path":"D:/GIT/hashLipsWuli/hashlips_art_engine/utils/WEAPON_ANGLE_MODIFICATION/utils/JSX/SERVICE/layerTypeService.jsx"
+	}, 
+	"PATHS":{
+      "path":"D:/GIT/hashLipsWuli/hashlips_art_engine/utils/WEAPON_ANGLE_MODIFICATION/utils/JSX/common/PATHS.jsx"
+	},
+
+	"getLink":{
+      "path": "D:/GIT/hashLipsWuli/hashlips_art_engine/utils/WEAPON_ANGLE_MODIFICATION/utils/JSX/common/getLink.jsx"
+	},
+
+ 
+
+
+	"psdData":{
+		  "path":"D:/GIT/wuliEngine/JSONDATA/PSDDATA/psdData.json"
+	},
+
+	"pathRoot":{
+ 		 "jsxService":"D:/GIT/hashLipsWuli/hashlips_art_engine/utils/WEAPON_ANGLE_MODIFICATION/utils/JSX/SERVICE/",
+ 		 "jsxUtility":"D:/GIT/hashLipsWuli/hashlips_art_engine/utils/WEAPON_ANGLE_MODIFICATION/utils/JSX/UTILITY/",
+
+
+     "IMAGE": "D:/GIT/hashLipsWuli/hashlips_art_engine/utils/NFT_ELECTRON/PSDEDITOR/",
+
+     "PSDEDITOR": "D:/GIT/hashLipsWuli/hashlips_art_engine/utils/NFT_ELECTRON/PSDEDITOR/",
+ 		 "PSDDATA":"D:/GIT/wuliEngine/JSONDATA/PSDDATA/",
+		 
+        "CONFIG":"../JSONDATA/CONFIG/",
+		 
+        "JSONDATA":"../JSONDATA/",
+
+        "BRIDGE":"D:/GIT/wuliEngine/JSONDATA/BRIDGE/",
+
+             
+    
+        "CHARACTER_HORNS"   :"D:/GIT/hashLipsWuli/hashlips_art_engine/PSD/COLOR_FILTER/ALPHAMASK/MIXER/NFT_PSD/HORNS/",
+         "CHARACTER_HEAD"   :"D:/GIT/hashLipsWuli/hashlips_art_engine/PSD/COLOR_FILTER/ALPHAMASK/MIXER/NFT_PSD/HEAD/",
+        "CHARACTER_BODY"   :"D:/GIT/hashLipsWuli/hashlips_art_engine/PSD/COLOR_FILTER/ALPHAMASK/MIXER/NFT_PSD/BODY/",
+        "CHARACTER_BODY_V2":"D:/GIT/hashLipsWuli/hashlips_art_engine/PSD/COLOR_FILTER/ALPHAMASK/MIXER/NFT_PSD/BODY_V2/",
+        "CHARACTER_BODYMERGE_DOUBLEPAD":"D:/GIT/hashLipsWuli/hashlips_art_engine/PSD/COLOR_FILTER/ALPHAMASK/MIXER/NFT_PSD/BODYMERGE_DOUBLEPAD/",
+
+       
+        "Full_NFT_export": "D:/GIT/hashLipsWuli/hashlips_art_engine/image_batch/Full_NFT_export/",
+
+   
+
+        "CHARACTER_HEADMERGE":"D:/GIT/hashLipsWuli/hashlips_art_engine/PSD/COLOR_FILTER/ALPHAMASK/MIXER/NFT_PSD/MERGE/",
+
+
+        "HEAD_BODY_MIXER":"D:/GIT/hashLipsWuli/hashlips_art_engine/utils/WEAPON_ANGLE_MODIFICATION/utils/JSX/NFT_MIX/HEAD_BODY_MIXER/",
+
+
+        "overrides":"D:/GIT/hashLipsWuli/hashlips_art_engine/utils/WEAPON_ANGLE_MODIFICATION/utils/JSX/NFT_MIX/render/",
+
+
+        "CARDS":   "D:/GIT/hashLipsWuli/hashlips_art_engine/utils/NFT_ELECTRON/PSDEDITOR/cards/",
+        "NFTCARDS":"D:/GIT/hashLipsWuli/hashlips_art_engine/utils/NFT_ELECTRON/PSDEDITOR/NFTcards/"
+      
+     
+
+	}  
+ 
+
+}

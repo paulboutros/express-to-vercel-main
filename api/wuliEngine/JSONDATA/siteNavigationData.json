@@ -1,0 +1,241 @@
+[
+
+  {
+    "id": "purpose",
+    "title": "purpose",
+    "collection":"purpose",
+    "children": [
+      {
+        "id": "creative-direction-at-scale",
+        "title": "creative-direction-at-scale",
+        "path": "creative-direction-at-scale"
+      },
+      {
+        "id": "turn-the-collection-into-something-you-can-inspect",
+        "title": "turn the collection into something you can inspect",
+        "path": "turn-the-collection-into-something-you-can-inspect"
+      },
+      {
+        "id": "from-assets-to-a-coherent-collection",
+        "title": "From assets to a coherent collection",
+        "path": "from-assets-to-a-coherent-collection"
+      },
+      {
+        "id": "games",
+        "title": "Games",
+        "path": "games"
+      },
+     {
+        "id": "nfts-and-collectible-collections",
+        "title": "NFTs and collectible collections",
+        "path": "nfts-and-collectible-collections"
+      },
+      {
+        "id": "the-underlying-idea",
+        "title": "The underlying idea",
+        "path": "the-underlying-idea"
+      } 
+
+ 
+ 
+    ]
+  },
+  {
+    "id": "intro",
+    "title": "Introduction",
+    "collection":"introduction",
+    "children": [
+      {
+        "id": "overview",
+        "title": "overview",
+        "path": "overview"
+      },
+      {
+        "id": "how-it-works",
+        "title": "how-it-works",
+        "path": "how-it-works"
+      },
+      {
+        "id": "write-the-language",
+        "title": "write-the-language",
+        "path": "write-the-language"
+      },
+      {
+        "id": "query-mirror",
+        "title": "query-mirror",
+        "path": "query-mirror"
+      },
+      {
+        "id": "pipeline",
+        "title": "pipeline",
+        "path": "pipeline"
+      },
+      {
+        "id": "the-sheet-as-a-visual-interface",
+        "title": "The sheet as a visual interface",
+        "path": "the-sheet-as-a-visual-interface"
+      },
+      {
+      "id": "automating-the-art-directors-workflow",
+        "title": "Automating the art directors workflow",
+        "path": "automating-the-art-directors-workflow"
+      },
+      {
+      "id": "from-dataset-to-visual-representation",
+        "title": "From dataset to visual representation",
+        "path": "from-dataset-to-visual-representation"
+      },
+  
+
+      {
+        "id": "inspect-the-result",
+        "title": "inspect-the-result",
+        "path": "inspect-the-result"
+      },
+      {
+        "id": "why-this-approach",
+        "title": "why-this-approach",
+        "path": "why-this-approach"
+      },
+      {
+        "id": "more-than-a-query-interface",
+        "title": "more-than-a-query-interface",
+        "path": "more-than-a-query-interface"
+      },
+      {
+        "id": "where-it-can-go",
+        "title": "where-it-can-go",
+        "path": "where-it-can-go"
+      } 
+ 
+    ]
+  },
+  {
+    "id": "guide",
+    "title": "Query Language",
+    "collection":"guide",
+    "children": [
+      {
+        "id": "include-operator",
+        "title": "include-operator",
+        "path": "include-operator"
+      },
+       {
+        "id": "exclude-operator",
+        "title": "exclude-operator",
+        "path": "exclude-operator"
+      },
+       {
+        "id": "exclusive-producer",
+        "title": "exclusive-producer",
+        "path": "exclusive-producer"
+      },
+       {
+        "id": "value-fragments",
+        "title": "value-fragments",
+        "path": "value-fragments"
+      },
+       {
+        "id": "exact-values",
+        "title": "exact-values",
+        "path": "exact-values"
+      },
+       {
+        "id": "query-guides",
+        "title": "Guides",
+        "children": [
+          {
+            "id": "query-guide-values",
+            "title": "Values",
+            "path": "/query/guides/values"
+          },
+          {
+            "id": "query-guide-include",
+            "title": "Include",
+            "path": "/query/guides/include"
+          },
+          {
+            "id": "query-guide-exclude",
+            "title": "Exclude",
+            "path": "/query/guides/exclude"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pipeline",
+    "title": "Pipeline",
+    "collection":"apiPipeline",
+    "children": [
+       {
+        "id": "include-operator",
+        "title": "include-operator",
+        "path": "include-operator"
+      },
+       {
+        "id": "exclude-operator",
+        "title": "exclude-operator",
+        "path": "exclude-operator"
+      },
+       {
+        "id": "exclusive-producer",
+        "title": "exclusive-producer",
+        "path": "exclusive-producer"
+      },
+       {
+        "id": "value-fragments",
+        "title": "value-fragments",
+        "path": "value-fragments"
+      },
+      {
+        "id": "exact-values",
+        "title": "exact-values",
+        "path": "exact-values"
+      } 
+    ]
+  },
+  {
+    "id": "demos",
+    "title": "Demos",
+    "children": [
+      {
+        "id": "demo-query",
+        "title": "Query Demo",
+        "path": "/demos/query"
+      },
+      {
+        "id": "demo-pipeline",
+        "title": "Pipeline Demo",
+        "path": "/demos/pipeline"
+      }
+    ]
+  },
+  {
+    "id": "reference",
+    "title": "Reference",
+    "collection":"reference",
+    "children": [
+      {
+        "id": "lexer",
+        "title": "lexer",
+        "path": "lexer"
+      },
+      {
+        "id": "tokens",
+        "title": "tokens",
+        "path": "tokens"
+      },
+       {
+        "id": "canonicalization",
+        "title": "canonicalization",
+        "path": "canonicalization"
+      },
+      {
+        "id": "blocks",
+        "title": "blocks",
+        "path": "blocks"
+      } 
+    ]
+  }
+]

@@ -1,0 +1,2327 @@
+
+ 
+ { 
+ 
+
+ "purpose": {
+     "pages": {
+
+            
+  "creative-direction-at-scale": {
+    "slug": "creative-direction-at-scale",
+    "title": "Creative Direction at Scale",
+    "summary": "As a collection grows from a manageable set of assets into hundreds or thousands, creative direction becomes increasingly difficult to maintain through visual inspection alone. The challenge is no longer simply generating assets, but understanding and controlling the overall composition, distribution, rarity, and relationships within the collection.",
+    "sections": [
+      {
+        "type": "paragraph",
+        "text": "Creating a small collection is mostly a visual process. An artist or creative director can look at 10, 20, or even a few dozen assets and develop an intuitive understanding of the collection."
+      },
+      {
+        "type": "paragraph",
+        "text": "At that scale, it is relatively easy to notice which colors dominate, which styles feel coherent, whether some characters appear too often, whether certain combinations are becoming repetitive, and whether the collection still feels like the same world."
+      },
+
+     {
+
+       "type": "list",
+         
+      "items": [
+                "a balanced distribution of colors",
+                "controlled rarity",
+                "consistent styles",
+                "meaningful combinations",
+                "different character types",
+                "relationships between equipment and character attributes"
+                 ]
+
+       },
+      {
+        "type": "diagram",
+        "title": "From Visual Collection to Dataset",
+        "text": "Small collection \n↓\n visual intuition \n↓\n direct creative control"
+      },
+       {
+          "type": "spacer",
+          "size": "lg"
+      },
+      {
+        "type": "diagram",
+         
+        "text": "Large collection \n↓\n complex distribution \n↓\n relationships become difficult to see \n↓\n creative control becomes harder"
+      },
+
+      {
+        "type": "paragraph",
+        "text": "As the number of assets grows, that intuition becomes increasingly difficult to maintain. You can still look at the images, but you can no longer reliably see the distribution."
+      },
+      {
+        "type": "paragraph",
+        "text": "The problem is not generating more assets. Whether assets are created manually, procedurally, or with AI, large collections introduce the same fundamental challenge: understanding how individual assets affect the composition of the collection as a whole."
+      },
+      {
+        "type": "paragraph",
+        "text": "Imagine a collection containing hundreds or thousands of characters, weapons, items, environments, or other assets. You may want a balanced distribution of colors, controlled rarity, consistent styles, meaningful combinations, different character types, and relationships between equipment and character attributes."
+      },
+      {
+        "type": "note",
+        "title": "The Creative Blind Spot",
+        "text": "Once a collection becomes large enough, checking these relationships manually becomes impractical. You are still generating new material, but you are no longer able to easily evaluate how that material changes the overall composition."
+      }
+    ]
+  },
+
+
+    "turn-the-collection-into-something-you-can-inspect": {
+
+        "slug": "turn-the-collection-into-something-you-can-inspect",
+
+        "title": "Turn the collection into something you can inspect",
+
+        "summary": "Data-driven tools can become part of the creative process by turning a large collection into something that can be measured, queried, and inspected. The images remain the creative material, while structured data makes it possible to understand what is happening across the collection.",
+
+        "sections": [
+
+          {
+            "type": "paragraph",
+
+            "text": "This is where data-driven tools become part of the creative process. Instead of relying only on visual inspection, you can ask precise questions about the collection and receive immediate answers."
+          },
+
+          {
+            "type": "note",
+
+            "title": "How many characters have red fur?",
+
+            "text": "The system can immediately count how many assets contain a specific attribute or combination of attributes."
+          },
+
+          {
+            "type": "note",
+
+            "title": "How many black helmets are paired with this weapon?",
+
+            "text": "Relationships between attributes can be queried directly, making it possible to understand how different traits and components interact."
+          },
+
+          {
+            "type": "note",
+
+            "title": "Which weapons are overrepresented?",
+
+            "text": "The collection can be analyzed to identify attributes that occur more frequently than intended."
+          },
+
+          {
+            "type": "note",
+
+            "title": "Which combinations have never occurred?",
+
+            "text": "The system can also identify combinations that are missing from the collection."
+          },
+
+          {
+            "type": "note",
+
+            "title": "How are these attributes distributed across the collection?",
+
+            "text": "Individual attributes can be measured and compared to understand the overall distribution of the collection."
+          },
+
+          {
+            "type": "note",
+
+            "title": "What happens to the distribution if I add another 200 assets?",
+
+            "text": "The same structured data can be used to evaluate how adding new assets would affect the existing composition."
+          },
+
+          {
+            "type": "paragraph",
+
+            "text": "The images remain the creative material. The structured data provides the ability to measure and interrogate the collection behind those images."
+          },
+ 
+      {
+            "type": "paragraph-title",
+
+            "text": "Creative direction becomes measurable."
+          },
+          {
+            "type": "paragraph",
+
+            "text": "This does not replace artistic judgment. It gives artistic judgment better information."
+          },
+
+
+          {
+            "type": "paragraph",
+
+            "text": "A creative director can still decide that there are too many dark characters. But instead of relying only on perception, the system can show exactly how the collection is distributed."
+          },
+
+          {
+            "type": "diagram",
+
+            "title": "From Visual Collection to Creative Decision",
+
+            "text": "VISUAL COLLECTION\n↓\nSTRUCTURED ATTRIBUTES\n↓\nFILTER / COMPARE / COUNT\n↓\nDISTRIBUTION\n↓\nCREATIVE DECISION"
+          },
+
+          {
+            "type": "paragraph",
+
+            "text": "This makes it possible to continuously reevaluate the collection while it is being created."
+          },
+
+          {
+            "type": "note",
+
+            "title": "The Objective",
+
+            "text": "The objective is not to make everything mathematically uniform. The objective is to make creative intention survive scale."
+          }
+
+        ]
+    },
+ 
+    
+  "from-assets-to-a-coherent-collection": {
+
+    "slug": "from-assets-to-a-coherent-collection",
+
+    "title": "From assets to a coherent collection",
+
+    "summary": "As assets acquire attributes and relationships, a collection becomes more than a group of images. It becomes a structured system in which characteristics, equipment, rarity, abilities, and other attributes interact with one another.",
+
+    "sections": [
+
+      {
+        "type": "paragraph",
+        "text": "This becomes particularly important when assets start acquiring relationships."
+      },
+
+      {
+        "type": "paragraph-title",
+        "text": "A character is no longer just an image."
+      },
+
+      {
+        "type": "paragraph",
+        "text": "It may have a species, phenotype, colors, clothing, equipment, weapons, rarity, abilities, class, power, and other gameplay or collection attributes."
+      },
+
+      {
+        "type": "list",
+        "title": "A character may have",
+        "items": [
+          "Species",
+          "Phenotype",
+          "Colors",
+          "Clothing",
+          "Equipment",
+          "Weapons",
+          "Rarity",
+          "Abilities",
+          "Class",
+          "Power",
+          "Other gameplay or collection attributes"
+        ]
+      },
+
+      {
+        "type": "paragraph",
+        "text": "At that point, the collection is really a system of relationships."
+      },
+
+         {
+          "type": "tree",
+          "title": "A Collection Becomes a System",
+          "root": "Character",
+          "children": [
+            "Species",
+            "Color",
+            "Head",
+            "Armor",
+            {
+              "label": "Weapon",
+              "children": [
+                "Power"
+              ]
+            }
+          ]
+        },
+
+      {
+        "type": "paragraph",
+        "text": "The system can then be used to make sure that those relationships remain intentional."
+      },
+
+     
+
+         {
+  "type": "architecture",
+  "title": "From Engine to UI",
+  "root": "ENGINE",
+  "flow": [
+    "token",
+    "buildPipelineNode()",
+    "NODE (UI)"
+  ],
+  "branches": [
+    "data",
+    "state",
+    "action"
+  ],
+  "branchesReturn": true,
+  "continuation": [
+    "QueryDropdown",
+    "DOM"
+  ]
+}
+ 
+    ]
+  },
+
+ 
+  "games": {
+
+    "slug": "games",
+
+    "title": "Games",
+    "query":"+v[HEAD:[Wolf]]",
+
+    "summary": "For games, the same approach can connect visual identity and game data, allowing visual characteristics and gameplay properties to be analyzed as part of the same structured collection.",
+
+    "sections": [
+
+      {
+        "type": "paragraph",
+
+        "text": "For games, the same approach can connect visual identity and game data."
+      },
+
+      {
+        "type": "paragraph-title",
+
+        "text": "A weapon is not just a visual asset."
+      },
+
+      {
+        "type": "paragraph",
+
+        "text": "A weapon can have a visual design, but it can also have gameplay properties that can be analyzed together."
+      },
+
+      {
+        "type": "list",
+
+        "title": "Weapon properties",
+
+        "items": [
+          "Damage",
+          "Rarity",
+          "Class",
+          "Speed",
+          "Range",
+          "Special abilities"
+        ]
+      },
+
+      {
+        "type": "paragraph",
+
+        "text": "These properties can then be analyzed together with the visual characteristics of the collection."
+      },
+
+      {
+        "type": "note",
+
+        "title": "Are the most powerful weapons visually distinctive enough?",
+
+        "text": "Visual characteristics can be compared against gameplay properties to determine whether important game attributes are reflected in the visual language."
+      },
+
+      {
+        "type": "note",
+
+        "title": "Are rare items actually distributed as intended?",
+
+        "text": "Rarity can be measured alongside other attributes to verify that the intended distribution is actually present in the collection."
+      },
+
+      {
+        "type": "note",
+
+        "title": "Does a particular visual category accidentally contain most of the high-power items?",
+
+        "text": "Cross-attribute analysis can reveal unintended relationships between visual categories and gameplay properties."
+      },
+
+      {
+        "type": "note",
+
+        "title": "Are certain combinations too common or too rare?",
+
+        "text": "The system can identify combinations whose frequency differs significantly from the intended design."
+      },
+
+      {
+        "type": "paragraph",
+
+        "text": "The visual collection and the game system can therefore be evaluated as one dataset rather than two unrelated systems."
+      }
+
+    ]
+  },
+ 
+ "nfts-and-collectible-collections": {
+
+  "slug": "nfts-and-collectible-collections",
+
+  "title": "NFTs and collectible collections",
+
+  "summary": "The same data-driven approach can help maintain creative control when collectible collections grow from a handful of manually reviewed pieces into hundreds or thousands of generated assets.",
+
+   "sections": [
+
+        {
+          "type": "paragraph",
+
+          "text": "The same principle applies to collectible projects."
+        },
+
+        {
+          "type": "paragraph",
+
+          "text": "When a collection grows from a handful of manually reviewed pieces into hundreds or thousands of generated assets, visual inspection alone becomes increasingly unreliable."
+        },
+
+        {
+          "type": "paragraph-title",
+
+          "text": "A collection can be continuously inspected through its data."
+        },
+
+        {
+          "type": "list",
+
+          "title": "What can be analyzed",
+
+          "items": [
+            "Trait distribution",
+            "Rarity",
+            "Combinations",
+            "Visual categories",
+            "Unwanted correlations",
+            "Missing combinations",
+            "Overrepresented combinations"
+          ]
+        },
+
+        {
+          "type": "paragraph",
+
+          "text": "This helps prevent a collection from becoming a pile of individually interesting images that does not work as a collection."
+        }
+    ]
+},
+
+"the-underlying-idea": {
+
+  "slug": "the-underlying-idea",
+   "title": "The underlying idea",
+   "summary": "Creative direction becomes harder as the number of assets increases. Data-driven tools help maintain creative intention by making large collections searchable, measurable and comparable.",
+   "sections": [
+    {
+      "type": "note",
+
+      "title": "Creative direction becomes harder at scale",
+
+      "text": "Creative direction becomes harder as the number of assets increases."
+    },
+
+    {
+      "type": "paragraph",
+
+      "text": "Data-driven tools can reduce that problem by making the collection continuously searchable, measurable and comparable."
+    },
+
+    {
+      "type": "paragraph",
+
+      "text": "The artist still decides what the collection should feel like."
+    },
+
+    {
+      "type": "paragraph",
+
+      "text": "The tools make it possible to maintain that intention when the collection becomes too large for human inspection alone."
+    },
+    {
+                "type" : "list",
+                "title": "You can generate thousands images. But can you still answer:",
+
+                "items": [
+                    "Why does this one exist?",
+                    "How does it relate to the others?",
+                    "Is this category overrepresented?",
+                    "Did the last 100 assets change the character distribution?",
+                    "Did an apparently minor visual choice accidentally correlate with rarity?",
+                    "Are you still producing the collection you originally intended?"
+                 ]
+     },
+     {  
+         "type": "diagram",
+         "text": "I can generate assets\n↓\nI can generate MANY assets\n↓\nI can no longer see the whole collection\n↓\nThe collection becomes data\n↓\nData can be structured\n↓\nStructured data can be queried\n↓\nQueries reveal relationships\n↓\nRelationships reveal problems\n↓\nProblems can be corrected\n↓\nCreative intention survives scale"
+     } 
+
+  ]
+},
+
+
+
+    
+
+
+    "creative-direction-at-scaleXX": {
+
+      "slug": "creative-direction-at-scaleXX",
+
+      "title": "What is this?",
+
+      "summary":
+        "A small language and a visual system for seeing how structured queries are understood, transformed, and resolved.",
+
+      "sections": [
+
+        {
+          "type": "paragraph",
+
+          "text":
+            "What if a language could be understood not only by reading it, but by watching it work?"
+        },
+
+        {
+          "type": "paragraph",
+
+          "text":
+            "This project explores a compact query language together with a visual representation of how that language is interpreted. Instead of treating a query as an opaque string, the system exposes its structure and the transformations that happen between the original input and the final result."
+        },
+
+        {
+          "type": "paragraph",
+
+          "text":
+            "You write a query, the system identifies its components, builds a structured representation, processes that representation through a pipeline, and produces a result that can be inspected along the way."
+        },
+
+        {
+          "type": "diagram",
+
+          "title": "From query to result",
+
+          "text":
+            "QUERY → STRUCTURE → PIPELINE → RESULT"
+        },
+
+        {
+          "type": "paragraph",
+
+          "text":
+            "The goal is not simply to make queries easier to write. It is to make the language, its interpretation, and its processing easier to understand."
+        },
+
+        {
+          "type": "note",
+
+          "title": "Try it",
+
+          "text":
+            "Open the query editor and watch the language mirror and pipeline respond as you edit a query."
+        }
+
+      ],
+
+      "tags": [
+        "introduction",
+        "language",
+        "query",
+        "overview"
+      ]
+    }
+}
+},
+
+
+
+
+   
+ "introduction": {
+     "pages": {
+
+    "overview": {
+
+      "slug": "overview",
+
+      "title": "What is this?",
+
+      "summary":
+        "A small language and a visual system for seeing how structured queries are understood, transformed, and resolved.",
+
+      "sections": [
+
+        {
+          "type": "paragraph",
+
+          "text":
+            "What if a language could be understood not only by reading it, but by watching it work?"
+        },
+
+        {
+          "type": "paragraph",
+
+          "text":
+            "This project explores a compact query language together with a visual representation of how that language is interpreted. Instead of treating a query as an opaque string, the system exposes its structure and the transformations that happen between the original input and the final result."
+        },
+
+        {
+          "type": "paragraph",
+
+          "text":
+            "You write a query, the system identifies its components, builds a structured representation, processes that representation through a pipeline, and produces a result that can be inspected along the way."
+        },
+
+        {
+          "type": "diagram",
+
+          "title": "From query to result",
+
+          "text":
+            "QUERY → STRUCTURE → PIPELINE → RESULT"
+        },
+
+        {
+          "type": "paragraph",
+
+          "text":
+            "The goal is not simply to make queries easier to write. It is to make the language, its interpretation, and its processing easier to understand."
+        },
+
+        {
+          "type": "note",
+
+          "title": "Try it",
+
+          "text":
+            "Open the query editor and watch the language mirror and pipeline respond as you edit a query."
+        }
+
+      ],
+
+      "tags": [
+        "introduction",
+        "language",
+        "query",
+        "overview"
+      ]
+    },
+
+
+    "how-it-works": {
+
+      "slug": "how-it-works",
+
+      "title": "How It Works",
+
+      "summary":
+        "Follow a query from the text you write to the structured result produced by the system.",
+
+      "sections": [
+
+        {
+          "type": "paragraph",
+
+          "text":
+            "The system turns a query into a sequence of structured representations. Each stage makes a different part of the process visible."
+        },
+
+        {
+          "type": "paragraph",
+
+          "text":
+            "You start by writing the query language directly. The editor recognizes its components and represents them as tokens and structured blocks."
+        },
+
+        {
+          "type": "diagram",
+
+          "title": "The basic flow",
+
+          "text":
+            "WRITE → TOKENIZE → STRUCTURE → PROCESS → RESULT"
+        },
+
+        {
+          "type": "paragraph",
+
+          "text":
+            "The resulting structure is then passed through processing stages. Depending on the query, these stages can identify matching data, add or remove results, normalize values, and produce the final result set."
+        },
+
+        {
+          "type": "paragraph",
+
+          "text":
+            "Because the intermediate stages remain visible, the result does not have to be treated as a black box. You can inspect how the system arrived there."
+        },
+
+        {
+          "type": "note",
+
+          "title": "Try it",
+
+          "text":
+            "Open a pipeline demo and change the query. Follow the same input through the different processing stages."
+        }
+
+      ],
+
+      "tags": [
+        "introduction",
+        "pipeline",
+        "processing"
+      ]
+    },
+
+
+    "write-the-language": {
+
+      "slug": "write-the-language",
+
+      "title": "Write the Language",
+
+      "summary":
+        "Express a structured request directly instead of building it through a large collection of controls.",
+
+      "sections": [
+
+        {
+          "type": "paragraph",
+
+          "text":
+            "The starting point is a compact query language. Instead of configuring every operation through separate interface controls, you can express the request directly as text."
+        },
+
+        {
+          "type": "paragraph",
+
+          "text":
+            "The language can describe traits, values, operators, exclusions, combinations, and other structured operations. The query is then interpreted by the system rather than remaining a plain string."
+        },
+
+        {
+          "type": "diagram",
+
+          "title": "A query becomes structure",
+
+          "text":
+            "HEAD::Wolf + ... → TOKENS → STRUCTURED QUERY"
+        },
+
+        {
+          "type": "note",
+
+          "title": "Try it",
+
+          "text":
+            "Open the query editor and change a value in the example. The rest of the interface follows the change."
+        }
+
+      ],
+
+      "tags": [
+        "introduction",
+        "dsl",
+        "query",
+        "language"
+      ]
+    },
+
+
+    "query-mirror": {
+
+      "slug": "query-mirror",
+
+      "title": "The Query Mirror",
+
+      "summary":
+        "See the structure of the language while you are writing it.",
+
+      "sections": [
+
+        {
+          "type": "paragraph",
+
+          "text":
+            "The query mirror is a visual representation of what the system understands in your input. It follows the structure of the query while you edit it."
+        },
+
+        {
+          "type": "paragraph",
+
+          "text":
+            "The mirror connects the original text with its interpreted tokens and values. Moving the caret through the query can therefore reveal the corresponding part of the structured representation."
+        },
+
+        {
+          "type": "diagram",
+
+          "title": "Text and structure stay connected",
+
+          "text":
+            "QUERY TEXT ↔ TOKENS ↔ STRUCTURED REPRESENTATION"
+        },
+
+        {
+          "type": "paragraph",
+
+          "text":
+            "This makes the language easier to explore because you can see both the compact syntax and the structure that exists behind it."
+        },
+
+        {
+          "type": "note",
+
+          "title": "Try it",
+
+          "text":
+            "Move the caret through a query and observe the corresponding part of the mirror and pipeline."
+        }
+
+      ],
+
+      "tags": [
+        "introduction",
+        "dsl",
+        "editor",
+        "mirror","HCI"
+      ]
+    },
+
+
+    "pipeline": {
+
+      "slug": "pipeline",
+
+      "title": "The Pipeline",
+
+      "summary":
+        "Follow the transformations that turn a structured query into a result.",
+
+      "sections": [
+
+        {
+          "type": "paragraph",
+
+          "text":
+            "Once the query has been interpreted, its components can be followed through a processing pipeline."
+        },
+
+        {
+          "type": "diagram",
+
+          "title": "A visible processing pipeline",
+
+          "text":
+            "QUERY → TOKENS → BLOCKS → PROCESSING → RESULT"
+        },
+
+        {
+          "type": "paragraph",
+
+          "text":
+            "Each stage represents a transformation. A query can identify candidates, add or remove results, normalize information, or apply other operations before reaching the final result."
+        },
+
+        {
+          "type": "paragraph",
+
+          "text":
+            "The purpose of the pipeline is not to expose every implementation detail. It is to make the meaningful transformations visible enough to understand what happened."
+        },
+
+        {
+          "type": "note",
+
+          "title": "Try it",
+
+          "text":
+            "Open a pipeline demo and change the query to see how individual stages affect the result."
+        }
+
+      ],
+
+      "tags": [
+        "introduction",
+        "pipeline",
+        "processing",
+        "visualization"
+      ]
+    },
+ 
+   "the-sheet-as-a-visual-interface": {
+
+      "slug": "the-sheet-as-a-visual-interface",
+
+      "title": "The Sheet as a Visual Interface",
+
+      "summary": "A sheet is more than a collection of images. It is a visual representation of structured data that allows creative assets and their properties to be inspected together.",
+
+      "sections": [
+
+        {
+          "type": "paragraph",
+
+          "text": "When a collection contains both visual assets and structured attributes, looking at the images alone is no longer enough."
+        },
+
+        {
+          "type": "paragraph",
+
+          "text": "A character, weapon, item or other asset can have many properties associated with it. A sheet can bring those properties back together with the visual asset so they can be inspected as one object."
+        },
+
+        {
+          "type": "diagram",
+
+          "title": "From Dataset to Visual Comparison",
+
+          "text": "DATASET\n↓\nSHEET BUILDER\n↓\nVISUAL REPRESENTATION\n↓\nHUMAN COMPARISON"
+        },
+
+        {
+          "type": "paragraph",
+
+          "text": "The result is a visual interface to the dataset. Instead of inspecting attributes separately from the artwork, the creative material and its structured information can be viewed together."
+        }
+
+      ]
+    },
+
+
+   "automating-the-art-directors-workflow": {
+
+          "slug": "automating-the-art-directors-workflow",
+
+          "title": "Automating the Art Director's Workflow",
+
+          "summary": "Creative teams have always created sheets to place assets next to each other, compare them, identify inconsistencies and make decisions. The Sheet Builder turns that manual workflow into a repeatable process.",
+
+          "sections": [
+
+            {
+              "type": "paragraph",
+
+              "text": "Artists and art directors have been creating sheets for years. The basic workflow is simple: put assets next to each other, compare them, group them, annotate them and look for relationships or inconsistencies."
+            },
+
+            {
+              "type": "list",
+
+              "title": "A typical manual workflow",
+
+              "items": [
+                "Select the assets to compare",
+                "Place them on a canvas",
+                "Resize and align them",
+                "Add labels or attributes",
+                "Arrange them into groups",
+                "Compare the results",
+                "Adjust the collection"
+              ]
+            },
+
+            {
+              "type": "paragraph",
+
+              "text": "The problem is that this process becomes increasingly expensive when the number of assets grows."
+            },
+
+            {
+              "type": "paragraph",
+
+              "text": "A Sheet Builder automates the mechanical part of this workflow while preserving the visual comparison that makes sheets useful in the first place."
+            },
+
+            {
+              "type": "note",
+
+              "title": "The goal is not to replace creative judgment",
+
+              "text": "The system automates the preparation and organization of the comparison. The human still decides what looks right, what feels coherent and what should change."
+            }
+
+          ]
+    },
+
+    "from-dataset-to-visual-representation": { 
+
+          "slug": "from-dataset-to-visual-representation",
+
+          "title": "From Dataset to Visual Representation",
+
+          "summary": "The Sheet Builder turns a queryable dataset into a visual composition, making it possible to inspect relationships between assets, attributes and other structured information.",
+
+          "sections": [
+
+            {
+              "type": "paragraph",
+
+              "text": "The interesting part is not simply generating a sheet of JPEGs. The sheet is generated from structured information."
+            },
+
+            {
+              "type": "diagram",
+
+              "title": "The Sheet Pipeline",
+
+              "text": "ASSETS + ATTRIBUTES\n↓\nQUERY\n↓\nSHEET DEFINITION\n↓\nAUTOMATIC LAYOUT\n↓\nVISUAL COMPARISON"
+            },
+
+            {
+              "type": "paragraph",
+
+              "text": "A query can determine which assets should appear, while the sheet definition determines how those assets and their properties should be represented."
+            },
+
+            {
+              "type": "paragraph",
+
+              "text": "This means the same underlying dataset can produce different visual views depending on what needs to be inspected."
+            },
+
+            {
+              "type": "list",
+
+              "title": "A sheet can represent",
+
+              "items": [
+                "Visual assets",
+                "Attributes",
+                "Statistics",
+                "Rarity",
+                "Relationships",
+                "Gameplay properties",
+                "Groups and categories"
+              ]
+            },
+
+            {
+              "title": "The sheet is a programmable visual representation of the collection",
+              "type": "note",
+ 
+              "text": "The sheet therefore becomes a programmable visual representation of the collection rather than a manually assembled image."
+            },
+
+            {
+              "type": "paragraph-title",
+
+              "text": "The underlying idea"
+            },
+
+            {
+              "type": "paragraph",
+
+              "text": "Instead of creating a sheet every time a human needs to inspect a collection, the system can generate the appropriate visual representation directly from the data."
+            }
+
+          ]
+        },
+ 
+
+    "inspect-the-result": {
+
+      "slug": "inspect-the-result",
+
+      "title": "Inspect the Result",
+
+      "summary":
+        "Understand not only what the system returned, but why it returned it.",
+
+      "sections": [
+
+        {
+          "type": "paragraph",
+
+          "text":
+            "The final result is only one part of the process. The intermediate representations can explain why that result was produced."
+        },
+
+        {
+          "type": "diagram",
+
+          "title": "Result and explanation",
+
+          "text":
+            "INPUT → INTERPRETATION → TRANSFORMATIONS → RESULT"
+        },
+
+        {
+          "type": "paragraph",
+
+          "text":
+            "This makes it easier to understand which operation produced a change, why items disappeared from a result set, and how apparently similar queries can produce different results."
+        },
+
+        {
+          "type": "note",
+
+          "title": "Try it",
+
+          "text":
+            "Compare two similar queries in the pipeline and follow where their processing paths diverge."
+        }
+
+      ],
+
+      "tags": [
+        "introduction",
+        "results",
+        "inspection",
+        "pipeline"
+      ]
+    },
+
+
+    "why-this-approach": {
+
+      "slug": "why-this-approach",
+
+      "title": "Why Build It This Way?",
+
+      "summary":
+        "A compact language can remain practical while its structure and processing stay visible.",
+
+      "sections": [
+
+        {
+          "type": "paragraph",
+
+          "text":
+            "Structured languages are often designed primarily for machines or developers. This project explores a middle ground: a language that stays compact and practical while its interpretation remains visible to the person using it."
+        },
+
+        {
+          "type": "diagram",
+
+          "title": "One structure, several benefits",
+
+          "text":
+            "COMPACT LANGUAGE + VISIBLE STRUCTURE + VISIBLE PROCESSING"
+        },
+
+        {
+          "type": "paragraph",
+
+          "text":
+            "For users, this can make a language easier to learn. For developers, it can make processing easier to inspect. For documentation, queries can become executable examples instead of static code samples."
+        },
+
+        {
+          "type": "paragraph",
+
+          "text":
+            "The same structured representation can also become a foundation for APIs, automation, developer tools, and other interfaces."
+        }
+
+      ],
+
+      "tags": [
+        "introduction",
+        "concept",
+        "language",
+        "architecture"
+      ]
+    },
+
+
+    "more-than-a-query-interface": {
+
+      "slug": "more-than-a-query-interface",
+
+      "title": "More Than a Query Interface",
+
+      "summary":
+        "The query language is a foundation that can support several different tools and interfaces.",
+
+      "sections": [
+
+        {
+          "type": "paragraph",
+
+          "text":
+            "The current application is one way of interacting with the system. The underlying language and structured representations can support other interfaces as well."
+        },
+
+        {
+          "type": "diagram",
+
+          "title": "One foundation, multiple tools",
+
+          "text":
+            "LANGUAGE → GUIDES / DEMOS / PIPELINE / API / FUTURE TOOLS"
+        },
+
+        {
+          "type": "paragraph",
+
+          "text":
+            "Guides can teach the language. Demos can make it interactive. The pipeline can expose its processing. Reference pages can document the technical structure. An API can make the same capabilities available to other software."
+        },
+
+        {
+          "type": "paragraph",
+
+          "text":
+            "These do not have to be separate systems. They can be different ways of working with the same underlying language and representations."
+        }
+
+      ],
+
+      "tags": [
+        "introduction",
+        "ecosystem",
+        "tools",
+        "api"
+      ]
+    },
+
+
+    "where-it-can-go": {
+
+      "slug": "where-it-can-go",
+
+      "title": "Where It Can Go",
+
+      "summary":
+        "The current system is intentionally small, leaving room for additional languages, tools, data sources, and interfaces.",
+
+      "sections": [
+
+        {
+          "type": "paragraph",
+
+          "text":
+            "The current system is deliberately small. That makes it possible to experiment with the language, its visual representations, and the tools built around it without requiring the entire system to be redesigned."
+        },
+
+        {
+          "type": "paragraph",
+
+          "text":
+            "Future work can extend the language, add processing stages, connect additional data sources, expose more APIs, and build new tools around the same foundation."
+        },
+
+        {
+          "type": "diagram",
+
+          "title": "A growing system",
+
+          "text":
+            "LANGUAGE → REPRESENTATION → PIPELINE → TOOLS → NEW INTERFACES"
+        },
+
+        {
+          "type": "note",
+
+          "title": "Coming next",
+
+          "text":
+            "More operators, pipeline examples, reference documentation, API examples, and interactive demonstrations will be added as the system evolves."
+        }
+
+      ],
+
+      "tags": [
+        "introduction",
+        "roadmap",
+        "future",
+        "ecosystem"
+      ]
+    }
+
+    }
+  },
+
+
+
+
+
+
+
+   "guide":{  
+     "pages":{ 
+       
+                "include-operator":{
+
+                    "slug": "include-operator",
+
+                    "title": "Creating an Include Producer",
+
+                    "summary":
+                        "Include producers add NFTs matching one or more trait values to the current result set.",
+
+                    "query":"+v[HEAD:[Wolf]]",
+                        
+
+                    "sections": [
+
+                        {
+                            "type": "paragraph",
+
+                            "text":
+                                "Every search begins with a producer. The include producer is the most common one. It searches the collection for NFTs matching the specified trait values and adds them to the current result."
+                        },
+
+                        {
+                            "type": "paragraph",
+
+                            "text":
+                                "Typing '+' automatically creates an include producer. The editor then guides you through selecting a trait and one or more values."
+                        },
+
+                        {
+                            "type": "note",
+                             "title": "Try it",
+                             "text":
+                                "Replace 'Wolf' with another value or select a different trait. The result updates immediately."
+                        }
+
+                    ],
+
+                     
+
+                    "tags": [
+
+                    "dsl",
+
+                    "include",
+
+                    "producer"
+
+                   ]
+
+                },
+                "value-fragments":{
+
+                    "slug":"value-fragments",
+
+                    "title":"Searching with Value Fragments",
+
+                    "summary":
+                        "A value does not need to be complete. Any text entered inside a value becomes a fragment search that automatically matches every value containing that text.",
+
+                    "query":
+                        "+v[HEAD:[root]]",
+
+                    "sections":[
+
+                        {
+
+                            "type":"paragraph",
+
+                            "text":
+                                "Values inside a producer can be partial. Instead of typing an exact value, you can type only part of it. The engine searches every value belonging to the selected trait and automatically includes every match."
+
+                        },
+
+                        {
+
+                            "type":"paragraph",
+
+                            "text":
+                                "For example, typing 'root' does not search for one value named 'root'. It searches for every HEAD value containing the word 'root'. This allows one short query to represent many values."
+
+                        },
+
+                        {
+
+                            "type":"paragraph",
+
+                            "text":
+                                "Unlike a traditional trait search, no selection is required. The fragment itself is the query."
+
+                        },
+
+                        {
+
+                            "type":"note",
+
+                            "title":"Try it",
+
+                            "text":
+                                "Replace 'root' with fragments such as 'red', 'gold' or 'dark'. Notice how the result changes immediately as different matching values are found."
+
+                        }
+
+                    ],
+
+                    
+
+                    "tags":[
+
+                        "dsl",
+
+                        "values",
+
+                        "fragments",
+
+                        "search"
+
+                    ]
+
+                },
+                "exact-values":{
+
+                    "slug":"exact-value-selection",
+
+                    "title":"Selecting an Exact Value",
+
+                    "summary":
+                        "The suggestion panel can replace a fragment with one exact value, allowing you to narrow the search to a single value.",
+
+                    "query":
+                        "+v[HEAD:[root]]",
+
+                    "sections":[
+
+                        {
+
+                            "type":"paragraph",
+
+                            "text":
+                                "Typing a fragment automatically opens the suggestion panel whenever matching values exist. The panel is not required to perform the search, but it can be used to replace the fragment with one specific value."
+
+                        },
+
+                        {
+
+                            "type":"paragraph",
+
+                            "text":
+                                "For example, typing 'root' may match several values. Clicking 'Bone Root' replaces the fragment with the complete value, making the producer search only for that exact value."
+
+                        },
+
+                        {
+
+                            "type":"paragraph",
+
+                            "text":
+                                "Fragments and exact values use the same syntax. The only difference is whether you keep the fragment or choose one of the proposed values."
+
+                        },
+
+                        {
+
+                            "type":"note",
+
+                            "title":"Try it",
+
+                            "text":
+                                "Type 'root', then click one of the proposed values. Compare the generated sheet before and after selecting an exact value."
+
+                        }
+
+                    ],
+
+                    
+
+                    "tags":[
+
+                        "dsl",
+
+                        "values",
+
+                        "selection",
+
+                        "autocomplete"
+
+                    ]
+                },
+                "exclude-operator":{
+
+                    "slug":"exclude-operator",
+
+                    "title":"Creating an Exclude Producer",
+
+                    "summary":
+                        "Exclude producers remove NFTs matching one or more trait values from the current result.",
+
+                    "query":
+                        "-v[HEAD:[hood]]",
+
+                    "sections":[
+
+                        {
+
+                            "type":"paragraph",
+
+                            "text":
+                                "An exclude producer works exactly like an include producer, except that matching NFTs are removed instead of added."
+
+                        },
+
+                        {
+
+                            "type":"paragraph",
+
+                            "text":
+                                "When an exclude producer is the first block in a query, it starts from the entire collection. Every NFT matching the specified values is removed."
+
+                        },
+
+                        {
+
+                            "type":"paragraph",
+
+                            "text":
+                                "This makes it easy to remove broad categories before adding more specific filters."
+
+                        },
+
+                        {
+
+                            "type":"note",
+
+                            "title":"Try it",
+
+                            "text":
+                                "Replace 'hood' with another value and observe how the result changes."
+
+                        }
+
+                    ],
+
+                    
+
+                    "tags":[
+
+                        "dsl",
+
+                        "exclude",
+
+                        "producer"
+
+                    ]
+                },
+                "combining-producers":{
+
+                    "slug":"combining-producers",
+
+                    "title":"Combining Producers",
+
+                    "summary":
+                        "Multiple producers execute from left to right. Each producer works on the result created by the previous one.",
+
+                    "query":
+                        "+v[HEAD:[Wolf]] -v[HEAD:[hood]]",
+
+                    "sections":[
+
+                        {
+
+                            "type":"paragraph",
+
+                            "text":
+                                "Producers execute sequentially. The first producer creates an initial result. Every following producer modifies that result."
+
+                        },
+
+                        {
+
+                            "type":"paragraph",
+
+                            "text":
+                                "In this example, the first producer finds every Wolf. The second producer removes every Wolf whose HEAD also contains 'hood'."
+
+                        },
+
+                        {
+
+                            "type":"paragraph",
+
+                            "text":
+                                "Thinking of producers as steps in a pipeline makes complex searches easy to understand."
+
+                        },
+
+                        {
+
+                            "type":"note",
+
+                            "title":"Try it",
+
+                            "text":
+                                "Replace 'hood' with another value and observe how the second producer modifies the existing result."
+
+                        }
+
+                    ],
+
+                     
+
+                    "tags":[
+
+                        "dsl",
+
+                        "pipeline",
+
+                        "sequence",
+
+                        "exclude"
+
+                    ]
+
+                },
+                "exclusive-producer":{
+
+                    "slug":"exclusive-producer",
+
+                    "title":"Using Exclusive Producers",
+
+                    "summary":
+                        "Exclusive producers keep only NFTs matching the specified values while preserving the previous search context.",
+
+                    "query":
+                        "+v[HEAD:[Wolf]] -v[HEAD:[hood]] ++v[FACEGEAR:[skull]]",
+
+                    "sections":[
+
+                        {
+
+                            "type":"paragraph",
+
+                            "text":
+                                "An exclusive producer does not add or remove results. Instead, it keeps only NFTs matching its values from the current result."
+
+                        },
+
+                        {
+
+                            "type":"paragraph",
+
+                            "text":
+                                "In this example, the query first finds Wolves, removes those containing 'hood', then keeps only the remaining Wolves whose FACEGEAR contains 'skull'."
+
+                        },
+
+                        {
+
+                            "type":"paragraph",
+
+                            "text":
+                                "Exclusive producers are ideal for narrowing a result step by step without starting a new search."
+
+                        },
+
+                        {
+
+                            "type":"note",
+
+                            "title":"Try it",
+
+                            "text":
+                                "Replace 'skull' with another FACEGEAR fragment and observe how the result becomes more or less selective."
+
+                        }
+
+                    ],
+
+                     
+
+                    "tags":[
+
+                        "dsl",
+
+                        "exclusive",
+
+                        "pipeline",
+
+                        "filter"
+
+                    ]
+                 }
+                } 
+     
+    },
+   "reference":{ 
+         "purpose":"How does the engine work?",
+        "pages":{  
+
+          "lexer": {
+
+            "slug": "lexer",
+
+            "title": "Lexer",
+
+            "summary":
+              "The lexer is responsible for recognizing the first meaningful elements of the language before any parsing or validation occurs.",
+
+            "sections": [
+
+              {
+                "type": "paragraph",
+
+                "text":
+                  "The lexer scans the raw query from left to right and identifies the beginning of known language elements such as producers. At this stage no knowledge about traits, values or project data exists."
+              },
+
+              {
+                "type": "paragraph",
+
+                "text":
+                  "Its only responsibility is to classify the input into recognizable lexical elements while preserving the original text exactly as typed."
+              },
+
+              {
+                "type": "list",
+
+                "title": "Recognized tokens",
+
+                "items": [
+
+                  "COMPLETE_PRODUCER",
+
+                  "PARTIAL_PRODUCER",
+
+                  "UNKNOWN",
+
+                  "EOF"
+
+                ]
+              }
+
+            ]
+
+          },
+
+          "tokens": {   
+
+            "slug": "tokens",
+
+            "title": "Tokens",
+
+            "summary":
+              "Tokens are the smallest semantic units produced by the lexer and parser.",
+
+            "sections": [
+
+              {
+                "type": "paragraph",
+
+                "text":
+                  "Every visible character eventually belongs to one token. Tokens are later consumed by the parser, interpreter and live editor."
+              },
+
+              {
+                "type": "paragraph",
+
+                "text":
+                  "Each token owns its raw text, normalized representation, absolute positions and semantic type."
+              },
+
+              {
+                "type": "list",
+
+                "title": "Current token types",
+
+                "items": [
+
+                  "COMPLETE_PRODUCER",
+
+                  "PARTIAL_PRODUCER",
+
+                  "TRAIT",
+
+                  "VALUE",
+
+                  "RAW"
+
+                ]
+              }
+
+            ]
+
+          },
+
+          "canonicalization": {   
+
+            "slug": "canonicalization",
+
+            "title": "Canonicalization",
+
+            "summary":
+              "Canonicalization transforms user input into a normalized representation while preserving the editing experience.",
+
+            "sections": [
+
+              {
+                "type": "paragraph",
+
+                "text":
+                  "Unlike a traditional compiler, canonicalization never aggressively rewrites the user's input while editing. The engine preserves partially typed expressions whenever possible."
+              },
+
+              {
+                "type": "paragraph",
+
+                "text":
+                  "Spacing, separators and incomplete values remain editable while semantic information is updated independently."
+              }
+
+            ]
+
+          },
+
+          "blocks": {
+
+            "slug": "blocks",
+
+            "title": "Blocks",
+
+            "summary":
+              "Blocks are executable language expressions composed of semantic tokens.",
+
+            "sections": [
+
+              {
+                "type": "paragraph",
+
+                "text":
+                  "Each valid query expression becomes a block. Blocks own their tokens, validity state, interpretation results and editing metadata."
+              },
+
+              {
+                "type": "paragraph",
+
+                "text":
+                  "Unknown text is preserved inside Unknown blocks, allowing the editor to mirror the user's input without losing information."
+              }
+
+            ]
+
+         }
+
+        }
+    },
+
+    "apiPipeline":{ 
+         "purpose":"How do I talk to the engine?",
+           
+          "pages": {
+
+            "include-operator": {
+
+              "slug": "include-operator",
+
+              "title": "include-operator",
+
+              "summary":
+                "The Query endpoint receives a DSL query and returns its semantic representation. This page follows the request through the first stages of the engine.",
+
+              "query":
+                "                   +v                 [HEAD        :[       Wolf  ,              red       ]]",
+
+              "sections": [
+
+                {
+                  "type": "paragraph",
+
+                  "text":
+                    "Unlike the Guide, this page does not explain how to write the query. Instead it shows how the query is transformed while travelling through the engine."
+                },
+
+                {
+                  "type": "note",
+
+                  "title": "Interactive",
+
+                  "text":
+                    "Modify the query above. Every stage of the pipeline updates automatically."
+                },
+
+                {
+                  "type": "pipeline",
+
+                  "activeStep": "payload",
+
+                  "steps": [
+
+                    {
+                      "id": "payload",
+                      "label": "Payload"
+                    },
+
+                    {
+                      "id": "lexer",
+                      "label": "Lexer"
+                    },
+
+                    {
+                      "id": "parser",
+                      "label": "Parser"
+                    },
+
+                    {
+                      "id": "interpreter",
+                      "label": "Interpreter"
+                    },
+
+                    {
+                      "id": "query-object",
+                      "label": "Query Object"
+                    }
+
+                  ]
+
+                },
+
+                {
+                  "type": "payload-widget",
+
+                  "title": "Request Payload"
+                }
+
+              ],
+
+              "tags": [
+
+                "api",
+                "pipeline",
+                "payload",
+                "query"
+
+              ]
+
+            },
+            "value-fragments": {
+
+                          "slug": "value-fragments",
+
+                          "title": "value-fragments",
+
+                          "summary":
+                            "The Query endpoint -exclude receives a DSL query and returns its semantic representation. This page follows the request through the first stages of the engine.",
+
+                          "query-original":
+                            "                   +v   [HEAD  :[ Wolf  , red  ]] -v   [HEAD  :[ hood]]",
+                            "queryDD":"                   +v   [HEAD  :[ Wolf  , red  ]] -v              [HEAD  :[ hood]]                            -v   [HEAD  :[ hood]]                                                                                              ",
+                          "query": "          +v   [HEAD  :[ Wolf  , red  ]]          -v    [HEAD  :[ hood]]      -v   [HEAD  :[ hood]]                                                                                              ",
+                          "sections": [
+
+                            {
+                              "type": "paragraph",
+
+                              "text":
+                                "Unlike the Guide, this page does not explain how to write the query. Instead it shows how the query is transformed while travelling through the engine."
+                            },
+
+                            {
+                              "type": "note",
+
+                              "title": "Interactive",
+
+                              "text":
+                                "Modify the query above. Every stage of the pipeline updates automatically."
+                            },
+
+                            {
+                              "type": "pipeline",
+
+                              "activeStep": "payload",
+
+                              "steps": [
+
+                                {
+                                  "id": "payload",
+                                  "label": "Payload"
+                                },
+
+                                {
+                                  "id": "lexer",
+                                  "label": "Lexer"
+                                },
+
+                                {
+                                  "id": "parser",
+                                  "label": "Parser"
+                                },
+
+                                {
+                                  "id": "interpreter",
+                                  "label": "Interpreter"
+                                },
+
+                                {
+                                  "id": "query-object",
+                                  "label": "Query Object"
+                                }
+
+                              ]
+
+                            },
+
+                            {
+                              "type": "payload-widget",
+
+                              "title": "Request Payload"
+                            }
+
+                          ],
+
+                          "tags": [
+
+                            "api",
+                            "pipeline",
+                            "payload",
+                            "query"
+
+                          ]
+
+            },
+
+            "exact-values": {
+
+              "slug": "exact-values",
+
+              "title": "exact-values",
+
+              "summary":
+                "The Query endpoint -exclude receives a DSL query and returns its semantic representation. This page follows the request through the first stages of the engine.",
+
+              "query-original":
+                "                   +v   [HEAD  :[ Wolf  , red  ]] -v   [HEAD  :[ hood]]",
+                "queryDD":"                   +v   [HEAD  :[ Wolf  , red  ]] -v              [HEAD  :[ hood]]                            -v   [HEAD  :[ hood]]                                                                                              ",
+              "query": "          +v   [HEAD  :[ Wolf  , red  ]]          -v    [HEAD  :[ hood]]      -v   [HEAD  :[ hood]]                                                                                              ",
+              "sections": [
+
+                {
+                  "type": "paragraph",
+
+                  "text":
+                    "Unlike the Guide, this page does not explain how to write the query. Instead it shows how the query is transformed while travelling through the engine."
+                },
+
+                {
+                  "type": "note",
+
+                  "title": "Interactive",
+
+                  "text":
+                    "Modify the query above. Every stage of the pipeline updates automatically."
+                },
+
+                {
+                  "type": "pipeline",
+
+                  "activeStep": "payload",
+
+                  "steps": [
+
+                    {
+                      "id": "payload",
+                      "label": "Payload"
+                    },
+
+                    {
+                      "id": "lexer",
+                      "label": "Lexer"
+                    },
+
+                    {
+                      "id": "parser",
+                      "label": "Parser"
+                    },
+
+                    {
+                      "id": "interpreter",
+                      "label": "Interpreter"
+                    },
+
+                    {
+                      "id": "query-object",
+                      "label": "Query Object"
+                    }
+
+                  ]
+
+                },
+
+                {
+                  "type": "payload-widget",
+
+                  "title": "Request Payload"
+                }
+
+              ],
+
+              "tags": [
+
+                "api",
+                "pipeline",
+                "payload",
+                "query"
+
+              ]
+
+            }, 
+            "exclude-operator": {
+
+              "slug": "exclude-operator",
+
+              "title": "exclude-operator",
+
+              "summary":
+                "The Query endpoint -exclude receives a DSL query and returns its semantic representation. This page follows the request through the first stages of the engine.",
+
+              "query-original":
+                "                   +v   [HEAD  :[ Wolf  , red  ]] -v   [HEAD  :[ hood]]",
+                "queryDD":"                   +v   [HEAD  :[ Wolf  , red  ]] -v              [HEAD  :[ hood]]                            -v   [HEAD  :[ hood]]                                                                                              ",
+              "query": "          +v   [HEAD  :[ Wolf  , red  ]]          -v    [HEAD  :[ hood]]      -v   [HEAD  :[ hood]]                                                                                              ",
+              "sections": [
+
+                {
+                  "type": "paragraph",
+
+                  "text":
+                    "Unlike the Guide, this page does not explain how to write the query. Instead it shows how the query is transformed while travelling through the engine."
+                },
+
+                {
+                  "type": "note",
+
+                  "title": "Interactive",
+
+                  "text":
+                    "Modify the query above. Every stage of the pipeline updates automatically."
+                },
+
+                {
+                  "type": "pipeline",
+
+                  "activeStep": "payload",
+
+                  "steps": [
+
+                    {
+                      "id": "payload",
+                      "label": "Payload"
+                    },
+
+                    {
+                      "id": "lexer",
+                      "label": "Lexer"
+                    },
+
+                    {
+                      "id": "parser",
+                      "label": "Parser"
+                    },
+
+                    {
+                      "id": "interpreter",
+                      "label": "Interpreter"
+                    },
+
+                    {
+                      "id": "query-object",
+                      "label": "Query Object"
+                    }
+
+                  ]
+
+                },
+
+                {
+                  "type": "payload-widget",
+
+                  "title": "Request Payload"
+                }
+
+              ],
+
+              "tags": [
+
+                "api",
+                "pipeline",
+                "payload",
+                "query"
+
+              ]
+
+            },
+            "combining-producers":{
+
+                    "slug":"combining-producers",
+
+                    "title":"Combining Producers",
+
+                    "summary":
+                        "Multiple producers execute from left to right. Each producer works on the result created by the previous one.",
+
+                    "query":
+                        "+v[HEAD:[Wolf]] -v[HEAD:[hood]]",
+
+                    "sections":[
+
+                        {
+
+                            "type":"paragraph",
+
+                            "text":
+                                "Producers execute sequentially. The first producer creates an initial result. Every following producer modifies that result."
+
+                        },
+
+                        {
+
+                            "type":"paragraph",
+
+                            "text":
+                                "In this example, the first producer finds every Wolf. The second producer removes every Wolf whose HEAD also contains 'hood'."
+
+                        },
+
+                        {
+
+                            "type":"paragraph",
+
+                            "text":
+                                "Thinking of producers as steps in a pipeline makes complex searches easy to understand."
+
+                        },
+
+                        {
+
+                            "type":"note",
+
+                            "title":"Try it",
+
+                            "text":
+                                "Replace 'hood' with another value and observe how the second producer modifies the existing result."
+
+                        }
+
+                    ],
+
+                     
+
+                    "tags":[
+
+                        "dsl",
+
+                        "pipeline",
+
+                        "sequence",
+
+                        "exclude"
+
+                    ]
+
+            },
+            "exclusive-producer": {
+
+              "slug": "exclusive-producer",
+
+              "title": "exclusive-producer",
+
+              "summary":
+                "The Query endpoint -exclude receives a DSL query and returns its semantic representation. This page follows the request through the first stages of the engine.",
+
+              "query-original":
+                "                   +v   [HEAD  :[ Wolf  , red  ]] -v   [HEAD  :[ hood]]",
+                "queryDD":"                   +v   [HEAD  :[ Wolf  , red  ]] -v              [HEAD  :[ hood]]                            -v   [HEAD  :[ hood]]                                                                                              ",
+              "query": "          +v   [HEAD  :[ Wolf  , red  ]]          -v    [HEAD  :[ hood]]      -v   [HEAD  :[ hood]]                                                                                              ",
+              "sections": [
+
+                {
+                  "type": "paragraph",
+
+                  "text":
+                    "Unlike the Guide, this page does not explain how to write the query. Instead it shows how the query is transformed while travelling through the engine."
+                },
+
+                {
+                  "type": "note",
+
+                  "title": "Interactive",
+
+                  "text":
+                    "Modify the query above. Every stage of the pipeline updates automatically."
+                },
+
+                {
+                  "type": "pipeline",
+
+                  "activeStep": "payload",
+
+                  "steps": [
+
+                    {
+                      "id": "payload",
+                      "label": "Payload"
+                    },
+
+                    {
+                      "id": "lexer",
+                      "label": "Lexer"
+                    },
+
+                    {
+                      "id": "parser",
+                      "label": "Parser"
+                    },
+
+                    {
+                      "id": "interpreter",
+                      "label": "Interpreter"
+                    },
+
+                    {
+                      "id": "query-object",
+                      "label": "Query Object"
+                    }
+
+                  ]
+
+                },
+
+                {
+                  "type": "payload-widget",
+
+                  "title": "Request Payload"
+                }
+
+              ],
+
+              "tags": [
+
+                "api",
+                "pipeline",
+                "payload",
+                "query"
+
+              ]
+
+            } 
+            
+            
+
+
+          }
+ 
+      
+     }
+}
+   

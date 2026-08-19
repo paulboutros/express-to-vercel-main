@@ -1,0 +1,351 @@
+{
+    
+  "HEAD_TYPE": {
+    "openhelmetSkywardList": [
+      3,
+      18,
+      381,
+      386,
+      437,
+      931,
+      1634,
+      851,
+      882,
+      890,
+      889
+    ],
+    "slittedList": [
+      1024,
+      2160,
+      1391,
+      1781,
+      1791,
+      1831,
+      1951,
+      1981,
+      2160,
+      1021
+    ],
+    "eyeVisList": [
+      111,
+      733,
+      1541,
+      1543,
+      1547,
+      1673,
+      1694,
+      1698,
+      1699,
+      2076
+    ],
+    "bladeWink": [
+      710,
+      1064,
+      1451,
+      1463,
+      1520,
+      1914,
+      1915,
+      633,
+      709
+    ],
+    "general_NO_override": [],
+    "peak02List": [
+      757,
+      1662,
+      1663,
+      110,
+      104,
+      601
+    ],
+    "peak01List": [
+      472,
+      476,
+      1883
+    ],
+    "wolfHelmList": [
+      1013, 349,342 ,94,2105
+       
+    ],
+    "wolfHoodieList": [
+      522, 996,1199,1000,1574
+       
+    ] ,
+    "hoodDOWN_NOHORN": [
+       
+       
+    ],
+   
+    "hoodList": [
+        1135, 172,179,237,  301,763, 
+        766,1147, 1050,
+ 
+        1075,26, 1105, 144,  1043,211,411,1095 
+       
+    ],
+
+      
+   
+
+     "hoodNOHORN": [
+      
+         1075, 26, 1105, 144, 1043, 211, 411, 1095
+     ],
+       "hoodCelest": [
+       301,1135, 1150,1133,1147 
+       
+    ],
+
+     "hoodDownList": [
+      237,206,204
+       
+    ] 
+  
+
+
+  },
+
+   "NECKSTYLE_options":{
+    "0":0, "1":1,  "4":4  
+
+   },
+  
+  "MERGE_STYLE":{
+     "0":[  
+      140,427,472,476 ,603,648,650, 931, 1064,1463,1468,1503,1505,1506,1544,1591,
+      1663,1675,1714,2143,2147   
+      
+  
+        
+     ]
+  },
+  "BODY_TYPE":{
+
+     "HaloCollar": [
+       1931, 1951, 1953, 1955,1986, 1205
+     ],
+
+      
+      "separator_01": [
+     "======================================"
+    ],
+  
+   "Brown capeAroundNeck": [
+     561
+    ],
+    "Purple capeAroundNeck": [
+     
+    ],
+
+   "Blue capeAroundNeck": [
+        1915
+    ],
+
+    "Hazel capeAroundNeck": [
+     95,476,773,841, 931 , 2143,2147 
+    ],
+    "Red capeAroundNeck": [
+      140,1714  
+    ],
+
+    "Green capeAroundNeck": [
+      247,1282,1283, 1591
+    ],
+    "Yellow capeAroundNeck": [
+      1064,472
+    ],
+     "Black capeAroundNeck": [
+       803, 771,783, 705, 710, 1663
+    ] 
+
+      
+  },
+  
+   
+  "COLOR_TILESET_POS":{
+      
+            "Hazel" :{"x":1,"y":0},
+             "Blue" :{},
+            "Bone" :{},
+           "Brown" :{},
+           "Red" :{"x":0,"y":0},
+           "Green"  :{"x":3,"y":0},
+           "Black" :{"x":4,"y":0},
+
+           "Yellow":{"x":2,"y":0} 
+           
+
+       
+
+  },
+
+  "USE_TILESET_SYSTEM":{
+
+
+  },
+  "SHIELD_TILESET_POS":{ 
+        "empty" :{"x":0,"y":0},
+
+         "sh_01_root_redBrown":{"x":1,"y":0 , "shadow":"oval"},
+           "venom_S1_root_bone":{"x":2,"y":0, "shadow":"oval" },
+           "venom_S1_root_red":{"x":3,"y":0, " shadow":"oval"},
+            "venom_S1_root_green":{"x":4,"y":0, "shadow":"oval"},
+             "venom_S3_red_emblem":{"x":5,"y":0, "shadow":"oval"},
+              "ash_sh_01":{"x":6,"y":0,         "shadow":"oval"},
+
+               "03_03":{"x":0,"y":1   ,"shadow":"long"},
+                "wolf_s1_blackGold":{"x":1,"y":1,"shadow":"long"},
+                 "Red_Studded_Guardian":{"x":2,"y":1,"shadow":"long"},
+                  "RedHazel_Guardian":{"x":3,"y":1,"shadow":"long"},
+                   "Brown_Studded_Guardian":{"x":4,"y":1,"shadow":"long"},
+                   "Dark_Green_Guardian":{"x":5,"y":1,"shadow":"long"},
+                   "dragFront_S1_darkGreen":{"x":6,"y":1,"shadow":"long"},
+                   "Bone_Twinflame":{"x":7,"y":1 ,"shadow":"heater"},
+
+                      "03_root_bone":{"x":0,"y":2},
+                    "03_S2_root_green":{"x":1,"y":2},
+                 "ven_temp_sh_08_root":{"x":2,"y":2},
+                  "dragFront_S1_brown":{"x":3,"y":2},
+                   "ven_temp_sh_02":{"x":4,"y":2},
+                   "ven_temp_sh_0":{"x":5,"y":2},
+                    "Red_Castlebound":{"x":6,"y":2},
+                    "BlackGold_Twinflame":{"x":7,"y":2},
+
+
+                        "BlackGold_Runeforge":{"x":0,"y":3},
+                    "ven_temp_sh_08_rootRed":{"x":1,"y":3},
+                   "Brown_Runeforge":{"x":2,"y":3},
+                   "04_03":{"x":3,"y":3},
+
+                    "04_05":{"x":4,"y":3},
+                   "blackGold_Twin_Wyrms":{"x":4,"y":3},
+
+                   
+                   "Dark_Green_Castlebound":{"x":5,"y":3},
+                   "ash_sh_04":{"x":6,"y":3},
+ 
+
+                     "Brown_Baphomet":{"x":0,"y":4},
+                    "02_04":{"x":1,"y":4},
+                 "ven_temp_sh_04":{"x":2,"y":4},
+                  "circle_dragon_blackgold":{"x":3,"y":4},
+                   "sh_04_dragRootRedBrown":{"x":4,"y":4},
+                   "ash_sh_0":{"x":5,"y":4} ,
+                   "circle_dragon_HazelRed":{"x":6,"y":4} 
+                   
+                
+               
+  },
+  "MMASK_TILESET_POS":{
+            "empty" :{"x":0,"y":0},
+
+
+           "MMaskRoot"     :{"x":1,"y":1},
+           "MMaskRoot_top" :{"x":1,"y":0},
+
+           "mecha_hazel" :{"x":2,"y":1},
+           "mecha_red" :{"x":3,"y":1},
+           "mecha_blue" :{"x":4,"y":1},
+           "mecha_bone" :{"x":5,"y":1},
+           "mecha_green" :{"x":6,"y":1},
+
+           "leatherMask" :{"x":1,"y":2},
+          "leatherMask_bone" :{"x":2,"y":2},
+           "leatherMask_red" :{"x":3,"y":2}, 
+
+
+             "mysterio_black_RL02":{"x":0,"y":1} ,
+             "mysterio_lightbrown_YL":{"x":0,"y":2} ,
+
+             "mysterio_red_RL02":{"x":0,"y":3} ,
+              "mysterio_black_GL":{"x":1,"y":3} ,
+               "mysterio_black_RL":{"x":2,"y":3} ,
+                 "mysterio_black_YL":{"x":3,"y":3} ,
+
+                  "mysterio_teal_YL02":{"x":4,"y":3} ,
+                   "mysterio_teal_YL":{"x":5,"y":3} ,
+
+                    "mysterio_red_YL":{"x":6,"y":3} ,
+
+                     "mysterio_hazel_RL01":{"x":7,"y":3} ,
+                     "mysterio_hazel_YL01":{"x":7,"y":1} ,
+                     "mysterio_hazel_RL02":{"x":7,"y":0} ,
+
+                     
+
+                    "mysterio_hazel_GL02":{"x":0,"y":4} ,
+
+                      "mysterio_red_YL02":{"x":1,"y":4}  
+
+                
+       
+
+  },
+
+  "HOODYMERGE_STYLE01_TILESET_POS":{
+
+         
+
+      
+           "Hazel" :{"x":3,"y":0},
+           "Blue" :{"x":0,"y":0},
+           "Bone" :{"x":2,"y":0}, 
+           "Purple" :{"x":4,"y":0}, 
+           "Brown" :{"x":1,"y":0},
+           
+           
+           "Yellow":{"x":9,"y":0},
+
+             "Red" :{"x":5,"y":0},
+            "Black" :{"x":6,"y":0} ,
+           "Green"  :{"x":7,"y":0},
+           "Gray" :{"x":8,"y":0} 
+
+       
+
+  },
+
+  "SHOULDER_TILESET_POS":{
+      
+           "Hazel Double" :{"x":1,"y":0},
+           "Blue Double" :{"x":0,"y":0},
+           "Bone Double" :{"x":5,"y":0}, 
+           "Brown Double" :{},
+           "Red Double" :{"x":2,"y":0},
+           "Green Double"  :{"x":3,"y":0},
+            
+           "Black Double" :{"x":4,"y":0},
+
+
+            "FurFur" :{"x":0,"y":1},
+            "Fur" :{"x":0,"y":2},
+
+            "RootRoot" :{"x":1,"y":1},
+            "Root"     :{"x":1,"y":2},
+   
+ 
+            "Ragehide" :{"x":2,"y":1},
+
+
+            "Blueish"    :{"x":0,"y":1} , 
+            "Black"  :{"x":4,"y":1},
+             "Bone"  :{"x":5,"y":1},
+            "Brown"  :{"x":0,"y":2},
+            "Red"    :{"x":2,"y":1} ,
+            "Green"    :{"x":3,"y":1} ,
+             "Kaki"    :{"x":3,"y":2} ,
+             "Hazel" :{"x":1,"y":1} ,
+             "Gray" :{"x":1,"y":2} ,
+              "Yellow" :{"x":2,"y":2} ,
+
+             "empty" :{"x":0,"y":3} 
+
+       
+
+  },
+
+
+
+
+  "WEAPON_SHIELD_NFTID": {}
+}

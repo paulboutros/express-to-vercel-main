@@ -1,0 +1,46 @@
+{
+  "patterns": {
+    "last_picked": {
+      "shield": "ash_sh_04",
+      "weapon": "ash_wp_07_evil",
+      "mask": "leatherMask_red",
+      "clan": "Azurcrest",
+      "class": "Templar",
+      "eye": "red",
+      "neckstyle": "haloCollar"
+    },
+    "useinNextrender": {
+      "shield": false,
+      "weapon": false,
+      "mask": false,
+      "clan": false,
+      "eye": false,
+      "head": false
+    },
+    "useRegion": {
+      "shield": true,
+      "weapon": true,
+      "mask": true,
+      "eye": false,
+      "head": false
+    }
+  },
+  "slot": {
+    "last_picked": {
+      "index": 2,
+      "type": "shield",
+      "nftID": 4058
+    }
+  },
+  "head_dna": "1663_true_mecha_   bone",
+  "head_dna_obj": {
+    "HEAD_ID": "1147",
+    "maskSlotVisibility": true,
+    "maskSlotDesign": "mysterio_red_YL02"
+  },
+  "PickLive": false,
+  "checkboxes": {
+    "usePhenoType": false,
+    "toggleUsePanel": false
+  }
+}

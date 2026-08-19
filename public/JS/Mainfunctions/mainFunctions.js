@@ -1,6 +1,6 @@
  
 
-
+ import { applyTraitSearchBlock  } from "../wuli-ui/displayBlocksFromSearch.js";
 //import {  } from "../apiClient.js";
 import {  api_addTraitSelection ,api_rebuildActiveFilterMap,
           api_set_filterModeABS, api_runQueryInputHandler , api_getQueryExample ,

@@ -1,0 +1,381 @@
+{
+  "mask": {
+    "leatherMask": "Brown Thorn Leather",
+    "MMaskRoot": "Brown Root",
+    "mecha_red": "Red Skulljaw",
+    "mecha_blue": "Blue Skulljaw",
+    "mecha_bone": "Bone Skulljaw",
+    "mecha_hazel": "Hazel Skulljaw",
+    "mysterio_red_YL": "Red Veil",
+    "mysterio_red_YL02": "Red Veil",
+    "mysterio_red_RL02": "Red Veil",
+    "mysterio_lightbrown_YL": "Brown Veil",
+    "mysterio_hazel_YL01": "Hazel Veil",
+    "mysterio_hazel_RL01": "Hazel Veil",
+    "mysterio_hazel_RL02": "Hazel Veil",
+    "mysterio_teal_YL": "Teal Veil",
+    "mysterio_teal_YL02": "Teal Veil",
+    "mysterio_black_BL": "Black Veil",
+    "mysterio_black_YL": "Black Veil",
+    "mysterio_black_GL": "Black Veil",
+    "mysterio_black_RL": "Black Veil",
+    "mysterio_black_RL02": "Black Veil",
+    "MYSTERIO_BLACK_RL_YL": "Black Veil",
+    "leatherMask_bone": "Bone Thorn Leather",
+    "leatherMask_red": "Red Thorn Leather",
+    "mecha_green": "Green Skulljaw",
+    "mysterio_hazel_GL02": "Hazel Veil"
+  },
+  "weapon": {
+    "ash_wp_01": "Red Dragon Staff",
+    "ash_wp_02": "Red Eagle Staff",
+    "ash_wp_03": "Ruby Staff",
+    "ash_wp_03_darkGreen": "Emerald Staff",
+    "ash_wp_04": "Ruby Eagle Staff",
+    "ash_wp_05": "Red Dragon Saber",
+    "ash_wp_07": "Legendary Sword",
+    "ash_wp_07_evil": "Dark Sword",
+    "ash_wp_08": "Gold Mace",
+    "ash_wp_09": "Dark Axe",
+    "ash_wp_10": "Gold Baphomet Staff",
+    "axe_01": "Dragon Axe",
+    "axe_02": "Crystal Axe",
+    "axe_03": "Dual Skull Axe",
+    "axe_04": "Skull Axe",
+    "baho_staff_01": "Bone Baphomet Staff",
+    "dragonStaff_01": "Undead Dragon Staff",
+    "hammerSpike": "Red Axe",
+    "hammer_01_redBrown": "Red Skull Hammer",
+    "hammer_02": "Bone Wild Hammer",
+    "hammer_03": "Dragon Hammer",
+    "hammer_04": "Silver Axe",
+    "mace_01_2hands": "Long Mace",
+    "saber_02_black": "Black Skull Saber",
+    "saber_ash": "Skull Encrusted Sword",
+    "saber_root_bone": "Bone Root Saber",
+    "saber_root_green": "Green Root Saber",
+    "saber_root_hazel": "Hazel Root Saber",
+    "saber_root_red": "Red Root Saber",
+    "spear_01": "Green Ivy Spear",
+    "spear_03": "Skull Spear",
+    "spear_02_01": "Wyrm Spear",
+    "stoneHammer": "Short Skull Sword",
+    "sword_01_red": "Red Skull Sword",
+    "sword_06": "Wyrm Sword",
+    "sword_08": "Silver Dragon Sword",
+    "sword_09": "Legendary Dragon Sword",
+    "syth_01": "Gold Sickle",
+    "syth_01_green": "Spirit Staff",
+    "ven_temp_wp_01": "Green Dragon Staff",
+    "ven_temp_wp_02": "Greenwood Eagle Staff",
+    "ven_temp_wp_05": "Green Ivy Sword",
+    "ven_temp_wp_06_bone": "Bone Wild Saber",
+    "ven_temp_wp_06_green": "Green Wild Saber",
+    "ven_temp_wp_08_bone": "Bone Wild Axe",
+    "ven_temp_wp_08_green": "Green Wild Axe",
+    "ven_temp_wp_08_yel": "Red Wild Axe",
+    "woodMace": "Wood Mace",
+    "mace_01": "Short Mace",
+    "saber_01": "Skyhook saber",
+    "saber_03": "Sunforged Saber",
+    "staff_01": "Wym Rune staff",
+    "hammer_01": "Cairnshaker hammer",
+    "ash_wp_05_greenRoot": "ash_wp_05_greenRoot",
+    "sword_01": "Skyhook Soulreaper sword",
+    "sword_02": "Moonreaper Strike sword",
+    "sword_03": "Moonreaper Soulreaper",
+    "sword_04": "Skyhook Strike sword",
+    "axeGold_01": "axeGold_01",
+    "head_deco_02": "head_deco_02",
+    "saber_thorn": "saber_thorn",
+    "ven_temp_wp_07_bone": "ven_temp_wp_07_bone",
+    "ven_temp_wp_0": "ven_temp_wp_0",
+    "ven_temp_wp_03": "ven_temp_wp_03",
+    "ven_temp_wp_04": "ven_temp_wp_04",
+    "ven_temp_wp_06": "ven_temp_wp_06",
+    "ven_temp_wp_07": "ven_temp_wp_07",
+    "ven_temp_wp_08": "ven_temp_wp_08",
+    "saber_02_red": "saber_02_red",
+    "spear_02": "Dragon Spear",
+    "ash_wp_07_bone": "ash_wp_07_bone",
+    "staff_02": "head_deco 08A staff",
+    "staff_03": "head_deco 08C staff",
+    "staff_04": "head_deco 06 staff",
+    "staff_05": "head_deco 08B staff",
+    "sword_07": "sword_07",
+    "ash_wp_0": "ash_wp_0",
+    "ash_wp_06": "ash_wp_06",
+    "syth_01_red": "syth_01_red",
+    "saber_02": "Moonreaper Saber",
+    "sword_05": "sword_05"
+  },
+  "shield": {
+    "ven_temp_sh_08_rootRed": "Redgold Oval Castlebound",
+    "Bone_Twinflame": "Bone Heater Twinflame",
+    "Dark_Green_Castlebound": "Darkgreen Heater Castlebound",
+    "Red_Castlebound": "Red Heater Castlebound",
+    "BlackGold_Twinflame": "Blackgold Heater Twinflame",
+    "Brown_Baphomet": "Brown Round Baphomet",
+    "02_04": "Red Round Baphomet",
+    "circle_dragon_blackgold": "Blackgold Round Dragon",
+    "03_root_bone": "Bone Long Root",
+    "ven_temp_sh_08_root": "Bone Wild Root",
+    "dragFront_S1_brown": "Brown Long Dragon",
+    "wolf_s1_blackGold": "Blackgold Long Wolf",
+    "03_S2_root_green": "Green Long Root",
+    "venom_S3_red_emblem": "Redgold Oval Wolf",
+    "venom_S1_root_green": "Green Oval Root",
+    "venom_S1_root_bone": "Bone Oval Root",
+    "venom_S1_root_red": "Redgreen Oval Root",
+    "Dark_Green_Guardian": "Darkgreen Long Guardian",
+    "03_03": "Hazelgold Long Guardian",
+    "Red_Studded_Guardian": "Red Long Guardian",
+    "Brown_Studded_Guardian": "Brown Long Guardian",
+    "RedHazel_Guardian": "Hazelred Long Guardian",
+    "04_03": "Blackgold Oval Wolf",
+    "BlackGold_Runeforge": "Blackgold Oval Runeforge",
+    "04_05": "Blackgold Oval Twinflame",
+    "Brown_Runeforge": "Brown Oval Runeforge",
+    "Hazel_Twin_Wyrms": "Hazel Oval Twin Wyrms",
+    "Brown_Twin_Wyrms": "Brown Oval Twin Wyrms",
+    "ash_sh_0": "Brown Round Tulip",
+    "ash_sh_01": "Hazelred Oval Tulip",
+    "ash_sh_04": "Supreme",
+    "dragFront_S1_darkGreen": "Darkgreen Long Dragon",
+    "ven_temp_sh_0": "Green Heater Tulip",
+    "ven_temp_sh_02": "Brown Heater Tulip",
+    "ven_temp_sh_04": "Redgold Round Dragon",
+    "sh_01_root_redBrown": "Redbrown Oval Root",
+    "sh_04_dragRootRedBrown": "Blackred Round Dragon",
+    "circle_dragon_HazelRed": "Hazelred Round Dragon",
+    "blackGold_Twin_Wyrms": "blackGold Twin Wyrms",
+    "Dark_Green_Castle_venom": "Dark_Green_Castle_venom",
+    "Dark_Green_Twin_Wyrms": "DarkGreen Twin Wyrms",
+    "blackGold_Guardian": "blackGold Guardian",
+    "Hazel_Baphomet": "Hazel Baphomet",
+    "03_root_hazel": "03_root_hazel",
+    "Bone_Baphomet": "Bone Baphomet",
+    "Bone_S4_bapho": "Bone S4 bapho",
+    "ash_sh_07": "ash_sh_07",
+    "02_01": "Green Valorhelm",
+    "03_root": "03_root",
+    "ven_frontDrag_root_bone": "ven_frontDrag_root_bone",
+    "04_01": "Red Shield",
+    "03_05": "Brown Shield",
+    "03_01": "Bone Guardian",
+    "02_06": "02_06",
+    "03_02": "03_02",
+    "ash_sh_02": "ash_sh_02",
+    "ash_sh_03": "ash_sh_03",
+    "ash_sh_05": "ash_sh_05",
+    "ash_sh_06": "ash_sh_06",
+    "ash_sh_07A": "ash_sh_07A",
+    "ash_sh_08": "ash_sh_08",
+    "ash_sh_09": "ash_sh_09",
+    "ven_temp_sh_01": "ven_temp_sh_01",
+    "ven_temp_sh_05": "ven_temp_sh_05",
+    "ven_temp_sh_06": "ven_temp_sh_06",
+    "ven_temp_sh_07": "ven_temp_sh_07",
+    "ven_temp_sh_08": "ven_temp_sh_08",
+    "venom_S1_root_purple": "venom_S1_root_purple",
+    "03_root_redHazel": "03_root_redHazel",
+    "ven_temp_wp_05": "ven_temp_wp_05",
+    "ven_temp_wp_07": "ven_temp_wp_07"
+  },
+  "weaponMeta": {
+    "ash_wp_05": {
+      "publicName": "Red Dragon Saber",
+      "class": "Reaver" 
+      ,"handling":1
+    },
+    "ash_wp_07": {
+      "publicName": "Legendary Sword",
+      "class": "Vanguard","handling":1
+    },
+    "hammer_02": {
+      "publicName": "Bone Wild Hammer",
+      "class": "Templar","handling":2
+    },
+    "ven_temp_wp_06_bone": {
+      "publicName": "Bone Wild Saber",
+      "class": "Reaver","handling":1
+    },
+    "ven_temp_wp_06_green": {
+      "publicName": "Green Wild Saber",
+      "class": "Reaver","handling":1
+    },
+    "ven_temp_wp_08_bone": {
+      "publicName": "Bone Wild Axe",
+      "class": "Reaver","handling":1
+    },
+    "ven_temp_wp_08_green": {
+      "publicName": "Green Wild Axe",
+      "class": "Reaver","handling":1
+    },
+    "ven_temp_wp_08_yel": {
+      "publicName": "Red Wild Axe",
+      "class": "Reaver","handling":1
+    },
+    "hammerSpike": {
+      "publicName": "Red Axe",
+      "class": "Vanguard","handling":1
+    },
+    "ash_wp_02": {
+      "publicName": "Red Eagle Staff",
+      "class": "Templar","handling":2
+    },
+    "ash_wp_03": {
+      "publicName": "Ruby Staff",
+      "class": "Seer","handling":2
+    },
+    "ash_wp_03_darkGreen": {
+      "publicName": "Emerald Staff",
+      "class": "Seer","handling":2
+    },
+    "ash_wp_01": {
+      "publicName": "Red Dragon Staff",
+      "class": "Seer","handling":2
+    },
+    "ash_wp_04": {
+      "publicName": "Ruby Eagle Staff",
+      "class": "Templar","handling":2
+    },
+    "ash_wp_07_evil": {
+      "publicName": "Dark Sword",
+      "class": "Reaver","handling":1
+    },
+    "ash_wp_10": {
+      "publicName": "Gold Baphomet Staff",
+      "class": "Templar","handling":2
+    },
+    "ash_wp_09": {
+      "publicName": "Dark Axe",
+      "class": "Vanguard","handling":1
+    },
+    "ash_wp_08": {
+      "publicName": "Gold Mace",
+      "class": "Vanguard","handling":1
+    },
+    
+    "axe_01": {
+      "publicName": "Dragon Axe",
+      "class": "Vanguard","handling":1
+    },
+    "axe_02": {
+      "publicName": "Crystal Axe",
+      "class": "Vanguard","handling":1
+    },
+    "axe_03": {
+      "publicName": "Dual Skull Axe",
+      "class": "Vanguard","handling":1
+    },
+    "axe_04": {
+      "publicName": "Skull Axe",
+      "class": "Vanguard","handling":1
+    },
+    "baho_staff_01": {
+      "publicName": "Bone Baphomet Staff",
+      "class": "Templar","handling":2
+    },
+    "dragonStaff_01": {
+      "publicName": "Undead Dragon Staff",
+      "class": "Seer","handling":2
+    },
+    "hammer_01_redBrown": {
+      "publicName": "Red Skull Hammer",
+      "class": "Templar","handling":2
+    },
+    "hammer_03": {
+      "publicName": "Dragon Hammer",
+      "class": "Templar","handling":2
+    },
+    "hammer_04": {
+      "publicName": "Silver Axe",
+      "class": "Vanguard","handling":1
+    },
+    "mace_01_2hands": {
+      "publicName": "Long Mace",
+      "class": "Templar","handling":2
+    },
+    "saber_02_black": {
+      "publicName": "Black Skull Saber",
+      "class": "Vanguard","handling":1
+    },
+    "saber_ash": {
+      "publicName": "Skull Encrusted Sword",
+      "class": "Reaver","handling":1
+    },
+    "saber_root_bone": {
+      "publicName": "Bone Root Saber",
+      "class": "Reaver","handling":1
+    },
+    "saber_root_green": {
+      "publicName": "Green Root Saber",
+      "class": "Reaver","handling":1
+    },
+    "saber_root_hazel": {
+      "publicName": "Hazel Root Saber",
+      "class": "Reaver","handling":1
+    },
+    "saber_root_red": {
+      "publicName": "Red Root Saber",
+      "class": "Reaver","handling":1
+    },
+    "spear_01": {
+      "publicName": "Green Ivy Spear",
+      "class": "Vanguard","handling":2
+    },
+    "spear_02_01": {
+      "publicName": "Wyrm Spear",
+      "class": "Vanguard","handling":2
+    },
+    "spear_03": {
+      "publicName": "Skull Spear",
+      "class": "Vanguard","handling":2
+    },
+    "stoneHammer": {
+      "publicName": "Short Skull Sword",
+      "class": "Vanguard","handling":1
+    },
+    "sword_01_red": {
+      "publicName": "Red Skull Sword",
+      "class": "Reaver","handling":1
+    },
+    "sword_06": {
+      "publicName": "Wyrm Sword",
+      "class": "Vanguard","handling":1
+    },
+    "sword_08": {
+      "publicName": "Silver Dragon Sword",
+      "class": "Vanguard","handling":1
+    },
+    "sword_09": {
+      "publicName": "Legendary Dragon Sword",
+      "class": "Vanguard","handling":1
+    },
+    "syth_01": {
+      "publicName": "Gold Sickle",
+      "class": "Vanguard" ,"handling":1
+    },
+    "syth_01_green": {
+      "publicName": "Spirit Staff",
+      "class": "Seer","handling":2
+    },
+    "ven_temp_wp_01": {
+      "publicName": "Green Dragon Staff",
+      "class": "Seer","handling":2
+    },
+    "ven_temp_wp_02": {
+      "publicName": "Greenwood Eagle Staff",
+      "class": "Templar","handling":2
+    },
+    "ven_temp_wp_05": {
+      "publicName": "Green Ivy Sword",
+      "class": "Vanguard","handling":1
+    },
+    "woodMace": {
+      "publicName": "Wood Mace",
+      "class": "Reaver","handling":1
+    }
+  }
+}

@@ -1,0 +1,1961 @@
+{
+  "Venom Pact": {
+    "Black Helm": [
+      {
+        "weapon": "spear_01",
+        "shield": "venom_S1_root_green",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "ven_temp_wp_08_green",
+        "shield": "ven_temp_sh_04",
+        "mask": "mecha_green",
+        "eye": "green"
+      },
+      {
+        "weapon": "saber_root_red",
+        "shield": "sh_04_dragRootRedBrown",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "ven_temp_sh_0",
+        "mask": "mecha_green",
+        "eye": "green"
+      },
+      {
+        "weapon": "hammer_02",
+        "shield": "ven_temp_sh_04",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "spear_03",
+        "shield": "Brown_Twin_Wyrms",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "hammer_02",
+        "shield": "Red_Castlebound",
+        "mask": "mecha_red",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "venom_S1_root_green",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "Brown_Baphomet",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "sword_04",
+        "shield": "sh_01_root_redBrown",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ash_wp_05_greenRoot",
+        "shield": "venom_S1_root_red",
+        "mask": "mecha_green",
+        "eye": "green"
+      },
+      {
+        "weapon": "syth_01_green",
+        "shield": "Bone_Baphomet",
+        "mask": "mecha_hazel",
+        "eye": "green"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "venom_S1_root_red",
+        "mask": "mecha_green",
+        "eye": "green"
+      },
+      {
+        "weapon": "hammer_02",
+        "shield": "venom_S1_root_red",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "saber_root_hazel",
+        "shield": "03_root_hazel",
+        "mask": "MMaskRoot",
+        "eye": "green"
+      },
+      {
+        "weapon": "saber_root_red",
+        "shield": "venom_S1_root_red",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "axe_02",
+        "shield": "venom_S1_root_red",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "venom_S1_root_red",
+        "mask": "leatherMask_bone",
+        "eye": "green"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "venom_S1_root_red",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": null,
+        "mask": "leatherMask",
+        "eye": "green"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "sh_01_root_redBrown",
+        "mask": "mecha_red",
+        "eye": "red"
+      },
+      {
+        "weapon": "ash_wp_07_evil",
+        "shield": "03_root_redHazel",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "sword_06",
+        "shield": "Brown_Runeforge",
+        "mask": "mecha_red",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "axe_02",
+        "shield": "venom_S1_root_red",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_bone",
+        "shield": null,
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "spear_03",
+        "shield": "blackGold_Twin_Wyrms",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ven_temp_wp_08_green",
+        "shield": "Dark_Green_Castle_venom",
+        "mask": "mecha_red",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_green",
+        "shield": "Dark_Green_Guardian",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_02_black",
+        "shield": null,
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_green",
+        "shield": "Dark_Green_Castle_venom",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ven_temp_wp_08_green",
+        "shield": "Dark_Green_Twin_Wyrms",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_02",
+        "shield": "BlackGold_Twinflame",
+        "mask": "leatherMask",
+        "eye": "green"
+      },
+      {
+        "weapon": "spear_02",
+        "shield": "Red_Studded_Guardian",
+        "mask": null,
+        "eye": "red"
+      },
+      {
+        "weapon": "syth_01",
+        "shield": "venom_S1_root_bone",
+        "mask": "mecha_bone",
+        "eye": "green"
+      },
+      {
+        "weapon": "syth_01",
+        "shield": "Bone_Twinflame",
+        "mask": "leatherMask",
+        "eye": "red"
+      },
+      {
+        "weapon": "hammer_02",
+        "shield": "ash_sh_08",
+        "mask": "leatherMask",
+        "eye": "red"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "venom_S1_root_red",
+        "mask": "mecha_hazel",
+        "eye": "green"
+      },
+      {
+        "weapon": "ven_temp_wp_06_green",
+        "shield": null,
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "ash_wp_01",
+        "shield": "sh_01_root_redBrown",
+        "mask": "leatherMask",
+        "eye": "red"
+      }
+    ],
+    "Red Helm": [
+      {
+        "weapon": "saber_root_red",
+        "shield": "03_root_redHazel",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_bone",
+        "shield": "02_04",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "ven_temp_wp_08_yel",
+        "shield": "ash_sh_01",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ash_wp_07_evil",
+        "shield": "sh_01_root_redBrown",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "axe_02",
+        "shield": "blackGold_Guardian",
+        "mask": null,
+        "eye": "red"
+      }
+    ],
+    "Brown Helm": [
+      {
+        "weapon": "saber_root_red",
+        "shield": "ash_sh_01",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "hammer_01_redBrown",
+        "shield": "venom_S1_root_green",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ven_temp_wp_08_green",
+        "shield": "blackGold_Guardian",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ash_wp_05_greenRoot",
+        "shield": "venom_S1_root_red",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_hazel",
+        "shield": "03_root",
+        "mask": "mecha_red",
+        "eye": "green"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": null,
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "ven_temp_wp_08_yel",
+        "shield": "ash_sh_01",
+        "mask": "mecha_red",
+        "eye": "green"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "Dark_Green_Castle_venom",
+        "mask": "mecha_red",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_red",
+        "shield": "venom_S1_root_red",
+        "mask": "mecha_hazel",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ven_temp_wp_07",
+        "shield": "venom_S1_root_green",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ven_temp_wp_08_yel",
+        "shield": "sh_01_root_redBrown",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "hammer_03",
+        "shield": "03_root_redHazel",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_hazel",
+        "shield": "venom_S1_root_red",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "axe_03",
+        "shield": "venom_S1_root_red",
+        "mask": "mecha_bone",
+        "eye": "red"
+      },
+      {
+        "weapon": "saber_root_hazel",
+        "shield": null,
+        "mask": "leatherMask",
+        "eye": "green"
+      },
+      {
+        "weapon": "ash_wp_06",
+        "shield": "ven_temp_sh_0",
+        "mask": null,
+        "eye": "green"
+      }
+    ],
+    "Dark Green Helm": [
+      {
+        "weapon": "ven_temp_wp_05",
+        "shield": null,
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ash_wp_05_greenRoot",
+        "shield": "venom_S1_root_red",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "ven_temp_wp_08_yel",
+        "shield": "venom_S1_root_green",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ash_wp_05_greenRoot",
+        "shield": "venom_S1_root_red",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ven_temp_wp_07",
+        "shield": "venom_S1_root_red",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ash_wp_05_greenRoot",
+        "shield": "Dark_Green_Twin_Wyrms",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_hazel",
+        "shield": "venom_S1_root_green",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "dragFront_S1_darkGreen",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "venom_S1_root_green",
+        "mask": "mecha_bone",
+        "eye": "green"
+      },
+      {
+        "weapon": "ven_temp_wp_08_green",
+        "shield": null,
+        "mask": "mecha_green",
+        "eye": "green"
+      },
+      {
+        "weapon": "dragonStaff_01",
+        "shield": "sh_01_root_redBrown",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_hazel",
+        "shield": "ash_sh_0",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ash_wp_03_darkGreen",
+        "shield": "03_root_redHazel",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ash_wp_06",
+        "shield": "Dark_Green_Castlebound",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ash_wp_05_greenRoot",
+        "shield": "Dark_Green_Twin_Wyrms",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ash_wp_06",
+        "shield": "04_05",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ash_wp_02",
+        "shield": "ash_sh_01",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "Brown_Runeforge",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": null,
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ash_wp_03_darkGreen",
+        "shield": "venom_S1_root_red",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ash_wp_02",
+        "shield": null,
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_red",
+        "shield": "venom_S1_root_red",
+        "mask": "mecha_hazel",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "dragonStaff_01",
+        "shield": "dragFront_S1_darkGreen",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "hammer_01_redBrown",
+        "shield": null,
+        "mask": null,
+        "eye": "red"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "Dark_Green_Castlebound",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "ven_temp_wp_08_yel",
+        "shield": "venom_S1_root_red",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_hazel",
+        "shield": "Dark_Green_Twin_Wyrms",
+        "mask": null,
+        "eye": "yellow"
+      }
+    ],
+    "Bone Helm": [
+      {
+        "weapon": "ash_wp_06",
+        "shield": "venom_S1_root_green",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ven_temp_wp_05",
+        "shield": "sh_01_root_redBrown",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "venom_S1_root_red",
+        "mask": null,
+        "eye": "yellow"
+      }
+    ],
+    "Hazel Helm": [
+      {
+        "weapon": "spear_01",
+        "shield": "venom_S1_root_green",
+        "mask": "mecha_green",
+        "eye": "green"
+      },
+      {
+        "weapon": "saber_root_green",
+        "shield": "venom_S1_root_green",
+        "mask": "leatherMask",
+        "eye": "green"
+      },
+      {
+        "weapon": "ven_temp_wp_06_green",
+        "shield": "sh_01_root_redBrown",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "venom_S1_root_red",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_red",
+        "shield": "ash_sh_01",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "venom_S1_root_red",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_red",
+        "shield": "sh_01_root_redBrown",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "ash_sh_09",
+        "mask": "leatherMask_bone",
+        "eye": "green"
+      },
+      {
+        "weapon": "saber_root_green",
+        "shield": "03_S2_root_green",
+        "mask": "mecha_green",
+        "eye": "green"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "venom_S1_root_green",
+        "mask": "mecha_bone",
+        "eye": "green"
+      },
+      {
+        "weapon": "sword_04",
+        "shield": "sh_01_root_redBrown",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "sword_04",
+        "shield": "sh_01_root_redBrown",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "venom_S1_root_green",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_hazel",
+        "shield": null,
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_green",
+        "shield": "Dark_Green_Castle_venom",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_hazel",
+        "shield": "sh_01_root_redBrown",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "ven_temp_wp_08_yel",
+        "shield": "sh_01_root_redBrown",
+        "mask": "mecha_green",
+        "eye": "green"
+      },
+      {
+        "weapon": "sword_06",
+        "shield": "02_04",
+        "mask": "mecha_red",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "sh_01_root_redBrown",
+        "mask": "MMaskRoot",
+        "eye": "green"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "venom_S1_root_red",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "venom_S1_root_green",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ash_wp_03_darkGreen",
+        "shield": "Dark_Green_Twin_Wyrms",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "venom_S1_root_green",
+        "mask": "mecha_hazel",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "venom_S1_root_red",
+        "mask": "mecha_green",
+        "eye": "green"
+      },
+      {
+        "weapon": "ven_temp_wp_08_green",
+        "shield": "sh_01_root_redBrown",
+        "mask": "mecha_blue",
+        "eye": "green"
+      },
+      {
+        "weapon": "sword_01_red",
+        "shield": "sh_01_root_redBrown",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "hammer_01_redBrown",
+        "shield": "03_root",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "saber_root_green",
+        "shield": "ash_sh_01",
+        "mask": "MMaskRoot",
+        "eye": "green"
+      },
+      {
+        "weapon": "saber_root_green",
+        "shield": "venom_S1_root_green",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "hammer_01_redBrown",
+        "shield": "blackGold_Guardian",
+        "mask": "mecha_red",
+        "eye": "green"
+      },
+      {
+        "weapon": "saber_root_hazel",
+        "shield": null,
+        "mask": "mecha_green",
+        "eye": "green"
+      },
+      {
+        "weapon": "hammer_01_redBrown",
+        "shield": "blackGold_Guardian",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "saber_root_red",
+        "shield": "sh_01_root_redBrown",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "ven_temp_wp_08_yel",
+        "shield": "ash_sh_01",
+        "mask": "leatherMask",
+        "eye": "green"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "ash_sh_01",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "saber_root_bone",
+        "shield": "venom_S1_root_green",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "ash_wp_02",
+        "shield": "Dark_Green_Castle_venom",
+        "mask": "mecha_green",
+        "eye": "green"
+      },
+      {
+        "weapon": "ash_wp_08",
+        "shield": "ash_sh_01",
+        "mask": "mecha_red",
+        "eye": "red"
+      },
+      {
+        "weapon": "mace_01",
+        "shield": "venom_S1_root_green",
+        "mask": "MMaskRoot",
+        "eye": "green"
+      },
+      {
+        "weapon": "saber_root_hazel",
+        "shield": "sh_01_root_redBrown",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "ash_wp_06",
+        "shield": "03_root",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "mace_01",
+        "shield": null,
+        "mask": "mecha_hazel",
+        "eye": "green"
+      },
+      {
+        "weapon": "saber_root_hazel",
+        "shield": null,
+        "mask": "mecha_hazel",
+        "eye": "green"
+      },
+      {
+        "weapon": "saber_root_green",
+        "shield": "venom_S1_root_green",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "saber_root_hazel",
+        "shield": "sh_01_root_redBrown",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "saber_root_hazel",
+        "shield": "03_root",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "axe_03",
+        "shield": "ash_sh_01",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "hammer_01_redBrown",
+        "shield": "ash_sh_01",
+        "mask": "MMaskRoot",
+        "eye": "green"
+      },
+      {
+        "weapon": "saber_root_red",
+        "shield": "venom_S1_root_green",
+        "mask": "MMaskRoot",
+        "eye": "green"
+      },
+      {
+        "weapon": "ven_temp_wp_08_green",
+        "shield": "ash_sh_01",
+        "mask": "MMaskRoot",
+        "eye": "green"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "blackGold_Guardian",
+        "mask": "mecha_hazel",
+        "eye": "green"
+      },
+      {
+        "weapon": "saber_root_red",
+        "shield": "sh_01_root_redBrown",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "ven_temp_wp_08_green",
+        "shield": "blackGold_Guardian",
+        "mask": "MMaskRoot",
+        "eye": "green"
+      },
+      {
+        "weapon": "ash_wp_03_darkGreen",
+        "shield": "Dark_Green_Twin_Wyrms",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_green",
+        "shield": "ash_sh_01",
+        "mask": null,
+        "eye": "green"
+      }
+    ],
+    "Gold Helm": [
+      {
+        "weapon": "spear_01",
+        "shield": "BlackGold_Runeforge",
+        "mask": "mecha_blue",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "ven_temp_sh_0",
+        "mask": "mecha_green",
+        "eye": "green"
+      },
+      {
+        "weapon": "ven_temp_wp_06_green",
+        "shield": "blackGold_Twin_Wyrms",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "ven_temp_sh_0",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_green",
+        "shield": "ven_temp_sh_0",
+        "mask": "mecha_green",
+        "eye": "red"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "03_S2_root_green",
+        "mask": "mecha_green",
+        "eye": "green"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "Dark_Green_Twin_Wyrms",
+        "mask": "leatherMask",
+        "eye": "green"
+      },
+      {
+        "weapon": "dragonStaff_01",
+        "shield": "dragFront_S1_darkGreen",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ven_temp_wp_08_green",
+        "shield": "Dark_Green_Castle_venom",
+        "mask": "mecha_red",
+        "eye": "green"
+      },
+      {
+        "weapon": "hammer_01_redBrown",
+        "shield": null,
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "ven_temp_wp_05",
+        "shield": "Dark_Green_Twin_Wyrms",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "ven_temp_wp_08",
+        "shield": "ven_temp_sh_02",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "ven_temp_wp_06_green",
+        "shield": "blackGold_Guardian",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ven_temp_wp_08",
+        "shield": "venom_S1_root_red",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "saber_root_hazel",
+        "shield": "venom_S1_root_green",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "spear_01",
+        "shield": "03_S2_root_green",
+        "mask": "mecha_blue",
+        "eye": "green"
+      },
+      {
+        "weapon": "ven_temp_wp_05",
+        "shield": "venom_S1_root_green",
+        "mask": "MMaskRoot",
+        "eye": "green"
+      },
+      {
+        "weapon": "ven_temp_wp_06",
+        "shield": "Dark_Green_Twin_Wyrms",
+        "mask": "leatherMask_bone",
+        "eye": "green"
+      },
+      {
+        "weapon": "ven_temp_wp_06",
+        "shield": "dragFront_S1_darkGreen",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_hazel",
+        "shield": "ven_temp_sh_0",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_green",
+        "shield": "Dark_Green_Castlebound",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "saber_root_green",
+        "shield": "Dark_Green_Twin_Wyrms",
+        "mask": "MMaskRoot",
+        "eye": "green"
+      },
+      {
+        "weapon": "ven_temp_wp_05",
+        "shield": "venom_S1_root_red",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "mace_01",
+        "shield": "venom_S1_root_red",
+        "mask": "mecha_red",
+        "eye": "green"
+      },
+      {
+        "weapon": "saber_root_green",
+        "shield": "ven_temp_sh_0",
+        "mask": "MMaskRoot",
+        "eye": "green"
+      },
+      {
+        "weapon": "saber_root_green",
+        "shield": "venom_S1_root_red",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "ven_temp_wp_08_green",
+        "shield": null,
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "ven_temp_wp_05",
+        "shield": "04_05",
+        "mask": "MMaskRoot",
+        "eye": "green"
+      },
+      {
+        "weapon": "ven_temp_wp_06",
+        "shield": "Dark_Green_Twin_Wyrms",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_hazel",
+        "shield": "venom_S1_root_green",
+        "mask": "MMaskRoot",
+        "eye": "green"
+      }
+    ]
+  },
+  "temp": [
+  
+{
+      "weapon": "ven_temp_wp_08",
+      "shield": "dragFront_S1_brown",
+      "mask": null,
+      "eye": "yellow"
+    },
+     {
+      "weapon": "ven_temp_wp_08",
+      "shield": "03_02",
+      "mask": null,
+      "eye": "yellow"
+    },
+    {
+      "weapon": "ven_temp_wp_08",
+      "shield": "venom_S3_red_emblem",
+      "mask": null,
+      "eye": "yellow"
+    },
+    {
+      "weapon": "ash_wp_01",
+      "shield": "ven_temp_sh_04",
+      "mask": "mecha_bone",
+      "eye": "red"
+    },
+    {
+      "weapon": "ven_temp_wp_08",
+      "shield": "ven_temp_sh_08_rootRed",
+      "mask": "leatherMask_bone",
+      "eye": "red"
+    },
+    {
+      "weapon": "spear_02",
+      "shield": "Brown_Runeforge",
+      "mask": "MMaskRoot",
+      "eye": "yellow"
+    },
+    {
+      "weapon": "axe_02",
+      "shield": "Brown_Runeforge",
+      "mask": "leatherMask",
+      "eye": "green"
+    },
+    {
+      "weapon": "axe_03",
+      "shield": "Brown_Twin_Wyrms",
+      "mask": null,
+      "eye": "yellow"
+    }
+  ],
+  "temp_8": [
+    {
+      "weapon": "saber_root_red",
+      "shield": "ash_sh_01",
+      "mask": null,
+      "eye": "green"
+    },
+    {
+      "weapon": "hammer_01_redBrown",
+      "shield": "venom_S1_root_green",
+      "mask": "MMaskRoot",
+      "eye": "green"
+    },
+    {
+      "weapon": "saber_root_hazel",
+      "shield": "03_root",
+      "mask": "mecha_red",
+      "eye": "green"
+    },
+    {
+      "weapon": "ven_temp_wp_08_yel",
+      "shield": "sh_01_root_redBrown",
+      "mask": "MMaskRoot",
+      "eye": "green"
+    },
+    {
+      "weapon": "ven_temp_wp_08_green",
+      "shield": "blackGold_Guardian",
+      "mask": null,
+      "eye": "green"
+    },
+    {
+      "weapon": "saber_root_green",
+      "shield": "venom_S1_root_green",
+      "mask": "MMaskRoot",
+      "eye": "green"
+    }
+  ],
+  "Grey Maw": {
+    "Bone Helm": [
+      {
+        "weapon": "ven_temp_wp_06_bone",
+        "shield": "Bone_Baphomet",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ven_temp_wp_07_bone",
+        "shield": "03_root_bone",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_green",
+        "shield": "Brown_Baphomet",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_hazel",
+        "shield": null,
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ven_temp_wp_06_bone",
+        "shield": "venom_S1_root_red",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_02",
+        "shield": "03_02",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "axe_03",
+        "shield": null,
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ven_temp_wp_07_bone",
+        "shield": "ven_temp_sh_08_root",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ash_wp_02",
+        "shield": "venom_S1_root_bone",
+        "mask": "MMaskRoot",
+        "eye": null
+      },
+      {
+        "weapon": "ven_temp_wp_08",
+        "shield": "ash_sh_07",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_bone",
+        "shield": "Hazel_Baphomet",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "baho_staff_01",
+        "shield": "03_root_bone",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ven_temp_wp_06_bone",
+        "shield": "03_root_bone",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ven_temp_wp_08",
+        "shield": "ven_temp_sh_08_root",
+        "mask": "mecha_red",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "syth_01_red",
+        "shield": "03_02",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "mace_01",
+        "shield": "Brown_Twin_Wyrms",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "saber_root_hazel",
+        "shield": null,
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ven_temp_wp_08_bone",
+        "shield": "venom_S1_root_bone",
+        "mask": "leatherMask",
+        "eye": "red"
+      },
+      {
+        "weapon": "saber_root_hazel",
+        "shield": "Brown_Twin_Wyrms",
+        "mask": null,
+        "eye": "red"
+      },
+      {
+        "weapon": "spear_02",
+        "shield": "Brown_Baphomet",
+        "mask": null,
+        "eye": "red"
+      },
+      {
+        "weapon": "saber_root_bone",
+        "shield": "Dark_Green_Twin_Wyrms",
+        "mask": "mecha_bone",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "axe_03",
+        "shield": "venom_S1_root_bone",
+        "mask": "mecha_bone",
+        "eye": "red"
+      },
+      {
+        "weapon": "ven_temp_wp_08_bone",
+        "shield": "03_root",
+        "mask": "leatherMask_red",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_hazel",
+        "shield": null,
+        "mask": "mecha_bone",
+        "eye": "green"
+      },
+      {
+        "weapon": "saber_root_hazel",
+        "shield": "ven_temp_sh_08_root",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "ven_temp_wp_06_bone",
+        "shield": null,
+        "mask": "mecha_bone",
+        "eye": "red"
+      },
+      {
+        "weapon": "ven_temp_wp_08_bone",
+        "shield": "venom_S1_root_bone",
+        "mask": "mecha_red",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_ash",
+        "shield": "ash_sh_07",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "syth_01",
+        "shield": "Brown_Baphomet",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ven_temp_wp_06_bone",
+        "shield": "03_root_bone",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_hazel",
+        "shield": null,
+        "mask": null,
+        "eye": null
+      },
+      {
+        "weapon": "saber_root_hazel",
+        "shield": "venom_S1_root_bone",
+        "mask": "MMaskRoot",
+        "eye": null
+      },
+      {
+        "weapon": "mace_01_2hands",
+        "shield": "Red_Studded_Guardian",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "sword_03",
+        "shield": null,
+        "mask": "mecha_hazel",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "spear_02",
+        "shield": "Dark_Green_Guardian",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "spear_03",
+        "shield": null,
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_hazel",
+        "shield": "ven_temp_sh_08_root",
+        "mask": "mecha_red",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_bone",
+        "shield": "03_root_bone",
+        "mask": "mecha_hazel",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_bone",
+        "shield": "ven_temp_sh_08_root",
+        "mask": "mecha_red",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ven_temp_wp_08_bone",
+        "shield": null,
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "mace_01",
+        "shield": "Dark_Green_Castle_venom",
+        "mask": "mecha_red",
+        "eye": null
+      },
+      {
+        "weapon": "saber_root_bone",
+        "shield": "Brown_Baphomet",
+        "mask": "MMaskRoot",
+        "eye": null
+      },
+      {
+        "weapon": "saber_02",
+        "shield": null,
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "sword_08",
+        "shield": "ash_sh_08",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ven_temp_wp_08_yel",
+        "shield": "ven_temp_sh_08_rootRed",
+        "mask": "mecha_hazel",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "hammerSpike",
+        "shield": "circle_dragon_HazelRed",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ash_wp_06",
+        "shield": "03_root_bone",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ven_temp_wp_07_bone",
+        "shield": "ven_temp_sh_08_root",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ven_temp_wp_08_bone",
+        "shield": null,
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_bone",
+        "shield": null,
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "hammerSpike",
+        "shield": "Brown_Baphomet",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ven_temp_wp_08_bone",
+        "shield": "Hazel_Baphomet",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "hammer_02",
+        "shield": "ash_sh_09",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "sword_08",
+        "shield": "03_root_hazel",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "syth_01",
+        "shield": "Brown_Studded_Guardian",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "mace_01",
+        "shield": null,
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ven_temp_wp_06_bone",
+        "shield": "Hazel_Baphomet",
+        "mask": "mecha_hazel",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ven_temp_wp_08_bone",
+        "shield": null,
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "axe_03",
+        "shield": null,
+        "mask": "mecha_hazel",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "hammer_03",
+        "shield": null,
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      }
+    ],
+    "Black Helm": [
+      {
+        "weapon": "ash_wp_06",
+        "shield": "Bone_Baphomet",
+        "mask": "mecha_bone",
+        "eye": "red"
+      },
+      {
+        "weapon": "saber_root_bone",
+        "shield": "Brown_Baphomet",
+        "mask": "mecha_bone",
+        "eye": "red"
+      },
+      {
+        "weapon": "saber_root_hazel",
+        "shield": "03_02",
+        "mask": "mecha_hazel",
+        "eye": "red"
+      },
+      {
+        "weapon": "mace_01_2hands",
+        "shield": "ash_sh_08",
+        "mask": "leatherMask_bone",
+        "eye": "green"
+      },
+      {
+        "weapon": "axe_03",
+        "shield": "03_01",
+        "mask": "leatherMask_bone",
+        "eye": "red"
+      },
+      {
+        "weapon": "hammerSpike",
+        "shield": "ven_temp_sh_08_root",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "hammer_01",
+        "shield": "Brown_Baphomet",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "hammer_01",
+        "shield": "venom_S1_root_bone",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "hammerSpike",
+        "shield": "venom_S1_root_bone",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "woodMace",
+        "shield": "venom_S1_root_bone",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ven_temp_wp_08_yel",
+        "shield": "venom_S1_root_bone",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ven_temp_wp_06_bone",
+        "shield": null,
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ash_wp_06",
+        "shield": "BlackGold_Twinflame",
+        "mask": null,
+        "eye": "red"
+      },
+      {
+        "weapon": "ash_wp_06",
+        "shield": null,
+        "mask": "mecha_blue",
+        "eye": "red"
+      },
+      {
+        "weapon": "spear_02",
+        "shield": "venom_S1_root_bone",
+        "mask": null,
+        "eye": "red"
+      },
+      {
+        "weapon": "saber_root_bone",
+        "shield": "03_01",
+        "mask": "leatherMask_bone",
+        "eye": "red"
+      },
+      {
+        "weapon": "ven_temp_wp_08_yel",
+        "shield": "venom_S1_root_bone",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "spear_02",
+        "shield": null,
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ash_wp_06",
+        "shield": "ash_sh_0",
+        "mask": "leatherMask",
+        "eye": "red"
+      },
+      {
+        "weapon": "saber_root_bone",
+        "shield": null,
+        "mask": "mecha_red",
+        "eye": "red"
+      },
+      {
+        "weapon": "ven_temp_wp_06_bone",
+        "shield": "sh_01_root_redBrown",
+        "mask": "mecha_bone",
+        "eye": "red"
+      },
+      {
+        "weapon": "hammerSpike",
+        "shield": "venom_S1_root_bone",
+        "mask": "mecha_red",
+        "eye": "red"
+      },
+      {
+        "weapon": "syth_01",
+        "shield": "venom_S1_root_bone",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ash_wp_06",
+        "shield": "venom_S1_root_bone",
+        "mask": "mecha_hazel",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_02_black",
+        "shield": null,
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "sword_02",
+        "shield": "venom_S1_root_bone",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ven_temp_wp_06_bone",
+        "shield": "ven_temp_sh_08_root",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ven_temp_wp_08_bone",
+        "shield": null,
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "baho_staff_01",
+        "shield": "Bone_Baphomet",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_bone",
+        "shield": "ven_temp_sh_08_root",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "hammer_03",
+        "shield": "Bone_Baphomet",
+        "mask": "mecha_bone",
+        "eye": "red"
+      },
+      {
+        "weapon": "ven_temp_wp_06_bone",
+        "shield": "sh_01_root_redBrown",
+        "mask": "mecha_bone",
+        "eye": "red"
+      },
+      {
+        "weapon": "mace_01",
+        "shield": null,
+        "mask": "mecha_bone",
+        "eye": "red"
+      },
+      {
+        "weapon": "saber_02",
+        "shield": null,
+        "mask": "mecha_bone",
+        "eye": "red"
+      },
+      {
+        "weapon": "saber_02",
+        "shield": "Bone_Baphomet",
+        "mask": "mecha_bone",
+        "eye": "red"
+      },
+      {
+        "weapon": "hammerSpike",
+        "shield": "venom_S1_root_bone",
+        "mask": "mecha_red",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ven_temp_wp_08_bone",
+        "shield": "ven_temp_sh_08_root",
+        "mask": "mecha_hazel",
+        "eye": "red"
+      },
+      {
+        "weapon": "ven_temp_wp_06_bone",
+        "shield": "sh_01_root_redBrown",
+        "mask": null,
+        "eye": "red"
+      },
+      {
+        "weapon": "saber_02_black",
+        "shield": "Brown_Twin_Wyrms",
+        "mask": null,
+        "eye": "green"
+      }
+    ],
+    "Red Helm": [
+      {
+        "weapon": "baho_staff_01",
+        "shield": "03_root_bone",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "mace_01_2hands",
+        "shield": "03_root_redHazel",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "baho_staff_01",
+        "shield": "ash_sh_08",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ash_wp_05",
+        "shield": "sh_04_dragRootRedBrown",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "hammerSpike",
+        "shield": "venom_S1_root_bone",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_bone",
+        "shield": "Bone_Baphomet",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ash_wp_05",
+        "shield": "venom_S1_root_bone",
+        "mask": "mecha_bone",
+        "eye": "red"
+      },
+      {
+        "weapon": "ven_temp_wp_06_bone",
+        "shield": "venom_S1_root_bone",
+        "mask": "mecha_bone",
+        "eye": "red"
+      },
+      {
+        "weapon": "spear_03",
+        "shield": "sh_01_root_redBrown",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "hammer_02",
+        "shield": null,
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ash_wp_02",
+        "shield": null,
+        "mask": null,
+        "eye": "red"
+      },
+      {
+        "weapon": "spear_03",
+        "shield": "venom_S1_root_bone",
+        "mask": "mecha_bone",
+        "eye": "red"
+      },
+      {
+        "weapon": "hammerSpike",
+        "shield": "03_root_bone",
+        "mask": "mecha_bone",
+        "eye": "red"
+      },
+      {
+        "weapon": "ven_temp_wp_06_bone",
+        "shield": "venom_S1_root_bone",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "spear_02",
+        "shield": "ven_temp_sh_08_root",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_02_red",
+        "shield": "venom_S1_root_bone",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_02",
+        "shield": "ven_temp_sh_08_root",
+        "mask": "mecha_bone",
+        "eye": "red"
+      },
+      {
+        "weapon": "hammerSpike",
+        "shield": "venom_S1_root_bone",
+        "mask": null,
+        "eye": "red"
+      },
+      {
+        "weapon": "spear_02",
+        "shield": "sh_01_root_redBrown",
+        "mask": null,
+        "eye": "red"
+      },
+      {
+        "weapon": "ash_wp_01",
+        "shield": "ven_temp_sh_08_root",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "saber_root_bone",
+        "shield": "venom_S1_root_bone",
+        "mask": "MMaskRoot",
+        "eye": "yellow"
+      },
+      {
+        "weapon": "hammer_01",
+        "shield": "venom_S1_root_bone",
+        "mask": null,
+        "eye": "red"
+      },
+      {
+        "weapon": "dragonStaff_01",
+        "shield": "venom_S1_root_bone",
+        "mask": null,
+        "eye": "green"
+      },
+      {
+        "weapon": "ash_wp_01",
+        "shield": "03_02",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ash_wp_03",
+        "shield": "Red_Castlebound",
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "axe_03",
+        "shield": "sh_01_root_redBrown",
+        "mask": null,
+        "eye": "red"
+      },
+      {
+        "weapon": "spear_03",
+        "shield": null,
+        "mask": null,
+        "eye": "yellow"
+      },
+      {
+        "weapon": "ash_wp_06",
+        "shield": "blackGold_Twin_Wyrms",
+        "mask": "mecha_bone",
+        "eye": "red"
+      },
+      {
+        "weapon": "hammer_01",
+        "shield": null,
+        "mask": null,
+        "eye": "red"
+      },
+      {
+        "weapon": "ven_temp_wp_06_bone",
+        "shield": null,
+        "mask": null,
+        "eye": "red"
+      },
+      {
+        "weapon": "ven_temp_wp_08_bone",
+        "shield": "sh_01_root_redBrown",
+        "mask": "mecha_bone",
+        "eye": "red"
+      },
+      {
+        "weapon": "saber_02",
+        "shield": "venom_S1_root_bone",
+        "mask": "leatherMask_bone",
+        "eye": "red"
+      }
+    ]
+  },
+  "Black Ash": {
+    "Black Helm": [
+      {
+        "weapon": "hammerSpike",
+        "shield": "blackGold_Twin_Wyrms",
+        "mask": "leatherMask_red",
+        "eye": "red"
+      }
+    ]
+  }
+}

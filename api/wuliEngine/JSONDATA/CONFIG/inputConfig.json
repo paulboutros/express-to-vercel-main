@@ -1,0 +1,167 @@
+ {
+     
+   "nftThumb160": {
+ 
+        "crop.top":40,
+        "crop.left":40,
+        "crop.width": 2000,
+        "crop.height": 2000,
+  
+        "cell.width": 160,
+        "cell.height": 160 
+ 
+  },
+  "nftThumb120": {
+        "//":" the crop always deal with the same 2048 hi-res image, regardless of the thumb size",
+        "crop.top":40,
+        "crop.left":40,
+        "crop.width": 2000,
+        "crop.height": 2000,
+  
+        "cell.width": 120,
+        "cell.height": 120 
+ 
+  },
+  "nftThumb500": {
+        "//crop":" the crop always deal with the same 2048 hi-res image, used by crop function and saved on disk",
+        "///crop":" crop is no longer used in sheet generation, it used crop/resized version = 450X500",
+        "crop.top":40,
+        "crop.left":250,
+        "crop.width": 1770,
+        "crop.height": 2000,
+  
+        "cell.width": 450,
+        "cell.height": 500,
+
+
+        "padding.left": 100,
+        "padding.right": 100,
+        "padding.top": 100,
+        "padding.bottom": 100,
+
+        "grid.spaceX": 50,
+        "grid.spaceY": 5,
+        "grid.rowLength": 3, 
+
+        "//card":" card position are relative to image size, here 450 X 500(position from top left)",
+        "card.nftCard.posX": 170,
+        "card.nftCard.posY": 435,
+        "card.weapon.posX": 20,
+        "card.weapon.posY": 415, 
+        "card.shield.posX": 360,
+        "card.shield.posY": 415,   
+
+
+
+        "text.multiLine.marginX": 30,
+        "text.multiLine.marginY": 40
+ 
+  },
+
+   "layoutGrid": {
+
+        "snapX": 840,
+        "snapY": 1160,
+        "snap_offsetX": 50,
+        "snap_offsetY": 500,
+        "snap_rowLength": 3,
+
+        "crop.top":40,
+        "crop.left":250,
+        "crop.width": 1770,
+        "crop.height": 2000,
+ 
+        "grid.spaceX": 100,
+        "grid.spaceY": 10,
+        "grid.rowLength": 3,
+
+         
+        "padding.left": 50,
+        "padding.right": 50,
+        "padding.top": 80,
+        "padding.bottom": 80,
+ 
+ 
+        "cell.width": 900,
+        "cell.height": 1000,
+
+        "card.nftCard.posX": 1000,
+        "card.nftCard.posY": 1000,
+        "card.weapon.posX": 1000,
+        "card.weapon.posY": 1000 
+     
+
+     },
+
+     "preset":{
+
+            "layoutGrid_4X2": {
+              "snap_rowLength": 4,
+              "snapX": "960",
+              "snap_offsetY": 500,
+              "grid.spaceY": 30,
+
+              "card.nftCard.posX": 350,
+              "card.nftCard.posY": 900,
+              "card.weapon.posX": 1000,
+              "card.weapon.posY": 1000,
+
+
+              "padding.top": 300,
+              "padding.left": 200,
+              "padding.right": 200,
+              "padding.bottom": 300,
+              "grid.rowLength": 4,
+
+
+               "text.multiLine.marginX": 30,
+               "text.multiLine.marginY": 40
+            } 
+       },
+ 
+
+     "//": "All crop values are expressed in SOURCE IMAGE pixels (2048x2048).",
+    "canvas": {
+        
+        "background": "#202020"
+    },
+
+   "//spaceX & spaceY": "Pixels in between after crop result",
+    "grid": {
+        "rowLength": 3,
+        "spaceX": 100,
+        "spaceY": 10
+    },
+
+"//crop": " crop never affect cell size ",
+    "crop": {
+      "left": 250,
+      "top": 40,
+      "width": 1770,
+      "height": 2000
+    },
+
+     
+
+   "padding": {
+        "left": 50,
+        "right": 50,
+        "top": 80,
+        "bottom": 80
+    },
+
+
+    "cell": {
+        "width": 900,
+        "height": 1000
+    },
+
+    "images": [
+        2164,
+    2192,
+    2198,
+    2346,
+    2366,
+    2882 
+    ]
+}

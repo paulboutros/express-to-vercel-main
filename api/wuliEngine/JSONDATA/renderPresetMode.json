@@ -1,0 +1,217 @@
+{
+  "weaponPass": {
+    "lastPreset_enum": {
+      "prompt_Head_Body": {
+        "mode": "headSpecific",
+        "indexes": [
+          757
+        ]
+      },
+      "selectionMode": {
+        "mode": "enum",
+        "indexes": [
+          0,
+          4,
+          5,
+          12,
+          13,
+          15
+        ]
+      },
+      "saveInfo": {
+        "doRender": "yes",
+        "saveJSON": "yes"
+      }
+    },
+    "lastPreset[by_nftNumbers]": {
+      "prompt_Head_Body": {
+        "mode": "by_nftNumbers",
+        "indexes": [
+          2280
+        ]
+      },
+      "selectionMode": null,
+      "saveInfo": {
+        "doRender": "yes",
+        "saveJSON": "yes"
+      }
+    },
+    "preset_renderOneHead": {
+      "prompt_Head_Body": {
+        "mode": "headSpecific",
+        "indexes": [
+          1064
+        ]
+      },
+      "selectionMode": {
+        "mode": "range",
+        "start": 0,
+        "end": null
+      },
+      "saveInfo": {
+        "doRender": "no",
+        "saveJSON": "yes"
+      }
+    },
+    "preset_by_nftNumbers": {
+      "prompt_Head_Body": {
+        "mode": "by_nftNumbers",
+        "indexes": [
+          3317,
+          3318,
+          3316,
+          3707,
+          3708,
+          3710,
+          3816,
+          3828,
+          3827,
+          3830
+        ]
+      },
+      "selectionMode": null,
+      "saveInfo": {
+        "doRender": "yes",
+        "saveJSON": "no"
+      }
+    },
+    "preset_tait_enum": {
+      "prompt_Head_Body": {
+        "mode": "traitSpecific",
+        "traitName": {
+          "trait": "HORNS",
+          "value": "Black Dragon Scale Horns"
+        }
+      },
+      "selectionMode": {
+        "mode": "enum",
+        "indexes": [
+          10,
+          25
+        ]
+      },
+      "saveInfo": {
+        "doRender": "yes",
+        "saveJSON": "no"
+      }
+    },
+    "lastPreset": {
+      "prompt_Head_Body": {
+        "mode": "by_nftNumbers",
+        "indexes": [
+          3317,
+          3318,
+          3316,
+          3707,
+          3708,
+          3710,
+          3816,
+          3828,
+          3827,
+          3830
+        ]
+      },
+      "selectionMode": null,
+      "saveInfo": {
+        "doRender": "yes",
+        "saveJSON": "no"
+      }
+    },
+    "lastPresetX": {
+      "prompt_Head_Body": {
+        "mode": "headSpecific",
+        "indexes": [
+          1013
+        ]
+      },
+      "selectionMode": {
+        "mode": "range",
+        "start": 0,
+        "end": 17
+      },
+      "saveInfo": {
+        "doRender": "no",
+        "saveJSON": "yes"
+      }
+    },
+    "preset1": {
+      "prompt0": {
+        "mode": "headSpecific",
+        "indexes": [
+          1013
+        ]
+      },
+      "HEADpromp": {
+        "mode": "enum",
+        "indexes": [
+          16,
+          17,
+          18
+        ]
+      },
+      "saveInfo": {
+        "doRender": "yes",
+        "saveJSON": "no"
+      }
+    }
+  },
+  "LoadNFT": {
+    "lastPreset_XXXXXXX": {
+      "prompt0": {
+        "mode": "headSpecific",
+        "indexes": [
+          757
+        ]
+      },
+      "saveInfo": {
+        "doRender": "yes",
+        "saveJSON": "no"
+      }
+    },
+    "lastPreset": {
+      "prompt0": {
+        "mode": "Re-render",
+        "indexes": [
+          2461,
+          2541,
+          2731,
+          2751,
+          2811,
+          2821,
+          2901,
+          3771,
+          2981,
+          3841,
+          2281,
+          2301,
+          3911,
+          3481
+        ],
+        "doRender": "yes",
+        "saveJSON": "no"
+      },
+      "HEADpromp": {
+        "mode": "range",
+        "start": 17
+      },
+      "saveInfo": {
+        "doRender": "yes",
+        "saveJSON": "no"
+      }
+    },
+    "loadOne": {
+      "prompt0": {
+        "mode": "Load_1_Batch",
+        "batcht_id": 3391
+      },
+      "HEADpromp": {
+        "mode": "range",
+        "start": 17
+      },
+      "saveInfo": {
+        "doRender": "yes",
+        "saveJSON": "no"
+      }
+    }
+  }
+}

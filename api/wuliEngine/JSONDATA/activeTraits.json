@@ -1,0 +1,139 @@
+{
+  "red_black": {
+    "filterModeABS": "OR",
+    "TRAIT_MODE": "FILTER_BASKET",
+    "gridRenderMode": "ABSOLUTE",
+    "pills": [
+      {
+        "traitKey": "TYPE",
+        "value": "Red Orc"
+      },
+      {
+        "traitKey": "CAPE",
+        "value": "Red Cape"
+      },
+      {
+        "traitKey": "HEAD",
+        "value": "Black Helm"
+      }
+    ]
+  },
+  "heads_and_skins_X7": {
+    "filterModeABS": "OR",
+    "TRAIT_MODE": "FILTER_BASKET",
+    "pills": [
+      {
+        "traitKey": "FACEGEAR",
+        "value": "Gold Slitted face mask"
+      },
+      {
+        "traitKey": "HEAD",
+        "value": "Bone Helm"
+      },
+      {
+        "traitKey": "HEAD",
+        "value": "Purple Helm"
+      },
+      {
+        "traitKey": "HEAD",
+        "value": "Green Helm"
+      },
+      {
+        "traitKey": "HEAD",
+        "value": "Red Helm"
+      },
+      {
+        "traitKey": "TYPE",
+        "value": "Gold Orc"
+      },
+      {
+        "traitKey": "TYPE",
+        "value": "Red Orc"
+      }
+    ]
+  },
+  "head_skins_X8_300NFT": {
+    "filterModeABS": "OR",
+    "TRAIT_MODE": "FILTER_BASKET",
+    "pills": [
+      {
+        "traitKey": "FACEGEAR",
+        "value": "Gold Slitted face mask"
+      },
+      {
+        "traitKey": "HEAD",
+        "value": "Bone Helm"
+      },
+      {
+        "traitKey": "HEAD",
+        "value": "Purple Helm"
+      },
+      {
+        "traitKey": "HEAD",
+        "value": "Green Helm"
+      },
+      {
+        "traitKey": "HEAD",
+        "value": "Red Helm"
+      },
+      {
+        "traitKey": "HEAD",
+        "value": "Bone Wolf Helm"
+      },
+      {
+        "traitKey": "TYPE",
+        "value": "Gold Orc"
+      },
+      {
+        "traitKey": "TYPE",
+        "value": "Red Orc"
+      }
+    ]
+  },
+  "all_hoodies": {
+    "filterModeABS": "OR",
+    "TRAIT_MODE": "FILTER_BASKET",
+    "pills": [
+      {
+        "traitKey": "HOODIE",
+        "value": "Black Hood"
+      },
+      {
+        "traitKey": "HOODIE",
+        "value": "Bone Hood"
+      },
+      {
+        "traitKey": "HOODIE",
+        "value": "Hazel Hood"
+      },
+      {
+        "traitKey": "HOODIE",
+        "value": "Green Hood"
+      },
+      {
+        "traitKey": "HOODIE",
+        "value": "Purple Hood"
+      },
+      {
+        "traitKey": "HOODIE",
+        "value": "Red Hood"
+      },
+      {
+        "traitKey": "HOODIE",
+        "value": "Gray Hood"
+      },
+      {
+        "traitKey": "HOODIE",
+        "value": "Blue Hood"
+      },
+      {
+        "traitKey": "HOODIE",
+        "value": "Brown Hood"
+      },
+      {
+        "traitKey": "HOODIE",
+        "value": "Gold Hood"
+      }
+    ]
+  }
+}

@@ -1,0 +1,4219 @@
+{
+  "WEAPON_Bone_Baphomet_Staff_003.png": {
+    "total": 17,
+    "sheetSize": 6,
+    "sheetCount": 3,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 11,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 12,
+        "to": 16,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "WEAPON_Gold_Mace_001.png": {
+    "total": 2,
+    "sheetSize": 2,
+    "sheetCount": 1,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 1,
+        "count": 2,
+        "rows": 1
+      }
+    ]
+  },
+  "WEAPON_Bone_Baphomet_Staff_000.png": {
+    "total": 17,
+    "sheetSize": 6,
+    "sheetCount": 3,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 11,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 12,
+        "to": 16,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "WEAPON_Bone_Baphomet_Staff_001.png": {
+    "total": 17,
+    "sheetSize": 6,
+    "sheetCount": 3,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 11,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 12,
+        "to": 16,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "WEAPON_Bone_Baphomet_Staff_002.png": {
+    "total": 17,
+    "sheetSize": 6,
+    "sheetCount": 3,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 11,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 12,
+        "to": 16,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "WEAPON_Gold_Mace_000.png": {
+    "total": 2,
+    "sheetSize": 2,
+    "sheetCount": 1,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 1,
+        "count": 2,
+        "rows": 1
+      }
+    ]
+  },
+  "LEGWEAR_Red_Wraps_000.png": {
+    "total": 5,
+    "sheetSize": 5,
+    "sheetCount": 1,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 4,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "FACEGEAR_Hazel_Bladewink_000.png": {
+    "total": 30,
+    "sheetSize": 8,
+    "sheetCount": 4,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 7,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 8,
+        "to": 15,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 16,
+        "to": 23,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 24,
+        "to": 29,
+        "count": 6,
+        "rows": 2
+      }
+    ]
+  },
+  "FACEGEAR_Hazel_Bladewink_001.png": {
+    "total": 30,
+    "sheetSize": 8,
+    "sheetCount": 4,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 7,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 8,
+        "to": 15,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 16,
+        "to": 23,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 24,
+        "to": 29,
+        "count": 6,
+        "rows": 2
+      }
+    ]
+  },
+  "FACEGEAR_Hazel_Bladewink_002.png": {
+    "total": 30,
+    "sheetSize": 8,
+    "sheetCount": 4,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 7,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 8,
+        "to": 15,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 16,
+        "to": 23,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 24,
+        "to": 29,
+        "count": 6,
+        "rows": 2
+      }
+    ]
+  },
+  "FACEGEAR_Hazel_Bladewink_003.png": {
+    "total": 30,
+    "sheetSize": 8,
+    "sheetCount": 4,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 7,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 8,
+        "to": 15,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 16,
+        "to": 23,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 24,
+        "to": 29,
+        "count": 6,
+        "rows": 2
+      }
+    ]
+  },
+  "SHOULDER_Bone_Double_Pad_000.png": {
+    "total": 35,
+    "sheetSize": 7,
+    "sheetCount": 5,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 6,
+        "count": 7,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 7,
+        "to": 13,
+        "count": 7,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 14,
+        "to": 20,
+        "count": 7,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 21,
+        "to": 27,
+        "count": 7,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 28,
+        "to": 34,
+        "count": 7,
+        "rows": 2
+      }
+    ]
+  },
+  "SHOULDER_Bone_Double_Pad_001.png": {
+    "total": 35,
+    "sheetSize": 7,
+    "sheetCount": 5,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 6,
+        "count": 7,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 7,
+        "to": 13,
+        "count": 7,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 14,
+        "to": 20,
+        "count": 7,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 21,
+        "to": 27,
+        "count": 7,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 28,
+        "to": 34,
+        "count": 7,
+        "rows": 2
+      }
+    ]
+  },
+  "SHOULDER_Bone_Double_Pad_002.png": {
+    "total": 35,
+    "sheetSize": 7,
+    "sheetCount": 5,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 6,
+        "count": 7,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 7,
+        "to": 13,
+        "count": 7,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 14,
+        "to": 20,
+        "count": 7,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 21,
+        "to": 27,
+        "count": 7,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 28,
+        "to": 34,
+        "count": 7,
+        "rows": 2
+      }
+    ]
+  },
+  "SHOULDER_Bone_Double_Pad_003.png": {
+    "total": 35,
+    "sheetSize": 7,
+    "sheetCount": 5,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 6,
+        "count": 7,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 7,
+        "to": 13,
+        "count": 7,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 14,
+        "to": 20,
+        "count": 7,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 21,
+        "to": 27,
+        "count": 7,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 28,
+        "to": 34,
+        "count": 7,
+        "rows": 2
+      }
+    ]
+  },
+  "SHOULDER_Bone_Double_Pad_004.png": {
+    "total": 35,
+    "sheetSize": 7,
+    "sheetCount": 5,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 6,
+        "count": 7,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 7,
+        "to": 13,
+        "count": 7,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 14,
+        "to": 20,
+        "count": 7,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 21,
+        "to": 27,
+        "count": 7,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 28,
+        "to": 34,
+        "count": 7,
+        "rows": 2
+      }
+    ]
+  },
+  "SHOULDER_Black_Double_Pad_000.png": {
+    "total": 10,
+    "sheetSize": 6,
+    "sheetCount": 2,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 9,
+        "count": 4,
+        "rows": 1
+      }
+    ]
+  },
+  "SHOULDER_Black_Double_Pad_001.png": {
+    "total": 10,
+    "sheetSize": 6,
+    "sheetCount": 2,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 9,
+        "count": 4,
+        "rows": 1
+      }
+    ]
+  },
+  "SHOULDER_Green_Double_Pad_000.png": {
+    "total": 10,
+    "sheetSize": 6,
+    "sheetCount": 2,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 9,
+        "count": 4,
+        "rows": 1
+      }
+    ]
+  },
+  "SHOULDER_Green_Double_Pad_001.png": {
+    "total": 10,
+    "sheetSize": 6,
+    "sheetCount": 2,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 9,
+        "count": 4,
+        "rows": 1
+      }
+    ]
+  },
+  "LEGWEAR_Hazel_Boots_000.png": {
+    "total": 30,
+    "sheetSize": 8,
+    "sheetCount": 4,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 7,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 8,
+        "to": 15,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 16,
+        "to": 23,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 24,
+        "to": 29,
+        "count": 6,
+        "rows": 2
+      }
+    ]
+  },
+  "LEGWEAR_Hazel_Boots_001.png": {
+    "total": 30,
+    "sheetSize": 8,
+    "sheetCount": 4,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 7,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 8,
+        "to": 15,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 16,
+        "to": 23,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 24,
+        "to": 29,
+        "count": 6,
+        "rows": 2
+      }
+    ]
+  },
+  "LEGWEAR_Hazel_Boots_002.png": {
+    "total": 30,
+    "sheetSize": 8,
+    "sheetCount": 4,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 7,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 8,
+        "to": 15,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 16,
+        "to": 23,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 24,
+        "to": 29,
+        "count": 6,
+        "rows": 2
+      }
+    ]
+  },
+  "LEGWEAR_Hazel_Boots_003.png": {
+    "total": 30,
+    "sheetSize": 8,
+    "sheetCount": 4,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 7,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 8,
+        "to": 15,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 16,
+        "to": 23,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 24,
+        "to": 29,
+        "count": 6,
+        "rows": 2
+      }
+    ]
+  },
+  "LEGWEAR_Pant_Green_Boots__Kneepad_000.png": {
+    "total": 10,
+    "sheetSize": 6,
+    "sheetCount": 2,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 9,
+        "count": 4,
+        "rows": 1
+      }
+    ]
+  },
+  "LEGWEAR_Pant_Green_Boots__Kneepad_001.png": {
+    "total": 10,
+    "sheetSize": 6,
+    "sheetCount": 2,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 9,
+        "count": 4,
+        "rows": 1
+      }
+    ]
+  },
+  "LEGWEAR_Blueish_Boots__Kneepad_000.png": {
+    "total": 15,
+    "sheetSize": 8,
+    "sheetCount": 2,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 7,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 8,
+        "to": 14,
+        "count": 7,
+        "rows": 2
+      }
+    ]
+  },
+  "LEGWEAR_Blueish_Boots__Kneepad_001.png": {
+    "total": 15,
+    "sheetSize": 8,
+    "sheetCount": 2,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 7,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 8,
+        "to": 14,
+        "count": 7,
+        "rows": 2
+      }
+    ]
+  },
+  "SHOULDER_Green_Root_000.png": {
+    "total": 45,
+    "sheetSize": 8,
+    "sheetCount": 6,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 7,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 8,
+        "to": 15,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 16,
+        "to": 23,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 24,
+        "to": 31,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 32,
+        "to": 39,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 40,
+        "to": 44,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "SHOULDER_Green_Root_001.png": {
+    "total": 45,
+    "sheetSize": 8,
+    "sheetCount": 6,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 7,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 8,
+        "to": 15,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 16,
+        "to": 23,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 24,
+        "to": 31,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 32,
+        "to": 39,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 40,
+        "to": 44,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "SHOULDER_Green_Root_002.png": {
+    "total": 45,
+    "sheetSize": 8,
+    "sheetCount": 6,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 7,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 8,
+        "to": 15,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 16,
+        "to": 23,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 24,
+        "to": 31,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 32,
+        "to": 39,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 40,
+        "to": 44,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "SHOULDER_Green_Root_003.png": {
+    "total": 45,
+    "sheetSize": 8,
+    "sheetCount": 6,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 7,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 8,
+        "to": 15,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 16,
+        "to": 23,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 24,
+        "to": 31,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 32,
+        "to": 39,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 40,
+        "to": 44,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "SHOULDER_Green_Root_004.png": {
+    "total": 45,
+    "sheetSize": 8,
+    "sheetCount": 6,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 7,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 8,
+        "to": 15,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 16,
+        "to": 23,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 24,
+        "to": 31,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 32,
+        "to": 39,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 40,
+        "to": 44,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "SHOULDER_Green_Root_005.png": {
+    "total": 45,
+    "sheetSize": 8,
+    "sheetCount": 6,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 7,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 8,
+        "to": 15,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 16,
+        "to": 23,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 24,
+        "to": 31,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 32,
+        "to": 39,
+        "count": 8,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 40,
+        "to": 44,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "SHOULDER_Cord_Tied_Brown_Ragehide_000.png": {
+    "total": 25,
+    "sheetSize": 5,
+    "sheetCount": 5,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 4,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 5,
+        "to": 9,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 10,
+        "to": 14,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 15,
+        "to": 19,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 20,
+        "to": 24,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "SHOULDER_Cord_Tied_Brown_Ragehide_001.png": {
+    "total": 25,
+    "sheetSize": 5,
+    "sheetCount": 5,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 4,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 5,
+        "to": 9,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 10,
+        "to": 14,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 15,
+        "to": 19,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 20,
+        "to": 24,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "SHOULDER_Cord_Tied_Brown_Ragehide_002.png": {
+    "total": 25,
+    "sheetSize": 5,
+    "sheetCount": 5,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 4,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 5,
+        "to": 9,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 10,
+        "to": 14,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 15,
+        "to": 19,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 20,
+        "to": 24,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "SHOULDER_Cord_Tied_Brown_Ragehide_003.png": {
+    "total": 25,
+    "sheetSize": 5,
+    "sheetCount": 5,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 4,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 5,
+        "to": 9,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 10,
+        "to": 14,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 15,
+        "to": 19,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 20,
+        "to": 24,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "SHOULDER_Cord_Tied_Brown_Ragehide_004.png": {
+    "total": 25,
+    "sheetSize": 5,
+    "sheetCount": 5,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 4,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 5,
+        "to": 9,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 10,
+        "to": 14,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 15,
+        "to": 19,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 20,
+        "to": 24,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "WEAPON_Silver_Dragon_Sword_000.png": {
+    "total": 14,
+    "sheetSize": 5,
+    "sheetCount": 3,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 4,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 5,
+        "to": 9,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 10,
+        "to": 13,
+        "count": 4,
+        "rows": 1
+      }
+    ]
+  },
+  "WEAPON_Silver_Dragon_Sword_001.png": {
+    "total": 14,
+    "sheetSize": 5,
+    "sheetCount": 3,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 4,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 5,
+        "to": 9,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 10,
+        "to": 13,
+        "count": 4,
+        "rows": 1
+      }
+    ]
+  },
+  "WEAPON_Silver_Dragon_Sword_002.png": {
+    "total": 14,
+    "sheetSize": 5,
+    "sheetCount": 3,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 4,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 5,
+        "to": 9,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 10,
+        "to": 13,
+        "count": 4,
+        "rows": 1
+      }
+    ]
+  },
+  "LEGWEAR_Pant__Blue_Boots_000.png": {
+    "total": 15,
+    "sheetSize": 5,
+    "sheetCount": 3,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 4,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 5,
+        "to": 9,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 10,
+        "to": 14,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "LEGWEAR_Pant__Blue_Boots_001.png": {
+    "total": 15,
+    "sheetSize": 5,
+    "sheetCount": 3,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 4,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 5,
+        "to": 9,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 10,
+        "to": 14,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "LEGWEAR_Pant__Blue_Boots_002.png": {
+    "total": 15,
+    "sheetSize": 5,
+    "sheetCount": 3,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 4,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 5,
+        "to": 9,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 10,
+        "to": 14,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "FACEGEAR_Green_Slitted_000.png": {
+    "total": 70,
+    "sheetSize": 6,
+    "sheetCount": 12,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 11,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 12,
+        "to": 17,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 18,
+        "to": 23,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 24,
+        "to": 29,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 30,
+        "to": 35,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 36,
+        "to": 41,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 42,
+        "to": 47,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 48,
+        "to": 53,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 9,
+        "from": 54,
+        "to": 59,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 10,
+        "from": 60,
+        "to": 65,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 11,
+        "from": 66,
+        "to": 69,
+        "count": 4,
+        "rows": 1
+      }
+    ]
+  },
+  "FACEGEAR_Green_Slitted_001.png": {
+    "total": 70,
+    "sheetSize": 6,
+    "sheetCount": 12,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 11,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 12,
+        "to": 17,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 18,
+        "to": 23,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 24,
+        "to": 29,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 30,
+        "to": 35,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 36,
+        "to": 41,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 42,
+        "to": 47,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 48,
+        "to": 53,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 9,
+        "from": 54,
+        "to": 59,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 10,
+        "from": 60,
+        "to": 65,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 11,
+        "from": 66,
+        "to": 69,
+        "count": 4,
+        "rows": 1
+      }
+    ]
+  },
+  "FACEGEAR_Green_Slitted_002.png": {
+    "total": 70,
+    "sheetSize": 6,
+    "sheetCount": 12,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 11,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 12,
+        "to": 17,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 18,
+        "to": 23,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 24,
+        "to": 29,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 30,
+        "to": 35,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 36,
+        "to": 41,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 42,
+        "to": 47,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 48,
+        "to": 53,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 9,
+        "from": 54,
+        "to": 59,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 10,
+        "from": 60,
+        "to": 65,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 11,
+        "from": 66,
+        "to": 69,
+        "count": 4,
+        "rows": 1
+      }
+    ]
+  },
+  "FACEGEAR_Green_Slitted_003.png": {
+    "total": 70,
+    "sheetSize": 6,
+    "sheetCount": 12,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 11,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 12,
+        "to": 17,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 18,
+        "to": 23,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 24,
+        "to": 29,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 30,
+        "to": 35,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 36,
+        "to": 41,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 42,
+        "to": 47,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 48,
+        "to": 53,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 9,
+        "from": 54,
+        "to": 59,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 10,
+        "from": 60,
+        "to": 65,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 11,
+        "from": 66,
+        "to": 69,
+        "count": 4,
+        "rows": 1
+      }
+    ]
+  },
+  "FACEGEAR_Green_Slitted_004.png": {
+    "total": 70,
+    "sheetSize": 6,
+    "sheetCount": 12,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 11,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 12,
+        "to": 17,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 18,
+        "to": 23,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 24,
+        "to": 29,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 30,
+        "to": 35,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 36,
+        "to": 41,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 42,
+        "to": 47,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 48,
+        "to": 53,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 9,
+        "from": 54,
+        "to": 59,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 10,
+        "from": 60,
+        "to": 65,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 11,
+        "from": 66,
+        "to": 69,
+        "count": 4,
+        "rows": 1
+      }
+    ]
+  },
+  "FACEGEAR_Green_Slitted_005.png": {
+    "total": 70,
+    "sheetSize": 6,
+    "sheetCount": 12,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 11,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 12,
+        "to": 17,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 18,
+        "to": 23,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 24,
+        "to": 29,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 30,
+        "to": 35,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 36,
+        "to": 41,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 42,
+        "to": 47,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 48,
+        "to": 53,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 9,
+        "from": 54,
+        "to": 59,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 10,
+        "from": 60,
+        "to": 65,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 11,
+        "from": 66,
+        "to": 69,
+        "count": 4,
+        "rows": 1
+      }
+    ]
+  },
+  "FACEGEAR_Green_Slitted_006.png": {
+    "total": 70,
+    "sheetSize": 6,
+    "sheetCount": 12,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 11,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 12,
+        "to": 17,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 18,
+        "to": 23,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 24,
+        "to": 29,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 30,
+        "to": 35,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 36,
+        "to": 41,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 42,
+        "to": 47,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 48,
+        "to": 53,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 9,
+        "from": 54,
+        "to": 59,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 10,
+        "from": 60,
+        "to": 65,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 11,
+        "from": 66,
+        "to": 69,
+        "count": 4,
+        "rows": 1
+      }
+    ]
+  },
+  "FACEGEAR_Green_Slitted_007.png": {
+    "total": 70,
+    "sheetSize": 6,
+    "sheetCount": 12,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 11,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 12,
+        "to": 17,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 18,
+        "to": 23,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 24,
+        "to": 29,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 30,
+        "to": 35,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 36,
+        "to": 41,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 42,
+        "to": 47,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 48,
+        "to": 53,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 9,
+        "from": 54,
+        "to": 59,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 10,
+        "from": 60,
+        "to": 65,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 11,
+        "from": 66,
+        "to": 69,
+        "count": 4,
+        "rows": 1
+      }
+    ]
+  },
+  "FACEGEAR_Green_Slitted_008.png": {
+    "total": 70,
+    "sheetSize": 6,
+    "sheetCount": 12,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 11,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 12,
+        "to": 17,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 18,
+        "to": 23,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 24,
+        "to": 29,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 30,
+        "to": 35,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 36,
+        "to": 41,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 42,
+        "to": 47,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 48,
+        "to": 53,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 9,
+        "from": 54,
+        "to": 59,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 10,
+        "from": 60,
+        "to": 65,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 11,
+        "from": 66,
+        "to": 69,
+        "count": 4,
+        "rows": 1
+      }
+    ]
+  },
+  "FACEGEAR_Green_Slitted_009.png": {
+    "total": 70,
+    "sheetSize": 6,
+    "sheetCount": 12,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 11,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 12,
+        "to": 17,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 18,
+        "to": 23,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 24,
+        "to": 29,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 30,
+        "to": 35,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 36,
+        "to": 41,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 42,
+        "to": 47,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 48,
+        "to": 53,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 9,
+        "from": 54,
+        "to": 59,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 10,
+        "from": 60,
+        "to": 65,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 11,
+        "from": 66,
+        "to": 69,
+        "count": 4,
+        "rows": 1
+      }
+    ]
+  },
+  "FACEGEAR_Green_Slitted_010.png": {
+    "total": 70,
+    "sheetSize": 6,
+    "sheetCount": 12,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 11,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 12,
+        "to": 17,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 18,
+        "to": 23,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 24,
+        "to": 29,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 30,
+        "to": 35,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 36,
+        "to": 41,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 42,
+        "to": 47,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 48,
+        "to": 53,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 9,
+        "from": 54,
+        "to": 59,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 10,
+        "from": 60,
+        "to": 65,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 11,
+        "from": 66,
+        "to": 69,
+        "count": 4,
+        "rows": 1
+      }
+    ]
+  },
+  "FACEGEAR_Green_Slitted_011.png": {
+    "total": 70,
+    "sheetSize": 6,
+    "sheetCount": 12,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 11,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 12,
+        "to": 17,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 18,
+        "to": 23,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 24,
+        "to": 29,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 30,
+        "to": 35,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 36,
+        "to": 41,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 42,
+        "to": 47,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 48,
+        "to": 53,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 9,
+        "from": 54,
+        "to": 59,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 10,
+        "from": 60,
+        "to": 65,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 11,
+        "from": 66,
+        "to": 69,
+        "count": 4,
+        "rows": 1
+      }
+    ]
+  },
+  "SHOULDER_Cord_Tied_Red_Ragehide_000.png": {
+    "total": 45,
+    "sheetSize": 5,
+    "sheetCount": 9,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 4,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 5,
+        "to": 9,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 10,
+        "to": 14,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 15,
+        "to": 19,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 20,
+        "to": 24,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 25,
+        "to": 29,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 30,
+        "to": 34,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 35,
+        "to": 39,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 40,
+        "to": 44,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "SHOULDER_Cord_Tied_Red_Ragehide_001.png": {
+    "total": 45,
+    "sheetSize": 5,
+    "sheetCount": 9,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 4,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 5,
+        "to": 9,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 10,
+        "to": 14,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 15,
+        "to": 19,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 20,
+        "to": 24,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 25,
+        "to": 29,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 30,
+        "to": 34,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 35,
+        "to": 39,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 40,
+        "to": 44,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "SHOULDER_Cord_Tied_Red_Ragehide_002.png": {
+    "total": 45,
+    "sheetSize": 5,
+    "sheetCount": 9,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 4,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 5,
+        "to": 9,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 10,
+        "to": 14,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 15,
+        "to": 19,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 20,
+        "to": 24,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 25,
+        "to": 29,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 30,
+        "to": 34,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 35,
+        "to": 39,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 40,
+        "to": 44,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "SHOULDER_Cord_Tied_Red_Ragehide_003.png": {
+    "total": 45,
+    "sheetSize": 5,
+    "sheetCount": 9,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 4,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 5,
+        "to": 9,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 10,
+        "to": 14,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 15,
+        "to": 19,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 20,
+        "to": 24,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 25,
+        "to": 29,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 30,
+        "to": 34,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 35,
+        "to": 39,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 40,
+        "to": 44,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "SHOULDER_Cord_Tied_Red_Ragehide_004.png": {
+    "total": 45,
+    "sheetSize": 5,
+    "sheetCount": 9,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 4,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 5,
+        "to": 9,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 10,
+        "to": 14,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 15,
+        "to": 19,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 20,
+        "to": 24,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 25,
+        "to": 29,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 30,
+        "to": 34,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 35,
+        "to": 39,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 40,
+        "to": 44,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "SHOULDER_Cord_Tied_Red_Ragehide_005.png": {
+    "total": 45,
+    "sheetSize": 5,
+    "sheetCount": 9,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 4,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 5,
+        "to": 9,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 10,
+        "to": 14,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 15,
+        "to": 19,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 20,
+        "to": 24,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 25,
+        "to": 29,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 30,
+        "to": 34,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 35,
+        "to": 39,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 40,
+        "to": 44,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "SHOULDER_Cord_Tied_Red_Ragehide_006.png": {
+    "total": 45,
+    "sheetSize": 5,
+    "sheetCount": 9,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 4,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 5,
+        "to": 9,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 10,
+        "to": 14,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 15,
+        "to": 19,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 20,
+        "to": 24,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 25,
+        "to": 29,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 30,
+        "to": 34,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 35,
+        "to": 39,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 40,
+        "to": 44,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "SHOULDER_Cord_Tied_Red_Ragehide_007.png": {
+    "total": 45,
+    "sheetSize": 5,
+    "sheetCount": 9,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 4,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 5,
+        "to": 9,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 10,
+        "to": 14,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 15,
+        "to": 19,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 20,
+        "to": 24,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 25,
+        "to": 29,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 30,
+        "to": 34,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 35,
+        "to": 39,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 40,
+        "to": 44,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "SHOULDER_Cord_Tied_Red_Ragehide_008.png": {
+    "total": 45,
+    "sheetSize": 5,
+    "sheetCount": 9,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 4,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 5,
+        "to": 9,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 10,
+        "to": 14,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 15,
+        "to": 19,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 20,
+        "to": 24,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 25,
+        "to": 29,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 30,
+        "to": 34,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 35,
+        "to": 39,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 40,
+        "to": 44,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "HANDGEAR_Yellow_Wraps_000.png": {
+    "total": 15,
+    "sheetSize": 5,
+    "sheetCount": 3,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 4,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 5,
+        "to": 9,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 10,
+        "to": 14,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "HANDGEAR_Yellow_Wraps_001.png": {
+    "total": 15,
+    "sheetSize": 5,
+    "sheetCount": 3,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 4,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 5,
+        "to": 9,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 10,
+        "to": 14,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "HANDGEAR_Yellow_Wraps_002.png": {
+    "total": 15,
+    "sheetSize": 5,
+    "sheetCount": 3,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 4,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 5,
+        "to": 9,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 10,
+        "to": 14,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "HEAD_Purple_Hood_000.png": {
+    "total": 60,
+    "sheetSize": 6,
+    "sheetCount": 10,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 11,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 12,
+        "to": 17,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 18,
+        "to": 23,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 24,
+        "to": 29,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 30,
+        "to": 35,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 36,
+        "to": 41,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 42,
+        "to": 47,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 48,
+        "to": 53,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 9,
+        "from": 54,
+        "to": 59,
+        "count": 6,
+        "rows": 2
+      }
+    ]
+  },
+  "HEAD_Purple_Hood_001.png": {
+    "total": 60,
+    "sheetSize": 6,
+    "sheetCount": 10,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 11,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 12,
+        "to": 17,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 18,
+        "to": 23,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 24,
+        "to": 29,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 30,
+        "to": 35,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 36,
+        "to": 41,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 42,
+        "to": 47,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 48,
+        "to": 53,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 9,
+        "from": 54,
+        "to": 59,
+        "count": 6,
+        "rows": 2
+      }
+    ]
+  },
+  "HEAD_Purple_Hood_002.png": {
+    "total": 60,
+    "sheetSize": 6,
+    "sheetCount": 10,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 11,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 12,
+        "to": 17,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 18,
+        "to": 23,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 24,
+        "to": 29,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 30,
+        "to": 35,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 36,
+        "to": 41,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 42,
+        "to": 47,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 48,
+        "to": 53,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 9,
+        "from": 54,
+        "to": 59,
+        "count": 6,
+        "rows": 2
+      }
+    ]
+  },
+  "HEAD_Purple_Hood_003.png": {
+    "total": 60,
+    "sheetSize": 6,
+    "sheetCount": 10,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 11,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 12,
+        "to": 17,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 18,
+        "to": 23,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 24,
+        "to": 29,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 30,
+        "to": 35,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 36,
+        "to": 41,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 42,
+        "to": 47,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 48,
+        "to": 53,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 9,
+        "from": 54,
+        "to": 59,
+        "count": 6,
+        "rows": 2
+      }
+    ]
+  },
+  "HEAD_Purple_Hood_004.png": {
+    "total": 60,
+    "sheetSize": 6,
+    "sheetCount": 10,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 11,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 12,
+        "to": 17,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 18,
+        "to": 23,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 24,
+        "to": 29,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 30,
+        "to": 35,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 36,
+        "to": 41,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 42,
+        "to": 47,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 48,
+        "to": 53,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 9,
+        "from": 54,
+        "to": 59,
+        "count": 6,
+        "rows": 2
+      }
+    ]
+  },
+  "HEAD_Purple_Hood_005.png": {
+    "total": 60,
+    "sheetSize": 6,
+    "sheetCount": 10,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 11,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 12,
+        "to": 17,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 18,
+        "to": 23,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 24,
+        "to": 29,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 30,
+        "to": 35,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 36,
+        "to": 41,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 42,
+        "to": 47,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 48,
+        "to": 53,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 9,
+        "from": 54,
+        "to": 59,
+        "count": 6,
+        "rows": 2
+      }
+    ]
+  },
+  "HEAD_Purple_Hood_006.png": {
+    "total": 60,
+    "sheetSize": 6,
+    "sheetCount": 10,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 11,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 12,
+        "to": 17,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 18,
+        "to": 23,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 24,
+        "to": 29,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 30,
+        "to": 35,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 36,
+        "to": 41,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 42,
+        "to": 47,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 48,
+        "to": 53,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 9,
+        "from": 54,
+        "to": 59,
+        "count": 6,
+        "rows": 2
+      }
+    ]
+  },
+  "HEAD_Purple_Hood_007.png": {
+    "total": 60,
+    "sheetSize": 6,
+    "sheetCount": 10,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 11,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 12,
+        "to": 17,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 18,
+        "to": 23,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 24,
+        "to": 29,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 30,
+        "to": 35,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 36,
+        "to": 41,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 42,
+        "to": 47,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 48,
+        "to": 53,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 9,
+        "from": 54,
+        "to": 59,
+        "count": 6,
+        "rows": 2
+      }
+    ]
+  },
+  "HEAD_Purple_Hood_008.png": {
+    "total": 60,
+    "sheetSize": 6,
+    "sheetCount": 10,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 11,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 12,
+        "to": 17,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 18,
+        "to": 23,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 24,
+        "to": 29,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 30,
+        "to": 35,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 36,
+        "to": 41,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 42,
+        "to": 47,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 48,
+        "to": 53,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 9,
+        "from": 54,
+        "to": 59,
+        "count": 6,
+        "rows": 2
+      }
+    ]
+  },
+  "HEAD_Purple_Hood_009.png": {
+    "total": 60,
+    "sheetSize": 6,
+    "sheetCount": 10,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 6,
+        "to": 11,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 12,
+        "to": 17,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 18,
+        "to": 23,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 24,
+        "to": 29,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 5,
+        "from": 30,
+        "to": 35,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 6,
+        "from": 36,
+        "to": 41,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 7,
+        "from": 42,
+        "to": 47,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 8,
+        "from": 48,
+        "to": 53,
+        "count": 6,
+        "rows": 2
+      },
+      {
+        "index": 9,
+        "from": 54,
+        "to": 59,
+        "count": 6,
+        "rows": 2
+      }
+    ]
+  },
+  "random_000.png": {
+    "totalSheetCount": 3,
+    "total": 6,
+    "sheetSize": 6,
+    "sheetCount": 1,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 5,
+        "count": 6,
+        "rows": 2
+      }
+    ]
+  },
+  "random_001.png": {
+    "totalSheetCount": 3,
+    "total": 15,
+    "sheetSize": 5,
+    "sheetCount": 3,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 4,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 5,
+        "to": 9,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 10,
+        "to": 14,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "random_002.png": {
+    "totalSheetCount": 3,
+    "total": 15,
+    "sheetSize": 5,
+    "sheetCount": 3,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 4,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 5,
+        "to": 9,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 10,
+        "to": 14,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "random_003.png": {
+    "total": 25,
+    "sheetSize": 5,
+    "sheetCount": 5,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 4,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 5,
+        "to": 9,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 10,
+        "to": 14,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 15,
+        "to": 19,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 20,
+        "to": 24,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  },
+  "random_004.png": {
+    "total": 25,
+    "sheetSize": 5,
+    "sheetCount": 5,
+    "sheets": [
+      {
+        "index": 0,
+        "from": 0,
+        "to": 4,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 1,
+        "from": 5,
+        "to": 9,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 2,
+        "from": 10,
+        "to": 14,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 3,
+        "from": 15,
+        "to": 19,
+        "count": 5,
+        "rows": 2
+      },
+      {
+        "index": 4,
+        "from": 20,
+        "to": 24,
+        "count": 5,
+        "rows": 2
+      }
+    ]
+  }
+}

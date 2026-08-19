@@ -1,0 +1,523 @@
+{
+  "auto_last_saved": [],
+  "headHazel_filt_cremeRed4": [
+    {
+      "prop": "headColor",
+      "value": "hazel",
+      "inverse": false
+    },
+    {
+      "prop": "color_filter",
+      "value": "FCcreme_red.4",
+      "inverse": false
+    }
+  ],
+  "BlueBeige_left_to_do": [
+    {
+      "prop": "color_filter",
+      "value": "FCblueBeige.2",
+      "inverse": true
+    },
+    {
+      "prop": "headColor",
+      "value": "white",
+      "inverse": false
+    }
+  ],
+  "Hello": [
+    {
+      "prop": "color_filter",
+      "value": "FCblueBeige.2",
+      "inverse": true
+    },
+    {
+      "prop": "headColor",
+      "value": "white",
+      "inverse": false
+    }
+  ],
+  "wolf helmet": [
+    {
+      "prop": "helmPeak",
+      "value": "wolf_helmet",
+      "inverse": false
+    }
+  ],
+  "hocel magic": [
+    {
+      "prop": "faceMask",
+      "value": "msk01",
+      "inverse": false
+    },
+    {
+      "prop": "hornType",
+      "value": "hocel",
+      "inverse": false
+    }
+  ],
+  "hocel": [
+    {
+      "prop": "hornType",
+      "value": "hocel",
+      "inverse": false
+    }
+  ],
+  "mask under hoodie": [
+    {
+      "prop": "hoodie",
+      "value": "hoodie_cape",
+      "inverse": false
+    }
+  ],
+  "mask under hoodie skel": [
+    {
+      "prop": "hoodie",
+      "value": "hoodie_cape",
+      "inverse": false
+    },
+    {
+      "prop": "type",
+      "value": "orc",
+      "inverse": true
+    }
+  ],
+  "mask under hoodie orc": [
+    {
+      "prop": "hoodie",
+      "value": "hoodie_cape",
+      "inverse": false
+    },
+    {
+      "prop": "type",
+      "value": "orc",
+      "inverse": false
+    }
+  ],
+  "basic helmet": [
+    {
+      "prop": "helmPeak",
+      "value": "helmetCombo1",
+      "inverse": false
+    }
+  ],
+  "hoodie Hocel FaceMask": [
+    {
+      "prop": "hornType",
+      "value": "hocel",
+      "inverse": false
+    },
+    {
+      "prop": "hoodie",
+      "value": "hoodie_cape",
+      "inverse": false
+    }
+  ],
+  "shoulder:thick branches": [
+    {
+      "prop": "shoulType",
+      "value": "THICK_BR",
+      "inverse": false
+    }
+  ],
+  "shoulder:root": [
+    {
+      "prop": "shoulType",
+      "value": "root_shoulder",
+      "inverse": false
+    }
+  ],
+  "double pad shoulder": [
+    {
+      "prop": "shoulType",
+      "value": "doublePad",
+      "inverse": false
+    }
+  ],
+  "barbarian fur": [
+    {
+      "prop": "shoulType",
+      "value": "Fur_long",
+      "inverse": false
+    }
+  ],
+  "root mouth mask": [
+    {
+      "prop": "faceMask",
+      "value": "MMaskRoot",
+      "inverse": false
+    }
+  ],
+  "thorn leather mask": [
+    {
+      "prop": "faceMask",
+      "value": "thorn leather MMask",
+      "inverse": false
+    }
+  ],
+  "mecha skull MMask": [
+    {
+      "prop": "faceMask",
+      "value": "mechaskull",
+      "inverse": false
+    }
+  ],
+  "eye light": [
+    {
+      "prop": "eyeType",
+      "value": "light",
+      "inverse": false
+    }
+  ],
+  "eye": [
+    {
+      "prop": "eyeType",
+      "value": "eyeColor",
+      "inverse": false
+    }
+  ],
+  "eyevis": [
+    {
+      "prop": "faceMask",
+      "value": "eyevis",
+      "inverse": false
+    }
+  ],
+  "slitted face visor": [
+    {
+      "prop": "faceMask",
+      "value": "Slitted",
+      "inverse": false
+    }
+  ],
+  "msk01 helmCombo1": [
+    {
+      "prop": "faceMask",
+      "value": "msk01",
+      "inverse": false
+    },
+    {
+      "prop": "helmPeak",
+      "value": "helmetCombo1",
+      "inverse": false
+    }
+  ],
+  "msk01 alone": [
+    {
+      "prop": "faceMask",
+      "value": "msk01",
+      "inverse": false
+    },
+    {
+      "prop": "helmPeak",
+      "value": "helmetCombo1",
+      "inverse": true
+    },
+    {
+      "prop": "hornType",
+      "value": "cellHorn_B",
+      "inverse": true
+    },
+    {
+      "prop": "hornType",
+      "value": "cellHorn_A_color",
+      "inverse": true
+    }
+  ],
+  "msk01 cellHorn_A": [
+    {
+      "prop": "faceMask",
+      "value": "msk01",
+      "inverse": false
+    },
+    {
+      "prop": "helmPeak",
+      "value": "helmetCombo1",
+      "inverse": true
+    },
+    {
+      "prop": "hornType",
+      "value": "cellHorn_B",
+      "inverse": true
+    },
+    {
+      "prop": "hornType",
+      "value": "cellHorn_A_color",
+      "inverse": false
+    }
+  ],
+  "msk02 cellHorn": [
+    {
+      "prop": "helmPeak",
+      "value": "helmetCombo2",
+      "inverse": false
+    },
+    {
+      "prop": "faceMask",
+      "value": "msk02",
+      "inverse": false
+    }
+  ],
+  "mask02 cellHornB": [
+    {
+      "prop": "helmPeak",
+      "value": "helmetCombo2",
+      "inverse": false
+    },
+    {
+      "prop": "faceMask",
+      "value": "msk02",
+      "inverse": false
+    },
+    {
+      "prop": "hornType",
+      "value": "cellHorn_B",
+      "inverse": false
+    }
+  ],
+  "eyevis 1 & 2": [
+    {
+      "prop": "faceMask",
+      "value": "eyevis",
+      "inverse": false
+    },
+    {
+      "prop": "faceMask",
+      "value": "eyevis2",
+      "inverse": false
+    }
+  ],
+  "purple skin": [
+    {
+      "prop": "skinColor",
+      "value": "purple",
+      "inverse": false
+    }
+  ],
+  "creme2": [
+    {
+      "prop": "color_filter",
+      "value": "creme2",
+      "inverse": false
+    },
+    {
+      "prop": "color_filter",
+      "value": "creme_black",
+      "inverse": false
+    }
+  ],
+  "two_different_filters": [
+    {
+      "prop": "filter2",
+      "value": "undefined",
+      "inverse": true
+    }
+  ],
+  "cellHornB helm combo4": [
+    {
+      "prop": "hornType",
+      "value": "cellHorn_B",
+      "inverse": false
+    },
+    {
+      "prop": "helmPeak",
+      "value": "helmetCombo4",
+      "inverse": false
+    }
+  ],
+  "naked_feet_skel": [
+    {
+      "prop": "type",
+      "value": "skel",
+      "inverse": false
+    },
+    {
+      "prop": "clothing",
+      "value": "NAKED_BAREFEET_WRAPS_AND_GLOVES",
+      "inverse": false
+    },
+    {
+      "prop": "shape",
+      "value": "undefined",
+      "inverse": true
+    }
+  ],
+  "various_trait_building": [
+    {
+      "prop": "color_filter",
+      "value": "blueBeige2",
+      "inverse": false
+    },
+    {
+      "prop": "fmaskColor",
+      "value": "brownLight",
+      "inverse": false
+    },
+    {
+      "prop": "faceMask",
+      "value": "Slitted",
+      "inverse": false
+    },
+    {
+      "prop": "hoodie",
+      "value": "capeShort_Halo1",
+      "inverse": false
+    },
+    {
+      "prop": "filter2",
+      "value": "blue",
+      "inverse": false
+    }
+  ],
+  "green_color_sequence": [
+    {
+      "prop": "color_filter",
+      "value": "green2",
+      "inverse": false
+    },
+    {
+      "prop": "color_filter",
+      "value": "gray_green",
+      "inverse": false
+    },
+    {
+      "prop": "color_filter",
+      "value": "greenThorn",
+      "inverse": false
+    }
+  ],
+  "MASK_RED_SKEL": [
+    {
+      "prop": "colorSqn",
+      "value": "MASK_RED_SKEL",
+      "inverse": false
+    }
+  ],
+  "SEQ_YELLOWMASK": [
+    {
+      "prop": "colorSqn",
+      "value": "SEQ_YELLOWMASK",
+      "inverse": false
+    }
+  ],
+  "ALL_SEQUENCE": [
+    {
+      "prop": "colorSqn",
+      "value": "SEQ_MIX",
+      "inverse": false
+    },
+    {
+      "prop": "colorSqn",
+      "value": "SEQ_341",
+      "inverse": false
+    },
+    {
+      "prop": "colorSqn",
+      "value": "SEQ_1201",
+      "inverse": false
+    },
+    {
+      "prop": "colorSqn",
+      "value": "SEQ_371",
+      "inverse": false
+    },
+    {
+      "prop": "colorSqn",
+      "value": "SEQ_07",
+      "inverse": false
+    },
+    {
+      "prop": "colorSqn",
+      "value": "SEQ_07_A",
+      "inverse": false
+    },
+    {
+      "prop": "colorSqn",
+      "value": "SEQ_07_B",
+      "inverse": false
+    },
+    {
+      "prop": "colorSqn",
+      "value": "SEQ_08",
+      "inverse": false
+    },
+    {
+      "prop": "colorSqn",
+      "value": "SEQ_03",
+      "inverse": false
+    },
+    {
+      "prop": "colorSqn",
+      "value": "SEQ_YELLOWMASK",
+      "inverse": false
+    },
+    {
+      "prop": "colorSqn",
+      "value": "GREENS_01",
+      "inverse": false
+    },
+    {
+      "prop": "colorSqn",
+      "value": "GREENS_02",
+      "inverse": false
+    },
+    {
+      "prop": "colorSqn",
+      "value": "RED_2",
+      "inverse": false
+    },
+    {
+      "prop": "colorSqn",
+      "value": "SEQ_06",
+      "inverse": false
+    },
+    {
+      "prop": "colorSqn",
+      "value": "GREENS_01_A",
+      "inverse": false
+    },
+    {
+      "prop": "colorSqn",
+      "value": "GREENS_01_C",
+      "inverse": false
+    },
+    {
+      "prop": "colorSqn",
+      "value": "SEQ_1101",
+      "inverse": false
+    }
+  ],
+  "RED_2": [
+    {
+      "prop": "colorSqn",
+      "value": "RED_2",
+      "inverse": false
+    }
+  ],
+  "SEQ_RED_2_AND_SEQ_7": [
+    {
+      "prop": "colorSqn",
+      "value": "SEQ_07",
+      "inverse": false
+    },
+    {
+      "prop": "colorSqn",
+      "value": "SEQ_07_A",
+      "inverse": false
+    },
+    {
+      "prop": "colorSqn",
+      "value": "SEQ_07_B",
+      "inverse": false
+    },
+    {
+      "prop": "colorSqn",
+      "value": "RED_2",
+      "inverse": false
+    },
+    {
+      "prop": "colorSqn",
+      "value": "SEQ_1101",
+      "inverse": false
+    }
+  ]
+}

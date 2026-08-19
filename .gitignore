@@ -1,8 +1,16 @@
 node_modules/
 .vercel
 .env
-public/IMG
+public/IMG/cards/
+#public/IMG/NFTcards/
+public/IMG/NFT/thumb120/   
+#public/IMG/NFT/thumb500/
+ 
+public/IMG/WEBNFT/
 
+nodemon.json
+npmrc
+.npmrc.vercel
 # Ignore Python virtual environment
 venv/
 __pycache__/

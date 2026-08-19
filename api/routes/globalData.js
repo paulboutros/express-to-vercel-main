@@ -11,7 +11,7 @@ const { connectToDataBase } = require("../../lib/connectToDataBase");
 
  
  
-     const engine = require("../wuliEngine/index.js");
+     const engine = require("../../wuliEngine/index.js");
        //const engine = require("@wulirocks/collection-engine");
      const {rebuildActiveFilterMap} = engine.features_traitFilters; 
 

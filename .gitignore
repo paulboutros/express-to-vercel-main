@@ -1,7 +1,7 @@
 node_modules/
 .vercel
 .env
-public/IMG/cards/
+#public/IMG/cards/
 #public/IMG/NFTcards/
 public/IMG/NFT/thumb120/   
 #public/IMG/NFT/thumb500/

@@ -70,6 +70,7 @@ const scriptType={
  CONFIG:"CONFIG" 
 
 }
+ 
 
 function createSafePath ( patharg){
  

@@ -92,10 +92,13 @@
 
         "CARDS":   "D:/GIT/hashLipsWuli/hashlips_art_engine/utils/NFT_ELECTRON/PSDEDITOR/cards/",
         "NFTCARDS":"D:/GIT/hashLipsWuli/hashlips_art_engine/utils/NFT_ELECTRON/PSDEDITOR/NFTcards/"
-      
-     
-
+    
 	}  
+	,
+	 "folder":{
+	 	 "cards":"cards" ,
+	 	 "NFTcards":"NFTcards"
+	 }
  
 
 }

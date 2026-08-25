@@ -16,6 +16,7 @@ const { get_traitOverrideNames_invers,
 
 const { createTextBuffer, renderMultilineSvg } = require("./textGeneration");
 const { buildObject } = require("../UTILITY/generalUtil2");
+ 
 
 //const { createCardFromList } = require("../PSDEDITOR/chartGeneration");
 
@@ -124,7 +125,7 @@ const rows = Math.ceil(images.length / grid.rowLength);
                   // let SHIELD = getValue_in_trait_type ( NFTmetaData.attributes, "SHIELD"  ) ;
 
                    const WEAPON_internal = traitOverrideNames_invers.weapon[WEAPON] ;
-                     cardPath = getCardFile(assetRoot, "CARDS", WEAPON_internal);
+                     cardPath = getCardFile(assetRoot, "cards" ,WEAPON_internal);
                         cardbuffer = await sharp(
                         cardPath //  path.join(imageFolder, id + ".png")
                     )
@@ -144,7 +145,7 @@ const rows = Math.ceil(images.length / grid.rowLength);
                    // let SHIELD = getValue_in_trait_type ( NFTmetaData.attributes, "SHIELD"  ) ;
 
                    const SHIELD_internal = traitOverrideNames_invers.shield[SHIELD] ;
-                      cardPath = getCardFile(assetRoot,"CARDS", SHIELD_internal);
+                      cardPath = getCardFile(assetRoot,"cards", SHIELD_internal);
                         shield_cardbuffer = await sharp(
                         cardPath //  path.join(imageFolder, id + ".png")
                     )
@@ -164,7 +165,7 @@ const rows = Math.ceil(images.length / grid.rowLength);
             break;
 
             case "nft_id":
-                       cardPath = getCardFile(assetRoot, "NFTcards",id);
+                       cardPath = getCardFile(assetRoot,  "NFTcards" ,id);
                  
                       cardbuffer = await sharp(
                         cardPath //  path.join(imageFolder, id + ".png")

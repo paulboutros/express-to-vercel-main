@@ -37,7 +37,7 @@
     import GuideComponent from "./UI/GuideComponent.js";
   
     //======================================================================================
-      import {updateActiveTraitBar , call_addTrait_inUI , setTraitUIHandlers ,get_UIstate ,
+      import {updateActiveTraitBar , call_addTrait_inUI /* , setTraitUIHandlers*/ ,get_UIstate ,
        get_VideoFilterObject
     } from "./wuli-ui/filterPills.js";
      import { applyTraitSearchBlock  } from "./wuli-ui/displayBlocksFromSearch.js";
@@ -55,7 +55,7 @@
            } from "./Mainfunctions/mainFunctions.js";
 import startLayoutEngine from "./LayoutEngine.js";
 import PayloadWidget from "./UI/widget/payloadWidget.js";
-import { renderNavigationTree } from "./navigationTree.js";
+import { buildNavigationPaths, renderNavigationTree } from "./navigationTree.js";
  
  
  
@@ -95,10 +95,7 @@ const  {collection, pageData} = objArg;
 if ( uiComponentLoaded) return;
 if (!uiComponentLoaded){uiComponentLoaded = true;}
  
-
-
-     
-
+ 
 
   currentCollection = collection;
 
@@ -106,11 +103,6 @@ if (!uiComponentLoaded){uiComponentLoaded = true;}
      sheetCard = new InfoCard( resultInfo,"SHEETS","0");
      foundCard = new InfoCard(  resultInfo,"FOUND","0 NFTs");
       
-        
-        
-    
-  
-
  
      traitPanelView = new ElementView( '[data-toggle="traits"]');
      viewManager.register("TRAITS", traitPanelView);
@@ -151,7 +143,7 @@ const raw = pageData.query;//
              queryBox.input.setValue(raw);
 
              
-             refreshQueryResult({raw: raw, caret: raw.length,  action: null,  command:null });
+              refreshQueryResult({raw: raw, caret: raw.length,  action: null,  command:null });
                create_SiteNavigation();
 
                setDOM(  {queryBox, activeCollection:collection, layoutEngine });
@@ -205,24 +197,23 @@ const raw = pageData.query;//
                              const slug = node.path;
                              console.log("NAVIGATE:", node);
 
-                             const fullPath = `/${ collection}/${ slug}`;
+                             let fullPath = `/${ collection}/${ slug}`;
+                             if (collection === "demos"){ 
+                                fullPath ="/";
+                             }
+
+
                              history.pushState({},"",fullPath);
+ 
 
 
-                           // console.log( "  currentCollection =   "  , currentCollection );
+                             if (collection === "demos"){ 
 
-         
-                             if (currentCollection === collection){
-
-                                 updatePage({ collection, slug });
+                                   window.location.href = "/";// fullPath;
                              }else{ 
-                               
-                                updatePage({ collection, slug });
-                                //window.location.href = fullPath;
-                             } 
-                            
-
-
+                                  updatePage({ collection, slug });
+                             }
+ 
                             
                         
                         }
@@ -248,27 +239,7 @@ function getCurrentRoute() {
 }
  
 
-
-
- /*
-const filterCard = new InfoCard(
-    resultInfo,
-    "FILTER",
-    "DSL"
-);
-
-const foundCard = new InfoCard(
-    resultInfo,
-    "FOUND",
-    "0 NFTs"
-);
-
-const sheetCard = new InfoCard(
-    resultInfo,
-    "SHEETS",
-    "0"
-);
- */
+ 
 
 window.addEventListener("popstate", () => {
     //const { collection, slug } = getCurrentRoute();
@@ -282,6 +253,11 @@ async function updatePage({collection, slug}= getCurrentRoute() ){
      setPageDataset();
   
      const allPageData    = await api.getPageData();
+
+
+  console.log( " collection   =  "  , { 
+    collection ,slug , allPageData } )
+
      const pageData       = allPageData[collection].pages[slug];
      const path           = navigationPaths[collection];// allPageData.paths[collection];
            pathIndex      = Number( path.indexOf(slug) );
@@ -310,6 +286,11 @@ async function updatePage({collection, slug}= getCurrentRoute() ){
      await loadUIcomponent( {collection, pageData}); // const raw = pageData.query;//    
  
      switch (collection) {
+
+
+        case "demos":
+
+        break;
 
         case "guide":
          /*
@@ -412,8 +393,17 @@ export default async function initGuide({slug, collection} = getCurrentRoute()) 
     viewManager.register("SHEET GENERATION", sheetView);
     viewManager.register("SEARCH RESULT", gridView);
     viewManager.setInitialView("SHEET GENERATION");
-    layoutEngine = startLayoutEngine({mode:"guide"});
-      
+
+   
+/*
+   if ( collection === "demos"){ 
+   //  layoutEngine = startLayoutEngine({mode:"guide"});
+      layoutEngine = startLayoutEngine({mode:"demo"});
+   }else{ 
+    
+   }*/
+ layoutEngine = startLayoutEngine({mode:"guide"});
+       
     siteNavigationData  = await api.getSiteNavigationData();
     navigationPaths     = buildNavigationPaths( siteNavigationData);
   
@@ -422,26 +412,7 @@ export default async function initGuide({slug, collection} = getCurrentRoute()) 
 let sheetTimer = null;
 const panel_ignored_traits = [ "NECKSTYLE","DNA","_BODY_","_HEAD_","COLORSQN","HELMCREST","WEAPON_PAT","MASK_PAT"] ;
  
-      setTraitUIHandlers({
-          onRemoveTrait(traitType, value, uiResult) {
-   
-                     if (  uiResult.pills.length === 0 ){ 
-                        viewManager.hide("filterModeBTN");
-                     } 
-           
-          const apiCall =  async () => { 
-                    const result = await api_rebuildActiveFilterMap(
-                                    { filterModeABS:        get_UIstate().filterModeABS,
-                                     serializeActivePills:  get_UIstate().serializeActivePills
-                                    });
-               
-                     update_activeFilterMap(result);               
-            }
-            apiCall();
- 
-    // redraw result grid
-  }
-});
+    
 
  
 let ResultToClient={}; // result/response from api engine.
@@ -473,51 +444,8 @@ const row1 = document.getElementById("row1");
     });
  
 //======================================================== 
-/*
-  const traitPanel = new TraitSelectorPanel({
-       container: document.getElementById("final_traitFILTERListContainer"),
-       panel_ignored_traits: panel_ignored_traits,
-      onAdd: ({ traitKey, value, ids }) => {
-             onTraitAdd(traitKey, value, ids) ;
-   
-      }
-   });
-    traitPanel.render(traitData);
-*/
-
-//======================================================== 
-const filterModeToggle = new ToggleButton({
-
-    containerId: "trait-pill-container", 
-     id:"toggleButton",
-     label: "Filter",
-     className : "filterModeToggleBtn",
-    values: ["OR","AND"],
-
-  
-      onChange:   (values) => {
-        
-      //  console.log("   onChange:   (values) =>  "  , values  );
-        get_UIstate().filterModeABS = values;
-       
  
-    const apiCall =  async () => { 
-             const result = await api_set_filterModeABS(
-                             { filterModeABS:        get_UIstate().filterModeABS,
-                               serializeActivePills:  get_UIstate().serializeActivePills
-                             });
-   
-
-       // console.log( "filterModeABS toggle   result:",  result );
-
-         update_activeFilterMap(result);        
  
-    }
-    apiCall();
-    //===========================================================================
- 
-    }
-});
 //======================================================================================
     const filterModeView = new ElementView( '[class="filterModeToggleBtn"]');
    viewManager.register("filterModeBTN", filterModeView);
@@ -525,66 +453,8 @@ const filterModeToggle = new ToggleButton({
  
  
   //=======================================================================================
-
-  async function onTraitAdd(traitKey, value, ids) {
-      
-    // activeTraitUI_result add the pills and serialize. make sure you run this before api_addtrait engine loi
-        const activeTraitUI_result = call_addTrait_inUI( traitKey, value , ids );
-      
-            const objArg =   {  filterModeABS:         get_UIstate().filterModeABS,
-                                serializeActivePills:  get_UIstate().serializeActivePills
-                            };
-        //    console.log( " onTraitAdd objArg = =========== \n" , objArg  );  
-             
-              // const result = await api_rebuildActiveFilterMap( objArg);
-                  const result = await  api_addTraitSelection  (  traitKey, value , ids , objArg )  ;       
-                   
-                 // console.log( " onTraitAdd result = =========== \n" , result  );             
-                update_activeFilterMap(result);                   
-               // get_UIstate().queryMode = "TRAIT_SEARCH";
-         
-          viewManager.show("filterModeBTN");
-  
-}
+ 
  
 }
  
-
-
-function buildNavigationPaths(siteNavigationData) {
-
-    const navigationPaths = {};
-  
-    function collect(nodes, collection = null) {
-
-        for (const node of nodes) {
-
-            const currentCollection =
-                 node.collection || collection;
-
-            if (node.path && currentCollection) {
-
-                if (!navigationPaths[currentCollection]) {
-                    navigationPaths[currentCollection] = [];
-                }
-
-                navigationPaths[currentCollection].push(
-                    node.path
-                );
-            }
-
-            if (node.children?.length) {
-
-                collect(
-                    node.children,
-                    currentCollection
-                );
-            }
-        }
-    }
-
-    collect(siteNavigationData);
-
-       return navigationPaths;
-}
-  
+ 

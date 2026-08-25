@@ -122,19 +122,7 @@ switch ( mode ) {
          
      });
 
-     /*
-     layoutManager.registerLayout("largeDesktop", 
-         {
-            
-           guideTextBlock:  mainMiddle,//  mainMiddle,
-           queryBox:        mainMiddle ,
-             nodeGraph:   mainMiddle,
-            lexerWidget :mainMiddle,
-
-           previewImg:      mainMiddle ,
-          
-     });
-  */
+     
    
  
  // layoutManager.registerLayout("compactDesktop", { traitPills: mainMiddle  });

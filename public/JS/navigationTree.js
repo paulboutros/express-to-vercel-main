@@ -133,4 +133,42 @@ export function renderNavigationTree(tree, container, options = {}) {
     return root;
 }
 
+
+export function buildNavigationPaths(siteNavigationData) {
+
+    const navigationPaths = {};
+  
+    function collect(nodes, collection = null) {
+
+        for (const node of nodes) {
+
+            const currentCollection =
+                 node.collection || collection;
+
+            if (node.path && currentCollection) {
+
+                if (!navigationPaths[currentCollection]) {
+                    navigationPaths[currentCollection] = [];
+                }
+
+                navigationPaths[currentCollection].push(
+                    node.path
+                );
+            }
+
+            if (node.children?.length) {
+
+                collect(
+                    node.children,
+                    currentCollection
+                );
+            }
+        }
+    }
+
+    collect(siteNavigationData);
+
+       return navigationPaths;
+}
+
  

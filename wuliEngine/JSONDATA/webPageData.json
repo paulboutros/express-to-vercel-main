@@ -1,7 +1,7 @@
 
  
  { 
- 
+  
 
  "purpose": {
      "pages": {
@@ -185,7 +185,7 @@
     },
  
     
-  "from-assets-to-a-coherent-collection": {
+"from-assets-to-a-coherent-collection": {
 
     "slug": "from-assets-to-a-coherent-collection",
 
@@ -259,24 +259,24 @@
      
 
          {
-  "type": "architecture",
-  "title": "From Engine to UI",
-  "root": "ENGINE",
-  "flow": [
-    "token",
-    "buildPipelineNode()",
-    "NODE (UI)"
-  ],
-  "branches": [
-    "data",
-    "state",
-    "action"
-  ],
-  "branchesReturn": true,
-  "continuation": [
-    "QueryDropdown",
-    "DOM"
-  ]
+          "type": "architecture",
+          "title": "From Engine to UI",
+          "root": "ENGINE",
+          "flow": [
+            "token",
+            "buildPipelineNode()",
+            "NODE (UI)"
+          ],
+          "branches": [
+            "data",
+            "state",
+            "action"
+          ],
+          "branchesReturn": true,
+          "continuation": [
+            "QueryDropdown",
+            "DOM"
+          ]
 }
  
     ]
@@ -1656,10 +1656,1466 @@
      
     },
    "reference":{ 
-         "purpose":"How does the engine work?",
+       "purpose":"How does the engine work?",
         "pages":{  
 
-          "lexer": {
+
+              "from-dsl-selection-to-corrected-query": {
+
+                      "slug": "from-dsl-selection-to-corrected-query",
+
+                      "title": "From DSL Selection to a Corrected Query",
+
+                      "summary": "A user selection in the DSL is transformed from a UI interaction into a command that the query engine applies to the existing query, returning an updated query to the client.",
+
+                       "sections": [
+
+                            {
+                              "type": "paragraph",
+                              "text": "A DSL query is not edited directly as raw text. A user interaction travels through several layers, from the query context identified by the client to a structured selection command, then through the query engine and back to the UI as an updated query."
+                            },
+
+                            {
+                              "type": "paragraph-title",
+                              "text": "The interaction begins with query context."
+                            },
+
+                            {
+                              "type": "paragraph",
+                              "text": "The client parses the current DSL query and identifies the token or context surrounding the user's current position. This context allows the interface to determine which values can be offered to the user."
+                            },
+
+                            {
+                              "type": "architecture",
+                              "title": "From DSL Context to Corrected Query",
+                              "root": "CURRENT DSL QUERY",
+                               "flow": [
+                                        {
+                                          "label": "QueryBox(1)",
+                                          "canOpen": true,
+
+                                          "implementation": {
+
+                                            "script": "QueryBox.js",
+
+                                            "trigger": ["() => onCaretChanged()"],
+
+                                            "functions": [
+                                              "onCaretChanged()"
+                                            ],
+ 
+                                            "objects": [
+                                              "block"
+                                            ],
+
+                                            "routes": [
+                                              "block.type → showTraitPanel() : type representation panel",
+                                              "block.type → showTraitValue() : type representation panel",
+                                              "block.type → showEquipmentPanel() : type representation panel" 
+                                            ],
+
+
+
+                                            "outcome": ["representation panel"],
+
+                                            "note": "Caret position identifies a query block. The block type determines which representation panel is displayed."
+                                          }
+                                        },
+                                        {
+                                          "label": "QueryBox(2)",
+                                          "canOpen": true,
+
+                                          "implementation": {
+
+                                            "script": "QueryBox.js",
+
+                                            "trigger": [
+                                              "onCaretChanged()"
+                                            ],
+
+                                            "purpose": ["Coordinate query caret state and representation-panel interaction"],
+    
+
+                                            "functionsGroupName": "Representation panel",
+                                            "functionsGroup": [
+                                                  "showTraitPanel()",
+                                                  "showTraitValue()",
+                                                  "showProducerOption()"
+                                                ],
+                                            
+                                            "callbacks": [
+                                              "showTraitPanel() → QueryDropdown.onSelect() → onSelect_traitType()",
+                                              "showTraitValue() → QueryDropdown.onSelect() → onSelect_traitValue()",
+                                              "showProducerOption() → QueryDropdown.onSelect() → onSelect_ProducerOption()"
+                                            ], 
+                                            
+                                            "treeXX": {
+                                                "title": "Callback flow",
+                                                "root": "Representation panel",
+                                                "children": [
+                                                    {
+                                                        "label": "showTraitPanel()",
+                                                        "children": [
+                                                            {
+                                                                "label": "QueryDropdown.onSelect()",
+                                                                "children": [
+                                                                    "onSelect_traitType()"
+                                                                ]
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "label": "showTraitValue()",
+                                                        "children": [
+                                                            {
+                                                                "label": "QueryDropdown.onSelect()",
+                                                                "children": [
+                                                                    "onSelect_traitValue()"
+                                                                ]
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "label": "showProducerOption()",
+                                                        "children": [
+                                                            {
+                                                                "label": "QueryDropdown.onSelect()",
+                                                                "children": [
+                                                                    "onSelect_ProducerOption()"
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+
+                                            "accessors": [
+                                              "get → getRenderList_valueEvaluation()",
+                                              "set → setItems()"
+                                            ],
+
+                                            "objects": [
+                                              "block"
+                                            ],
+
+                                            "routes": [
+                                              "block.type → representation panel"
+                                            ],
+
+                                            "outcome": [
+                                              "correctionDropdown.show()"
+                                            ],
+
+                                            "note": "Gets the caret DOM position, builds selectable items from block data, then assigns the panel data and callback."
+                                          }
+                                        },
+                                        {
+                                          "label": "QueryDropdown(1)",
+                                          "canOpen": true,
+
+                                          "implementation": {
+
+                                            "script": "QueryDropdown.js",
+
+                                            "functions": [
+                                              "renderList()"
+                                            ],
+
+                                            "purpose": "Transform block anchor data into a usable DOM position for the dropdown.",
+
+                                            "accessors": [
+                                              "get → data.anchor"
+                                            ],
+
+                                            "objects": [
+                                              "data.anchor",
+                                              "data.renderList"
+                                            ],
+
+                                            "outcome": [
+                                              "dropdown DOM position",
+                                              "data.renderList"
+                                            ],
+
+                                            "note": "Uses the block anchor position to position the dropdown DOM element."
+                                          }
+                                        },  
+                                        {
+                                          "label": "QueryDropdown(2)",
+                                          "canOpen": true,
+
+                                          "implementation": {
+
+                                            "script": "QueryDropdown.js",
+
+                                            "functions": [
+                                              "dataRenderList()"
+                                            ],
+
+                                            "purpose": "Create the dropdown from the supplied data list.",
+
+                                            "accessors": [
+                                              "get → dataList (arg)"
+                                            ],
+
+                                            "objects": [
+                                              "dataList"
+                                            ],
+
+                                            "callbacks": [
+                                              "onclick → onSelect()"
+                                            ],
+
+                                            "outcome": [
+                                              "dropdown displayed"
+                                            ],
+
+                                            "note": "The user can select an item or dismiss the dropdown by clicking away."
+                                          }
+                                        }
+                                        ,
+                                        {
+                                        "label": "QueryBox(3)",
+                                        "canOpen": true,
+
+                                        "implementation": {
+
+                                          "script": "QueryBox.js",
+
+                                          "trigger": [
+                                            "QueryDropdown.onSelect() callback"
+                                          ],
+
+                                          "purpose": [
+                                            "Process the selected representation value and convert it into an engine command."
+                                          ],
+
+                                          "functions": [
+                                            "onSelect_traitType()",
+                                            "onSelect_traitValue()",
+                                            "onSelect_ProducterOption()"
+                                          ],
+
+                                          "callbacks": [
+                                            "selection handler → refreshQueryResult()" 
+                                           ],
+                                           "architectureSketch": [
+                                             "onSelect_traitType() ───────┐",
+                                             "                            |",
+                                             "onSelect_traitValue() ──────┼──→ refreshQueryResult() → command",
+                                             "                            |",
+                                             "onSelect_ProducterOption()──┘"
+                                          ],
+
+                                          
+
+                                           "treeXX": {
+                                              "title": "Callback flow",
+                                              "root": "Selection handlers",
+                                              "children": [
+                                                  {
+                                                      "label": "onSelect_traitType()",
+                                                      "children": [
+                                                          "refreshQueryResult()"
+                                                      ]
+                                                  },
+                                                  {
+                                                      "label": "onSelect_traitValue()",
+                                                      "children": [
+                                                          "refreshQueryResult()"
+                                                      ]
+                                                  },
+                                                  {
+                                                      "label": "onSelect_ProducterOption()",
+                                                      "children": [
+                                                          "refreshQueryResult()"
+                                                      ]
+                                                  }
+                                                ]
+                                             },
+
+                                          "objects": [
+                                            "command"
+                                          ],
+
+                                          "routes": [
+                                            "selection type → command.type"
+                                          ],
+
+                                          "outcome": [
+                                            "refreshQueryResult({ raw, caret, action, command })"
+                                          ],
+
+                                          "note": [
+                                            "Each selection handler builds a different command object, then sends it through the same refreshQueryResult() update path.",
+                                            "Example: onSelect_traitValue() creates a REPLACE_TRAITVALUE command containing the selected value and query range."
+                                          ]
+                                        }
+                                        }
+                                        ,
+
+                                         {
+  "label": "QueryBox(4)",
+  "canOpen": true,
+
+  "implementation": {
+
+    "script": "QueryBox.js",
+
+    "trigger": [
+      "refreshQueryResult()"
+    ],
+
+    "purpose": [
+      "Delegate query execution to the globally available client handler."
+    ],
+
+    "functions": [
+      "runQueryInputHandler()"
+    ],
+
+    "callbacks": [
+      "runQueryInputHandler() → mainFunctions.runQueryInputHandler()"
+    ],
+
+    "outcome": [
+      "query execution request"
+    ],
+
+    "note": "QueryBox does not execute the query itself. It delegates execution to the shared client handler."
+  }
+},
+{
+  "label": "mainFunctions",
+  "canOpen": true,
+
+  "implementation": {
+
+    "script": "mainFunctions.js",
+
+    "trigger": [
+      "QueryBox.runQueryInputHandler()"
+    ],
+
+    "purpose": [
+      "Coordinate query execution through the client API layer."
+    ],
+
+    "functions": [
+      "runQueryInputHandler()"
+    ],
+
+    "callbacks": [
+      "runQueryInputHandler() → api_runQueryInputHandler()"
+    ],
+
+    "outcome": [
+      "API query execution request"
+    ],
+
+    "note": "Globally accessible client handler. Delegates the asynchronous API call to apiClient.js."
+  }
+},
+
+{
+  "label": "apiClient",
+  "canOpen": true,
+
+  "implementation": {
+
+    "script": "apiClient.js",
+
+    "trigger": [
+      "mainFunctions.runQueryInputHandler()"
+    ],
+
+    "purpose": [
+      "Send the query execution request to the server API."
+    ],
+
+    "functions": [
+      "api_runQueryInputHandler()"
+    ],
+
+    "objects": [
+      "POST /api/query/runQueryInputHandler"
+    ],
+
+    "outcome": [
+      "API response"
+    ],
+
+    "note": "Calls the server endpoint asynchronously and returns the endpoint result to the client."
+  }
+},
+
+{
+  "label": "globalData endpoint",
+  "canOpen": true,
+
+  "implementation": {
+
+    "script": "globalData.js",
+
+    "trigger": [
+      "POST /api/query/runQueryInputHandler"
+    ],
+
+    "purpose": [
+      "Create the request-scoped engine state, configure the engine's web-client filter rebuild handler, and execute the query."
+    ],
+
+    "functions": [
+      "runQueryInputHandler()"
+    ],
+
+    "objects": [
+       "FeatureState (request-scoped)",
+      "rarityCount (collection data)",
+      "featState",
+      "engine.queryEngine",
+      "engine.features_traitFilters"
+    ],
+
+    "callbacks": [
+      "set_rebuildActiveFilterMap(() => rebuildActiveFilterMap({ featStateArg: featState }))"
+    ],
+
+    "routes": [
+      "engine.features_traitFilters.rebuildActiveFilterMap"
+    ],
+    "architectureSketch": [
+      "POST /api/query/runQueryInputHandler",
+      "        ↓",
+      "new FeatureState(rarityCount)",
+      "        ↓",
+      "set_rebuildActiveFilterMap()",
+      "        ↓",
+      "engine.queryEngine.runQueryInputHandler()",
+      "        ↓",
+      "result"
+    ],
+
+     "note_SketchSecondary": "Architectural hand-off: the web client injects its own implementation into a shared engine capability.",
+    "architectureSketchSecondary": [
+    "engine.queryEngine",
+    "        │",
+    "        └── set_rebuildActiveFilterMap(",
+    "                  │",
+    "                  └── rebuildActiveFilterMap({ featStateArg: featState })",
+    "                      ↑ web client implementation",
+    "            )"
+     ],
+
+      "architectureSketchSecondaryXXXXX": [
+    "engine.queryEngine",
+    "        │",
+    "        └── set_rebuildActiveFilterMap",
+    "                  │",
+    "                  └── web-client callback" 
+      ],
+
+
+    "outcome": [
+      "result"
+    ],
+
+    "note": "Creates a stateless FeatureState for the request. The collection rarityCount is injected as traitCounter_Data. The engine's rebuildActiveFilterMap handler is configured with a web-client-specific callback before query execution."
+  }
+} ,
+
+{
+  "label": "queryEngine.runQueryInputHandler()",
+  "canOpen": true,
+   "branchesReturn":true,
+   "branches": [
+        {
+                "label": "DSL",
+                "branchStart": true,
+
+                
+                "implementationXXXX": {
+
+                  "script": "queryEngine.js",
+
+                  "trigger": [
+                    "queryEngine.runQueryInputHandler() → DSL"
+                  ],
+
+                  "purpose": [
+                    "Coordinate DSL normalization, interpretation, filtering, and query response construction."
+                  ],
+
+                  "functions": [
+                    "canonicalizeQuery()",
+                    "dslInterpreter()",
+                    "applyValueIncludeFilters()",
+                    "applyExclusiveValueRules()",
+                    "applyTraitExcludeFilters()",
+                    "applyValueExcludeFilter()"
+                  ],
+
+                  "objects": [
+                    "inputObj",
+                    "featStateArg",
+                    "queryResult"
+                  ],
+
+                  "routes": [
+                    "canonicalizeQuery() → dslInterpreter() → filter operations"
+                  ],
+
+                  "outcome": [
+                    "queryResult"
+                  ],
+
+                  "note": "Coordinates the complete DSL processing pipeline. Query normalization and interpretation happen before filter operations are applied against FeatureState."
+                },
+
+                  "flow": [
+                  {
+                  "label": "DSL",
+                  "canOpen": true,
+                     "implementation": {
+
+                  "script": "queryEngine.js",
+
+                  "trigger": [
+                    "queryEngine.runQueryInputHandler() → DSL"
+                  ],
+
+                  "purpose": [
+                    "Coordinate DSL normalization, interpretation, filtering, and query response construction."
+                  ],
+
+                  "functions": [
+                    "canonicalizeQuery()",
+                    "dslInterpreter()",
+                    "applyValueIncludeFilters()",
+                    "applyExclusiveValueRules()",
+                    "applyTraitExcludeFilters()",
+                    "applyValueExcludeFilter()"
+                  ],
+
+                  "objects": [
+                    "inputObj",
+                    "featStateArg",
+                    "queryResult"
+                  ],
+
+                  "routes": [
+                    "canonicalizeQuery() → dslInterpreter() → filter operations"
+                  ],
+
+                  "outcome": [
+                    "queryResult"
+                  ],
+
+                  "note": "Coordinates the complete DSL processing pipeline. Query normalization and interpretation happen before filter operations are applied against FeatureState."
+                }
+                  },
+                  
+{
+  "label": "handleDSLQuery()",
+  "canOpen": true,
+   
+
+  "implementation": {
+
+    "script": "queryEngine.js",
+
+    "trigger": [
+      "queryEngine.runQueryInputHandler() → DSL"
+    ],
+
+    "purpose": [
+      "Coordinate DSL normalization, interpretation, filtering, and query response construction."
+    ],
+
+    "functions": [
+      "canonicalizeQuery()",
+      "dslInterpreter()",
+      "applyValueIncludeFilters()",
+      "applyExclusiveValueRules()",
+      "applyTraitExcludeFilters()",
+      "applyValueExcludeFilter()"
+    ],
+
+    "objects": [
+      "inputObj",
+      "featStateArg",
+      "queryResult"
+    ],
+
+    "routes": [
+      "canonicalizeQuery() → dslInterpreter() → filter operations"
+    ],
+
+    "outcome": [
+      "queryResult"
+    ],
+
+    "note": "Coordinates the complete DSL processing pipeline. Query normalization and interpretation happen before filter operations are applied against FeatureState."
+  }
+},
+
+
+{
+  "label": "canonicalizeQuery()",
+  "canOpen": true,
+
+  "implementation": {
+
+    "script": "queryEngine.js",
+
+    "trigger": [
+      "handleDSLQuery()"
+    ],
+
+    "purpose": [
+      "Transform the raw query into a canonical representation while identifying blocks and their tokens."
+    ],
+
+    "functions": [
+      "applyCommand()",
+      "processBlock()",
+      "analyzeBlock()",
+      "insertRawTokens()",
+      "processUnknown()"
+    ],
+
+    "objects": [
+      "ctx",
+      "block",
+      "caret"
+    ],
+
+    "routes": [
+      "query scanner → processBlock()",
+      "processBlock() → analyzeBlock()",
+      "processBlock() → insertRawTokens()",
+      "unknown token/block → processUnknown()"
+    ],
+
+    "outcome": [
+      "normalizedQuery",
+      "actionTrigger",
+      "updatedCaret",
+      "blocks"
+    ],
+
+    "note": "Scans the query, identifies block boundaries and token types, applies pending commands, and produces the canonical query representation consumed by the DSL interpreter."
+  }
+},
+{
+  "label": "dslInterpreter()",
+  "canOpen": true,
+
+  "implementation": {
+
+    "script": "queryEngine.js",
+
+    "trigger": [
+      "handleDSLQuery() → canonicalizeQuery()"
+    ],
+
+    "purpose": [
+      "Interpret canonical query blocks and convert operators and values into filter instructions."
+    ],
+
+    "functions": [
+      "dslInterpreter()"
+    ],
+
+    "objects": [
+      "blocksData",
+      "block.operators",
+      "block.tokens",
+      "include",
+      "exclude",
+      "includeValues",
+      "excludeValues",
+      "includeExclusiveValues"
+    ],
+
+    "routes": [
+      "operatorToken.canonical '-v' → excludeValues"
+    ],
+
+    "outcome": [
+      "valid",
+      "blocks",
+      "include",
+      "exclude",
+      "includeValues",
+      "excludeValues",
+      "includeExclusiveValues"
+    ],
+
+    "note": "Interprets previously canonicalized blocks using their operator and token definitions, producing structured filter instructions rather than directly modifying FeatureState."
+  }
+},
+{
+  "label": "DSL filter operations",
+  "canOpen": true,
+
+  "implementation": {
+
+    "script": "queryEngine.js",
+
+    "trigger": [
+      "handleDSLQuery() → dslInterpreter()"
+    ],
+
+    "purpose": [
+      "Apply the interpreted DSL filter instructions against the request-scoped FeatureState."
+    ],
+
+    "functions": [
+      "applyValueIncludeFilters()",
+      "applyExclusiveValueRules()",
+      "applyTraitExcludeFilters()",
+      "applyValueExcludeFilter()"
+    ],
+
+    "objects": [
+      "result",
+      "featStateArg"
+    ],
+    "architectureSketchSecondary": [
+    "handleDSLQuery()",
+    "    │",
+    "    ├── canonicalizeQuery()",
+    "    │       ↓",
+    "    │   normalizedQuery + blocks",
+    "    │",
+    "    ├── dslInterpreter()",
+    "    │       ↓",
+    "    │   filter instructions",
+    "    │",
+    "    └── filter operations",
+    "            ↓",
+    "      shouldRebuild?"
+     ],
+
+    "outcome": [
+      "queryResult.shouldRebuild"
+    ],
+
+    "note": "Executes the filter rules produced by the DSL interpreter against the current FeatureState."
+  }
+},
+
+
+                  {
+                  "label": "DOM test 2 ",
+                  "canOpen": true,
+                     "implementation": {
+
+                  "script": "queryEngine.js",
+
+                  "trigger": [
+                    "queryEngine.runQueryInputHandler() → DSL"
+                  ],
+
+                  "purpose": [
+                    "Coordinate DSL normalization, interpretation, filtering, and query response construction."
+                  ],
+
+                  "functions": [
+                    "canonicalizeQuery()",
+                    "dslInterpreter()",
+                    "applyValueIncludeFilters()",
+                    "applyExclusiveValueRules()",
+                    "applyTraitExcludeFilters()",
+                    "applyValueExcludeFilter()"
+                  ],
+
+                  "objects": [
+                    "inputObj",
+                    "featStateArg",
+                    "queryResult"
+                  ],
+
+                  "routes": [
+                    "canonicalizeQuery() → dslInterpreter() → filter operations"
+                  ],
+
+                  "outcome": [
+                    "queryResult"
+                  ],
+
+                  "note": "Coordinates the complete DSL processing pipeline. Query normalization and interpretation happen before filter operations are applied against FeatureState."
+                }
+                  } 
+                 ]
+        },
+        {
+            "label": "TRAIT_SEARCH",
+            "canOpen": true,
+            "branchStart": true,
+             "implementationFFFFFFF": {
+                "script": "trait documentation pending"
+                },
+
+                 "flow": [
+                   {
+                  "label": "TRAIT_SEARCH",
+                  "canOpen": true,
+                     "implementation": {
+
+                  "script": "queryEngine.js",
+
+                  "trigger": [
+                    "queryEngine.runQueryInputHandler() → DSL"
+                  ],
+
+                  "purpose": [
+                    "Coordinate DSL normalization, interpretation, filtering, and query response construction."
+                  ],
+
+                  "functions": [
+                    "canonicalizeQuery()",
+                    "dslInterpreter()",
+                    "applyValueIncludeFilters()",
+                    "applyExclusiveValueRules()",
+                    "applyTraitExcludeFilters()",
+                    "applyValueExcludeFilter()"
+                  ],
+
+                  "objects": [
+                    "inputObj",
+                    "featStateArg",
+                    "queryResult"
+                  ],
+
+                  "routes": [
+                    "canonicalizeQuery() → dslInterpreter() → filter operations"
+                  ],
+
+                  "outcome": [
+                    "queryResult"
+                  ],
+
+                  "note": "Coordinates the complete DSL processing pipeline. Query normalization and interpretation happen before filter operations are applied against FeatureState."
+                }
+                  },
+                  {
+                  "label": "ts test 2",
+                  "canOpen": true,
+                     "implementation": {
+
+                  "script": "queryEngine.js",
+
+                  "trigger": [
+                    "queryEngine.runQueryInputHandler() → DSL"
+                  ],
+
+                  "purpose": [
+                    "Coordinate DSL normalization, interpretation, filtering, and query response construction."
+                  ],
+
+                  "functions": [
+                    "canonicalizeQuery()",
+                    "dslInterpreter()",
+                    "applyValueIncludeFilters()",
+                    "applyExclusiveValueRules()",
+                    "applyTraitExcludeFilters()",
+                    "applyValueExcludeFilter()"
+                  ],
+
+                  "objects": [
+                    "inputObj",
+                    "featStateArg",
+                    "queryResult"
+                  ],
+
+                  "routes": [
+                    "canonicalizeQuery() → dslInterpreter() → filter operations"
+                  ],
+
+                  "outcome": [
+                    "queryResult"
+                  ],
+
+                  "note": "Coordinates the complete DSL processing pipeline. Query normalization and interpretation happen before filter operations are applied against FeatureState."
+                }
+                  }
+              ]
+
+        },
+        {
+            "label": "NFT_SEARCH",
+            "canOpen": true,
+            "branchStart":true,
+             "implementationAAAAAAAA": {
+                "script": "nft documentation pending"
+             },
+              "flow": [
+                   {
+                  "label": "NFT_SEARCH",
+                  "canOpen": true,
+                     "implementation": {
+
+                  "script": "queryEngine.js",
+
+                  "trigger": [
+                    "queryEngine.runQueryInputHandler() → DSL"
+                  ],
+
+                  "purpose": [
+                    "Coordinate DSL normalization, interpretation, filtering, and query response construction."
+                  ],
+
+                  "functions": [
+                    "canonicalizeQuery()",
+                    "dslInterpreter()",
+                    "applyValueIncludeFilters()",
+                    "applyExclusiveValueRules()",
+                    "applyTraitExcludeFilters()",
+                    "applyValueExcludeFilter()"
+                  ],
+
+                  "objects": [
+                    "inputObj",
+                    "featStateArg",
+                    "queryResult"
+                  ],
+
+                  "routes": [
+                    "canonicalizeQuery() → dslInterpreter() → filter operations"
+                  ],
+
+                  "outcome": [
+                    "queryResult"
+                  ],
+
+                  "note": "Coordinates the complete DSL processing pipeline. Query normalization and interpretation happen before filter operations are applied against FeatureState."
+                }
+                  },
+                  {
+                  "label": "nf test 2",
+                  "canOpen": true,
+                     "implementation": {
+
+                  "script": "queryEngine.js",
+
+                  "trigger": [
+                    "queryEngine.runQueryInputHandler() → DSL"
+                  ],
+
+                  "purpose": [
+                    "Coordinate DSL normalization, interpretation, filtering, and query response construction."
+                  ],
+
+                  "functions": [
+                    "canonicalizeQuery()",
+                    "dslInterpreter()",
+                    "applyValueIncludeFilters()",
+                    "applyExclusiveValueRules()",
+                    "applyTraitExcludeFilters()",
+                    "applyValueExcludeFilter()"
+                  ],
+
+                  "objects": [
+                    "inputObj",
+                    "featStateArg",
+                    "queryResult"
+                  ],
+
+                  "routes": [
+                    "canonicalizeQuery() → dslInterpreter() → filter operations"
+                  ],
+
+                  "outcome": [
+                    "queryResult"
+                  ],
+
+                  "note": "Coordinates the complete DSL processing pipeline. Query normalization and interpretation happen before filter operations are applied against FeatureState."
+                }
+                  }
+              ]
+        }
+    ],
+    
+  
+
+  "implementation": {
+
+    "script": "queryEngine.js",
+ 
+ 
+    "trigger": [
+      "globalData endpoint"
+    ],
+
+    "purpose": [
+      "Resolve the query mode and route the request to the appropriate query pipeline."
+    ],
+
+    "functions": [
+      "handleDSLQuery()"
+    ],
+    "architectureSketchSecondary": [
+    "engine.queryEngine.runQueryInputHandler()",
+    "    │",
+    "    ├── DSL",
+    "    │    ↓",
+    "    │  handleDSLQuery()",
+    "    │",
+    "    ├── TRAIT_SEARCH",
+    "    │    ↓",
+    "    │  [documentation not ready]",
+    "    │",
+    "    └── NFT_SEARCH",
+    "         ↓",
+    "       [documentation not ready]"
+],
+
+
+    "routes": [
+      "featStateArg.QueryState.Mode → DSL",
+      "featStateArg.QueryState.Mode → TRAIT_SEARCH",
+      "featStateArg.QueryState.Mode → NFT_SEARCH"
+    ],
+
+    "outcome": [
+      "API response"
+    ],
+
+    "note": "Only the DSL route is documented here. After handleDSLQuery(), rebuild the active filter when shouldRebuild is true."
+  }
+},
+ 
+ 
+
+{
+  "label": "refreshQueryResult()",
+  "canOpen": true,
+   "branchMerge":true,
+
+  "implementation": {
+
+    "script": "mainFunctions.js",
+
+    "trigger": [
+      "QueryBox selection handler"
+    ],
+
+    "purpose": [
+      "Execute the query and route the result to the appropriate client-side update flow."
+    ],
+
+    "functions": [
+      "runQueryInputHandler()",
+      "propagateQueryResult()",
+      "queryBox.input.setValue()",
+      "queryBox.input.setCaret()",
+      "queryBox.updateAssistant()",
+      "queryBox.showProducterOption()",
+      "queryBox.showCorrections()",
+      "applyTraitSearchBlock()"
+    ],
+
+    "routes": [
+      "result.queryMode → NFT_SEARCH",
+      "result.queryMode → DSL",
+      "result.queryMode → TRAIT_SEARCH",
+      "DSL.actionTrigger → action handler"
+    ],
+     "architectureSketchSecondary": [
+    "refreshQueryResult()",
+    "    │",
+    "    ├── NFT_SEARCH",
+    "    │      ↓",
+    "    │  propagateQueryResult()",
+    "    │",
+    "    ├── DSL",
+    "    │    ↓",
+    "    │  propagateQueryResult()",
+    "    │    │",
+    "    │    └── actionTrigger?",
+    "    │           ├── CREATE_PRODUCER → showProducterOption()",
+    "    │           └── SELECT_TRAIT → showCorrections()",
+    "    │",
+    "    └── TRAIT_SEARCH",
+    "           ↓",
+    "       applyTraitSearchBlock()"
+],
+
+
+
+    "outcome": [
+      "updated client state/UI",
+      "optional action-triggered UI"
+    ],
+
+    "note": "Coordinates the client response after query execution. Query mode determines the main update path; DSL actionTrigger may additionally open a representation or correction panel."
+  }
+},
+{
+  "label": "propagateQueryResult()",
+  "canOpen": true,
+
+  "implementation": {
+
+    "script": "mainFunctions.js",
+
+    "trigger": [
+      "refreshQueryResult() → query result"
+    ],
+
+    "purpose": [
+      "propagateQueryResult() is a shared state/UI propagation step with SPA-specific branching.",
+      "Propagate query results into client state, UI counters, grid data, and collection-specific refresh behavior."
+    ],
+
+    "functions": [
+      "DOM.filterCard.setValue()",
+      "DOM.foundCard.setValue()",
+      "get_UIstate()",
+      "DOM.gridView.setNFTIds()"
+    ],
+
+    "objects": [
+      "UIstate",
+      "activeFilterMap_IDS",
+      "queryMode",
+      "queryData",
+      "dna"
+    ],
+
+    "routes": [
+      "DOM.activeCollection → collection-specific refresh"
+    ],
+    "architectureSketchSecondary": [
+    "propagateQueryResult(result)",
+    "    │",
+    "    ├── client UI state",
+    "    │      ↓",
+    "    │  UIstate + DOM cards",
+    "    │",
+    "    ├── NFT result display",
+    "    │      ↓",
+    "    │  DOM.gridView",
+    "    │",
+    "    └── activeCollection",
+    "           │",
+    "           ├── apiPipeline → refreshPipeline()",
+    "           │",
+    "           └── default → timeout_generateAllTraitSheet()"
+],
+
+
+
+    "outcome": [
+      "updated UI state",
+      "updated result display",
+      "collection-specific refresh"
+    ],
+
+    "note": "Synchronizes the query result with both client session state and the currently loaded SPA layout."
+  }
+},
+
+{
+  "label": "DSL actionTrigger",
+  "canOpen": true,
+
+  "implementation": {
+
+    "script": "mainFunctions.js",
+
+    "trigger": [
+      "refreshQueryResult() → result.queryResult.actionTrigger"
+    ],
+
+    "purpose": [
+      "Route engine action triggers to the appropriate QueryBox representation UI."
+    ],
+
+    "functions": [
+      "queryBox.showProducterOption()",
+      "queryBox.showCorrections()"
+    ],
+
+    "routes": [
+      "CREATE_PRODUCER → showProducterOption()",
+      "SELECT_TRAIT → showCorrections()"
+    ],
+
+    "outcome": [
+      "representation panel",
+      "correction list"
+    ],
+
+    "note": "Optional DSL outcome. The engine can request an additional UI action after query normalization."
+  }
+},
+
+{
+  "label": "TRAIT_SEARCH result",
+  "canOpen": true,
+
+  "implementation": {
+
+    "script": "mainFunctions.js",
+
+    "trigger": [
+      "refreshQueryResult() → queryMode = TRAIT_SEARCH"
+    ],
+
+    "purpose": [
+      "Apply the trait-search result to the client."
+    ],
+
+    "functions": [
+      "applyTraitSearchBlock()"
+    ],
+
+    "objects": [
+      "raw"
+    ],
+
+    "outcome": [
+      "trait search UI/state update"
+    ],
+
+    "note": "Trait-search-specific result handling. Detailed architecture not yet documented."
+  }
+},
+ 
+
+                                      {
+                                        "label": "Query Context",
+                                        "implementation": {
+                                          "script": "queryParser.js",
+                                          "functions": [
+                                            "getCurrentToken()"
+                                          ],
+                                          "objects": [
+                                            "queryToken"
+                                          ]
+                                        }
+                                      },
+
+ 
+                                      {
+                                        "label": "User Selection",
+                                        "implementation": {
+                                          "script": "QueryInput.js",
+                                          "functions": [
+                                            "selectValue()",
+                                            "buildSelectionCommand()"
+                                          ],
+                                          "callbacks": [
+                                            "refreshQueryResult()"
+                                          ],
+                                          "objects": [
+                                            "selection",
+                                            "queryToken"
+                                          ],
+                                          "note": "Converts the selected UI value into a command sent to the API."
+                                        }
+                                      },
+
+                                      "Selection Command",
+
+                                      {
+                                        "label": "Query Engine",
+                                        "implementation": {
+                                          "script": "queryEngine.js",
+                                          "functions": [
+                                            "processCommand()",
+                                            "replaceToken()"
+                                          ],
+                                          "objects": [
+                                            "selectionCommand",
+                                            "featureState"
+                                          ]
+                                        }
+                                      },
+
+                                      "Modified DSL Query",
+                                      "CLIENT UI"
+                                ],
+                                
+                                "branchesReturn": true,
+                                "continuationXXX": [
+                                          "QueryDropdown",
+                                          "DOM"
+                                        ]  
+
+
+
+
+                                   
+                               },
+
+                            {
+                              "type": "paragraph",
+                              "text": "The important part is that the UI selection does not directly manipulate the query text. The selection becomes a command describing what the user wants to change."
+                            },
+
+                            {
+                              "type": "tree",
+                              "title": "The Selection Becomes a Command",
+                              "root": "User Selection",
+                              "children": [
+                                "Trait",
+                                "Value",
+                                "Query Context"
+                              ]
+                            },
+
+                            {
+                              "type": "paragraph",
+                              "text": "The command is sent to the query engine, which applies the selection to the existing query and produces a new version of the DSL query."
+                            },
+
+                            {
+                              "type": "architecture",
+                              "title": "The Complete Flow",
+                              "root": "USER",
+                              "flow": [
+                                {
+                                      "label": "Query execution pipeline",
+                                        "type": "architectureSummary",
+                                      "canOpen": true,
+                                      
+                                      "implementation": {
+
+                                      
+                                          "architectureSketch": [
+                                        "QueryBox",
+                                        "    ↓",
+                                        "mainFunctions.runQueryInputHandler()",
+                                        "    ↓",
+                                        "apiClient.api_runQueryInputHandler()",
+                                        "    ↓",
+                                        "POST /api/query/runQueryInputHandler",
+                                        "    ↓",
+                                        "globalData endpoint",
+                                        "    ↓",
+                                        "new FeatureState(rarityCount)",
+                                        "    ↓",
+                                        "engine.queryEngine.runQueryInputHandler()",
+                                        "    │",
+                                        "    ├── DSL",
+                                        "    │    ↓",
+                                        "    │  handleDSLQuery()",
+                                        "    │    │",
+                                        "    │    ├── canonicalizeQuery()",
+                                        "    │    │       ↓",
+                                        "    │    │   normalized query + blocks",
+                                        "    │    │",
+                                        "    │    ├── dslInterpreter()",
+                                        "    │    │       ↓",
+                                        "    │    │   filter instructions",
+                                        "    │    │",
+                                        "    │    └── DSL filter operations",
+                                        "    │            ↓",
+                                        "    │      shouldRebuild?",
+                                        "    │            ↓",
+                                        "    │      query_rebuildFilter()",
+                                        "    │",
+                                        "    ├── TRAIT_SEARCH",
+                                        "    │    ↓",
+                                        "    │  [documentation not ready]",
+                                        "    │",
+                                        "    └── NFT_SEARCH",
+                                        "         ↓",
+                                        "       [documentation not ready]",
+                                        "    ↓",
+                                        "result",
+                                        "    ↓",
+                                        "mainFunctions.refreshQueryResult()",
+                                        "    │",
+                                        "    ├── NFT_SEARCH",
+                                        "    │      ↓",
+                                        "    │  propagateQueryResult()",
+                                        "    │",
+                                        "    ├── DSL",
+                                        "    │    ↓",
+                                        "    │  propagateQueryResult()",
+                                        "    │    │",
+                                        "    │    └── actionTrigger?",
+                                        "    │           ├── CREATE_PRODUCER → showProducterOption()",
+                                        "    │           └── SELECT_TRAIT → showCorrections()",
+                                        "    │",
+                                        "    └── TRAIT_SEARCH",
+                                        "           ↓",
+                                        "       applyTraitSearchBlock()",
+                                        "    ↓",
+                                        "client state + UI"
+                                        ],
+
+                                        "pricing":[
+                                          "                     FREE     PRO      API",
+                                          "                      │        │        │",
+                                          "DSL                   ●        ●        ●",
+                                          "Trait filtering       ●        ●        ●",
+                                          "Exclusive rules                ●        ●",
+                                          "NFT search                     ●        ●",
+                                          "API access                              ●"
+                                        ],
+                                        "pricing2":[
+                                            "           ENGINE",
+                                            "              │",
+                                            "      ┌───────┴────────┐",
+                                            "      ▼                ▼",
+                                            " DSL engine       Trait search",
+                                            "      │                │",
+                                            "      ▼                ▼",
+                                            " DSL feature       Search feature",
+                                            "      │                │",
+                                            " ┌────┼────┐       ┌───┼───┐",
+                                            " ▼    ▼    ▼       ▼   ▼   ▼",
+                                            "Free  Pro  API    Free Pro API" 
+                                          ]
+ 
+                                      }
+                                },
+                                "Next:[documentation not ready]" 
+                                
+                              ]
+                            },
+
+                            {
+                              "type": "paragraph",
+                              "text": "This creates a clean separation between intent and query manipulation: the client expresses the user's selection, while the query engine remains responsible for changing the DSL."
+                            }
+
+                        ],
+
+                       "tags": [
+                          "architecture",
+                          "javascript",
+                          "query-engine"
+                        ],
+
+                        "channels": [
+                          "devto",
+                          "hashnode",
+                          "indiehackers",
+                          {"site":"reddit",   "title":"I built a DSL for querying a visual collection — here's the architecture. What would you change?" },
+                          {"site":"linkedin", "title": "I realized I was forgetting my own codebase. So I started turning my architecture into clickable diagrams."},
+                          "youtube",
+                          {
+                            "site": "gumroad",
+                            "type": "product",
+                            "potential": "high",
+                            "title": "Visual Architecture Documentation System for JavaScript Projects",
+                            "note": "Could be packaged as a reusable documentation framework with JSON-driven architecture diagrams and implementation drill-downs."
+                          }
+                        ]
+
+
+              },
+
+ 
+
+         "lexer": {
 
             "slug": "lexer",
 

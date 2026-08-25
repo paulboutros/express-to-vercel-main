@@ -6,8 +6,7 @@ const { connectToDataBase } = require("../lib/connectToDataBase");
 const globalData = require("./routes/globalData");
 
 dotenv.config();
-
-const app = express();
+ const app = express();
 
 
 // --------------------------------------------------
@@ -15,19 +14,7 @@ const app = express();
 // --------------------------------------------------
 
 const publicPath = path.join(__dirname, "..", "public");
-
-/*
-const uiPath = path.join(
-    __dirname,
-    "..",
-    "node_modules",
-    "@wulirocks",
-    "ui",
-    "src"
-);
-*/
-
-
+ 
 // --------------------------------------------------
 // Middleware
 // --------------------------------------------------
@@ -45,8 +32,9 @@ app.use("/wuli-ui", express.static(uiPath));
 */
 
 
-// Local development only.
-// In Vercel, public/ should be served directly by Vercel.
+// Local development only where express serve index.html
+// current vercel express, trigger frontend ESM to be rewritten in CJS..(not ok)
+// so In Vercel, public/ should be served directly by Vercel.(public has own mode:module package)
 if (process.env.VERCEL !== "1") {
     app.use(express.static(publicPath));
 }

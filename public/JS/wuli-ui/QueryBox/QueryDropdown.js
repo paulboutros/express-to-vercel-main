@@ -305,9 +305,19 @@ root.appendChild(header);
                       
                   
                         div.onclick = () => {
+
+                           
+                            //traitValueSelected.label
+                            
+
+                            
+
                              if (node){ 
                                  node.onSelect( item.select );//itemLabel
                              }else{ 
+
+
+                                console.log( "  this.onSelect  =  "   ,  this.onSelect  )
                                  this.onSelect( item.select );//itemLabel
                              }
 
@@ -393,8 +403,8 @@ root.appendChild(header);
 
     hide() {
  
-         console.log( "============              hide" , this.el    );
-      console.trace("hide() called");
+        
+     // console.trace("hide() called");
 
         this.el.classList.remove("visible");
 

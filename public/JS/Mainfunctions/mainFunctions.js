@@ -64,7 +64,10 @@ export function setPageDataset(){
  const path = window.location.pathname;
 
  document.body.dataset.page = "demo";
-if (path.startsWith("/guide") ||
+  
+ if (
+    //  path.startsWith("/demos") ||
+     path.startsWith("/guide") ||
       path.startsWith("/introduction") || 
      path.startsWith("/reference")  || 
       path.startsWith("/purpose") 
@@ -120,35 +123,26 @@ export async function generateAllTraitSheet(batchNumber, incr , IDS_Match_Count)
                  
                   
                   
-                  previewImg.innerHTML = "";
-                
+              //   previewImg.innerHTML = "";
+                 
               for (let index = 0; index <  result.currentPreviewURLList.length; index++) {
   
                
-                   const img = document.createElement("img");
-                //  const img = document.getElementById("previewImg");
+                 //  const img = document.createElement("img");
+                   const  img = previewImg.querySelector(".previewImg") ; 
 
+ 
                      const bufferData =   result.currentPreviewURLList[index].data;
-                    //  console.log( "jpegBuffer data = " , bufferData  );
-
-                    //  console.log("jpegBuffer bytes =", bufferData.length);
-                     // console.log("jpegBuffer MB =", (bufferData.length / 1024 / 1024).toFixed(2));                
-                       
-                      // const jpegBuffer = Buffer.from(bufferData);
-                     //  const blob = new Blob([jpegBuffer], { type: "image/jpeg" });
-                       
+                        
 
                        const byteArray = new Uint8Array(bufferData);
                        const blob = new Blob([byteArray], { type: "image/jpeg" });
-
-
-
-
+ 
                      let objUrl = URL.createObjectURL(blob);
                       img.src = objUrl;
-                   //  preview.appendChild(img); 
+                   
 
-                     previewImg.appendChild(img); 
+                   //  previewImg.appendChild(img); 
               }
  
             
@@ -172,7 +166,7 @@ export async function refreshQueryResult ( obj ) { //raw
            if (  result && result.queryMode === "NFT_SEARCH" ){
              
                  result.raw = raw;
-                 update_activeFilterMap(result);   
+                 propagateQueryResult(result);   
                //  console.log( "nft search result. to  get_UIstate() : "  , result  );
            }
              
@@ -202,34 +196,27 @@ export async function refreshQueryResult ( obj ) { //raw
 
 
                  raw                    = result.queryResult.normalizedQuery;
-                /* raw+="                                ";*/
+                
                  DOM.queryBox.input.setValue( result.queryResult.normalizedQuery );
                  DOM.queryBox.input.setCaret( result.queryResult.updatedCaret   );
   
                  //===========================================================
                    result.raw = raw;
                    result.containsInvalidBlocks = containsInvalidBlocks;
-                   update_activeFilterMap(result); 
+                   propagateQueryResult(result); 
                  //===================================================================  
              
                  result.queryResult.raw = raw;
                  DOM.queryBox.updateAssistant(result.queryResult);
-
-                  //==========================
-                  //   result.queryResult.blocks.forEach(block => {
-
+ 
                     const actionTrigger = result.queryResult.actionTrigger ;
-                     console.log( " actionTrigger  =" ,   actionTrigger );
+                     
                     if ( actionTrigger){ 
-                             
-                                console.log( "actionTrigger.anchorPosition  =" ,   actionTrigger.anchorPosition );
-            
+             
                                 const blocks =       result.queryResult.blocks;
                                 const updatedCaret = result.queryResult.updatedCaret;
                                 const block = DOM.queryBox.getBlockFromCaret( blocks, actionTrigger.anchorPosition );
-
-                                console.log( " blocks =" ,   blocks );
-            
+ 
                                 switch ( actionTrigger.type ) {
                                  
                                 case "CREATE_PRODUCER":
@@ -241,15 +228,7 @@ export async function refreshQueryResult ( obj ) { //raw
                                     DOM.queryBox.showCorrections(block);
             
                                 break;
-                                
-
-                                case "OPEN_VALUE_DROPDOWN":
-
-                                  //  dropdown.openValueList(
-                                      //  result.actionTrigger.payload.trait
-                                   // );
-
-                                    break;
+                                 
 
                                 case "CLOSE_DROPDOWN":
 
@@ -308,7 +287,7 @@ export function setDOM(config = {}) {
 
     
 // make sure all variables are up to date after api response/result
-  function update_activeFilterMap(result){ 
+ export function propagateQueryResult(result){ 
           //============================== Client UI display ==============================  
               
                
@@ -323,9 +302,7 @@ export function setDOM(config = {}) {
                //==============================  Client Data/ session memory  ==============================   
            
                 get_UIstate().activeFilterMap_IDS = result.activeFilterMap_IDS;
-
                 get_UIstate().activeFilterMap_suffleIDS = result.activeFilterMap_suffleIDS;
-
                 get_UIstate().IDS_Match_Count     = result.activeFilterMap_IDS.length;
                 get_UIstate().queryMode = result.queryMode;
                 get_UIstate().raw = result.raw;
@@ -342,7 +319,7 @@ export function setDOM(config = {}) {
            // different  action on query update based on collection or page.....
 
                 nodeGraphCanvas.innerHTML = "";
-                previewImg.innerHTML = "";
+             /*   previewImg.innerHTML = "";*/
 
 
 
@@ -364,20 +341,19 @@ export function setDOM(config = {}) {
   }
 
 
-  function timeout_generateAllTraitSheet(batchNumber,incr ){ 
+ export function timeout_generateAllTraitSheet(batchNumber,incr ){ 
                     clearTimeout(sheetTimer);
                     sheetTimer = setTimeout(() => {
                         DOM.viewManager.show("SEARCH RESULT");
                          generateAllTraitSheet( batchNumber,incr );
                         DOM.sheetCard.setValue(get_UIstate().totalSheetCount); 
-
-
+ 
                          console.log( "sheetTimer   =",  sheetTimer);
                       //  generateAllTraitSheet(queryResult);
                     }, 1050);
   }
 async function runQueryInputHandler( obj   ) { //raw
-     const result = await api_runQueryInputHandler( obj  ); //raw
+     const result = await api_runQueryInputHandler(obj); //raw
        
        
 
@@ -440,7 +416,7 @@ export function refreshPipeline (result){
                     
                   const assistant_scroll_width = DOM.queryBox.assistant.container.scrollWidth; 
                       
-                    let layoutOptions=
+                       let layoutOptions=
                             {
                                 container: nodeGraph,
                                 mode: layoutMode,
@@ -484,45 +460,29 @@ export function refreshPipeline (result){
                     }
                 }
  //===================================================
-                     const {  
-                           requiredWidth,
-                           columnWidths
-                     } =
-                     getRequiredHorizontalWidth(
-                        nodeColumns,
-                        layoutOptions
-                      ); 
-
+                     const { requiredWidth,columnWidths} =
+                      
+                     getRequiredHorizontalWidth( nodeColumns,layoutOptions ); 
+                      
                       layoutOptions.assistant_scroll_width =  requiredWidth;
                       layoutOptions.requiredWidth = requiredWidth;
                       layoutOptions.columnWidths = columnWidths;
-
-
+ 
                        nodeGraphCanvas.style.width = `${requiredWidth}px`; 
-
-                      
+ 
                      queryAssistantContent =   document.getElementById("queryAssistantContent"); 
-                     // console.log( " queryAssistantContent   =====  "   ,  queryAssistantContent );
-                    //  queryAssistantContent.style.width =`${requiredWidth}px`;
-    
-                     // nodeGraphScroll.style.width  =    `${requiredWidth}px`;
+                    
                     console.log( " ==============  width adjustment:",  {
                            requiredWidth,
                            assistant_scroll_width
                      })
-                    //nodeGraphCanvas.style.width  =    `${ assistant_scroll_width   }px`; 
-
-
- //====================================
-                
+                 
              for (let tokenIndex = 0; tokenIndex < nodeColumns.length; tokenIndex++) {
                      const column = nodeColumns[tokenIndex];
                      for (let depth = 0; depth < column.length; depth++) {
  
                     const node = nodeColumns[tokenIndex][depth];
-                    // const currentHeight =  node.instance.getRect().height;
-                    
-   
+    
                             layoutNodes(
                             nodeColumns,
                             tokenIndex,
@@ -542,7 +502,7 @@ export function refreshPipeline (result){
                 DOM.queryBox.layoutOptions = layoutOptions;
 
                 nodeGraphCanvas.style.height = `${ layoutOptions.containerMaxHeight}px`;
-                console.log("layoutOptions.requiredHeight " ,  layoutOptions.containerMaxHeight  );
+               
               
      //============================================  connector =================================
  
@@ -551,6 +511,16 @@ export function refreshPipeline (result){
 
 
   }
+
+  /*
+  message chat GPT
+  yes for :
+const node =     nodeColumns[tokenIndex][depth];  
+tokenIndex is colomnIndec, and detpth is flowIndex.. 
+ so at the moment for testing only the nodeLayout need a moreGeneric fucntion you call it name+_gen
+  
+  
+  */
 function connectNodes(nodeColumns, layoutOptions){
 
      clearConnectors(nodeGraphScroll);

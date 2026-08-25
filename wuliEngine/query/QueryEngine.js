@@ -113,7 +113,7 @@ function extractTraitKey(block) {
 
 
 
-function dslInterpretor(query , blocksData ) {
+function dslInterpreter(query , blocksData ) {
     // query is  canonicalResult 
 
      suggestedTrait=[];
@@ -534,7 +534,7 @@ function resetSets(featStateArg){
      featStateArg.QueryState.exclusiveRuleSets.length = 0;
 }
 
-function handleDSLQuery( inputObj  , featStateArg ) {//raw
+function handleDSLQuery( inputObj  , featStateArg ) { 
 
      let { raw, caret, action } = inputObj;
    
@@ -556,7 +556,7 @@ function handleDSLQuery( inputObj  , featStateArg ) {//raw
                   );*/
         }
        
-        const result = dslInterpretor(normalizedQuery , blocksData  );
+        const result = dslInterpreter(normalizedQuery , blocksData  );
    
   for (let index = 0; index < result.blocks.length; index++) {
  
@@ -672,14 +672,11 @@ const queryData  = {
     return {
         success: false,
         shouldRebuild: false,
-    
-      /*  valid:      parserResult.valid,*/
-        blocks:     result.blocks,    
-        normalizedQuery:normalizedQuery,
+         blocks:     result.blocks,    
+         normalizedQuery:normalizedQuery,
          updatedCaret:updatedCaret,
-          actionTrigger:actionTrigger
-
-      /*  suggestedTrait: suggestedTrait*/
+        actionTrigger:actionTrigger
+        
     };
 
 
@@ -1029,15 +1026,11 @@ function runQueryInputHandler(inputObj, featStateArg){ //traitSearch
          
         case "DSL":
            const queryResult = handleDSLQuery( inputObj , featStateArg); //raw
-         //  console.log( "case DSL  queryResult " ,   queryResult );
+        
             if (queryResult?.shouldRebuild) {
 
-             //  console.log( " >>>>>>>>>>>>>>>       query_rebuildFilter: ", get_APIresponse() );
-                 query_rebuildFilter(featStateArg);
-
+                  query_rebuildFilter(featStateArg);
  
-              
-
             }
             
 
@@ -1344,7 +1337,7 @@ function applyTraitSearchBlock(q, featStateArg){
 
 //======================================================================
 module.exports ={ 
-   //dslParser: dslInterpretor, 
+   //dslParser: dslInterpreter, 
    resolveQueryMode,handleDSLQuery ,
 
    // was in engine state... we move here to make it stateless

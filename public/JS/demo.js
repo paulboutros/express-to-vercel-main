@@ -43,7 +43,13 @@
          
        
      } from "./apiClient.js";
-      import { generateAllTraitSheet, functionState } from "./Mainfunctions/mainFunctions.js";
+      import { generateAllTraitSheet, functionState, setDOM 
+                 ,propagateQueryResult
+                 ,timeout_generateAllTraitSheet,
+
+                 refreshQueryResult
+
+       } from "./Mainfunctions/mainFunctions.js";
 import startLayoutEngine from "./LayoutEngine.js";
 
       
@@ -69,13 +75,7 @@ const panel_ignored_traits = [ "NECKSTYLE","DNA","_BODY_","_HEAD_","COLORSQN","H
 });
     
  traitPanel.render(traitData);
-
-//===========================================================================
-
-
  
-   
-
     //======================================================================================
   const traitPanelView = new ElementView( '[data-toggle="traits"]');
    viewManager.register("TRAITS", traitPanelView);
@@ -94,13 +94,14 @@ const foundCard = new InfoCard(
     "FOUND",
     "0 NFTs"
 );
+ 
 
 const sheetCard = new InfoCard(
     resultInfo,
     "SHEETS",
     "0"
 );
-       
+ setDOM({sheetCard , foundCard, filterCard , viewManager })    
 
 
       
@@ -110,8 +111,9 @@ const sheetCard = new InfoCard(
          onSheetSelected : (page) => { 
                      timeout_generateAllTraitSheet( page, 0 );
              } 
-         }
-     );
+  });
+  setDOM({gridView});
+     
       const sheetView = new SheetView(
              document.getElementById("mainSlotA")
       );
@@ -125,7 +127,7 @@ const sheetCard = new InfoCard(
 
 
       setTraitUIHandlers({
-      onRemoveTrait(traitType, value, uiResult) {
+                 onRemoveTrait(traitType, value, uiResult) {
      
   
                      if (  uiResult.pills.length === 0 ){ 
@@ -139,13 +141,13 @@ const sheetCard = new InfoCard(
                                      serializeActivePills:  get_UIstate().serializeActivePills
                                     });
                
-                     update_activeFilterMap(result);               
+                     propagateQueryResult(result);               
             }
             apiCall();
  
     // redraw result grid
-  }
-});
+        }
+     });
 
  
 let ResultToClient={}; // result/response from api engine.
@@ -158,7 +160,7 @@ const buttonSet2 = document.getElementById("buttonSet2") ;
    
  //===================================================================
 //============================   QUERY BOX =======================================
- 
+ /*
  async function refreshQueryResult ( obj ) { //raw
 
              let {raw,caret} = obj;
@@ -173,7 +175,7 @@ const buttonSet2 = document.getElementById("buttonSet2") ;
            if (  result && result.queryMode === "NFT_SEARCH" ){
              
                  result.raw = raw;
-                 update_activeFilterMap(result);   
+                 propagateQueryResult(result);   
                //  console.log( "nft search result. to  get_UIstate() : "  , result  );
            }
              
@@ -217,7 +219,7 @@ const buttonSet2 = document.getElementById("buttonSet2") ;
                   const actionTrigger = result.queryResult.actionTrigger ;
 
                   if (!actionTrigger){ 
-                         update_activeFilterMap(result); 
+                         propagateQueryResult(result); 
                   }
                  
                  
@@ -278,14 +280,10 @@ const buttonSet2 = document.getElementById("buttonSet2") ;
                 applyTraitSearchBlock(raw);
                // console.log( "trait search result ", result );
               }
-
-
-            
-         
  
 
  }
-      
+   */   
      const queryStore = new QueryStore();
      await queryStore.initialize(api_getQueryExample)  ;
  
@@ -295,6 +293,7 @@ const buttonSet2 = document.getElementById("buttonSet2") ;
         queryStore,
         refreshQueryResult
     );
+    setDOM({queryBox});
   
   //===================================================== 
   const prevBatchButton = new RunButton({
@@ -356,10 +355,8 @@ const filterModeToggle = new ToggleButton({
                                serializeActivePills:  get_UIstate().serializeActivePills
                              });
    
-
-       // console.log( "filterModeABS toggle   result:",  result );
-
-         update_activeFilterMap(result);        
+       
+         propagateQueryResult(result);        
  
     }
     apiCall();
@@ -392,19 +389,17 @@ const filterModeToggle = new ToggleButton({
       
     // activeTraitUI_result add the pills and serialize. make sure you run this before api_addtrait engine loi
         const activeTraitUI_result = call_addTrait_inUI( traitKey, value , ids );
-        //   console.log( "activeTraitUI_result.pills = =========== \n" , activeTraitUI_result.pills  );
-       //    console.log( " get_UIstate().serializeActivePills = =========== \n" , get_UIstate().serializeActivePills );
-     
+       
             const objArg =   {  filterModeABS:         get_UIstate().filterModeABS,
                                 serializeActivePills:  get_UIstate().serializeActivePills
                             };
-        //    console.log( " onTraitAdd objArg = =========== \n" , objArg  );  
+      
              
              
                 const result = await  api_addTraitSelection  (  traitKey, value , ids , objArg )  ;       
                    
                        
-                update_activeFilterMap(result);                   
+                propagateQueryResult(result);                   
               
                 
         
@@ -412,66 +407,11 @@ const filterModeToggle = new ToggleButton({
  
  
 }
- 
-
-// make sure all variables are up to date after api response/result
-  function update_activeFilterMap(result){ 
-          //============================== Client UI display ==============================  
-              
-               
-                if (result.queryMode.includes("TRAIT") ){ 
-                   result.queryMode = "TRAITS";
-                }
-                filterCard.setValue(result.queryMode);
-                foundCard.setValue(result?.activeFilterMap_IDS.length);
-
-              //======================================================================             
-            
-               //==============================  Client Data/ session memory  ==============================   
-           
-                get_UIstate().activeFilterMap_IDS = result.activeFilterMap_IDS;
-
-                get_UIstate().activeFilterMap_suffleIDS = result.activeFilterMap_suffleIDS;
-
-                get_UIstate().IDS_Match_Count     = result.activeFilterMap_IDS.length;
-                get_UIstate().queryMode = result.queryMode;
-                get_UIstate().raw = result.raw;
-                get_UIstate().dna = result.dna;
-                get_UIstate().queryData = result.queryData;
-                get_UIstate().containsInvalidBlocks = result.containsInvalidBlocks;
-
-           // update grid IDS result for dislpay
-                gridView.setNFTIds(get_UIstate().activeFilterMap_suffleIDS);
-           
-
-             //===========================================================================
-
-
-                timeout_generateAllTraitSheet( null ,0 );
   
-                   
-
-
-
-
-
-  }
-
-
-  function timeout_generateAllTraitSheet(batchNumber,incr ){ 
-                    clearTimeout(sheetTimer);
-                    sheetTimer = setTimeout(() => {
-                        viewManager.show("SEARCH RESULT");
-                         generateAllTraitSheet( batchNumber,incr );
-                        sheetCard.setValue(get_UIstate().totalSheetCount); 
-
-
-                         console.log( "sheetTimer   =",  sheetTimer);
-                      //  generateAllTraitSheet(queryResult);
-                    }, 1050);
-  }
-
 }
+
+
+
 //initDemo();
   
  

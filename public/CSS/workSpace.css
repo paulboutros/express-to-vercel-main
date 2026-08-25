@@ -260,6 +260,10 @@ body[data-workspace="squareDesktop"]{
             1fr; /*[2] grid and mainMiddle hight*/
             
             grid-template-areas:
+            "row1 row1"   
+            "grid mainMiddle";  
+
+            grid-template-areas:
             "row1 row1"  /* [1] usually use bar querybox  */
             "grid mainMiddle"; /*[2] "grid sheet panel"; there is no panel area  in this layout*/
 }
@@ -905,7 +909,10 @@ align-content:flex-start;
 
 }
 
- .hidden {
+.hidden {
+    display:none !important;
+}
+.nodeHidden {
     display:none !important;
 }
  

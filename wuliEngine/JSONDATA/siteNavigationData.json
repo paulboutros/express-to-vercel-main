@@ -198,17 +198,14 @@
   {
     "id": "demos",
     "title": "Demos",
+    "collection":"demos",
     "children": [
       {
-        "id": "demo-query",
-        "title": "Query Demo",
-        "path": "/demos/query"
-      },
-      {
-        "id": "demo-pipeline",
-        "title": "Pipeline Demo",
-        "path": "/demos/pipeline"
-      }
+        "id": "demos",
+        "title": "Demo",
+        "path": "demos"
+      } 
+       
     ]
   },
   {
@@ -216,6 +213,11 @@
     "title": "Reference",
     "collection":"reference",
     "children": [
+      {
+        "id": "from-dsl-selection-to-corrected-query",
+        "title": "From dsl selection to corrected query",
+        "path": "from-dsl-selection-to-corrected-query"
+      },
       {
         "id": "lexer",
         "title": "lexer",

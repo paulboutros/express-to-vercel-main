@@ -112,9 +112,9 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
       
        }
     );
-       const {rebuildActiveFilterMap} = engine.features_traitFilters; 
+    const {rebuildActiveFilterMap} = engine.features_traitFilters; 
   
-                          engine.queryEngine.set_rebuildActiveFilterMap(
+          engine.queryEngine.set_rebuildActiveFilterMap(
                     () => rebuildActiveFilterMap({featStateArg: featState} )  
                    // rebuildActiveFilterMap
                   );

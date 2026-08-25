@@ -55,18 +55,14 @@ export default class QueryBox {
               container.querySelector(".queryAssistant")//    queryDropdown
         );
  
-       this.assistant.onErrorClicked = ({block, anchor }) => {
- 
-                  //  this.showCorrections(block, anchor);
-         
-       };
-
+      
         document.addEventListener("pointerdown", (e)=>{
 
+          //if click outside of container... turn thing off
         if(this.container.contains(e.target))
             return;
 
-           this.assistant.hide();
+          // this.assistant.hide();
            this.dropdown.hide();
            this.correctionDropdown.hide();
          });
@@ -115,29 +111,7 @@ export default class QueryBox {
         return renderList;
   }
 
-  /*
-  getRenderList_valueEvaluation( block ){
-       let renderList = [];
- 
-        block.valueEvaluation.forEach((item, index) => {
-
-                   for (let idx = 0; idx < item.matches.length; idx++) {
-                        const element = item.matches[idx];
-                            renderList.push({ label:  element,
-                                              select  :{ 
-                                                 traitValueSelected:  element, 
-                                                 start: item.start,
-                                                 end: item.end
-                                               }   
-                            });
-                   }
-  
-       });
-
-        return renderList;
-  }
-        
-  */
+   
 
   tokenTypeToClass(tokenType, blockId,tokenId){ 
 
@@ -231,7 +205,7 @@ buildPipelineNodes(token, block, dropdownArg, getRenderList  , nodeContainer  , 
                                  
      
 
-    showProducterOption(block){ 
+    showProducerOption(block){ 
      
 
         let renderList = this.getRenderList_producer();
@@ -240,32 +214,15 @@ buildPipelineNodes(token, block, dropdownArg, getRenderList  , nodeContainer  , 
 
       // producter dropdown
       this.correctionDropdown.onSelect = selectedItem => {    
-                 
-                 console.log( "this.correctionDropdown.onSelect: (producer) :" , selectedItem )
-                 this.correctionDropdown.hide();
-
-                  
-                  this.input.focus();
-
-                 const raw   = this.input.getValue();
-                 const caret = this.input.getCaret();
-
-
-                 this.refreshQueryResult({
-                              raw: raw,
-                              caret,
-                              action: null,
-                              command: { type: "INSERT_OPERATOR",operator: selectedItem }
-                 }); 
-                    
-               
-                  
-       };
  
-       // console.log( "showProducterOption  block.blockId: " , block.blockId  );
+            this.onSelect_ProducterOption(selectedItem);
+                   
+      };
+ 
+       // console.log( "showProducerOption  block.blockId: " , block.blockId  );
                 const anchor  = this.assistant.getProducerAnchor(block.blockId);
                     if(!anchor){ 
-                      console.log( "showProducterOption   anchor is null ");
+                      console.log( "showProducerOption   anchor is null ");
                       return null;
                    }
                 
@@ -290,12 +247,25 @@ buildPipelineNodes(token, block, dropdownArg, getRenderList  , nodeContainer  , 
     showTraitValues(block ){ 
 
 
-                    console.log( "  ==============    showTraitValues  block.blockId: "    );
+        console.log( "  ==============    showTraitValues  block.blockId: "    );
 
           const anchor  = this.assistant.getValueAnchor(block.blockId);
             if(!anchor){  console.log( "blockValues   anchor is null ");
                      return  null;
             }
+
+
+          // objValue, input
+            this.correctionDropdown.onSelect =  objValue  => {
+                          
+                    this.onSelect_traitValue(objValue,    this.input );
+                    this.correctionDropdown.hide();
+                            
+            }
+
+
+
+
 
     //================ adapt data to list ================================
            let renderList =  getRenderList_valueEvaluation(block);
@@ -364,13 +334,31 @@ buildPipelineNodes(token, block, dropdownArg, getRenderList  , nodeContainer  , 
          this.queryState.queryResult = queryResult;
 
          this.assistant.show(queryResult)
-      //   console.log( " updateAssistant  queryResult  ," , queryResult   ); // errors[0]?.suggestions
+      
         
     }
 
-   onSelect_traitValue(correction, input){ 
-        console.log( "this.correctionDropdown.onSelect: (Trait VALUE) :" , correction );
-                
+ onSelect_ProducterOption(selectedItem){ 
+     //console.log( "this.correctionDropdown.onSelect: (producer) :" , selectedItem )
+                 this.correctionDropdown.hide();
+
+                  
+                  this.input.focus();
+
+                 const raw   = this.input.getValue();
+                 const caret = this.input.getCaret();
+
+
+                 this.refreshQueryResult({
+                              raw: raw,
+                              caret,
+                              action: null,
+                              command: { type: "INSERT_OPERATOR",operator: selectedItem }
+                 }); 
+ }
+
+   onSelect_traitValue(objValue, input){ 
+     
                  this.correctionDropdown.hide();
 
                  const raw =    input.getValue();
@@ -378,9 +366,9 @@ buildPipelineNodes(token, block, dropdownArg, getRenderList  , nodeContainer  , 
                  this.refreshQueryResult( {raw: raw, caret, 
                      action:null,
                      command: {   type:"REPLACE_TRAITVALUE",
-                                  traitValueSelected:  correction.traitValueSelected,//      "TRAIT_TYPE",
-                                  start: correction.start,
-                                  end:   correction.end
+                                  traitValueSelected:  objValue.traitValueSelected.label  , 
+                                  start: objValue.start,
+                                  end:   objValue.end
                                    
                                   }
  
@@ -496,11 +484,7 @@ buildPipelineNodes(token, block, dropdownArg, getRenderList  , nodeContainer  , 
          this.input.setupInputScrollSync = () => {
 
                     const input = this.input.el;
-                   // const assistantEl = this.assistant.root;
-
-                  //  if (!input || !assistant) return;
-
-                   // input.addEventListener("scroll", () => {
+                  
 
                         this.assistant.root.scrollLeft = input.scrollLeft;
                         this.nodeGraphScroll.scrollLeft = input.scrollLeft;
@@ -606,7 +590,7 @@ buildPipelineNodes(token, block, dropdownArg, getRenderList  , nodeContainer  , 
  
               
                  let currentAnchor = null ;
-               if ( show_partial   ){ currentAnchor = this.showProducterOption(block);
+               if ( show_partial   ){ currentAnchor = this.showProducerOption(block);
                 //  return;
               } 
 

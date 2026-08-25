@@ -314,27 +314,11 @@ const rows = Math.ceil(images.length / grid.rowLength);
             })
             .jpeg({ quality: 80 })
             .toBuffer();
-        // display on browser:
-
-         //const blob = new Blob([jpegBuffer], { type: "image/jpeg" });
-
-         if (shared_state.currentPreviewURL) {
-             //  URL.revokeObjectURL( shared_state.currentPreviewURL );
-         }
-
-  
-         // let objUrl = URL.createObjectURL(blob);
-         // reviewSheetData[ argObj.fileName].currentPreviewURL = objUrl
+       
+   
  
           shared_state.currentPreviewURLList.push( jpegBuffer);
-         /*
-         const preview = document.getElementById("mainSlotA");
-         const img = document.createElement("img");
-              img.src = shared_state.currentPreviewURL;
-             preview.appendChild(img);
-             */
-    
- //  }
+         
        
     
 

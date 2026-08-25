@@ -1,5 +1,13 @@
+import {     layoutArchitectureBranchFlows, renderArchitecture,
+     setupArchitectureInteractions, 
+     updateLayoutContainerHeight
+    } from "./renderArchitecture.js";
+import { renderTree } from "./renderTree.js";
+
  
 
+ 
+ 
  export default class GuideComponent {
 
     constructor({container = null  }){
@@ -25,9 +33,7 @@
                     <div class="guideNavButton"></div>
                 </div>
             </div>
-
-
-
+ 
                 <div class="guideSummary">
                     ${guide.summary}
                 </div>
@@ -35,20 +41,81 @@
         `;
 
 
-
+          /*
         for(const section of guide.sections){
+             html += this.renderSection(section);
+         }*/
+         
+         let architectureIndex =0;
+          for (const section of guide.sections) {
+            
+              if (section.type === "architecture" && section.flow) {
+
+
+                section.architectureIndex = architectureIndex;
+
+                section.flow.filter(el => typeof el !== "string").forEach((flow, index) => {
+                    flow.mainNodeIndex = index;
+               });
+
+               architectureIndex++;
+            }
 
             html += this.renderSection(section);
-
         }
+
+
 
         html += `</div>`;
 
         this.container.innerHTML = html;
 
+         setupArchitectureInteractions(this.container , guide ,
+             () => { 
+                  this.do_layoutArchitectureBranchFlows( guide ) 
+             }
+         )
+        
+         this.do_layoutArchitectureBranchFlows( guide );
+        
+        
+        /* setupArchitectureInteractions(this.container , guide);*/
+
     }
 
-    renderSection(section){
+    do_layoutArchitectureBranchFlows(  guide ){ 
+       
+         for (const section of guide.sections) {
+
+          if (section.type === "architecture" && section.flow) {
+           
+              section.flow.filter(el => typeof el !== "string").forEach((node, index) => {
+ 
+                 
+              if (!node.branches?.length) {return;}
+
+                         
+                layoutArchitectureBranchFlows ( this.container, node.branches, node );
+
+              
+
+         });
+     
+                
+           }
+           
+          
+         }
+
+
+
+
+        
+        
+    }
+
+
+    renderSection(section, index){
 
         switch(section.type){
 
@@ -136,249 +203,16 @@
 
                 `;
                
-               case "architecture":
-
-    return `
-
-        <div
-            class="guideSection guideArchitecture"
-            style="--branch-count: ${section.branches?.length || 0};"
-        >
-
-            ${section.title ? `
-                <div class="guideArchitectureTitle">
-                    ${section.title}
-                </div>
-            ` : ""}
-
-
-            <div class="guideArchitectureFlow">
-
-
-                <!-- Root -->
-
-                <div class="guideArchitectureNode guideArchitectureRoot">
-                    ${section.root}
-                </div>
-
-
-                <!-- Main vertical flow -->
-
-                ${section.flow?.map(item => `
-
-                    <div class="guideArchitectureConnector">
-
-                        <div class="guideArchitectureLine"></div>
-
-                        <div class="guideArchitectureArrow">
-                            ▼
-                        </div>
-
-                    </div>
-
-                    <div class="guideArchitectureNode">
-                        ${item}
-                    </div>
-
-                `).join("") || ""}
-
-
-                <!-- Branches -->
-
-                ${section.branches?.length ? `
-
-                    <div class="guideArchitectureBranchConnector">
-
-                        <div class="guideArchitectureBranchConnectorGrid">
-
-                            ${section.branches.map(() => `
-                                <div class="guideArchitectureBranchConnectorCell">
-                                    <div class="guideArchitectureBranchLine"></div>
-                                </div>
-                            `).join("")}
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="guideArchitectureBranches">
-
-                        ${section.branches.map(branch => `
-
-                            <div class="guideArchitectureBranch">
-
-                                <div class="guideArchitectureNode">
-                                    ${branch}
-                                </div>
-
-                            </div>
-
-                          `).join("")}
-
-                    </div>
-
-
-                    <!-- Optional branch merge -->
-
-                   ${section.branchesReturn ? `
-
-    <div class="guideArchitectureMerge">
-
-        <div class="guideArchitectureMergeLines">
-
-            ${section.branches.map(() => `
-                <div class="guideArchitectureMergeLine"></div>
-            `).join("")}
-
-        </div>
-
-        <div class="guideArchitectureMergeHorizontal"></div>
-
-        <div class="guideArchitectureMergeArrow">
-            ▼
-        </div>
-
-    </div>
-
-` : ""}
-
-                ` : ""}
-
-
-                <!-- Continuation after branches -->
-
-                ${section.continuation?.length ? `
-
-                    <div class="guideArchitectureContinuation">
-
-                        ${section.continuation.map(item => `
-
-                            <div class="guideArchitectureConnector">
-
-                                <div class="guideArchitectureLine"></div>
-
-                                <div class="guideArchitectureArrow">
-                                    ▼
-                                </div>
-
-                            </div>
-
-                            <div class="guideArchitectureNode">
-                                ${item}
-                            </div>
-
-                        `).join("")}
-
-                    </div>
-
-                ` : ""}
-
-
-            </div>
-
-        </div>
-
-    `;
-     
-          case "tree": {
-
-          const renderTreeNode = (node, prefix = "", isLast = true) => {
-
-        const label =
-            typeof node === "string"
-                ? node
-                : node.label;
-
-        const children =
-            typeof node === "string"
-                ? []
-                : node.children || [];
-
-       return `
-
-    <div class="guideTreeNode">
-
-        <div class="guideTreeRow">
-
-            <span class="guideTreeConnector">${prefix}${isLast ? "└── " : "├── "}</span>
-
-            <span class="guideTreeItem">${label}</span>
-
-        </div>
-
-
-        ${children.length ? `
-
-            <div class="guideTreeChildren">
-
-                ${children.map((child, index) => {
-
-                    const childIsLast =
-                        index === children.length - 1;
-
-                    const childPrefix =
-                        prefix +
-                        (isLast ? "    " : "│   ");
-
-                    return renderTreeNode(
-                        child,
-                        childPrefix,
-                        childIsLast
-                    );
-
-                }).join("")}
-
-            </div>
-
-        ` : ""}
-
-    </div>
-
-`;
-            };
-
-
-    return `
-
-        <div class="guideSection guideTree">
-
-            ${section.title ? `
-                <div class="guideTreeTitle">
-                    ${section.title}
-                </div>
-            ` : ""}
-
-            <div class="guideTreeContent">
-
-                <div class="guideTreeRoot">
-                    ${section.root}
-                </div>
-
-                <div class="guideTreeNodes">
-
-                    ${section.children.map((child, index) => {
-
-                        const isLast =
-                            index === section.children.length - 1;
-
-                        return renderTreeNode(
-                            child,
-                            "",
-                            isLast
-                        );
-
-                    }).join("")}
-
-                </div>
-
-            </div>
-
-        </div>
-
-    `;
-         }
-
+        case "architecture":
+             return renderArchitecture(this.container, section );
+
+         case "tree":
+             return renderTree(
+                section.root,
+                section.children,
+                section.title
+         );
+  
 
             case "spacer":
                return `<div class="guideSpacer"></div>`;
@@ -458,3 +292,4 @@
 
 }
 
+ 

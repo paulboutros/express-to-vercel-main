@@ -1,5 +1,20 @@
  
 
+
+
+import LocalStorageAdapter from "../LocalStorageAdapter.js";
+
+console.log( "loaded: LocalStorageAdapter  ");
+
+import { loadUserPreferences } from "../UserPreferences.js";
+console.log( "loaded: loadUserPreferences  ");
+
+import {createProject} from "../Project.js";
+console.log( "loaded: createProject  ");
+ import ProjectStore from "../ProjectStore.js";
+ console.log( "loaded: ProjectStore  ");
+
+
  import { applyTraitSearchBlock  } from "../wuli-ui/displayBlocksFromSearch.js";
 //import {  } from "../apiClient.js";
 import {  api_addTraitSelection ,api_rebuildActiveFilterMap,
@@ -52,13 +67,11 @@ let queryAssistantContent  = document.getElementById("queryAssistantContent");
 const previewImg = document.getElementById("previewImg");
  
 
-    /*
-import {createProject} from "../Project.js";
-import ProjectStore from "../ProjectStore.js";
+     
 
-import LocalStorageAdapter from "../LocalStorageAdapter.js";
-import { loadUserPreferences } from "../UserPreferences.js";
-*/
+
+
+
 
 
     /*                   

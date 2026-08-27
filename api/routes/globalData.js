@@ -147,12 +147,9 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
 
   });
 
-   router.post("/api/generateAllTraitSheet", async (req, response) => {
+   router.post("/api/saveSheet", async (req, response) => {
   
-
-
-   console.log( " /api/generateAllTraitSheet  "  );
-
+ 
 
     const assetRoot = path.join(process.cwd(), "public", "IMG");
       const t0 = performance.now();
@@ -169,66 +166,54 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
 
 
          //if (process.env.VERCEL !== "1") {
-            save_sheetGenerationHistory_local(engine, vidFilter);// not on Vercel
 
-         
-        /*
+        
+        
+          
+           const saveStatus =  save_sheetGenerationHistory_local(engine, vidFilter);// not on Vercel
+           
+       
 
-         const sheetHistData = engine.writeServices.get_sheetGenerationHistory();
-          let saveKey; 
-          let vidFilter_queryDna = null;
-          let vidFilter_DSL_search_Dna = null;
-           let vidFilter_filterModeABS = "";
-         if ( vidFilter.queryMode === "DSL" ){ 
-           // vidFilter.dna;  this dna is build from include,inclusive & exclusive combo block trait result
-           // and different combo that produce the same nft list result. we prefer dna based on ordered ids list.
-             /// vidFilter_queryDna  = String(vidFilter.activeFilterMap_IDS);
-                //  vidFilter_queryDna  =    
-               const sorted = [...vidFilter.activeFilterMap_IDS].sort((a, b) => a - b);
-              vidFilter_queryDna = sorted.join(",");
+       try {
+          response.status(200).json( {
+                 saveStatus  
+          });
+      } catch(e){ 
+          console.error(e); response.status(500).json(e);
+        }
+  
+});
 
-               vidFilter_DSL_search_Dna = vidFilter.dna
-               //querymode does not count here
-         }
-         if ( vidFilter.queryMode === "TRAIT_SEARCH"){ 
-               vidFilter_queryDna      = vidFilter.sheetTitle;
-                vidFilter_filterModeABS = vidFilter.filterModeABS;
-            
-         }
-         if ( vidFilter.queryMode === "NFT_SEARCH"){ 
-              vidFilter_queryDna       = String(vidFilter.activeFilterMap_IDS);
-         }
 
-            vidFilter_queryDna   =  (vidFilter_queryDna +"|"+  vidFilter_filterModeABS);
-            // vidFilter_filterModeABS   = vidFilter.filterModeABS; 
-         
-             saveKey =  hashString(vidFilter_queryDna);
-
-              let keyPath = "examples";
-           if(vidFilter.containsInvalidBlocks ){
-                 keyPath ="containsInvalidBlocks";
-           } 
+   router.post("/api/generateAllTraitSheet", async (req, response) => {
+  
  
-              sheetHistData[keyPath][saveKey] ={
-               dna:            vidFilter_queryDna,
-               search_dna:     vidFilter_DSL_search_Dna,
-               raw:            vidFilter.raw,
-               queryData:       vidFilter.queryData,
+
+    const assetRoot = path.join(process.cwd(), "public", "IMG");
+      const t0 = performance.now();
+    
+           var vidFilter = req.body.videoFilterObject // get_featState().get_VideoFilterObject();
+           
+             const DEFAULT_CONFIG   =  engine.writeServices.get_UI_DEFAULT_CONFIG();
+
+            //===================  vidFilter endpoint modification ===============================
+                  vidFilter.overrideConfig        =  DEFAULT_CONFIG.nftThumb500;
+                  vidFilter.activeFilterMap_suffleIDS  =   buildDisplayOrder(vidFilter.activeFilterMap_IDS);
+                   vidFilter.assetRoot = assetRoot; 
+       
 
 
-                IDSMatchCount:  vidFilter.activeFilterMap_IDS.length, 
-                queryMode:      vidFilter.queryMode  ,
-               filterModeABS:  vidFilter.filterModeABS  
-            
-           }
+         //if (process.env.VERCEL !== "1") {
 
-            if ( sheetHistData[keyPath][saveKey].IDSMatchCount > 0 ){ 
-                   engine.writeServices.set_sheetGenerationHistory(sheetHistData);
-            }
+         console.log(  "vidFilter.userPreferences   "   ,  vidFilter.userPreferences
 
 
-     */
-
+         )
+         if ( vidFilter.userPreferences.sheetAutoSave ){   
+          
+            save_sheetGenerationHistory_local(engine, vidFilter);// not on Vercel
+          }
+          
 
        /*===========================================================================
                                buffer generation for image rendering  
@@ -457,14 +442,14 @@ function run_rebuildActiveFilterMap( filterModeABS, serializeActivePills ){
        result.raw="no_raw_input"; 
         
      
- return result;
+  return result;
       //===========================================================
 }
 
 function save_sheetGenerationHistory_local(engine, vidFilter){ 
     
   //console.log("save_sheetGeneration: isVercel   ===" , isVercel )
-      if (isVercel) return;
+      if (isVercel) return false;
    
       
          const sheetHistData = engine.writeServices.get_sheetGenerationHistory();
@@ -499,7 +484,7 @@ function save_sheetGenerationHistory_local(engine, vidFilter){
 
               let keyPath = "examples";
            if(vidFilter.containsInvalidBlocks ){
-                 keyPath ="containsInvalidBlocks";
+                // keyPath ="containsInvalidBlocks";
            } 
  
               sheetHistData[keyPath][saveKey] ={
@@ -522,7 +507,7 @@ function save_sheetGenerationHistory_local(engine, vidFilter){
 
 
      
-
+   return true;
 }
 
 

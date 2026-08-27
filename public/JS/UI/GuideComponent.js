@@ -1,3 +1,4 @@
+import { getProject, getProjectStore } from "../Mainfunctions/mainFunctions.js";
 import {     layoutArchitectureBranchFlows, renderArchitecture,
      setupArchitectureInteractions, 
      updateLayoutContainerHeight
@@ -204,6 +205,13 @@ import { renderTree } from "./renderTree.js";
                 `;
                
         case "architecture":
+         //   project.save(section);
+         if ( section.id === "archi_01" ){ 
+             const project = getProject();
+              project.architecture = section;
+             getProjectStore().save( project );
+         }
+
              return renderArchitecture(this.container, section );
 
          case "tree":

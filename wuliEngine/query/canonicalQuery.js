@@ -4,9 +4,7 @@
 
    let traitCounter_Data = getData(getPath("traitCounter.json", scriptType.JSONDATA));
    let traitCounterLength_Data  = getData(getPath("traitCounterLength.json", scriptType.JSONDATA));
-   //const traitTypeValueCount = Object.keys( traitCounter_Data[trait] ).length ;
-  
- 
+   
 
 
   function decomposeBlockInside(inside, blockStart) {
@@ -33,22 +31,7 @@ const leading =
  const traitLocalStart = leading;
  const traitLocalEnd =
     traitRaw.length - trailing;
-
-
-    
-   
-    /*
- const traitToken = createTraitToken({
-    blockStart: blockStart,
-    raw: trait,
-    normalized: trait,
-
-    localStart: traitLocalStart,
-    localEnd: traitLocalEnd
-
-});*/
-
-
+ 
 //============================================
 
   //  const trait = inside.slice(0, splitIndex).trim();
@@ -261,55 +244,7 @@ const {
 
 //========================== a partial + is actually a full block...  a partial block===================================
  const startIndex = ctx.index;
- 
- //  console.log( " before: TOKEN.PARTIAL_PRODUCER condition  =======",   ctx.index );
-
-   /*
-if ( producer.operatorToken.type === TOKEN.PARTIAL_PRODUCER ){ 
- 
-    write(ctx,  producer.operatorToken.raw);
-
-    // ctx update /advance
-    ctx.index = startIndex + producer.operatorToken.localEnd;
-    if ( actionTrigger) { ctx.actionTrigger = actionTrigger;  }
-
-   // avoid mutating the lexer object directly and instead create a parser copy:
-    const operatorToken = {
-      ...producer.operatorToken,
-        start: startIndex ,
-        end:   startIndex + producer.operatorToken.localEnd
-    };
-
-      addToken(operatorToken);
-
   
-
-    if (ctx.index <= startIndex) {
-
-    throw new Error(
-        `Parser stalled at index ${ctx.index}`
-    );
-
-}
-    
-    return {
-         tokens,
-         operatorToken  ,
-         raw:           operatorToken.raw,
-         start:         operatorToken.start,// abs
-         end:           operatorToken.end,// abs
-         status: "PARTIAL",
- 
-         normalized:    operatorToken.raw,
-         trait: "",
-         values: [],
-         editingValue: null,
-         
-    };
-
-}
-  */
-
 //--------------------------------------------------
 // Partial producer
 //--------------------------------------------------
@@ -599,8 +534,8 @@ if (editingValue && editingValue.editingIncomplete) {
                trait: data.trait,
                values: data.values ,
 
-               editingValue:editingValue//,
-              //  editingIncomplete: editingValue?.editingIncomplete
+               editingValue:editingValue 
+              
           }
 
 }
@@ -1220,7 +1155,7 @@ function normalizeProducerPrefix(text) {
 
     const skeleton =
         command.operator +
-        "[?:[]]";// "[?:[]]";
+        "[?:[]]"; 
 
     ctx.raw =
         before.slice(0, -1) +
@@ -1341,7 +1276,7 @@ function insertRawTokens(block) {
     const newTokens = [];
 
     let lastEnd = block.start;
-
+ 
     for (const token of block.tokens) {
 
         //--------------------------------------------------

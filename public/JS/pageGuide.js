@@ -55,7 +55,17 @@
            } from "./Mainfunctions/mainFunctions.js";
 import startLayoutEngine from "./LayoutEngine.js";
 import PayloadWidget from "./UI/widget/payloadWidget.js";
-import { buildNavigationPaths, renderNavigationTree } from "./navigationTree.js";
+import { 
+
+      getNavigationPaths , 
+      setNavigationPaths , 
+      create_SiteNavigation, 
+
+    buildNavigationPaths,
+   
+     getCurrentRoute, 
+     renderNavigationTree, 
+     setupdatePage} from "./navigationTree.js";
  
  
  
@@ -64,28 +74,30 @@ import { buildNavigationPaths, renderNavigationTree } from "./navigationTree.js"
  let pathIndex =0;
 let guideComponent = null;
 let queryBox = null;
+let filterCard = null;
 let sheetCard = null;
 let foundCard = null;
 let traitPanelView = null;
 let payloadWidget =null;
 let gridView= null;
 let sheetView = null;
-let siteNavigationDOM_created = false;
 
- let navigationPaths =  null;
+
+ // let navigationPaths =  null;
 let siteNavigationData = null;
  let currentCollection;
 let uiComponentLoaded = false;
 
 
- const final_traitList = document.getElementById("final_traitList");
+ //const final_traitList = document.getElementById("final_traitList");
   const queryStore = new QueryStore();
    queryBox = new QueryBox(
                 document.getElementById("queryBox"),
                 queryStore,
                 refreshQueryResult
                );
-
+   setupdatePage( updatePage );
+  
 
 async function loadUIcomponent( objArg ){   // const raw = pageData.query;//    
 
@@ -97,17 +109,31 @@ if (!uiComponentLoaded){uiComponentLoaded = true;}
  
  
 
-  currentCollection = collection;
+   currentCollection = collection;
 
    
-     sheetCard = new InfoCard( resultInfo,"SHEETS","0");
+
+     filterCard = new InfoCard(resultInfo,"FILTER","DSL");
+      sheetCard = new InfoCard( resultInfo,"SHEETS","0");
      foundCard = new InfoCard(  resultInfo,"FOUND","0 NFTs");
       
  
+   //=============================================================
+  // then go workspaceController to adjust 
+ // check button id: panelToggle 
+     /*
      traitPanelView = new ElementView( '[data-toggle="traits"]');
      viewManager.register("TRAITS", traitPanelView);
      viewManager.hide("TRAITS");
-
+*/
+     // check button id: navigToggle
+    const navigPanelView = new ElementView( '[data-toggle="navigation"]');
+       viewManager.register("NAVIGVIEW", navigPanelView);
+       viewManager.hide("NAVIGVIEW");   
+    document.getElementById("navigToggle").addEventListener("click", (e) => {
+             viewManager.toggle("NAVIGVIEW");
+   });     
+//=============================================================
 
 
 
@@ -132,19 +158,16 @@ const raw = pageData.query;//
 
  switch (collection) {
         case "guide":
-            
-           /*
-                queryBox = new QueryBox(
-                document.getElementById("queryBox"),
-                queryStore,
-                refreshQueryResult
-               );*/
-            
+         
              queryBox.input.setValue(raw);
 
              
               refreshQueryResult({raw: raw, caret: raw.length,  action: null,  command:null });
-               create_SiteNavigation();
+             
+             
+            
+
+             // create_SiteNavigation();
 
                setDOM(  {queryBox, activeCollection:collection, layoutEngine });
  
@@ -153,20 +176,15 @@ const raw = pageData.query;//
                    
                       
                      queryBox.collection = collection;
-                  
+  
+                  // create_SiteNavigation();
         
- 
-                   create_SiteNavigation();
-              
-
-
-       
        break;
 
         case "purpose":
         case "introduction":
         case "reference":
-           create_SiteNavigation();
+          // create_SiteNavigation();
         break;
      
         default:
@@ -175,72 +193,7 @@ const raw = pageData.query;//
 
 }
 
-
-
- async function create_SiteNavigation(){
-
-  if (siteNavigationDOM_created ){ return; }
-      siteNavigationDOM_created = true;
-      
-
-    
-     console.log( "navigationPaths =" , navigationPaths  );
-
-                  renderNavigationTree(  
-                    siteNavigationData,
-                
-                    document.querySelector("#final_traitFILTERListContainer"),
-                     {
-                        currentPageId: "pipeline-search",
-                         onNavigate(node) {
-                             const collection = node.collection; 
-                             const slug = node.path;
-                             console.log("NAVIGATE:", node);
-
-                             let fullPath = `/${ collection}/${ slug}`;
-                             if (collection === "demos"){ 
-                                fullPath ="/";
-                             }
-
-
-                             history.pushState({},"",fullPath);
  
-
-
-                             if (collection === "demos"){ 
-
-                                   window.location.href = "/";// fullPath;
-                             }else{ 
-                                  updatePage({ collection, slug });
-                             }
- 
-                            
-                        
-                        }
-                 });
-                 final_traitList.classList.remove("panel-hidden");
-
-
-} 
-function getCurrentRoute() {
-
-    const parts = window.location.pathname
-        .split("/")
-        .filter(Boolean);
-
-    return {
-
-        collection: parts[0] || "guide",
-
-        slug: parts[1] || "include-operator"
-
-    };
-
-}
- 
-
- 
-
 window.addEventListener("popstate", () => {
     //const { collection, slug } = getCurrentRoute();
           updatePage(getCurrentRoute());
@@ -259,7 +212,7 @@ async function updatePage({collection, slug}= getCurrentRoute() ){
     collection ,slug , allPageData } )
 
      const pageData       = allPageData[collection].pages[slug];
-     const path           = navigationPaths[collection];// allPageData.paths[collection];
+     const path           = getNavigationPaths()[collection];// allPageData.paths[collection];
            pathIndex      = Number( path.indexOf(slug) );
 
       // default 
@@ -300,7 +253,7 @@ async function updatePage({collection, slug}= getCurrentRoute() ){
                 refreshQueryResult
               );*/
             
-             setDOM({ activeCollection:collection, sheetCard,foundCard, viewManager, queryBox});
+             setDOM({ activeCollection:collection,filterCard, sheetCard,foundCard, viewManager, queryBox});
              queryBox.input.setValue(raw);
               
              refreshQueryResult({raw: raw, caret: raw.length, action: null, command:null});
@@ -310,7 +263,7 @@ async function updatePage({collection, slug}= getCurrentRoute() ){
 
            //to do: replace by id page id = "games"
             if (raw){
-               setDOM({ activeCollection:collection, sheetCard,foundCard, viewManager, queryBox});
+               setDOM({ activeCollection:collection,filterCard, sheetCard,foundCard, viewManager, queryBox});
                queryBox.input.setValue(raw);
 
                 get_UIstate().cardToDisplay = "weapon_and_shield";
@@ -330,7 +283,7 @@ async function updatePage({collection, slug}= getCurrentRoute() ){
                
              const testquery = {raw: raw, caret: raw.length,  action: null,  command:null }
              
-             setDOM({ activeCollection:collection, sheetCard,foundCard, viewManager, queryBox});
+             setDOM({ activeCollection:collection, filterCard,sheetCard,foundCard, viewManager, queryBox});
              const result = await refreshQueryResult(testquery);
                    
             
@@ -395,17 +348,13 @@ export default async function initGuide({slug, collection} = getCurrentRoute()) 
     viewManager.setInitialView("SHEET GENERATION");
 
    
-/*
-   if ( collection === "demos"){ 
-   //  layoutEngine = startLayoutEngine({mode:"guide"});
-      layoutEngine = startLayoutEngine({mode:"demo"});
-   }else{ 
-    
-   }*/
  layoutEngine = startLayoutEngine({mode:"guide"});
        
-    siteNavigationData  = await api.getSiteNavigationData();
-    navigationPaths     = buildNavigationPaths( siteNavigationData);
+     siteNavigationData  = await api.getSiteNavigationData();
+     setNavigationPaths(  buildNavigationPaths( siteNavigationData)   );
+      create_SiteNavigation();
+    
+
   
     const { allPageData, pageData, path} = await updatePage({collection, slug});
   

@@ -581,7 +581,7 @@ buildPipelineNodes(token, block, dropdownArg, getRenderList  , nodeContainer  , 
                                 "show_blockTrait", show_blockTrait  ,"\n"  ,
                                 "show_blockValues", show_blockValues  ,"\n" ,
                                 "show_partial", show_partial  ,"\n" ,
-                                " operatorToken.type",  operatorToken.type  ,"\n" ,
+                                 
                                
 
                                 "block", block  

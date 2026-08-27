@@ -1687,6 +1687,7 @@
 
                             {
                               "type": "architecture",
+                              "id":"archi_01",
                               "title": "From DSL Context to Corrected Query",
                               "root": "CURRENT DSL QUERY",
                                "flow": [

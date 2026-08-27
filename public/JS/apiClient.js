@@ -48,6 +48,8 @@ export async function getSiteNavigationData() {
     return post("/api/getSiteNavigationData" );
 
 }
+
+
 export async function getPageData() {
 
     return post("/api/getPageData" );
@@ -64,6 +66,13 @@ export async function api_generateAllTraitSheet(query) {
     return post("/api/generateAllTraitSheet", query);
 
 }
+export async function api_saveSheet(query) {
+
+    return post("/api/saveSheet", query);
+
+}
+
+
 
 export async function searchCharacters(query) {
 

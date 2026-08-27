@@ -21,8 +21,15 @@ layoutManager.registerSlot( "grid", document.getElementById("mainSlotB"));
 
 layoutManager.registerComponent("traitPills",      document.getElementById("trait-pill-container"));
 layoutManager.registerComponent("previewImg", document.getElementById("previewImg"));  
-layoutManager.registerComponent("final_traitList", document.getElementById("final_traitList")); 
-layoutManager.registerComponent("siteNavigation", document.getElementById("siteNavigation")); 
+
+
+layoutManager.registerComponent("navig_container", document.getElementById("navig_container")); 
+layoutManager.registerComponent("final_traitList", document.getElementById("final_traitList"));
+ 
+
+ 
+//layoutManager.registerComponent("siteNavigation", document.getElementById("siteNavigation")); 
+
 
 layoutManager.registerComponent("buttonSet2", document.getElementById("buttonSet2")); 
 layoutManager.registerComponent("queryBox", document.getElementById("queryBox")); 
@@ -43,7 +50,9 @@ switch ( mode ) {
           traitPills: mainMiddle, 
           previewImg:mainMiddle ,
           final_traitList:mainMiddle ,
-           queryBox:"top"
+          queryBox:"top",
+
+           navig_container:"grid"  // name it: leftpanel
          
      });
  
@@ -53,7 +62,10 @@ switch ( mode ) {
          previewImg:mainMiddle ,
 
          final_traitList:"panel" ,
-         queryBox:"top"
+         queryBox:"top",
+
+
+          navig_container:"grid",
      });
 
  layoutManager.registerLayout("largeDesktop", 
@@ -66,7 +78,11 @@ switch ( mode ) {
          });
   
  layoutManager.registerLayout("mobile",{ 
-          traitPills:mainMiddle, previewImg:mainMiddle,buttonSet2:"panel", final_traitList:"panel" , queryBox:"top"
+          traitPills:mainMiddle,
+           previewImg:mainMiddle,
+           buttonSet2:"panel",
+            final_traitList:"panel" ,
+             queryBox:"top"
   });
  
   layoutManager.registerLayout("compactDesktop", { traitPills: mainMiddle  });
@@ -86,6 +102,7 @@ switch ( mode ) {
                 lexerWidget:     mainMiddle,
                 
                 buttonSet2:"panel" ,
+                navig_container:"panel",
                 //siteNavigation:"panel" ,
                 final_traitList:"panel" ,
 
@@ -102,7 +119,8 @@ switch ( mode ) {
            lexerWidget :mainMiddle,
            previewImg:      mainMiddle  ,
            //navigButton:     mainMiddle,
-           final_traitList:"grid" ,
+           final_traitList:"grid" ,// name it: leftpanel
+           navig_container:"grid", // name it: leftpanel
        });
      
 
@@ -118,7 +136,8 @@ switch ( mode ) {
              
            // navigButton:     mainMiddle,
             //final_traitList:"panel" ,
-             final_traitList:"grid" ,
+             final_traitList:"grid" ,// name it: leftpanel
+             navig_container:"grid" // name it: leftpanel
          
      });
 

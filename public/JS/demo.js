@@ -47,10 +47,12 @@
                  ,propagateQueryResult
                  ,timeout_generateAllTraitSheet,
 
-                 refreshQueryResult
+                 refreshQueryResult,
+                 timeout_saveSheet
 
        } from "./Mainfunctions/mainFunctions.js";
 import startLayoutEngine from "./LayoutEngine.js";
+import { buildNavigationPaths, create_SiteNavigation, setNavigationPaths } from "./navigationTree.js";
 
       
 
@@ -76,10 +78,23 @@ const panel_ignored_traits = [ "NECKSTYLE","DNA","_BODY_","_HEAD_","COLORSQN","H
     
  traitPanel.render(traitData);
  
-    //======================================================================================
-  const traitPanelView = new ElementView( '[data-toggle="traits"]');
-   viewManager.register("TRAITS", traitPanelView);
-   viewManager.hide("TRAITS");
+//===============================================================
+     let siteNavigationData  = await api.getSiteNavigationData();
+     setNavigationPaths(  buildNavigationPaths( siteNavigationData)   );
+     create_SiteNavigation();
+
+//=============================================
+
+ //======================================================================================
+ // then go workspaceController to adjust 
+ // check button id: panelToggle
+ const traitPanelView = new ElementView( '[data-toggle="traits"]');
+       viewManager.register("TRAITS", traitPanelView);
+       viewManager.hide("TRAITS");
+// check button id: navigToggle
+  const navigPanelView = new ElementView( '[data-toggle="navigation"]');
+       viewManager.register("NAVIGVIEW", navigPanelView);
+       viewManager.hide("NAVIGVIEW");     
 //===============================================================
 
  
@@ -157,133 +172,7 @@ const uiRegistry={};
 const row1 = document.getElementById("row1");
 const buttonSet2 = document.getElementById("buttonSet2") ;
 
-   
- //===================================================================
-//============================   QUERY BOX =======================================
- /*
- async function refreshQueryResult ( obj ) { //raw
-
-             let {raw,caret} = obj;
-            
-            
-             const result = await runQueryInputHandler( obj  ); // raw
-
-  
- 
-           if (result && result.queryMode === "query cleared"){ result.queryMode = "NFT_SEARCH"; }
-
-           if (  result && result.queryMode === "NFT_SEARCH" ){
-             
-                 result.raw = raw;
-                 propagateQueryResult(result);   
-               //  console.log( "nft search result. to  get_UIstate() : "  , result  );
-           }
-             
-             if ( result && result.queryMode === 'DSL'){ 
-
-                  let containsInvalidBlocks = false;
-                    if ( result.queryResult.blocks.some(  block => !block.valid) ||
-                         result.queryResult.blocks.length === 0     ) { 
-
-                         containsInvalidBlocks = true; // will not save.
-                    }
-                  
-
-                 // editingIncomplete
-                  const editingIncomplete =
-                    result.queryResult.blocks.some(  block => block?.editingValue?.editingIncomplete
-                  );
-
-                if (editingIncomplete) {
-
-                    console.log( "editingIncomplete   "  , editingIncomplete  );
-                    return;
-                }else{ 
-                     console.log( "update editingIncomplete   "  , editingIncomplete  );
-                }
-
-                //    commenting out the input re-write no longer needed
-                //   comment rem. actually needed when select trait from panel, write to input
-                 raw = result.queryResult.normalizedQuery;
-                  queryBox.input.setValue( result.queryResult.normalizedQuery );
-
-                 queryBox.input.setCaret(result.queryResult.updatedCaret   );
-  
-                 //===========================================================
-                 result.raw = raw;
-                 result.containsInvalidBlocks = containsInvalidBlocks;
-               
-                 result.queryResult.raw = raw;
-                 queryBox.updateAssistant(result.queryResult);
-
-                  const actionTrigger = result.queryResult.actionTrigger ;
-
-                  if (!actionTrigger){ 
-                         propagateQueryResult(result); 
-                  }
-                 
-                 
-                   
-                     console.log( " actionTrigger  =" ,   actionTrigger );
-                    if (!actionTrigger){ 
-                           return;
-                    }
-
-                   
-                     console.log( "actionTrigger.anchorPosition  =" ,   actionTrigger.anchorPosition );
-                    
-
-
-                    const blocks = result.queryResult.blocks;
-                    const updatedCaret = result.queryResult.updatedCaret;
-                    const block = queryBox.getBlockFromCaret( blocks, actionTrigger.anchorPosition );
-
-                       console.log( " blocks =" ,   blocks );
-                  
-
-                     switch ( actionTrigger.type ) {
-
-                    
-                    case "CREATE_PRODUCER":
-                         
-                          queryBox.showProducterOption(block);
- 
-                     break; 
-                     case "SELECT_TRAIT":   
-                           queryBox.showCorrections(block);
- 
-                     break;
-                     
-
-                    case "OPEN_VALUE_DROPDOWN":
-
-                     //   dropdown.openValueList(
-                           // result.actionTrigger.payload.trait
-                      //  );
-
-                        break;
-
-                    case "CLOSE_DROPDOWN":
-
-                        dropdown.close();
-
-                        break;
-                  }
-               //  });
-                
- 
-
-             }
-
-            if ( result && result.queryMode === 'TRAIT_SEARCH'){ 
-                // here NO update activeFilterMap(). because there is no selection result, it is only adrop down filtering.
-                applyTraitSearchBlock(raw);
-               // console.log( "trait search result ", result );
-              }
- 
-
- }
-   */   
+    
      const queryStore = new QueryStore();
      await queryStore.initialize(api_getQueryExample)  ;
  
@@ -296,6 +185,7 @@ const buttonSet2 = document.getElementById("buttonSet2") ;
     setDOM({queryBox});
   
   //===================================================== 
+  /*
   const prevBatchButton = new RunButton({
         container:  row1  ,
         label :"<",
@@ -305,7 +195,7 @@ const buttonSet2 = document.getElementById("buttonSet2") ;
               timeout_generateAllTraitSheet( functionState.batchIndex, -1 );
         }
     });
-    //nextBatchButton.button.dataset.tool = "mainSlotA";
+     
     prevBatchButton.button.classList.add("btn_navGuide");
     prevBatchButton.button.style.width = "20px";
     
@@ -324,13 +214,23 @@ const buttonSet2 = document.getElementById("buttonSet2") ;
    
     nextBatchButton.button.classList.add("btn_navGuide");
     nextBatchButton.button.style.width = "20px";  
-   
+   */
 //======================================================== 
 //=====================================================
 //=====================================================
+
+
+   
+
+   document.getElementById("querySave").addEventListener("click", (e) => {
+               timeout_saveSheet( null ,0 );
+   });
    document.getElementById("panelToggle").addEventListener("click", (e) => {
              viewManager.toggle("TRAITS");
-    });
+   });
+   document.getElementById("navigToggle").addEventListener("click", (e) => {
+             viewManager.toggle("NAVIGVIEW");
+   });
  
 //======================================================== 
 //======================================================== 

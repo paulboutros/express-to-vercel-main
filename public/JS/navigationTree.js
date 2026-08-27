@@ -1,3 +1,24 @@
+
+let siteNavigationData = null;
+let siteNavigationDOM_created = false;
+  let navigationPaths =  null;
+
+ const final_traitList = document.getElementById("final_traitList");
+ const navig_container = document.getElementById("navig_container");
+
+ let updatePage = null;
+ export function setupdatePage( updatePageArg){ 
+      updatePage = updatePageArg;
+ }
+
+export function getNavigationPaths(){
+
+     return navigationPaths
+}
+export function setNavigationPaths( value ){
+   navigationPaths =  value;
+}
+
 export function renderNavigationTree(tree, container, options = {}) {
 
     const {
@@ -134,9 +155,10 @@ export function renderNavigationTree(tree, container, options = {}) {
 }
 
 
-export function buildNavigationPaths(siteNavigationData) {
-
-    const navigationPaths = {};
+export function buildNavigationPaths(  siteNavigationDataArg   ) {
+   
+      siteNavigationData   = siteNavigationDataArg;
+      navigationPaths = {};
   
     function collect(nodes, collection = null) {
 
@@ -171,4 +193,76 @@ export function buildNavigationPaths(siteNavigationData) {
        return navigationPaths;
 }
 
+
+
+export async function create_SiteNavigation(){
+
+  if (siteNavigationDOM_created ){ return; }
+      siteNavigationDOM_created = true;
+      
+
+    
+     console.log( "navigationPaths =" , navigationPaths  );
+
+                  renderNavigationTree(  
+                    siteNavigationData,
+                       document.querySelector("#navig_content"),
+                  
+                     {
+                        currentPageId: "pipeline-search",
+                        onNavigate(node) {
+                             const collection = node.collection; 
+                             const slug = node.path;
+                            
+                              console.log("NAVIGATE:", node);
+                             let fullPath = `/${ collection}/${ slug}`;
+                             if (collection === "demos"){ 
+                                fullPath ="/";
+                             }
+
+
+                             history.pushState({},"",fullPath);
+ 
+                             console.log("fullPath:", fullPath);
+
+                             const currentDatasetPage = document.body.dataset.page;
+                              // defines inititator
+                             if ( currentDatasetPage === "demo"){ 
+                               window.location.href = fullPath;
+                                return;
+                             }
+ 
+                             if (collection === "demos"){   // defines destination
+                               
+                                   window.location.href = "/";// fullPath;
+                             }else{ 
+                                  updatePage({ collection, slug });
+                             }
+ 
+                            
+                        
+                        }
+                     });
+
+     
+                 navig_container.classList.remove("panel-hidden");
+                 final_traitList.classList.remove("panel-hidden");
+
+
+} 
+export function getCurrentRoute() {
+
+    const parts = window.location.pathname
+        .split("/")
+        .filter(Boolean);
+
+    return {
+
+        collection: parts[0] || "guide",
+
+        slug: parts[1] || "include-operator"
+
+    };
+
+}
  

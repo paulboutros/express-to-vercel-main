@@ -4,8 +4,9 @@
 //import {  } from "../apiClient.js";
 import {  api_addTraitSelection ,api_rebuildActiveFilterMap,
           api_set_filterModeABS, api_runQueryInputHandler , api_getQueryExample ,
-          api_generateAllTraitSheet
-        //   api_generateAllTraitSheet
+          api_generateAllTraitSheet,
+          api_saveSheet
+        
      } from "../apiClient.js"; 
 
 import { drawConnector,pt ,clearConnectors, layoutNodes,
@@ -53,25 +54,92 @@ const previewImg = document.getElementById("previewImg");
 
    
   // let activeCollection;// the collection data this page is dispaying
-   let sheetTimer = null;
+   
   // let sheetCard;
    //let viewManager;
    //let gridView ;
   // let filterCard ;
  //  let foundCard ;  
   // let queryBox;
+
+import {createProject} from "../Project.js";
+import ProjectStore from "../ProjectStore.js";
+
+import LocalStorageAdapter from "../LocalStorageAdapter.js";
+import { loadUserPreferences } from "../UserPreferences.js";
+
+                       
+ const CURRENT_PROJECT_KEY =
+    "wulirocks.currentProject";
+
+const projectId =
+    localStorage.getItem(CURRENT_PROJECT_KEY);
+
+const projectStore =
+    new ProjectStore(
+        new LocalStorageAdapter()
+    );
+
+let project =
+    projectId
+        ? projectStore.load(projectId)
+        : null;
+
+if (!project) {
+
+    project = createProject();
+
+    projectStore.save(project);
+
+    localStorage.setItem(
+        CURRENT_PROJECT_KEY,
+        project.id
+    );
+}
+
+
+  
+export function getProject(){ 
+         return project;
+}
+export function getProjectStore(){ 
+         return projectStore;
+}
+
+const userPreferences =  loadUserPreferences();
+    
+
+   
+
+
+
+
 export function setPageDataset(){ 
  const path = window.location.pathname;
 
+
+ 
+const pathSegments = path.split("/").filter(Boolean);
+ if (pathSegments.includes("embed")) {
+     document.body.dataset.page = "embed"; 
+     return;
+} 
+     
+
+
+ 
+
  document.body.dataset.page = "demo";
   
- if (
-    //  path.startsWith("/demos") ||
-     path.startsWith("/guide") ||
+ 
+
+ 
+    
+ if ( path.startsWith("/guide") ||
       path.startsWith("/introduction") || 
-     path.startsWith("/reference")  || 
+      path.startsWith("/reference")  || 
       path.startsWith("/purpose") 
-    // path.startsWith("/apiPipeline")
+     
 
 ){ 
      document.body.dataset.page = "guide";
@@ -84,7 +152,41 @@ if ( path.startsWith("/apiPipeline")   ){
 
 }
 
-export async function generateAllTraitSheet(batchNumber, incr , IDS_Match_Count){ 
+
+export async function saveSheet(batchNumber, incr , options={}){ 
+     
+    
+           const maxPerSheet = 6;
+          const totalSheetCount = Math.ceil(      get_UIstate().activeFilterMap_IDS.length   / maxPerSheet);
+
+
+                get_UIstate().totalSheetCount = totalSheetCount;
+           
+                 functionState.batchIndex =  functionState.batchIndex % totalSheetCount; //reseting it first
+                functionState.batchIndex = (functionState.batchIndex + incr) % totalSheetCount;
+                 if(functionState.batchIndex <0 )  { functionState.batchIndex = totalSheetCount-1 }
+ 
+
+
+                  var vidFilter = get_VideoFilterObject(); // get_featState().get_VideoFilterObject();
+                  vidFilter.batchNumber = functionState.batchIndex;
+                  vidFilter.userPreferences = userPreferences;
+                  vidFilter.options = options;
+                  if (batchNumber ){ 
+                      vidFilter.batchNumber = batchNumber;
+                  }
+
+              
+             
+
+                 let result = await api_saveSheet({
+                     videoFilterObject : vidFilter 
+                 
+                 });
+
+}
+
+export async function generateAllTraitSheet(batchNumber, incr , options={}){ 
                 
 
     
@@ -97,23 +199,18 @@ export async function generateAllTraitSheet(batchNumber, incr , IDS_Match_Count)
                  functionState.batchIndex =  functionState.batchIndex % totalSheetCount; //reseting it first
                 functionState.batchIndex = (functionState.batchIndex + incr) % totalSheetCount;
                  if(functionState.batchIndex <0 )  { functionState.batchIndex = totalSheetCount-1 }
-
-              //  console.log(  "generateAllTraitSheet() batchIndex: " ,  functionState.batchIndex);
-                // currentIndex = (currentIndex + 1) % nftListToRender.length;
-
-
-                 
-        //==========================================================================
-        //===========================================================
+ 
 
 
                   var vidFilter = get_VideoFilterObject(); // get_featState().get_VideoFilterObject();
                   vidFilter.batchNumber = functionState.batchIndex;
+                  vidFilter.userPreferences = userPreferences;
+                  vidFilter.options = options;
                   if (batchNumber ){ 
                       vidFilter.batchNumber = batchNumber;
                   }
 
-              //   console.log(  "generateAllTraitSheet() vidFilter: " ,  vidFilter);
+              
              
 
                  let result = await api_generateAllTraitSheet({
@@ -185,6 +282,8 @@ export async function refreshQueryResult ( obj ) { //raw
                     result.queryResult.blocks.some(  block => block?.editingValue?.editingIncomplete
                 );
 
+
+                /*// this is possibly obsolete.. maybe an old safe guards..
                 if (editingIncomplete) {
 
                     console.log( "editingIncomplete   "  , editingIncomplete  );
@@ -192,10 +291,11 @@ export async function refreshQueryResult ( obj ) { //raw
                                   // that needs result so it does not return null
                 }else{ 
                      console.log( "update editingIncomplete   "  , editingIncomplete  );
-                }
+                }*/
 
 
-                 raw                    = result.queryResult.normalizedQuery;
+
+                 raw = result.queryResult.normalizedQuery;
                 
                  DOM.queryBox.input.setValue( result.queryResult.normalizedQuery );
                  DOM.queryBox.input.setCaret( result.queryResult.updatedCaret   );
@@ -320,11 +420,8 @@ export function setDOM(config = {}) {
 
                 nodeGraphCanvas.innerHTML = "";
              /*   previewImg.innerHTML = "";*/
-
-
-
-      console.log(   " DOM.activeCollection   "   , DOM.activeCollection   );
-
+ 
+ 
                switch (DOM.activeCollection) {
                   case "apiPipeline":
                        refreshPipeline(result)
@@ -341,15 +438,28 @@ export function setDOM(config = {}) {
   }
 
 
- export function timeout_generateAllTraitSheet(batchNumber,incr ){ 
+  let saveSheetTimer = null;
+export function timeout_saveSheet(batchNumber,incr, options ={} ){ 
+                    clearTimeout(saveSheetTimer);
+                    saveSheetTimer = setTimeout(() => {
+                      
+                        saveSheet( batchNumber,incr, options );
+                        
+ 
+                    //   console.log( "sheetTimer   =",  sheetTimer);
+                     
+                    }, 1050);
+  }
+  let sheetTimer = null;
+ export function timeout_generateAllTraitSheet(batchNumber,incr, options ={} ){ 
                     clearTimeout(sheetTimer);
                     sheetTimer = setTimeout(() => {
                         DOM.viewManager.show("SEARCH RESULT");
-                         generateAllTraitSheet( batchNumber,incr );
+                         generateAllTraitSheet( batchNumber,incr, options );
                         DOM.sheetCard.setValue(get_UIstate().totalSheetCount); 
  
                          console.log( "sheetTimer   =",  sheetTimer);
-                      //  generateAllTraitSheet(queryResult);
+                     
                     }, 1050);
   }
 async function runQueryInputHandler( obj   ) { //raw

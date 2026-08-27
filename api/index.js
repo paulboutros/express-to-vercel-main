@@ -72,14 +72,7 @@ app.get("/guide", (req, res) => {
 
 
 
-
- app.get("/apiPipeline/:slug", (req, res) => {
-
-    res.sendFile(
-        path.join(publicPath, "index.html")
-    );
-
-});
+ 
 // Other SPA routes
 app.get("/:collection/:slug?", (req, res, next) => {
 

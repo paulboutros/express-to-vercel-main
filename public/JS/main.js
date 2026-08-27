@@ -15,7 +15,7 @@ console.log( "document.body.dataset.page   =", document.body.dataset.page   );
         break;
 
 
-    case "guide":  case "apiPipeline":
+    case "guide":   case "apiPipeline":
  
          initGuide();
       

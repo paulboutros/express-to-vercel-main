@@ -7,7 +7,11 @@ const globalData = require("./routes/globalData");
 
 dotenv.config();
  const app = express();
- 
+
+
+// --------------------------------------------------
+// Paths
+// --------------------------------------------------
 
 const publicPath = path.join(__dirname, "..", "public");
  
@@ -17,7 +21,16 @@ const publicPath = path.join(__dirname, "..", "public");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
- 
+
+
+// --------------------------------------------------
+// Static files
+// --------------------------------------------------
+ /*
+// Wuli UI package
+app.use("/wuli-ui", express.static(uiPath));
+*/
+
 
 // Local development only where express serve index.html
 // current vercel express, trigger frontend ESM to be rewritten in CJS..(not ok)
@@ -49,13 +62,13 @@ app.get("/guide", (req, res) => {
 // --------------------------------------------------
 // Embed SPA route
 // --------------------------------------------------
+ 
+//app.get("/:collection/:slug/embed/:componentId", (req, res) => {
 
-app.get("/:collection/:slug/embed/:componentId", (req, res) => {
-
-    res.sendFile(
-        path.join(publicPath, "index.html")
-    );
-});
+   // res.sendFile(
+     //   path.join(publicPath, "index.html")
+    //);
+//});
 
 
 

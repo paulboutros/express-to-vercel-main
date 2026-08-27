@@ -52,23 +52,16 @@ let queryAssistantContent  = document.getElementById("queryAssistantContent");
 const previewImg = document.getElementById("previewImg");
  
 
-   
-  // let activeCollection;// the collection data this page is dispaying
-   
-  // let sheetCard;
-   //let viewManager;
-   //let gridView ;
-  // let filterCard ;
- //  let foundCard ;  
-  // let queryBox;
-
+    /*
 import {createProject} from "../Project.js";
 import ProjectStore from "../ProjectStore.js";
 
 import LocalStorageAdapter from "../LocalStorageAdapter.js";
 import { loadUserPreferences } from "../UserPreferences.js";
+*/
 
-                       
+
+    /*                   
  const CURRENT_PROJECT_KEY =
     "wulirocks.currentProject";
 
@@ -107,9 +100,11 @@ export function getProjectStore(){
 }
 
 const userPreferences =  loadUserPreferences();
-    
+    */
 
-   
+   const userPreferences = {
+    sheetAutoSave : false
+   } 
 
 
 

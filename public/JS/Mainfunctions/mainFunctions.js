@@ -11,7 +11,7 @@ console.log( "loaded: loadUserPreferences  ");
 
 import {createProject} from "../Project.js";
 console.log( "loaded: createProject  ");
- import ProjectStore from "../ProjectStore.js";
+ import ProjectStore from "../ProjectStoreX.js";
  console.log( "loaded: ProjectStore  ");
 
 

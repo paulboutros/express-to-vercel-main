@@ -9,7 +9,7 @@ export default class ProjectStore {
     }
 
     load(projectId) {
-        return this.storage.load(projectId);
+          return this.storage.load(projectId);
     }
 
     loadAll() {
@@ -20,3 +20,5 @@ export default class ProjectStore {
         return this.storage.remove(projectId);
     }
 }
+
+ 

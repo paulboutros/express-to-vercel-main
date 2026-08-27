@@ -63,12 +63,12 @@ app.get("/guide", (req, res) => {
 // Embed SPA route
 // --------------------------------------------------
  
-//app.get("/:collection/:slug/embed/:componentId", (req, res) => {
+ app.get("/:collection/:slug/embed/:componentId", (req, res) => {
 
-   // res.sendFile(
-     //   path.join(publicPath, "index.html")
-    //);
-//});
+    res.sendFile(
+         path.join(publicPath, "index.html")
+    );
+ });
 
 
 

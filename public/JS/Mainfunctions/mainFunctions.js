@@ -66,15 +66,11 @@ let queryAssistantContent  = document.getElementById("queryAssistantContent");
 
 const previewImg = document.getElementById("previewImg");
  
-
-     
-
+ 
 
 
-
-
-
-    /*                   
+//====================================================================
+                       
  const CURRENT_PROJECT_KEY =
     "wulirocks.currentProject";
 
@@ -113,12 +109,14 @@ export function getProjectStore(){
 }
 
 const userPreferences =  loadUserPreferences();
-    */
+   
 
+//====================================================================
+/*
    const userPreferences = {
     sheetAutoSave : false
    } 
-
+*/
 
 
 
@@ -126,13 +124,13 @@ export function setPageDataset(){
  const path = window.location.pathname;
 
 
- /*
+ 
 const pathSegments = path.split("/").filter(Boolean);
  if (pathSegments.includes("embed")) {
      document.body.dataset.page = "embed"; 
      return;
 } 
-    */ 
+    
 
 
  

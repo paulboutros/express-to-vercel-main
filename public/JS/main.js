@@ -1,7 +1,7 @@
  
 import initDemo from  "./demo.js";
 import { setPageDataset } from "./Mainfunctions/mainFunctions.js";
- //import initEmbed from "./pageEmbed.js";
+ import initEmbed from "./pageEmbed.js";
 import initGuide from "./pageGuide.js";
    
 console.log( "main loaded    "    );
@@ -22,13 +22,13 @@ console.log( "document.body.dataset.page   =", document.body.dataset.page   );
        
         break;
 
-        /*
+        
   case "embed":  
  
       initEmbed();
         
         break;
- */
+ 
 }
         
 

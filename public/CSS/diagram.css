@@ -130,6 +130,26 @@
     min-width: 500px;
 }
 
+/* added for embed buton*/
+.guideArchitectureHeader {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 16px;
+
+}
+
+.guideArchitectureTitle {
+
+    flex: 1;
+
+}
+
+
 
 /* ---------------------------------------------------------
    Nodes

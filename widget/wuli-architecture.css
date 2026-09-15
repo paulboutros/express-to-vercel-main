@@ -1,0 +1,17 @@
+/* widget/wuli-architecture.css */
+
+@import "../public/CSS/guideContent.css";
+@import "../public/CSS/diagram.css";
+@import "../public/CSS/pipelineNode.css";
+
+@import "../public/CSS/variable.css";
+@import "../public/CSS/style.css";
+
+
+/* wuli-query specific*/
+
+
+ 
+@import "../public/CSS/panelandButton.css";
+@import "../public/CSS/queryBox.css";
+

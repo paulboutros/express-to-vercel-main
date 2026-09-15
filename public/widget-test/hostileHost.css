@@ -1,0 +1,97 @@
+ 
+    /* ==========================================================
+       HOST WEBSITE CSS
+       Intentionally unrelated to the Wulirocks widget
+       ========================================================== */
+
+    html {
+
+        background: #00ff66;
+
+    }
+
+    body {
+
+        margin: 40px;
+
+        padding: 30px;
+
+        background: rgb(255, 239, 11);
+
+        color: purple;
+
+        font-family: Georgia, serif;
+
+        font-size: 20px;
+
+    }
+
+
+    h1 {
+
+        font-size: 48px;
+
+        color: darkred; 
+
+        margin-bottom: 40px;
+
+    }
+
+
+    p {
+
+        line-height: 2;
+
+        color: green;
+
+    }
+
+
+    button {
+
+        background: orange;
+
+        color: black;
+
+      /*  border: 5px solid red;*/
+
+        border-radius: 0;
+
+        font-family: Georgia, serif;
+
+        font-size: 30px;
+
+    }
+
+
+    input {
+
+        border: 4px solid blue;
+
+        background: yellow;
+
+        font-size: 28px;
+
+    }
+
+
+    /* Deliberately test a generic class collision */
+
+    .guideContent {
+
+        border: 10px dashed magenta;
+
+       /* padding: 50px;*/
+
+    }
+
+
+    /* Another deliberately hostile rule */
+   
+    div {
+      padding: 50px;
+     outline: 2px solid rgba(255, 0, 0, 0.25); 
+
+    }
+
+ 

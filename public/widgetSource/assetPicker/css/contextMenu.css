@@ -1,0 +1,28 @@
+.ctx-menu {
+    position: absolute;
+     display: none;
+   
+    z-index: 9999;
+    background: #b5b5b5;
+    border: 1px solid #333;
+    border-radius: 8px;
+    min-width: 180px;
+    overflow: hidden;
+}
+.ctx-menu.is-visible {
+    display: block;
+}
+ 
+/*
+.ctx-menu.hidden {
+    display: none;
+}
+*/
+.ctx-item {
+    padding: 8px 10px;
+    cursor: pointer;
+}
+
+.ctx-item:hover {
+    background: #757575;
+}

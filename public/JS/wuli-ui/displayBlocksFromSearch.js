@@ -1,42 +1,19 @@
-
-/*
-export function applyTraitSearchBlock(q){ 
-   
-  
-   const blocks = document.querySelectorAll("#final_traitFILTERListContainer .trait-block");
  
-  blocks.forEach(block => {
-    const select = block.querySelector("select");
-    let hasMatch = false;
-
-    Array.from(select.options).forEach(opt => {
-      if (!opt.value) {
-        opt.hidden = false; // always keep "(ignore)"
-        return;
-      }
-
-      const match = opt.textContent.toLowerCase().includes(q);
-      opt.hidden = !match;
-
-      if (match) hasMatch = true;
-    });
-
-    // hide whole trait group if nothing matches
-    block.style.display = hasMatch || q === "" ? "" : "none";
-  });
- 
-
-}
-*/
+import { getDOMRoot } from "../Mainfunctions/DOMregistry.js";
 
 
 
 export function applyTraitSearchBlock(q) {
   q = (q || "").trim().toLowerCase();
 
-  const blocks = document.querySelectorAll(
+  let blocks = document.querySelectorAll(
     "#final_traitFILTERListContainer .trait-block"
   );
+  if (!blocks || blocks.length === 0){ 
+       blocks = getDOMRoot().querySelectorAll(
+          "#final_traitFILTERListContainer .trait-block"
+      );
+  }
 
   blocks.forEach(block => {
     const select = block.querySelector("select");

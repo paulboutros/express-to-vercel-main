@@ -3,6 +3,7 @@ import QueryDropdown from "./QueryDropdown.js";
 import QueryAssistant from "./QueryAssistant.js";
 import { drawConnector,pt } from "../pipelineFunction.js";
 import { getRenderList_traitSuggestion, getRenderList_valueEvaluation } from "../dataRepresentation/tokenDataToNode.js";
+ import {   getDOMRoot } from "../../Mainfunctions/DOMregistry.js";
 
  
 
@@ -11,32 +12,36 @@ import { getRenderList_traitSuggestion, getRenderList_valueEvaluation } from "..
 
 export default class QueryBox {
 
-    constructor(container, store, refreshQueryResult) {
+    constructor( {
+               root = document,
+               container=null,
+               store=null,
+               refreshQueryResult=null
+              }) {
 
+                
         this.queryState = {
             rawQuery:"",
             queryResult:null
         }; 
-  
+
+        this.root = root;
         this.container = container;
         this.nodeGraph;
         this.collection;
         this.layoutOptions;
         this.store = store;
         this.refreshQueryResult = refreshQueryResult;
-        this.nodeGraphScroll   = document.getElementById("nodeGraphScroll");
-
-         
-        this.queryCaret = container.querySelector(".queryCaret");
-
-         this.caretBar       =  this.queryCaret.querySelector(".caretBar");
-         this.queryCaretText =  this.queryCaret.querySelector(".queryCaretText");
-   
 
 
+     
 
+        this.nodeGraphScroll   =  this.getElement("nodeGraphScroll"); 
+        
+
+        this.inputElementEl = container.querySelector(".queryInput") , 
         this.input = new QueryInput(
-            {  inputElement: container.querySelector(".queryInput") , 
+            {  inputElement:   this.inputElementEl , 
                readQueryState: ()=> this.queryState
             }
         );
@@ -46,21 +51,47 @@ export default class QueryBox {
         );
 
         this.correctionDropdown =new QueryDropdown(
-
-             document.getElementById("correctionAssistant")
+             
+               this.getElement("correctionAssistant")
+          //   document.getElementById("correctionAssistant")
            
         );
  
+        this.queryAssistantEl =  container.querySelector(".queryAssistant");
         this.assistant = new QueryAssistant(
-              container.querySelector(".queryAssistant")//    queryDropdown
+              this.queryAssistantEl
         );
  
       
-        document.addEventListener("pointerdown", (e)=>{
+       //  console.log("rootDom " , rootDom );
+     
+     // for outside ckick this we can search full document..
+     //because those events are fundamentally application/document-level, not widget-root-level.
+     // 
+       document.addEventListener("pointerdown", (e)=>{
+        //this.root.
+       // document
+ 
+         console.log( "pointerdown : " , { 
 
+             container:  this.container,
+             target: e.target
+         });
           //if click outside of container... turn thing off
-        if(this.container.contains(e.target))
+           if(this.container.contains(e.target) || 
+          
+              e.target === document.querySelector("#wuli-query-widget")  
+          ){ 
+
+               console.log( " clicked in some containers element " , { 
+                 target : e.target 
+               });
             return;
+          
+          }else{ 
+              console.log( " clicked away from box container ");
+          }
+            
 
           // this.assistant.hide();
            this.dropdown.hide();
@@ -72,6 +103,9 @@ export default class QueryBox {
 
     }
 
+    getElement(id) {
+        return this.root.querySelector(`#${id}`);
+    }
  
    getRenderList_producer(){ 
  
@@ -440,6 +474,22 @@ buildPipelineNodes(token, block, dropdownArg, getRenderList  , nodeContainer  , 
     
 
         this.input.onChange = text => {
+
+
+            const getValue =  this.input.getValue() ;
+            const len =  getValue.length; 
+            console.log( "onChange getValue   === ",{ 
+                 getValue,
+                 len
+         
+            });  
+            if (  this.input.getValue().length > 0 ){
+ 
+                   this.dropdown.hide();
+                 // return;
+            } 
+
+
  
                  //this.filter(text);
                 this.setAndRefreshQuery(text);
@@ -498,15 +548,23 @@ buildPipelineNodes(token, block, dropdownArg, getRenderList  , nodeContainer  , 
 
           const queryResult = this.queryState.queryResult;
  
-          /*
-           this.queryCaretText.textContent = this.input.value.slice(0, caret);
-       */
-           
+          
 
-
-
+            
             if(!queryResult){return; }
-                
+            
+
+
+
+          //  console.log( "caret chabged:  " ,  queryResult   );
+            if(!queryResult.blocks ){ //  !== "DSL" 
+                this.correctionDropdown?.hide();
+               this.dropdown?.hide();
+              
+              return;
+             }
+
+               console.log( "queryResult.blocks:  " ,  queryResult.blocks   );  
             if ( queryResult.blocks && queryResult.blocks.length === 0 ){
                  
                 this.correctionDropdown?.hide();
@@ -669,7 +727,22 @@ buildPipelineNodes(token, block, dropdownArg, getRenderList  , nodeContainer  , 
           */
     }
 
+
+    getRandomItem() {
+    
+     const items = this.store.getRecent();
+
+     if (!items || items.length === 0) { return null; }
+ 
+      const randomIndex = Math.floor(Math.random() * items.length);
+      
+      return items[randomIndex];
+   }
+
+
     showRecent() {
+
+          const items = this.store.getRecent();
           this.dropdown.onSelect = item => {
 
             this.input.setValue(item.raw);
@@ -679,8 +752,7 @@ buildPipelineNodes(token, block, dropdownArg, getRenderList  , nodeContainer  , 
 
         };
   
-        const items = this.store.getRecent();
-
+        
         let renderList =[];
              items.forEach((item, index) => {
              renderList.push({ label:  item.raw,

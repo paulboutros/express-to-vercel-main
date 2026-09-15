@@ -2,7 +2,7 @@ const path = require("path");
 const express = require("express");
 const dotenv = require("dotenv");
 
-const { connectToDataBase } = require("../lib/connectToDataBase");
+ const { connectToDataBase } = require("../lib/connectToDataBase");
 const globalData = require("./routes/globalData");
 
 dotenv.config();
@@ -19,8 +19,8 @@ const publicPath = path.join(__dirname, "..", "public");
 // Middleware
 // --------------------------------------------------
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ limit: "2mb"}));
+ app.use(express.urlencoded({ extended: true, limit: "2mb" }));
 
 
 // --------------------------------------------------

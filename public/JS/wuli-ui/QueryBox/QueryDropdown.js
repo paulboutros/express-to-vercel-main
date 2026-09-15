@@ -13,6 +13,14 @@ export default class QueryDropdown {
         this.queryBox;
        // this.width;
        // this.height;
+      //  console.trace("hide() called"   );
+        if ( !this.el ){ 
+               throw new Error( "el null ");
+        }
+     
+     //  console.log( "el ===========  " , this.el );
+
+
 
         this.onSelect = () => {};
         this.nodeRefreshPipeline = () => {};
@@ -404,7 +412,7 @@ root.appendChild(header);
     hide() {
  
         
-     // console.trace("hide() called");
+    //  console.trace("hide() called");
 
         this.el.classList.remove("visible");
 

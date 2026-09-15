@@ -1,11 +1,11 @@
  
-const { getALL_NFTIDS, build_PART_GROUP_for_JSX, getFirstInSet, 
+const {   build_PART_GROUP_for_JSX, getFirstInSet, 
          getFirstInSetList, getMetaDataPathFromID } =
  require("../metadata/MetaDataAPI.js");
 
 const { getData, getPath, scriptType } = require("../PATH_REGISTRY/PATH.js");
-let traitCounter_Data = getData(getPath("traitCounter.json", scriptType.JSONDATA));
-//let traitCounter_Data = getData(getPath("traitCounter.json", scriptType.JSONDATA));
+let traitCounter_Data = null;// getDa ta(getPath("trait Count er.json", scriptType.JSOND ATA));
+ 
 
 const {  canonicalizeQuery, decomposeBlockInside, getIdsByTraitValueContains } = require("./canonicalQuery.js");
  
@@ -83,6 +83,7 @@ let valid_DSL_found = false;
 const queryMode = { 
       NFT_SEARCH  :"NFT_SEARCH",
       TRAIT_SEARCH:"TRAIT_SEARCH",
+     // TRAIT_SEARCH:"TRAIT_SEARCH",
       DSL:"DSL"
 }
   
@@ -351,7 +352,7 @@ function evaluateQueryToActiveFilterMap(featStateArg) {
 
     // console.log
      let workingSet = null;
-     //  ALL_NFTIDS = getALL_NFTIDS();
+     
 
       
     // console.log(    " QueryState.Mode  =======================   "    ,   queryMode.DSL   );  
@@ -537,7 +538,14 @@ function resetSets(featStateArg){
 function handleDSLQuery( inputObj  , featStateArg ) { 
 
      let { raw, caret, action } = inputObj;
-   
+           
+     inputObj.traitCounter_DataArg = featStateArg.traitCounter_Data 
+       
+  
+    console.log( "=== dsl  trait :", { 
+        traitCounter_Data_glob:   traitCounter_Data["TYPE"]['Purple Orc'],
+        traitCounter_Data_feat:   featStateArg.traitCounter_Data["TYPE"]['Purple Orc']
+    });
     
 
       const blocksData  = canonicalizeQuery(inputObj);
@@ -772,7 +780,7 @@ function applyValueExcludeFilter(result, featStateArg){
         if ( targetBlock ) {   
          
             targetBlock.survivorEvaluation =
-            targetBlock.valueEvaluation.map(value => {
+            targetBlock.valueEvaluation?.map(value => {
 
                 const matches = value.matches
                     .map(match => {
@@ -896,7 +904,7 @@ function getAllTraitIds(traitKey) {
     } )
 
      let traitValid = !traitCounter_Data[traitKey] ? false:true; 
-     //const trait_evaluation = corrections.length > 0 ?  "INVALID_TRAIT" : "VALID_TRAIT";
+     
      const trait_evaluation = !traitValid ?  "INVALID_TRAIT" : "VALID_TRAIT";
     
 
@@ -998,6 +1006,14 @@ function getAvailableTraitType(traitKey) {
 
 function runQueryInputHandler(inputObj, featStateArg){ //traitSearch
   
+    ////++v[TYPE:[pu]]
+   traitCounter_Data = featStateArg.traitCounter_Data; 
+
+
+console.log( " query trait :",  traitCounter_Data["TYPE"]['Purple Orc'] )
+
+
+    //  featStateArg.traitCounter_Data
     const { raw } = inputObj;
     if (!raw) {
         /*

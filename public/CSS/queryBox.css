@@ -18,7 +18,7 @@ color:#43a33e;
 .queryInput,
 .queryAssistant{
    font-weight:600;
-
+   font-size: var(--font-md);
 }
 
 /* ==========================================================
@@ -84,7 +84,7 @@ white-space: break-spaces;
 
     padding:6px 10px;
 
-    font-size:12px;
+    font-size: var(--font-xs); /* botom info written at bottom of dropdown*/
 
     border-top:1px solid var(--border);
 
@@ -130,43 +130,13 @@ overflow-x:hidden;
 overflow-y:hidden;
 
 pointer-events: none;
-} 
-  /*
- .queryCaret {
-    position: absolute;
-    display: flex;
-    pointer-events: none;
 }
+ 
 
-.queryCaretText {
-    visibility: hidden;
-    white-space: pre;
-}
 
- .caretBar {
-    margin-left: 10px;
-    width: 3px;
-    height: 20px;
-    
-    background: #fdfdfd;
-    animation: caretBlink 1s steps(1, end) infinite;
-}
-
-@keyframes caretBlink {
-    0%, 50% {
-        opacity: 1;
-         
-    }
-
-    50.01%, 100% {
-        opacity: 0;
-          
-    }
-}
-*/
 .queryInput{
  
- color: rgba(255, 255, 255, 0.58) ;  /*  transparent;*/ 
+ color: rgba(255, 255, 255, 1) ;  /*  transparent;*/ 
   /*color:   transparent;  */
 
  caret-color: var( --text-muted ) ;
@@ -182,6 +152,15 @@ pointer-events: none;
     outline:none;
 
     transition:border-radius .15s;
+     
+
+}
+.queryInputHidden {
+   color: rgba(255, 255, 255, 0) ;  /*  transparent;*/ 
+
+}
+.queryAssistantHidden {
+  opacity: 0;
 
 }
 

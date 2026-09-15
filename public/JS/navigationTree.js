@@ -211,13 +211,24 @@ export async function create_SiteNavigation(){
                      {
                         currentPageId: "pipeline-search",
                         onNavigate(node) {
-                             const collection = node.collection; 
+                             let collection = node.collection; 
                              const slug = node.path;
                             
+                             const pageType = node.pageType;
                               console.log("NAVIGATE:", node);
-                             let fullPath = `/${ collection}/${ slug}`;
-                             if (collection === "demos"){ 
-                                fullPath ="/";
+
+                             if (node.pageType === "demoType"){ 
+                                 collection = node.demoCollection;
+                             }
+
+                             let fullPath = `/${collection}/${ slug}`;
+
+                            
+                             if (  isMainPage(collection,slug) ){ 
+                            
+
+                              
+                                  fullPath ="/";
                              }
 
 
@@ -225,6 +236,7 @@ export async function create_SiteNavigation(){
  
                              console.log("fullPath:", fullPath);
 
+                              // coming from demo page
                              const currentDatasetPage = document.body.dataset.page;
                               // defines inititator
                              if ( currentDatasetPage === "demo"){ 
@@ -232,7 +244,7 @@ export async function create_SiteNavigation(){
                                 return;
                              }
  
-                             if (collection === "demos"){   // defines destination
+                             if ( isMainPage(collection,slug) ){   // defines destination
                                
                                    window.location.href = "/";// fullPath;
                              }else{ 
@@ -250,6 +262,13 @@ export async function create_SiteNavigation(){
 
 
 } 
+function isMainPage(collection,slug) {
+
+       return  collection === "demos" && slug === "demos";
+    
+}
+
+
 export function getCurrentRoute() {
 
     const parts = window.location.pathname
@@ -260,7 +279,9 @@ export function getCurrentRoute() {
 
         collection: parts[0] || "guide",
 
-        slug: parts[1] || "include-operator"
+        slug: parts[1] || "include-operator",
+         //[2] /embed
+        componentId: parts[3]
 
     };
 

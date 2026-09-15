@@ -1,0 +1,73 @@
+ <!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+
+   <!--  <link rel="stylesheet" href="../widget/wuli-architecture.css">
+     
+    <link rel="stylesheet" href="./hostileHost.css">
+ -->
+
+    <title>Wulirocks Architecture Widget Test</title>
+
+</head>
+
+
+<body>
+
+    <h1>Widget test</h1>
+ 
+  <div id="architecture-widget" data-src="http://localhost:2000/widget-test/downloadTest.json"> </div> 
+  <script type="module" src="http://localhost:2000/widget/wuli-architecture.js"> 
+        
+</script>
+
+ <!--
+    <script type="module">
+         import "../widget/wuli-architecture.js";
+         const response =  await fetch("./diagram.json");
+        
+        if (!response.ok) {
+
+            throw new Error(
+                `Failed to load diagram.json: ${response.status}`
+            );
+
+        }
+ 
+        const pageData =await response.json();
+ 
+        //--------------------------------------------------
+        // Render widget
+        //--------------------------------------------------
+
+        WuliArchitecture.render({
+
+            container:
+                document.getElementById(
+                    "architecture-widget"
+                ),
+
+            pageData,
+
+            collection: "reference",
+
+            slug: "widget-test",
+
+            componentId: 0
+
+        });
+
+    </script>
+
+    -->
+
+</body>
+
+</html>

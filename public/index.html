@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+   
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,13 +33,17 @@
 </head>
 <body >  
 
- <div id="workspace">
+  <script >
+    const traitCounter_Data =null;
+  </script>
 
-    <div id ="row1" >  
+  <div id="workspace"   class="wulirocks">
+
+      <div id ="row1" >  
         <div id="topTraitSlot"></div>
          <div id="queryBox">
-           <div class="queryCaret">
-             <span class="queryCaretText"></span><span class="caretBar"></span>
+            <div class="queryCaret">
+              <span class="queryCaretText"></span><span class="caretBar"></span>
 
            </div> 
             <input class="queryInput" id="queryInput">
@@ -48,9 +55,9 @@
 
          <button id="querySave">s</button>
          <button id="queryReset">re</button>
-    </div>
+      </div>
      
- <div id="mainSlotB">
+      <div id="mainSlotB">
         
      <div id="resultInfo">  </div> 
       <div id="resultTitle" class="infoCard-title" >search result </div> 
@@ -58,10 +65,10 @@
      <div id="grid-container">
              <div id="nft-grid"></div>
      </div>
-  </div>
+       </div>
 
 
- <div id="mainSlotA">
+       <div id="mainSlotA">
     <div id="mainLayoutA"></div>
    <div id="trait-pill-container" class="active-Trait-Bar"> </div>
    <div id="previewImg">
@@ -69,9 +76,9 @@
        <img class="previewImg" alt="">
         
    </div>
-  </div>
+       </div>
 
- <div id="mainSlotC" data-toggle="traits" >
+       <div id="mainSlotC" data-toggle="traits" >
  
           <div id="mainLayoutC"></div> 
 
@@ -83,22 +90,22 @@
         <div id ="navig_container" data-toggle="navigation">
             <div id="navig_content"></div>
         </div>
-
-        <div id ="final_traitList" data-toggle="traits">
+      
+        <div id ="final_traitList" data-responsive="true" data-toggle="traits">
               <div id="final_traitFILTERListContainer"></div>
          </div> 
-         <button id="panelToggle">Traits</button>
-</div>  <button id="navigToggle">Navigation</button>
+             <button id="panelToggle">Traits</button>
+       </div>  <button id="navigToggle">Navigation</button>
 
-  <div id="guideTextBlock"> </div>
-  <div id="navigButton" class="guideNav" > </div>
+        <div id="guideTextBlock"> </div>
+        <div id="navigButton" class="guideNav" > </div>
  
- <div  id="nodeGraph" class="nodeGraph">
-    <div id="nodeGraphScroll"> 
-       <div id="nodeGraphCanvas" > </div>
-     </div>
-      
-</div>
+   <div  id="nodeGraph" class="nodeGraph">
+      <div id="nodeGraphScroll"> 
+         <div id="nodeGraphCanvas" > </div>
+      </div>
+         
+   </div>
 
  <div id="lexerWidget" class="lexerWidget"></div>
 

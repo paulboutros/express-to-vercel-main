@@ -4,13 +4,13 @@
 class FeatureState {
   constructor({ 
      traitCounter_Data = null,
-     getFirstInSet = null, 
+   //  getFirstInSet = null, 
      getALL_NFTIDS = null,
      nameArg ="defaultName"} = {}  ) {
 
     this.name = nameArg,
     this.traitCounter_Data = traitCounter_Data;
-    this.getFirstInSet = getFirstInSet;
+    //this.getFirstInSet = getFirstInSet;
     this.getALL_NFTIDS = getALL_NFTIDS;
 
     this.activeTraitUI = new Map();
@@ -110,7 +110,7 @@ class FeatureState {
  }
 
   rebuildFiltersFromUI() {
-    // traitCounter_Data = get_rarityTraitCount();
+    
     this.activeTraits.clear();
     for (const [traitType, value] of this.activeTraitUI.entries()) {
          const ids = traitCounter_Data[traitType][value];
@@ -229,6 +229,34 @@ class FeatureState {
         }
     });
   } 
+
+  
+    getFirstInSet(currentNum) {
+
+  //  alert('dddddddddd');
+    if (currentNum % 10 === 0) {
+        // If ends in 0, it's the last frame of a batch
+        return currentNum - 9;
+    } else {
+        // Otherwise, floor to previous multiple of 10, then add 1
+        return Math.floor(currentNum / 10) * 10 + 1;
+    }
+}
+  //  from ids result directly not from active trait..
+  rebuildactiveFilterMap_from_IDS(){
+
+      const ids = this.activeFilterMap_IDS ;
+           
+     this.activeFilterMap.clear();   
+     for (let index = 0; index < ids.length; index++) {
+                    
+           var id = ids[index] ;//#3200
+            var idBase =  this.getFirstInSet(id); // getFirstInSet(id);
+            this.activeFilterMap.set(id, { id: id, idBase: idBase });
+       }
+
+
+  }
 
   rebuildactiveFilterMap_IDBASE_fromMap() {
     this.activeFilterMap_IDBASE.length = 0;

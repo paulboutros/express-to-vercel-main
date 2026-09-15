@@ -16,6 +16,10 @@ export function createProject() {
 
         architecture: null,
 
+        jsonData:{
+            
+        },
+
         sheets: {},
 
         queries: {}

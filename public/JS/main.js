@@ -1,11 +1,11 @@
  
-import initDemo from  "./demo.js";
+ import initDemo from  "./demo.js";
 import { setPageDataset } from "./Mainfunctions/mainFunctions.js";
  import initEmbed from "./pageEmbed.js";
-import initGuide from "./pageGuide.js";
+ import initGuide from "./pageGuide.js";
    
 console.log( "main loaded    "    );
-     setPageDataset(); 
+      setPageDataset(); 
   
 console.log( "document.body.dataset.page   =", document.body.dataset.page   );
  switch (document.body.dataset.page) {
@@ -17,7 +17,7 @@ console.log( "document.body.dataset.page   =", document.body.dataset.page   );
 
     case "guide":   case "apiPipeline":
  
-         initGuide();
+          initGuide();
       
        
         break;

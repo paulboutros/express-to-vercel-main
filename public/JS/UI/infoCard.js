@@ -32,6 +32,7 @@ export default class InfoCard {
     }
 
     setValue(value) {
+        if (!value)return; // is null when typing for panel trait filtering display
 
         this.valueEl.textContent = value;
 

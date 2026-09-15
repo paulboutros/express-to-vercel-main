@@ -1,0 +1,93 @@
+.wulirocks,
+.wulirocks *,
+.wulirocks *::before,
+.wulirocks *::after {
+    box-sizing: border-box;
+}
+ 
+
+.wulirocks * {
+     
+    outline: none;
+}
+ 
+
+
+
+.wulirocks {
+    margin: 0;
+    padding: 0;
+
+    background: var(--bg);
+    color: var(--text);
+
+    font-family: Arial, sans-serif;
+    font-size: var(--font-md);
+}
+
+.wulirocks button,
+.wulirocks input,
+.wulirocks select,
+.wulirocks textarea {
+    font: inherit;
+
+    color: inherit;
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    height: var(--control-height-sm);
+    border-radius: var(--border-radius);
+}
+
+.wulirocks select,
+.wulirocks option {
+    font-size: var(--font-sm);
+}
+
+.wulirocks button,
+.wulirocks input,
+.wulirocks select {
+    font-size: var(--font-md);
+}
+
+ .infoLabel {
+    font-size: var(--font-xs);
+}
+
+.infoValue {
+    font-size: var(--font-lg);
+}
+
+.sectionTitle {
+    font-size: var(--font-xl);
+}
+
+
+/* ==========================================================
+   SCROLLBARS
+   ========================================================== */
+
+.wulirocks * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) var(--surface);
+}
+
+.wulirocks *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.wulirocks *::-webkit-scrollbar-track {
+    background: var(--surface);
+}
+
+.wulirocks *::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 999px;
+    border: 2px solid var(--surface);
+}
+
+.wulirocks *::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}

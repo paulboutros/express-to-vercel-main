@@ -1,0 +1,29 @@
+.log-dev {
+    color: #888;
+}
+
+.log-user {
+    color: #3bd671;
+    font-weight: 600;
+}
+
+.log-warn {
+    color: #f6c343;
+}
+
+.log-error {
+    color: #ff4d4d;
+}
+
+.log-ok {
+    color: #4ade80;
+}
+
+.log-tag {
+    margin-right: 6px;
+    opacity: 0.7;
+}
+
+.log-msg {
+    font-family: monospace;
+}

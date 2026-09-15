@@ -1,0 +1,87 @@
+ 
+ 
+#mainContainer.layoutA {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 8px;
+  height: 100vh;
+}
+  
+
+#topRow {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+#middleRow {
+  grid-column: 1;
+  grid-row: 2;
+}
+  
+/*
+===========================================================
+*/
+#bottomRow {
+    display: flex;
+    width: 100%;
+
+   /* gap: 8px;*/
+    
+    align-items: stretch;
+    min-height: 0;
+    height: 150px;
+}
+
+.dynamicColumn {
+    display: flex;
+    min-width: 0;
+     
+    flex-direction: column;
+    min-height: 0;
+}
+
+
+.output-console-descriptor {
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+    font-family: monospace;
+    background: #111;
+    color: #ddd;
+}
+
+
+.output-console {
+    flex: 1;
+    white-space: pre-wrap;
+    font-size: var(--font-xs);
+    font-family: monospace;
+    padding: 8px;
+    background: #111;
+    color: #ddd;
+      
+    overflow-y: auto;
+    white-space: pre-wrap;
+
+}
+.consoleAction {
+    color: #2ba742;
+    font-weight: bold;
+    
+}
+.log-tag {
+    font-weight: bold;
+}
+
+/*
+===========================================================
+*/
+
+
+
+#sidePanel {
+  grid-column: 2;
+  grid-row: 1 / 4;
+}

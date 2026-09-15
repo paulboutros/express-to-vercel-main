@@ -6,17 +6,18 @@ const { connectToDataBase } = require("../../lib/connectToDataBase");
     const crypto = require("crypto");
 
 
-    const { performance } = require("perf_hooks");
-
-
+       const { performance } = require("perf_hooks");
  
  
-     const engine = require("../../wuliEngine/index.js");
+ 
+      const engine = require("../../wuliEngine/index.js");
+const { registerCollection, getCollection } = require("./collectionRegistration.js");
+const { validateRarityCount } = require("./validateRarityCount.js");
        //const engine = require("@wulirocks/collection-engine");
      const {rebuildActiveFilterMap} = engine.features_traitFilters; 
 
    const QueryEngine = engine.queryEngine ;;   //require("@wulirocks/collection-engine/query/QueryEngine");
-   const rarityCount =  engine.writeServices.get_rarityTraitCount();
+   let rarityCount =  engine.writeServices.get_rarityTraitCount();
 
    const {getFirstInSet, getALL_NFTIDS } =    engine.metaDataAPI;
 
@@ -35,21 +36,24 @@ const router = express.Router();
  
 router.post("/api/traitFilter/rebuildActiveFilterMap", (req, res) => {
 
-   const {filterModeABS, serializeActivePills} = req.body;
+   const {filterModeABS, serializeActivePills, collectionId} = req.body;
 
-       console.log(  "api rebuildActiveFilterMap arg "     , filterModeABS  ,"serializeActivePills  "  , serializeActivePills   )
+           console.log(  "api rebuildActiveFilterMap arg ",
+                   {filterModeABS, serializeActivePills, collectionId}
+           )
 
-      const result = run_rebuildActiveFilterMap( filterModeABS, serializeActivePills );
+      const result = run_rebuildActiveFilterMap( filterModeABS, serializeActivePills, collectionId );
    
     
            res.json(result);
 });
 
 router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
-     const {filterModeABS, serializeActivePills} = req.body;
+  // to do now, pass obj.collectionId from client in obj (just added)
+     const {filterModeABS, serializeActivePills, collectionId} = req.body;
  
       
-  const result = run_rebuildActiveFilterMap( filterModeABS, serializeActivePills );
+  const result = run_rebuildActiveFilterMap( filterModeABS, serializeActivePills, collectionId );
   
         
     
@@ -62,7 +66,21 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
    router.post("/api/traitFilter/add", (req, res) => {
     const { traitKey, value, ids, objArg } = req.body;
      
-      const featState =  new FeatureState({ nameArg: "=======traitFilter/add"});
+    //  const featState =  new FeatureState({ nameArg: "=======traitFilter/add"});
+
+ // console.log( "trait add:",  objArg  );
+
+    const featState = new FeatureState( 
+     // {traitCounter_Data: collectionData,// rarityCount, 
+         {traitCounter_Data: get_collectionData(objArg.collectionId)
+      }); 
+ 
+
+
+
+
+
+
        const { /*set_featState,*/ rebuildActiveFilterMap} = engine.features_traitFilters; 
     
   
@@ -86,7 +104,7 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
             result.activeFilterMap_IDS_length = featState.activeFilterMap_IDS.length;
            
 
-             console.log( "add trait .activeFilterMap_IDS " ,  suffleIDS  );
+         //    console.log( "add trait .activeFilterMap_IDS " ,  suffleIDS  );
         
           res.json(result);
   
@@ -99,13 +117,23 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
       // const { raw } = req.body;
              const obj  = req.body;
  
-          //  console.log( "req.body=",req.body   ,   "    obj=", obj  );
-
-     //   const raw = obj.raw;
-       
-      
+        
+   //=================================================
+   /*
+     let collectionData = getCollection(  obj.collectionId );
+      if(!collectionData ){ 
+        console.log( "collection is undefined. using default raritycount" );
+         collectionData = rarityCount;
+     }  else{ 
+        console.log( "collection is defined." );
+     }
+        */
+    //=================================================
+      //++v[TYPE:[pu]]
      const featState = new FeatureState( 
-      {traitCounter_Data: rarityCount, 
+     // {traitCounter_Data: collectionData,// rarityCount, 
+        {traitCounter_Data: get_collectionData(   obj.collectionId ),// rarityCount, 
+
         getFirstInSet:getFirstInSet ,
         getALL_NFTIDS:getALL_NFTIDS,
                 nameArg: "========state: Inputhandle"
@@ -205,10 +233,14 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
 
          //if (process.env.VERCEL !== "1") {
 
-         console.log(  "vidFilter.userPreferences   "   ,  vidFilter.userPreferences
+         console.log(  "guest user info:"   ,
+             {userPref : vidFilter.userPreferences ,
+              collectionId: vidFilter.collectionId
+               } 
+          )
+ 
 
 
-         )
          if ( vidFilter.userPreferences.sheetAutoSave ){   
           
             save_sheetGenerationHistory_local(engine, vidFilter);// not on Vercel
@@ -253,8 +285,68 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
         }
   
 });
-//==================================================
 
+//===============================================================
+
+router.post("/api/collection/query", async (req, res) => {
+ 
+    const { collectionId, query } = req.body;
+
+    const collectionData = getCollection(collectionId);
+
+    if (!collectionData) {
+        return res.status(404).json({
+            ok: false,
+            error: "COLLECTION_NOT_FOUND",
+            message: "The collection session does not exist."
+        });
+    }
+
+    console.log("Collection found:", collectionId);
+   // console.log("Query:", query);
+
+    return res.json({
+        ok: true,
+        collectionId,
+        query,
+        collectionFound: true
+    });
+
+});
+
+
+
+//==================================================
+router.post("/api/collection/register", async (req, response) => {
+        // let result = await engine.writeServices.getSiteNavigationData();
+ 
+   
+   const  collectionData  = req.body.collectionData;
+   const validation = validateRarityCount(collectionData);
+
+    if (!validation.ok) {
+        return res.status(400).json(validation);
+    }
+
+
+
+       const result =
+            registerCollection(
+                req.body.projectId,
+                collectionData
+            );
+
+
+       // return res
+          //  .status(result.status)
+          //  .json(result);
+
+
+  try {
+        response.status(200).json(  result  );
+  } catch(e){  console.error(e); response.status(500).json(e);}
+ });
+ //======================================
 
 router.post("/api/getSiteNavigationData", async (req, response) => {
          let result = await engine.writeServices.getSiteNavigationData();
@@ -274,10 +366,38 @@ router.post("/api/getSiteNavigationData", async (req, response) => {
  //======================================
  router.post("/api/getTraitData", async (req, response) => {
  
-      let result = await engine.writeServices.get_rarityTraitCount();
+
+      let result = null;
+      let collectionData = null;
+
+
+      const obj  = req.body;
+
+      if (!obj.collectionId){ 
+          console.log( "collectionId  id NULL " );
+          result = rarityCount; 
+      }else{ 
+
+
+           collectionData = getCollection(obj.collectionId);
+           if(!collectionData ){ 
+                console.log( "collection is undefined. using default raritycount" );
+                // collectionData = rarityCount;
+                result = rarityCount; 
+            }  else{ 
+
+                result = collectionData;
+                console.log( "collection is defined." );
+            }
+
+
+      }
+ 
+
+     // let result = await engine.writeServices.get_rarityTraitCount();
       
   try {
-       response.status(200).json(   result  );
+       response.status(200).json(result);
       
  } catch(e){   console.error(e); response.status(500).json(e);}
  });
@@ -291,7 +411,7 @@ router.post("/globalData_setDebugMode",   async (req, response) => {
   const value =  req.body.value;
   const ID  = req.body.ID;
 
-      console.log( "value"  , value );
+    //  console.log( "value"  , value );
   try {
   const {mongoClient} =   await connectToDataBase();
    
@@ -319,7 +439,7 @@ router.post("/globalData_setDebugMode",   async (req, response) => {
 router.post("/api/set_activeFilterMap_IDS", async (req, response) => {
  
    const value = req.body.value;
-   console.log( "value"  , value );
+  // console.log( "value"  , value );
   try {
   response.status(200).json( {msg:"value modified to: "  + value  });
       
@@ -412,9 +532,14 @@ function mulberry32(seed) {
   };
 }
 
-function run_rebuildActiveFilterMap( filterModeABS, serializeActivePills ){
+function run_rebuildActiveFilterMap( filterModeABS, serializeActivePills , collectionId ){
         
-     const featState =  new FeatureState( { nameArg: "========ebuildActiveFilterMap"}  );
+     const featState =  new FeatureState( 
+      { nameArg: "========ebuildActiveFilterMap",
+       traitCounter_Data: get_collectionData(    collectionId ),// rarityCount
+
+      } 
+     );
   
        console.log( "API run_rebuild ActiveFilterMap ======= filterModeABS" , filterModeABS    );
        console.log( "API  serializeActivePills" , serializeActivePills    );
@@ -508,6 +633,21 @@ function save_sheetGenerationHistory_local(engine, vidFilter){
 
      
    return true;
+}
+
+function get_collectionData(collectionId){ 
+
+   //=================================================
+     let collectionData = getCollection(  collectionId );
+      if(!collectionData ){ 
+        console.log( "collection is undefined. using default raritycount" );
+         collectionData = rarityCount;
+     }  else{ 
+        console.log( "collection is defined." );
+     }
+
+    return collectionData;
+    //=================================================
 }
 
 

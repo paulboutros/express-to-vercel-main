@@ -1,8 +1,15 @@
- const API_BASE = "";
+ //const API_BASE = "";
+ const API_BASE_URL =
+    globalThis.WULI_API_URL
+    || "";
+
+
+console.log("API_BASE_URL ",  API_BASE_URL);
+
 
 async function request(url, options = {}) {
 
-    const response = await fetch(API_BASE + url, {
+    const response = await fetch(API_BASE_URL + url, {
 
         headers: {
             "Content-Type": "application/json"
@@ -55,9 +62,9 @@ export async function getPageData() {
     return post("/api/getPageData" );
 
 }
-export async function getTraitData() {
+export async function api_getTraitData( query ) {
 
-    return post("/api/getTraitData");
+    return post("/api/getTraitData", query);
 
 }
 
@@ -72,7 +79,28 @@ export async function api_saveSheet(query) {
 
 }
 
+/*
+const result = await (await fetch("/api/collection/query", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ collectionId, query })
+})).json();
+*/
+export async function api_collection_query(query) {
 
+    return post("/api/searchCharacters", query);
+
+}
+
+export async function api_collection_register( collectionData, projectId) {
+
+ 
+return post("/api/collection/register", {collectionData, projectId} );
+
+ 
+}
+
+ 
 
 export async function searchCharacters(query) {
 
@@ -82,71 +110,36 @@ export async function searchCharacters(query) {
 
 
 export async function api_addTraitSelection(traitKey, value, ids, objArg) {
-  const res = await fetch("/api/traitFilter/add", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      traitKey,
-      value,
-      ids,
-      objArg
-    })
-  });
 
-  if (!res.ok) throw new Error("Failed to add trait selection");
-     return await res.json();
+ return post("/api/traitFilter/add", {traitKey, value, ids, objArg});
+ 
 } 
  
 
  
 export async function api_getQueryExample(dataArg) {
-   const res = await fetch("/api/getQueryExample", {
-     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify( dataArg )
-  });
 
-  if (!res.ok) throw new Error("Failed to add trait selection");
-  return await res.json();
+    return post("/api/getQueryExample", dataArg);
+     
 } 
 
 
 
 export async function api_rebuildActiveFilterMap(dataArg) {
-   const res = await fetch("/api/traitFilter/rebuildActiveFilterMap", {
-     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify( dataArg )
-  });
 
-  if (!res.ok) throw new Error("Failed to add trait selection");
-  return await res.json();
+     return post("/api/traitFilter/rebuildActiveFilterMap", dataArg);
+     
+
 } 
 
  
-export async function api_runQueryInputHandler(obj) {
+export async function api_runQueryInputHandler(query) {
 
-
-console.log( "obj   == "   ,obj )
-
-   const res = await fetch("/api/query/runQueryInputHandler", {
-     method: "POST",
-    headers: { "Content-Type": "application/json" },
-     body: JSON.stringify(  obj ) //    {raw:raw}   )
-          
-    
-  });
-
-  if (!res.ok) throw new Error("Failed to add trait selection");
-  return await res.json();
+  return post("/api/query/runQueryInputHandler", query);
+  
 } 
 export async function api_set_filterModeABS( dataArg ) {
-   const res = await fetch("/api/traitFilter/set_filterModeABS", {
-     method: "POST",
-    headers: { "Content-Type": "application/json" },
-     body: JSON.stringify( dataArg )
-  });
 
-  if (!res.ok) throw new Error("Failed to add trait selection");
-  return await res.json();
+return post("/api/traitFilter/set_filterModeABS", dataArg);
+ 
 } 

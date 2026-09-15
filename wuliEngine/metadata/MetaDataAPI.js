@@ -155,7 +155,7 @@ function get_attirbute( attributes, keyword ) {
 }
 
 
-
+ 
 function getIMGPathFromID( nftID  ) { 
 
     const  allPath = require("../PATH_REGISTRY/PATH");
@@ -196,16 +196,13 @@ function getMetaDataPathFromID( nftID, projectPathArg = null  ) {
      
       pathResult      =
      allPath.pathBaseNFTPASS2 + segFolder + "/" + "json" + "/" + nftID + ".json";
-  //  }else{ 
-
-        // pathResult      =  allPath.getPath("json/" + nftID + ".json"    , "Full_NFT_export")
-       
-   // }
+   
 
 
       return pathResult;
 
 }
+      
 
  
 

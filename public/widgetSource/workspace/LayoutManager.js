@@ -10,18 +10,21 @@ class LayoutManager {
 
     registerSlot(name, element) {
 
+        
         this.slots.set(name, element);
 
     }
 
     registerComponent(name, element) {
 
+         
+
         this.components.set(name, element);
 
     }
 
     registerLayout(name, definition) {
-
+    
         this.layouts.set(name, definition);
 
     }
@@ -35,7 +38,7 @@ class LayoutManager {
             console.log("layoutName :", layoutName , "has not been registed" );
             return;}
 
-            console.log("APPLY layoutName :", layoutName   ); 
+          
 
         for (const [componentName, slotName] of Object.entries(layout)) {
 

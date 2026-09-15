@@ -14,11 +14,15 @@
   belong to the slot layout, not to this grid.
 ---------------------------------------------------------*/
 
-
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
 
 :root {
     --nav-width: 180px;
-    --panel-width: 320px;
+     --panel-width: 320px;
    
 
 
@@ -551,8 +555,14 @@ grid-template-areas:
   /*  padding:12px;*/
  
 }
+#row1 {
+    min-width: 0;
+    /* padding: 10px; */
+    display: flex;
+    font-family: sans-serif;
+    margin: 0;
 
-
+}
 /*=========================================================
     GRID RESULT STRIP result-chunk area
 =========================================================*/
@@ -648,7 +658,11 @@ grid-template-areas:
 
 
     #navig_container,
-    #final_traitList  {
+    /*#final_traitList */
+    /*
+used by web  version
+*/
+    #final_traitList[data-responsive="true"] {
     
     border: 1px solid var(--border);
     border-radius: 0 0 var(--border-radius) var(--border-radius);
@@ -772,14 +786,11 @@ body[data-page="apiPipeline"][data-workspace="desktop"]{
  #navig_container,
  #final_traitList  {
 
-         /*  border: 1px solid var(--border);*/
-          /*  border-radius: 0 0 var(--border-radius) var(--border-radius);*/
-           /* padding: var(--space-md);*/
+         
             overflow-y: auto;
-           /* background: var(--surface);*/
-            flex: 1;
+             flex: 1;
             min-height: 0;
-           /* margin-inline: var(--space-xs);*/
+         
 
           
    }
@@ -870,7 +881,7 @@ body[data-page="guide"][data-workspace="mobile"],
 body[data-page="apiPipeline"][data-workspace="mobile"]{
 
       #navig_container
-     /*, #final_traitList */ 
+     
        {
 
             border: 1px solid var(--border);
@@ -941,7 +952,24 @@ body[data-page="apiPipeline"][data-workspace="mobile"]{
     }
 
 
- }     
+ } 
+ 
+ body[data-page="embed"]{ 
+        #row1,
+        #navig_container,
+        #final_traitList,
+        #panelToggle,
+        #buttonSet2,
+        #mainSlotA, #mainSlotB ,#mainSlotC  
+        { 
+     
+           display:none;
+    
+    }
+
+} 
+
+
 
 
   
@@ -968,10 +996,4 @@ align-content:flex-start;
 
 }
 
-.hidden {
-    display:none !important;
-}
-.nodeHidden {
-    display:none !important;
-}
- 
+

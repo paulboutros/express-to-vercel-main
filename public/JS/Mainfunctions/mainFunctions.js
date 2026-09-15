@@ -2,25 +2,20 @@
 
 
 
-import LocalStorageAdapter from "../LocalStorageAdapter.js";
-
-console.log( "loaded: LocalStorageAdapter  ");
 
 import { loadUserPreferences } from "../UserPreferences.js";
 console.log( "loaded: loadUserPreferences  ");
 
-import {createProject} from "../Project.js";
-console.log( "loaded: createProject  ");
- import ProjectStore from "../ProjectStoreX.js";
- console.log( "loaded: ProjectStore  ");
-
+  
 
  import { applyTraitSearchBlock  } from "../wuli-ui/displayBlocksFromSearch.js";
 //import {  } from "../apiClient.js";
 import {  api_addTraitSelection ,api_rebuildActiveFilterMap,
           api_set_filterModeABS, api_runQueryInputHandler , api_getQueryExample ,
           api_generateAllTraitSheet,
-          api_saveSheet
+          api_saveSheet,
+          api_collection_register,
+          api_getTraitData
         
      } from "../apiClient.js"; 
 
@@ -36,9 +31,36 @@ import QueryDropdown from "../wuli-ui/QueryBox/QueryDropdown.js";
        get_VideoFilterObject
     } from "../wuli-ui/filterPills.js";
 import { appendTokenInfo } from "../wuli-ui/dataRepresentation/tokenDataToNode.js";
+import { getProject, getProjectStore, initLocalStorage } from "./localStorageAccess.js";
+//import { getElement } from "./DOMregistry.js";
+import InfoCard from "../UI/infoCard.js";
+import { uploadJSON } from "../copyEmbed.js";
   //import { get } from "lodash";
  
 
+   initLocalStorage();
+ let projectId = null;
+  const project = getProject(); 
+   if (  project ) { 
+         projectId = project.id
+    }  
+
+    console.log(  "project =========== " , project );
+
+ let traitData = await api_getTraitData( {collectionId: projectId });
+
+  if (traitCounter_Data  ){ 
+
+     //console.log(  "main F 1) api_collection_registerExistingData  " ,   );
+   await  api_collection_registerExistingData( traitCounter_Data);
+  //  console.log(  "main F 2) api_getdata  " ,   );
+   traitData = await api_getTraitData( {collectionId: projectId });
+  }
+
+
+export function getTraiDataResult(){
+     return traitData;
+}
 
 const maxDepthByTokenType = {
 
@@ -55,71 +77,109 @@ export const functionState={
     batchIndex:0
 }
 
+ const DOM = {
+    root:null, 
+    layoutEngine: null,
+    activeCollection: null,
+
+    sheetCard: null,
+
+    viewManager: null,
+
+    gridView: null,
+
+    filterCard: null,
+
+    foundCard: null,
+
+    queryBox: null,
+
+
+   traitPanel:null,
+   traitpanel_widget: null,
+
+
+    queryInput:null,
+    queryAssistant:null,
+
+    dropDownExample:null,
+
+     
+};   
+export function getUIelements(){
+    return DOM;
+}
+
 
  const pipelineState = new Map();
 
-const nodeGraph        = document.getElementById("nodeGraph"); 
-const nodeGraphScroll   = document.getElementById("nodeGraphScroll"); 
-const nodeGraphCanvas  = document.getElementById("nodeGraphCanvas"); 
+ let uploadBtn;
+let nodeGraph     ; 
+let nodeGraphScroll ; 
+let nodeGraphCanvas ; 
 
-let queryAssistantContent  = document.getElementById("queryAssistantContent"); 
-
-const previewImg = document.getElementById("previewImg");
+let queryAssistantContent; 
+let previewImg ; 
+ let resultInfo;
  
+
  
 
 
-//====================================================================
-                       
- const CURRENT_PROJECT_KEY =
-    "wulirocks.currentProject";
-
-const projectId =
-    localStorage.getItem(CURRENT_PROJECT_KEY);
-
-const projectStore =
-    new ProjectStore(
-        new LocalStorageAdapter()
-    );
-
-let project =
-    projectId
-        ? projectStore.load(projectId)
-        : null;
-
-if (!project) {
-
-    project = createProject();
-
-    projectStore.save(project);
-
-    localStorage.setItem(
-        CURRENT_PROJECT_KEY,
-        project.id
-    );
-}
 
 
-  
-export function getProject(){ 
-         return project;
-}
-export function getProjectStore(){ 
-         return projectStore;
-}
-
-const userPreferences =  loadUserPreferences();
-   
-
-//====================================================================
 /*
-   const userPreferences = {
-    sheetAutoSave : false
-   } 
-*/
+//====================================================================
+    
+   */
+const userPreferences =  loadUserPreferences();
 
+  function getElement(id) {
+        return DOM.root.querySelector(`#${id}`);
+    }
+export function setAllElement( 
+    {   root = document,
+        createInfoResult = false
+    } = {} ){ 
+ 
+     setDOM({root});
 
+    uploadBtn  = getElement("uploadBtn"); 
+    uploadBtn?.addEventListener("click", (e) => {
+         
+        uploadBtn_rarity_function(); 
 
+   });
+  
+
+  nodeGraph        = getElement("nodeGraph"); 
+  nodeGraphScroll   = getElement("nodeGraphScroll"); 
+  nodeGraphCanvas  = getElement("nodeGraphCanvas"); 
+
+  queryAssistantContent  = getElement("queryAssistantContent"); 
+
+  previewImg = getElement("previewImg");
+ 
+  resultInfo = getElement("resultInfo");
+
+ DOM.queryInput       = getElement("queryInput");
+ DOM.queryAssistant  = getElement("queryAssistant");   
+
+ 
+ //console.log("  DOM.queryAssistant  =========   "  ,   DOM.queryAssistant   );
+
+ 
+ 
+    if (createInfoResult ){ 
+       const filterCard = new InfoCard(resultInfo,"FILTER","DSL");
+       const sheetCard = new InfoCard( resultInfo,"SHEETS","0");
+       const foundCard = new InfoCard(  resultInfo,"FOUND","0 NFTs");
+       setDOM({ filterCard, sheetCard,foundCard });
+   }
+
+}
+
+// duplicated.. to ./pageDataset.js // todo: ajust all script import 
 export function setPageDataset(){ 
  const path = window.location.pathname;
 
@@ -130,16 +190,9 @@ const pathSegments = path.split("/").filter(Boolean);
      document.body.dataset.page = "embed"; 
      return;
 } 
-    
-
-
- 
-
- document.body.dataset.page = "demo";
   
- 
-
- 
+ document.body.dataset.page = "demo";
+   
     
  if ( path.startsWith("/guide") ||
       path.startsWith("/introduction") || 
@@ -209,6 +262,9 @@ export async function generateAllTraitSheet(batchNumber, incr , options={}){
 
 
                   var vidFilter = get_VideoFilterObject(); // get_featState().get_VideoFilterObject();
+                
+                
+                  vidFilter.collectionId = project.id;// collectionId;
                   vidFilter.batchNumber = functionState.batchIndex;
                   vidFilter.userPreferences = userPreferences;
                   vidFilter.options = options;
@@ -259,8 +315,9 @@ export async function refreshQueryResult ( obj ) { //raw
 
              let {raw,caret} = obj;
             
+              obj.collectionId = project.id;// collectionId;
             
-             const result = await runQueryInputHandler( obj  ); // raw
+             const result =  await runQueryInputHandler(obj); // raw
 
   
  
@@ -270,7 +327,11 @@ export async function refreshQueryResult ( obj ) { //raw
              
                  result.raw = raw;
                  propagateQueryResult(result);   
-               //  console.log( "nft search result. to  get_UIstate() : "  , result  );
+              
+                 // #2415,2416,2515,2423,2305,2110 
+                 DOM.queryAssistant.classList.add("queryAssistantHidden");
+                 DOM.queryInput.classList.remove("queryInputHidden");     
+                 // DOM.queryBox.updateAssistant(result.queryResult);
            }
              
              if ( result && result.queryMode === 'DSL'){ 
@@ -281,6 +342,9 @@ export async function refreshQueryResult ( obj ) { //raw
 
                          containsInvalidBlocks = true; // will not save.
                     }
+
+               DOM.queryAssistant.classList.remove("queryAssistantHidden");
+               DOM.queryInput.classList.add("queryInputHidden");     
                   
 
                  // editingIncomplete
@@ -327,7 +391,7 @@ export async function refreshQueryResult ( obj ) { //raw
                                  
                                 case "CREATE_PRODUCER":
                                     
-                                    DOM.queryBox.showProducterOption(block);
+                                    DOM.queryBox.showProducerOption(block);
             
                                 break; 
                                 case "SELECT_TRAIT":   
@@ -347,17 +411,24 @@ export async function refreshQueryResult ( obj ) { //raw
                //  });
                 
  
-
+     
              }
 
-            if ( result && result.queryMode === 'TRAIT_SEARCH'){ 
-                // here NO update activeFilterMap(). because there is no selection result, it is only adrop down filtering.
-                applyTraitSearchBlock(raw);
-               // console.log( "trait search result ", result );
-              }
 
 
             
+            if ( result && result.queryMode === 'TRAIT_SEARCH'){ 
+                // here NO update activeFilterMap(). because there is no selection result, it is only adrop down filtering.
+                   applyTraitSearchBlock(raw);
+
+                   propagateQueryResult(result)
+
+                     DOM.queryAssistant.classList.add("queryAssistantHidden");
+                    DOM.queryInput.classList.remove("queryInputHidden");  
+               // console.log( "trait search result ", result );
+              }
+  
+ 
          
     // make sure we always reach here... some ui documentation needs it
      return result;
@@ -372,65 +443,121 @@ export function setDOM(config = {}) {
 }
 
 
-  const DOM = {
-    layoutEngine: null,
-    activeCollection: null,
+ export async function onTraitAdd(traitKey, value, ids) {
+       console.log( " result  ===    "   ,  traitKey  );     
+    // activeTraitUI_result add the pills and serialize. make sure you run this before api_addtrait engine loi
+        const activeTraitUI_result = call_addTrait_inUI( traitKey, value , ids );
+       
+            const objArg =   {  filterModeABS:         get_UIstate().filterModeABS,
+                                serializeActivePills:  get_UIstate().serializeActivePills,
 
-    sheetCard: null,
+                                collectionId : project.id 
+                            };
+              
+                const result = await  api_addTraitSelection  (  traitKey, value , ids , objArg )  ;       
+                        
+                propagateQueryResult(result);                   
+           DOM.viewManager.show("filterModeBTN");
+ 
+ 
+}
 
-    viewManager: null,
 
-    gridView: null,
-
-    filterCard: null,
-
-    foundCard: null,
-
-    queryBox: null
-
-};
+export function filterModeToggleAction( /*values*/){
+       //move outside
+     //  get_UIstate().filterModeABS = values;
+  
+        const apiCall =  async () => { 
+         const result = await api_set_filterModeABS(
+                             { filterModeABS:        get_UIstate().filterModeABS,
+                               serializeActivePills:  get_UIstate().serializeActivePills,
+                               collectionId:  project.id
+                             });
+        
+         propagateQueryResult(result);        
+ 
+    }
+    apiCall();
+    //===========================================================================
+ 
+ }
+ 
 
 
     
 // make sure all variables are up to date after api response/result
  export function propagateQueryResult(result){ 
           //============================== Client UI display ==============================  
-              
+                  let queryModeTEXT = result.queryMode;
                
-                if (result.queryMode.includes("TRAIT") ){ 
-                   result.queryMode = "TRAITS";
+                                        
+                if (result.queryMode.includes("TRAIT_SEARCH") ){ 
+                    queryModeTEXT = "TRAIT SEARCH";
+                    DOM.filterCard?.setValue(queryModeTEXT);
+                    // return;
+
                 }
-                DOM.filterCard?.setValue(result.queryMode);
-                DOM.foundCard?.setValue(result?.activeFilterMap_IDS.length);
+               
+
+                //=================
+                // trait panel filter
+               // if (result.queryMode.includes("TRAIT") ){ 
+                 //  queryModeTEXT = "TRAITS";
+              //  }
+                DOM.filterCard?.setValue(queryModeTEXT);
+               
 
               //======================================================================             
             
                //==============================  Client Data/ session memory  ==============================   
            
-                get_UIstate().activeFilterMap_IDS = result.activeFilterMap_IDS;
-                get_UIstate().activeFilterMap_suffleIDS = result.activeFilterMap_suffleIDS;
-                get_UIstate().IDS_Match_Count     = result.activeFilterMap_IDS.length;
-                get_UIstate().queryMode = result.queryMode;
-                get_UIstate().raw = result.raw;
-                get_UIstate().dna = result.dna;
-                get_UIstate().queryData = result.queryData;
-                get_UIstate().containsInvalidBlocks = result.containsInvalidBlocks;
-
-           // update grid IDS result for dislpay
-                DOM.gridView?.setNFTIds(get_UIstate().activeFilterMap_suffleIDS);
-           
+          
+              // if ( result.queryMode !== "TRAIT" ){       
+                    DOM.foundCard?.setValue(result?.activeFilterMap_IDS?.length);
+              // }
+                    get_UIstate().activeFilterMap_IDS = result.activeFilterMap_IDS;
+                    get_UIstate().activeFilterMap_suffleIDS = result.activeFilterMap_suffleIDS;
+                    get_UIstate().IDS_Match_Count     = result?.activeFilterMap_IDS?.length;
+                    get_UIstate().queryMode = queryModeTEXT;// queryMode;
+                    get_UIstate().raw = result.raw;
+                    get_UIstate().dna = result.dna;
+                    get_UIstate().queryData = result.queryData;
+                    get_UIstate().containsInvalidBlocks = result.containsInvalidBlocks;
+                   // update grid IDS result for dislpay
+                    DOM.gridView?.setNFTIds(get_UIstate().activeFilterMap_suffleIDS);
+          //   }
 
              //===========================================================================
 
            // different  action on query update based on collection or page.....
 
+             if (nodeGraphCanvas){
                 nodeGraphCanvas.innerHTML = "";
+             }
              /*   previewImg.innerHTML = "";*/
  
+      
+          
+          if(  window.eventBus ){ 
+                 console.log( " event before sending  result " ,  result );
+                 window.eventBus.emit(
+                 window.eventBus.eventNames.EVENT_active_filter_update,
+                   result
+                 ); 
+
+            }else{ 
+
+                 console.log( " NO GRID EVENT "   );
+            }
+
  
                switch (DOM.activeCollection) {
                   case "apiPipeline":
                        refreshPipeline(result)
+                    break;
+
+                    case "nothing":
+                       
                     break;
                
                    default:
@@ -460,7 +587,7 @@ export function timeout_saveSheet(batchNumber,incr, options ={} ){
  export function timeout_generateAllTraitSheet(batchNumber,incr, options ={} ){ 
                     clearTimeout(sheetTimer);
                     sheetTimer = setTimeout(() => {
-                        DOM.viewManager.show("SEARCH RESULT");
+                        DOM.viewManager?.show("SEARCH RESULT");
                          generateAllTraitSheet( batchNumber,incr, options );
                         DOM.sheetCard.setValue(get_UIstate().totalSheetCount); 
  
@@ -586,7 +713,7 @@ export function refreshPipeline (result){
  
                        nodeGraphCanvas.style.width = `${requiredWidth}px`; 
  
-                     queryAssistantContent =   document.getElementById("queryAssistantContent"); 
+                     queryAssistantContent =   getElement("queryAssistantContent"); 
                     
                     console.log( " ==============  width adjustment:",  {
                            requiredWidth,
@@ -859,6 +986,30 @@ function connectNodes(nodeColumns, layoutOptions){
             return node;   
   }
  
+
+
+export async function get_uploaded_collection(){ 
+
+    // api_collection_query
+}
+
+  export async function uploadBtn_rarity_function(){
+     const jsonResult =  await  uploadJSON();
+ 
+     api_collection_register(jsonResult, projectId);
+ 
+}
+  export async function api_collection_registerExistingData(jsonResult){
+    // const jsonResult =  await  uploadJSON();
+    console.log( " ready to upload existing data " , { 
+        projectId,
+        jsonResult
+    } );
+     return  api_collection_register(jsonResult, projectId);
+     
+ 
+}
+//window.api_collection_registerExistingData  = api_collection_registerExistingData;
  
 
 

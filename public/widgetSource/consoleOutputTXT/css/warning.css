@@ -1,0 +1,23 @@
+.suggestedAction {
+     
+    height: 28px;
+     
+    color: white;
+    background: #2ba742;
+    cursor: pointer;
+ animation: suggestBreath 2.4s ease-in-out infinite;
+}
+
+@keyframes suggestBreath {
+    0% {
+        background-color: #2ba742;
+    }
+
+    50% {
+        background-color: #3a6c42;
+    }
+
+    100% {
+        background-color: #2ba742;
+    }
+}

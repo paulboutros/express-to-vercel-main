@@ -204,7 +204,14 @@
         "id": "demos",
         "title": "Demo",
         "path": "demos"
-      } 
+      },
+       {
+        "id": "diagram-demo",
+        "title": "diagram-demo",
+        "path": "diagram-demo",
+        "pageType":"demoType",
+        "demoCollection":"reference" 
+      }  
        
     ]
   },
@@ -218,6 +225,20 @@
         "title": "From dsl selection to corrected query",
         "path": "from-dsl-selection-to-corrected-query"
       },
+     
+      {
+        "id": "inside-the-dsl-from-raw-input-to-structured-query",
+        "title": "Inside the dsl: from raw input to structured query",
+        "path": "inside-the-dsl-from-raw-input-to-structured-query"
+      },
+      {
+        "id": "structured-dsl-to-collection-results",
+        "title": "structured dsl to collection results",
+        "path": "structured-dsl-to-collection-results"
+      },
+
+
+      
       {
         "id": "lexer",
         "title": "lexer",

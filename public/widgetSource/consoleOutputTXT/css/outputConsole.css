@@ -1,0 +1,64 @@
+ 
+
+ 
+ .status-ok {
+    color: #6cc96c;
+    font-weight: bold;
+}
+
+.status-warn {
+    color: orange;
+    font-weight: bold;
+}
+
+/*
+.clickable-payload {
+    cursor: pointer;
+    text-decoration: underline;
+}*/
+
+
+/* soft blue text*/
+/*
+.clickable-payload {
+    cursor: pointer;
+    color: #9cdcfe;
+    padding: 1px 6px;
+    border-radius: 4px;
+    transition: background 0.15s ease;
+}
+
+.clickable-payload:hover {
+    background: rgba(156, 220, 254, 0.12);
+}*/
+
+ .payload-input{
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-right: 12px;
+}
+
+.payload-input{
+    width: 60px;
+    max-width: 60px;
+
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.35);
+    padding: 1px 8px;
+    border-radius: 6px;
+}
+ 
+.clickable-payload {
+    cursor: pointer;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.35);
+    padding: 1px 8px;
+    border-radius: 6px;
+    transition: background 0.15s ease;
+}
+
+.clickable-payload:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+ 

@@ -115,13 +115,17 @@ export default class QueryAssistant {
 
     show(queryResult){
  
-        let valid = true;
-         for (let index = 0; index < queryResult.blocks.length; index++) {
-             const block = queryResult.blocks[index];
 
-            // if (!error.valid){ valid = false }
-        }
-     
+
+       if (!queryResult.blocks ) { 
+        
+             return;
+
+       } 
+
+
+        let valid = true;
+         
 
      this.renderBlocks(queryResult.blocks);
         console.log("================================== "  );
@@ -170,6 +174,10 @@ formatBlock (block) {
 
     let html = "";
 
+     
+  if (  !block.tokens)return block.raw;
+
+    if ( !block.tokens)return "";
     for (const token of block.tokens) {
 
         let cssClass = "";

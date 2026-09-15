@@ -8,7 +8,7 @@
  
      import * as api from "./apiClient.js";
 
-     const traitData = await api.getTraitData();
+   //  const traitData = await api.getTraitData();
    
      // wuli ui oackage
      import TraitSelectorPanel from "./wuli-ui/traitSelectorPanel.js";
@@ -23,9 +23,8 @@
 
       // ui webapp specific
      //==================================================================================
-      import  viewManager  from "./UI/ViewManager.js";
-    // import {/*registerView ,showView, setInitialView, show, toggle*/   viewManager }  from "./UI/ViewManager.js";
-    
+  
+     
     import  GridView  from "./UI/GridView.js";
     import  SheetView  from "./UI/SheetView.js";
     import PanelToggle from "./UI/PanelToggle.js";
@@ -39,7 +38,7 @@
      import { applyTraitSearchBlock  } from "./wuli-ui/displayBlocksFromSearch.js";
    
      import {  api_addTraitSelection ,api_rebuildActiveFilterMap,
-          api_set_filterModeABS, api_runQueryInputHandler , api_getQueryExample//,
+          api_set_filterModeABS,/* api_runQueryInputHandler  ,*/ api_getQueryExample//,
          
        
      } from "./apiClient.js";
@@ -48,16 +47,23 @@
                  ,timeout_generateAllTraitSheet,
 
                  refreshQueryResult,
-                 timeout_saveSheet
+                 timeout_saveSheet,   setAllElement,
+                 getTraiDataResult,
+                 filterModeToggleAction 
+                 
 
        } from "./Mainfunctions/mainFunctions.js";
-import startLayoutEngine from "./LayoutEngine.js";
+        
+     import  viewManager  from "../widgetSource/workspace/ViewManager.js";      
+ import startLayoutEngine from "../widgetSource/workspace/LayoutEngine.js";
 import { buildNavigationPaths, create_SiteNavigation, setNavigationPaths } from "./navigationTree.js";
 
       
 
  
  export default async function initDemo(){
+  
+  setAllElement({ createInfoResult:true});
 
 console.log("initDemo()");
  let sheetTimer = null;
@@ -70,13 +76,15 @@ const panel_ignored_traits = [ "NECKSTYLE","DNA","_BODY_","_HEAD_","COLORSQN","H
 
     panel_ignored_traits: panel_ignored_traits,
     onAdd: ({ traitKey, value, ids }) => {
+
+       
            onTraitAdd(traitKey, value, ids) ;
  
     }
 
 });
     
- traitPanel.render(traitData);
+ traitPanel.render(    getTraiDataResult()   );  // traitData
  
 //===============================================================
      let siteNavigationData  = await api.getSiteNavigationData();
@@ -97,28 +105,15 @@ const panel_ignored_traits = [ "NECKSTYLE","DNA","_BODY_","_HEAD_","COLORSQN","H
        viewManager.hide("NAVIGVIEW");     
 //===============================================================
 
+ /*
+const filterCard = new InfoCard( resultInfo,"FILTER","DSL");
  
-const filterCard = new InfoCard(
-    resultInfo,
-    "FILTER",
-    "DSL"
-);
-
-const foundCard = new InfoCard(
-    resultInfo,
-    "FOUND",
-    "0 NFTs"
-);
+const foundCard = new InfoCard( resultInfo, "FOUND",  "0 NFTs");
+  
+const sheetCard = new InfoCard( resultInfo,"SHEETS","0");
  
-
-const sheetCard = new InfoCard(
-    resultInfo,
-    "SHEETS",
-    "0"
-);
  setDOM({sheetCard , foundCard, filterCard , viewManager })    
-
-
+ */
       
  const gridView = new GridView({ 
         container:document.getElementById("grid-container"),
@@ -129,9 +124,9 @@ const sheetCard = new InfoCard(
   });
   setDOM({gridView});
      
-      const sheetView = new SheetView(
-             document.getElementById("mainSlotA")
-      );
+      const sheetView = new SheetView( document.getElementById("mainSlotA") );
+            
+     
 
     viewManager.register("SHEET GENERATION", sheetView);
     viewManager.register("SEARCH RESULT", gridView);
@@ -141,24 +136,25 @@ const sheetCard = new InfoCard(
  const layoutEngine = startLayoutEngine({mode:"demo"});
 
 
-      setTraitUIHandlers({
+     setTraitUIHandlers({
                  onRemoveTrait(traitType, value, uiResult) {
-     
-  
+   
                      if (  uiResult.pills.length === 0 ){ 
                         viewManager.hide("filterModeBTN");
                      } 
                     
-          
+          filterModeToggleAction(); 
+          /* 
           const apiCall =  async () => { 
                     const result = await api_rebuildActiveFilterMap(
                                     { filterModeABS:        get_UIstate().filterModeABS,
-                                     serializeActivePills:  get_UIstate().serializeActivePills
+                                      serializeActivePills:  get_UIstate().serializeActivePills
                                     });
                
                      propagateQueryResult(result);               
             }
             apiCall();
+            */
  
     // redraw result grid
         }
@@ -177,52 +173,29 @@ const buttonSet2 = document.getElementById("buttonSet2") ;
      await queryStore.initialize(api_getQueryExample)  ;
  
 
-    const queryBox = new QueryBox(
+     const queryBox = new QueryBox(/*
         document.getElementById("queryBox"),
         queryStore,
         refreshQueryResult
-    );
-    setDOM({queryBox});
+        */
+
+        {
+        root: document,
+        container:document.getElementById("queryBox"), 
+        store: queryStore,
+        refreshQueryResult: refreshQueryResult 
+        }
+     );
+     setDOM({queryBox});
   
-  //===================================================== 
-  /*
-  const prevBatchButton = new RunButton({
-        container:  row1  ,
-        label :"<",
-        onClick: async () => {
-           //   console.log(  "prev BatchButton clicked ");
-   
-              timeout_generateAllTraitSheet( functionState.batchIndex, -1 );
-        }
-    });
-     
-    prevBatchButton.button.classList.add("btn_navGuide");
-    prevBatchButton.button.style.width = "20px";
-    
-//======================================================== 
- //===================================================== 
- const nextBatchButton = new RunButton({
-        container:  document.getElementById("row1") ,
-        label :">",
-         onClick: async () => {
- 
-           
- 
-            // generate All TraitSheet( functionState.batchIndex, 1  );
-        }
-    });
-   
-    nextBatchButton.button.classList.add("btn_navGuide");
-    nextBatchButton.button.style.width = "20px";  
-   */
-//======================================================== 
-//=====================================================
-//=====================================================
+  
+    const raw = queryBox.getRandomItem().raw
+    queryBox.input.setValue(raw);
+    refreshQueryResult({raw: raw, caret: raw.length,  action: null,  command:null });
+             
+             
 
-
-   
-
-   document.getElementById("querySave").addEventListener("click", (e) => {
+    document.getElementById("querySave").addEventListener("click", (e) => {
                timeout_saveSheet( null ,0 );
    });
    document.getElementById("panelToggle").addEventListener("click", (e) => {
@@ -240,16 +213,15 @@ const filterModeToggle = new ToggleButton({
      id:"toggleButton",
      label: "Filter",
      className : "filterModeToggleBtn",
-    values: ["OR","AND"],
-
-  
+     values: ["OR","AND"],
+     onChange: (values) => {
+             get_UIstate().filterModeABS = values;
+             filterModeToggleAction();
+     } 
+  /*
       onChange:   (values) => {
-        
-      //  console.log("   onChange:   (values) =>  "  , values  );
-        get_UIstate().filterModeABS = values;
-       
- 
-    const apiCall =  async () => { 
+       // get_UIstate().filterModeABS = values;  // moved outside
+       const apiCall =  async () => { 
              const result = await api_set_filterModeABS(
                              { filterModeABS:        get_UIstate().filterModeABS,
                                serializeActivePills:  get_UIstate().serializeActivePills
@@ -258,11 +230,14 @@ const filterModeToggle = new ToggleButton({
        
          propagateQueryResult(result);        
  
-    }
-    apiCall();
-    //===========================================================================
- 
-    }
+      }
+       apiCall();
+     }
+*/
+
+
+
+
 });
 //======================================================================================
     const filterModeView = new ElementView( '[class="filterModeToggleBtn"]');
@@ -272,15 +247,15 @@ const filterModeToggle = new ToggleButton({
 
  
   //=======================================================================================
-   
-    async function runQueryInputHandler( obj   ) { //raw
+   /*
+ async function runQueryInputHandler( obj   ) { //raw
      const result = await api_runQueryInputHandler( obj  ); //raw
        
        
 
     return result;
 }
-
+*/
 
  //=====================================================================
   //=======================================================================================
@@ -293,12 +268,10 @@ const filterModeToggle = new ToggleButton({
             const objArg =   {  filterModeABS:         get_UIstate().filterModeABS,
                                 serializeActivePills:  get_UIstate().serializeActivePills
                             };
-      
-             
-             
+       
                 const result = await  api_addTraitSelection  (  traitKey, value , ids , objArg )  ;       
                    
-                       
+       
                 propagateQueryResult(result);                   
               
                 
@@ -307,6 +280,10 @@ const filterModeToggle = new ToggleButton({
  
  
 }
+
+
+ //=====================================================================
+
   
 }
 

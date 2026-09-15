@@ -1,6 +1,6 @@
 
 
-  *,
+*,
 *::before,
 *::after{
     box-sizing:border-box;
@@ -18,7 +18,7 @@ body{
     color:var(--text);
 
     font-family:Arial,sans-serif;
-      font-size: var(--font-md);
+    font-size: var(--font-md);
 
 }
 
@@ -51,7 +51,7 @@ option{
  button, 
 input,
 select{
-    font-size: var(--font-md);
+    font-size: var(--font-xs);
 }
 
 .infoLabel{
@@ -66,30 +66,14 @@ select{
     font-size: var(--font-xl);
 }
 
-button{
-/*
-    font-size: var(--button-font-size);
-
-    padding:
-        var(--button-padding-y)
-        var(--button-padding-x);
-
-    min-height: var(--button-min-height);
-
-    border-radius: var(--button-radius);
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:var(--button-gap);
-    */
-
+.hidden {
+    display:none !important;
 }
-
-
-
-
-
+.nodeHidden {
+    display:none !important;
+}
+ 
+  
  
 /* ==========================================================
    GLOBAL SCROLLBARS

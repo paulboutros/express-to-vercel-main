@@ -355,13 +355,8 @@ function load_weaponShieldcombo(){
 
 
  function get_traitOverrideNames_invers() { 
-
-   return getData(  getPath("traitOverrideNames_invers.json",scriptType.JSONDATA));
- 
-
-
-
- }
+    return getData(  getPath("traitOverrideNames_invers.json",scriptType.JSONDATA));
+  }
 
 function GetWeaponShieldcombo_set() {
   const weaponShieldcombo = JSON.parse(

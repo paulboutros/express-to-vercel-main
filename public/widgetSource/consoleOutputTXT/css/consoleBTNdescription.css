@@ -1,0 +1,35 @@
+.consoleBlock {
+    padding: 6px 8px;
+    font-family: monospace;
+    font-size: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.consoleBlock .title {
+    font-weight: bold;
+    color: #dcdcdc;
+    margin-bottom: 2px;
+}
+
+.consoleBlock .text {
+    color: #a9a9a9;
+}
+
+.consoleBlock .label {
+    color: #6aa6ff;
+}
+
+.consoleBlock .hint {
+    color: #777;
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.consoleBlock.system .status {
+    color: #ffcc66;
+}
+
+/*
+ 
+
+*/

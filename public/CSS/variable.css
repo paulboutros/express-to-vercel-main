@@ -1,4 +1,4 @@
-:root{
+.wulirocks{
 
     --bg:              #181818;
 
@@ -95,5 +95,20 @@
 
   --node-closed :70px;
 
+
+/*
+ html,
+body{
+*/
+   margin:0;
+    padding:0;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    font-family:Arial,sans-serif;
+    font-size: var(--font-md);
+  
 
 }

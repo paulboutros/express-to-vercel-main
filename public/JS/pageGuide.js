@@ -12,7 +12,7 @@
  
      import * as api from "./apiClient.js";
 
-     const traitData = await api.getTraitData();
+    // const traitData = await api.getTraitData();
     
    
      // wuli ui oackage    "@wulirocks/collection-engine"
@@ -21,13 +21,13 @@
      import  RunButton from "./wuli-ui/runButton.js";
      import QueryBox from "./wuli-ui/QueryBox/QueryBox.js";
      import QueryStore from "./wuli-ui/QueryBox/QueryStore.js";
-     import QueryDropdown from "./wuli-ui/QueryBox/QueryDropdown.js";
-     import QueryAssistant from "./wuli-ui/QueryBox/QueryAssistant.js";
+     //import QueryDropdown from "./wuli-ui/QueryBox/QueryDropdown.js";
+    // import QueryAssistant from "./wuli-ui/QueryBox/QueryAssistant.js";
      import HorizontalSelector from "./wuli-ui/horizontalSelector.js";
 
       // ui webapp specific
      //==================================================================================
-      import  viewManager  from "./UI/ViewManager.js";
+      import  viewManager  from "../widgetSource/workspace/ViewManager.js";
      
     import  GridView  from "./UI/GridView.js";
     import  SheetView  from "./UI/SheetView.js";
@@ -42,19 +42,22 @@
     } from "./wuli-ui/filterPills.js";
      import { applyTraitSearchBlock  } from "./wuli-ui/displayBlocksFromSearch.js";
    
-     import {  api_addTraitSelection ,api_rebuildActiveFilterMap,
-          api_set_filterModeABS, api_runQueryInputHandler , api_getQueryExample//,
+     import {  api_rebuildActiveFilterMap,
+          api_set_filterModeABS,  api_getQueryExample//,
          
         //   api_generateAllTraitSheet
      } from "./apiClient.js";
       import { generateAllTraitSheet, functionState,
             refreshQueryResult, setDOM,
              refreshPipeline,
-             setPageDataset
+             setPageDataset ,
+               setAllElement
         
            } from "./Mainfunctions/mainFunctions.js";
-import startLayoutEngine from "./LayoutEngine.js";
-import PayloadWidget from "./UI/widget/payloadWidget.js";
+         
+
+import startLayoutEngine from "../widgetSource/workspace/LayoutEngine.js";
+ 
 import { 
 
       getNavigationPaths , 
@@ -66,6 +69,8 @@ import {
      getCurrentRoute, 
      renderNavigationTree, 
      setupdatePage} from "./navigationTree.js";
+import { copyEmbed } from "./copyEmbed.js";
+import { getProject, getProjectStore } from "./Mainfunctions/localStorageAccess.js";
  
  
  
@@ -74,11 +79,11 @@ import {
  let pathIndex =0;
 let guideComponent = null;
 let queryBox = null;
-let filterCard = null;
-let sheetCard = null;
-let foundCard = null;
+//let filterCard = null;
+//let sheetCard = null;
+//let foundCard = null;
 let traitPanelView = null;
-let payloadWidget =null;
+ 
 let gridView= null;
 let sheetView = null;
 
@@ -92,9 +97,17 @@ let uiComponentLoaded = false;
  //const final_traitList = document.getElementById("final_traitList");
   const queryStore = new QueryStore();
    queryBox = new QueryBox(
+    /*
                 document.getElementById("queryBox"),
                 queryStore,
                 refreshQueryResult
+                 */
+                    {
+                    root: document,
+                    container:document.getElementById("queryBox"), 
+                    store: queryStore,
+                    refreshQueryResult: refreshQueryResult 
+                    }
                );
    setupdatePage( updatePage );
   
@@ -112,11 +125,11 @@ if (!uiComponentLoaded){uiComponentLoaded = true;}
    currentCollection = collection;
 
    
-
-     filterCard = new InfoCard(resultInfo,"FILTER","DSL");
+   /*
+      filterCard = new InfoCard(resultInfo,"FILTER","DSL");
       sheetCard = new InfoCard( resultInfo,"SHEETS","0");
-     foundCard = new InfoCard(  resultInfo,"FOUND","0 NFTs");
-      
+      foundCard = new InfoCard(  resultInfo,"FOUND","0 NFTs");
+      */
  
    //=============================================================
   // then go workspaceController to adjust 
@@ -134,6 +147,11 @@ if (!uiComponentLoaded){uiComponentLoaded = true;}
              viewManager.toggle("NAVIGVIEW");
    });     
 //=============================================================
+ 
+
+ 
+//===================================
+
 
 
 
@@ -160,13 +178,8 @@ const raw = pageData.query;//
         case "guide":
          
              queryBox.input.setValue(raw);
-
+             refreshQueryResult({raw: raw, caret: raw.length,  action: null,  command:null });
              
-              refreshQueryResult({raw: raw, caret: raw.length,  action: null,  command:null });
-             
-             
-            
-
              // create_SiteNavigation();
 
                setDOM(  {queryBox, activeCollection:collection, layoutEngine });
@@ -233,7 +246,10 @@ async function updatePage({collection, slug}= getCurrentRoute() ){
         pageData
 
     });
-    guideComponent.show(pageData);  
+
+    const options={ collection,slug }
+    
+    guideComponent.show(pageData,  options);  
     const raw = pageData.query;//    
 
      await loadUIcomponent( {collection, pageData}); // const raw = pageData.query;//    
@@ -246,14 +262,9 @@ async function updatePage({collection, slug}= getCurrentRoute() ){
         break;
 
         case "guide":
-         /*
-                queryBox = new QueryBox(
-                document.getElementById("queryBox"),
-                queryStore,
-                refreshQueryResult
-              );*/
+        
             
-             setDOM({ activeCollection:collection,filterCard, sheetCard,foundCard, viewManager, queryBox});
+             setDOM({ activeCollection:collection, /*filterCard, sheetCard,foundCard,*/ viewManager, queryBox});
              queryBox.input.setValue(raw);
               
              refreshQueryResult({raw: raw, caret: raw.length, action: null, command:null});
@@ -263,7 +274,7 @@ async function updatePage({collection, slug}= getCurrentRoute() ){
 
            //to do: replace by id page id = "games"
             if (raw){
-               setDOM({ activeCollection:collection,filterCard, sheetCard,foundCard, viewManager, queryBox});
+               setDOM({ activeCollection:collection,/*filterCard, sheetCard,foundCard,*/ viewManager, queryBox});
                queryBox.input.setValue(raw);
 
                 get_UIstate().cardToDisplay = "weapon_and_shield";
@@ -274,7 +285,27 @@ async function updatePage({collection, slug}= getCurrentRoute() ){
 
         break;
        case "reference":
+            if ( pageData.pageType ==="demoType" ){  
+ 
+             const project = getProject();
+                if ( project ){ 
+  
+                console.log  ( "project "   , project );
+  
+                  const options={ collection,slug }
+    
+                  guideComponent.show(
+                     project.architecture , 
+                     options);     
+                  
 
+              } 
+                     
+
+            }else{ 
+                 console.log  ( " not demo type "   );
+
+            }
 
 
        break;
@@ -283,7 +314,7 @@ async function updatePage({collection, slug}= getCurrentRoute() ){
                
              const testquery = {raw: raw, caret: raw.length,  action: null,  command:null }
              
-             setDOM({ activeCollection:collection, filterCard,sheetCard,foundCard, viewManager, queryBox});
+             setDOM({ activeCollection:collection,/* filterCard,sheetCard,foundCard,*/ viewManager, queryBox});
              const result = await refreshQueryResult(testquery);
                    
             
@@ -343,6 +374,8 @@ function addNavigationButton( path, pathIndex, collection){
 
 export default async function initGuide({slug, collection} = getCurrentRoute()) {
  
+    setAllElement({ createInfoResult:true});
+  
     viewManager.register("SHEET GENERATION", sheetView);
     viewManager.register("SEARCH RESULT", gridView);
     viewManager.setInitialView("SHEET GENERATION");

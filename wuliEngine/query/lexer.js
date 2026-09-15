@@ -344,6 +344,31 @@ function hasToken(tokens, type){
  
 
 
+function findNext(text, start, expectedChar) {
+
+    let i = start;
+
+    while (i < text.length) {
+
+        const c = text[i];
+
+        // Ignore formatting whitespace
+        if (c === " ") {
+            i++;
+            continue;
+        }
+
+        // Found expected token
+        if (c === expectedChar) {
+            return i;
+        }
+
+        // Any other visible character = failure
+        return -1;//false;
+    }
+
+    return -1;//false;
+}
 
 //=========================================
 
@@ -514,10 +539,11 @@ function hasToken(tokens, type){
 
  function isProducerToken(token){
 
-  console.log( "======== ===============isProducerToken  " ,          token );
+ 
+      
 
 
-    return token.type === TOKEN.COMPLETE_PRODUCER ||
+     return token.type === TOKEN.COMPLETE_PRODUCER ||
             token.type === TOKEN.PARTIAL_PRODUCER;
 
 }
@@ -553,6 +579,7 @@ module.exports={
 
     getTokens,
 
-    hasToken
+    hasToken,
+    findNext
 
 }

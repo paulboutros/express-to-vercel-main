@@ -343,7 +343,7 @@ function pad(num) {
  function saveRarityDoc( dataArg){ 
   const rarityDocPath =  getPath("rarityDoc.json", scriptType.JSONDATA );
          fs.writeFileSync(
-              rarityDocPath,    //"traitCounter.json",
+              rarityDocPath,     
               JSON.stringify(dataArg, null, 2), 
               "utf8"
         );

@@ -1,7 +1,9 @@
  
+ 
 class ToggleButton {
 
     constructor({
+        root = document,
         containerId,
         id,
         label = "Toggle",
@@ -11,9 +13,10 @@ class ToggleButton {
         onChange = null
     }) {
 
-        this.container = document.getElementById(containerId);
-
-
+    
+        this.root = root;
+        this.container =  this.getElement(containerId);//       document.getElementById(containerId);
+        
         this.id = id;
         this.label = label;
         this.className = className;
@@ -93,6 +96,9 @@ class ToggleButton {
 
         return this.valueIndex;
 
+    }
+      getElement(id) {
+        return this.root.querySelector(`#${id}`);
     }
 
 }

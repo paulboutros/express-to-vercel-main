@@ -1,12 +1,8 @@
-
-/*
-const node = event.target.closest("[data-architecture-node]");
-
-const implementation = node.nextElementSibling;
-
-implementation.classList.toggle("isOpen");
-*/
-
+ 
+import { copyEmbed, downloadJSON, uploadJSON } from "../copyEmbed.js";
+import { getButtonRegistry, getDOMregistry } from "../Mainfunctions/DOMregistry.js";
+//import { getButtonRegistry } from "../Mainfunctions/mainFunctions.js";
+//import { getButtonRegistry } from "../Mainfunctions/mainFunctions.js";
 import ArchitectureNodeInstance from "../wuli-ui/ArchitectureNodeInstance.js";
 import { draw_connector_forkStart, draw_connector_forkMiddle,  getForkNode, getForkNodeEnd, getForkNodeMiddle } from "../wuli-ui/connectorManager.js";
 import {   clearConnectors, drawConnector, getRequiredHorizontalWidth, getRequiredHorizontalWidth_gen, layoutNodesHorizontal_gen, pt } from "../wuli-ui/pipelineFunction.js";
@@ -32,25 +28,84 @@ let container_guideComponent = document.getElementById("guideTextBlock");
 let updateImplementationRect; // function callback
 
 
-export function renderArchitecture(container, section ) {
+export function renderArchitecture(container, section , options ={}) {
        mainContainer = container;
        
-      
+        const registry = getButtonRegistry();
+
+const buttonKey = `copyEmbed_${section.architectureIndex}`;
+
+const buttonUploadKey = `upload_${section.architectureIndex}`;
+const buttonDownloadKey = `download_${section.architectureIndex}`;
+
+    registry[buttonKey] = {
+        action: "copyEmbed",
+        collection: options.collection,
+        slug:       options.slug,
+        componentId: section.architectureIndex
+    }; 
+ registry[buttonUploadKey] = {
+        action: "upload",
+        collection: options.collection,
+        slug:       options.slug,
+        componentId: section.architectureIndex
+    }; 
+    registry[buttonDownloadKey] = {
+        action: "download",
+        collection: options.collection,
+        slug:       options.slug,
+        componentId: section.architectureIndex
+    }; 
+
+    
+
+
+       
        return `
 
         <div
-            class="guideSection guideArchitecture"
-            data-architecture-section
-            data-architecture-index="${section.architectureIndex}"
-         >
+    class="guideSection guideArchitecture"
+    data-architecture-section
+    data-architecture-index="${section.architectureIndex}"
+>
 
-            ${section.title ? `
-                <div class="guideArchitectureTitle">
-                    ${section.title}
-                </div>
-            ` : ""}
- 
-            <div class="guideArchitectureFlow">
+    ${section.title ? `
+        <div class="guideArchitectureHeader">
+
+            <div class="guideArchitectureTitle">
+                ${section.title}
+            </div>
+
+            <button
+                class="copyEmbedButton"
+                type="button"
+                data-button-key="copyEmbed_${section.architectureIndex}"
+                data-copy-embed
+            >
+                Copy embed
+            </button>
+
+            <button
+                class="copyEmbedButton"
+                type="button"
+                data-button-key="upload_${section.architectureIndex}"
+                data-btn-upload
+            >
+                upload
+            </button>
+             <button
+                class="copyEmbedButton"
+                type="button"
+                data-button-key="download_${section.architectureIndex}"
+                data-btn-download
+            >
+                download
+            </button>
+
+          </div>
+          ` : ""}
+
+           <div class="guideArchitectureFlow">
 
 
                 <!-- Root -->
@@ -144,7 +199,8 @@ function renderArchitectureImplementation(data) {
            )}
        
 
-           ${renderArchitectureSketch(data.architectureSketchSecondary)}
+           ${renderArchitectureSketch(data.architectureSketch2)}
+            ${renderArchitectureSketch(data.architectureSketch3)}
            
             
 
@@ -439,6 +495,64 @@ function renderArchitectureNode(node, options = {}) {
  
 export function setupArchitectureInteractions(container, guide ,  do_layoutArchitectureBranchFlows  ) {
 
+
+
+   
+      container.addEventListener("click",async event => {
+         
+             const button = event.target.closest("[data-button-key]");
+          
+             if (!button) return;
+         
+             const key = button.dataset.buttonKey;
+          
+             const registry = getButtonRegistry();
+          
+             const entry = registry[key];
+                 
+            console.log( "button   ==== ", {
+
+                button,
+                entry,
+                key
+
+            }  );
+             if (!entry) return;
+
+             const guideComponent =  getDOMregistry().guideComponent;
+         
+             if (entry.action === "copyEmbed") { copyEmbed(entry);}
+             if (entry.action === "upload") { 
+                  const jsonResult =  await  uploadJSON();
+                  
+                  guideComponent.refresh(jsonResult);
+                 
+            }
+            if (entry.action === "download") { 
+                  
+                  console.log(  guideComponent.currentPageData  )
+                 downloadJSON( guideComponent.currentPageData ); 
+                //  guideComponent.refresh(jsonResult);
+                 
+            }
+
+          
+   
+    
+
+         
+                
+         
+             
+         
+         });
+ 
+
+
+
+
+
+    //=========================
     const nodes = container.querySelectorAll("[data-architecture-node]");
        
     nodes.forEach(node => {
@@ -770,9 +884,9 @@ note	Implementation fact worth remembering
     
    if (!container ){ container = container_guideComponent;}
     
-    setLayoutOptions();
+    setLayoutOptions( container );
     
-    console.log("layoutArchitectureBranchFlows", { layoutOptions,container  });
+    console.log("layoutArchitectureBranchFlows", { layoutOptions, container  });
  
      const nodeColumns = getArchitectureNodeColumns(branches);
      
@@ -810,17 +924,18 @@ note	Implementation fact worth remembering
 
      clearConnectors(container_branchLayout);
 
-     const architectureContainer = document.querySelector("[data-architecture-index]");
+     const architectureContainer =  container.querySelector("[data-architecture-index]");
+
      const forkNode = getForkNode(architectureContainer);
      const forkEnd  = getForkNodeEnd(architectureContainer);
      const forkmiddle  = getForkNodeMiddle(architectureContainer);
 
 
-     draw_connector_forkStart(forkNode);
+     draw_connector_forkStart(forkNode ,architectureContainer);
 
-     draw_connector_forkMiddle(forkmiddle);
+     draw_connector_forkMiddle(forkmiddle ,architectureContainer);
 
-     draw_connector_forkStart(forkEnd);
+     draw_connector_forkStart(forkEnd ,architectureContainer);
      
   
     return {
@@ -851,10 +966,13 @@ function call_layoutNodesHorizontal_gen(nodeColumns){
 
 }
  
-function setLayoutOptions(){ 
+function setLayoutOptions( containerArg ){ 
   
      
-    const nodeContainer = document.querySelector(".guideArchitectureBranchLayout");
+    console.log("set layout container arg: ", containerArg )
+
+   // const nodeContainer = document.querySelector(".guideArchitectureBranchLayout");
+     const nodeContainer = containerArg.querySelector(".guideArchitectureBranchLayout");
  
      container_branchLayout = nodeContainer;
     layoutOptions = {
@@ -1127,10 +1245,7 @@ function timeout_refreshArchitectureLayout(branches,
         refreshArchitectureLayout(branches);// move node Y position based  on  updated implementation rect
   
         do_layoutArchitectureBranchFlows();  //   redraw layout
-
-
-       //  showBranchInclusive( Number(clickInfo.branchIndex),  clickInfo  );
-    //    updateImplementationPosition(); // position implementation to  new layout(node Y moved)
+ 
 
     }, timeVal);
 }
@@ -1209,11 +1324,11 @@ for (let columnIndex = 0; columnIndex < nodeColumns.length; columnIndex++) {
 
 }
 
-
+/*
 function getNodeElementById(node_id){
      return document.querySelector(`[data-architecture-node-id="${node_id}"]`);
               
-}
+}*/
  
   
  

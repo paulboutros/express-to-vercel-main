@@ -19,7 +19,7 @@ const { get_UI_DEFAULT_CONFIG , get_rarityTraitCount } = require("../storage/wri
  
   const DEFAULT_CONFIG   =  get_UI_DEFAULT_CONFIG();  //    get_UI_DEFAULT_CONFIG(); 
 //======================================
-  const traitCounter = get_rarityTraitCount();//    JSON.parse(fs.readFileSync(traitCounterPATH));
+  const traitCounter = get_rarityTraitCount();  
 
   let reviewSheetData;
   let rarityDocData;

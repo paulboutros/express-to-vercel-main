@@ -36,7 +36,12 @@ export default class QueryStore{
          this.queries = Object.values(savedQueryJson).filter(query =>
             query.queryMode === "DSL" ||
             query.queryMode === "NFT_SEARCH"
-        );; 
+        );
+
+
+         console.log(    " this.queries   ==   "  ,  this.queries   );
+
+
     }
 
      getRecent(){

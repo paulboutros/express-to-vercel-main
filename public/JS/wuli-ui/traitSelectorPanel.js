@@ -1,7 +1,9 @@
+ 
 class TraitSelectorPanel {
 
     constructor(options = {}) {
 
+         this.root = options.root;
         this.container = options.container;
 
         this.onAdd = options.onAdd || (() => {});
@@ -33,18 +35,19 @@ class TraitSelectorPanel {
                 return;
            }
 
-            const block = document.createElement("div");
+            const block = document.createElement("div"); //document.createElement("div");
+                           
             block.className = this.classNames.block;
 
-            const label = document.createElement("label");
+            const label = document.createElement("label");// document.createElement("label");
             label.className = this.classNames.label;
             label.textContent =
                 `${traitKey} (${Object.keys(values).length})`;
 
-            const row = document.createElement("div");
+            const row =  document.createElement("div");// document.createElement("div");
             row.className = this.classNames.row;
 
-            const select = document.createElement("select");
+            const select = document.createElement("select");//  document.createElement("select");
 
             select.appendChild(
                 new Option(this.ignoreLabel, "")
@@ -65,13 +68,24 @@ class TraitSelectorPanel {
 
                 });
 
-            const addBtn = document.createElement("button");
+            const addBtn = document.createElement("button");// document.createElement("button");
 
             addBtn.textContent = this.buttonLabel;
             addBtn.className = this.classNames.button;
 
             addBtn.addEventListener("click", () => {
 
+
+
+                console.log(   " select.value  "  ,
+                    
+                  {value: select.value,
+
+                  onAdd:    this.onAdd
+                  }  
+                
+                
+                  );
                 if (!select.value) return;
 
                 this.onAdd({
@@ -92,6 +106,10 @@ class TraitSelectorPanel {
 
         });
 
+    }
+
+     getElement(id) {
+        return this.root.querySelector(`#${id}`);
     }
 
 }

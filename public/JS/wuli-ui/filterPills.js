@@ -1,3 +1,6 @@
+//import { getDOMElement } from "../Mainfunctions/DOMregistry.js";
+import { getUIelements } from "../Mainfunctions/mainFunctions.js";
+
 const UIstate = {
   activeTraitUI: new Map(),
   activeTraits: new Map(),
@@ -57,7 +60,11 @@ export function call_addTrait_inUI(traitKey, value, ids) {
 export function updateActiveTraitBar(activeTraitUI, onRemoveTrait) {
  // const bar = document.getElementById("activeTraitBar");
   const pillsContainerName ="trait-pill-container";
-  const bar = document.getElementById(pillsContainerName); // "activeTraitBar" 
+  let bar = getElement(pillsContainerName);      
+  // getDOMElement(pillsContainerName);//   document.getElementById(pillsContainerName); 
+  if (!bar){ 
+       bar = document.getElementById(pillsContainerName); 
+  }
   if (!bar) {
        throw new Error(" trait bar element named "+  pillsContainerName  +" does not exist. can not add pills");
    }  
@@ -73,7 +80,7 @@ export function updateActiveTraitBar(activeTraitUI, onRemoveTrait) {
       pill.textContent = `${traitType}: ${value}`;
 
       const close = document.createElement("button");
-      close.textContent = "×";
+      close.textContent =  "×";
 
       close.onclick = () => {
         if (onRemoveTrait) {
@@ -229,48 +236,13 @@ export function get_VideoFilterObject() {
        return filter;
      };
 
+ 
 
+     function getElement(id) {
 
-     /*
+        const root = getUIelements().traitpanel_widget || document;
 
- function get_VideoFilterObject( clientObj) {
+        console.log( "pills  traitpanel_widget  == == = " , root  )
 
-     const{ activeTraits, activeFilterMap_IDS, activeTraitUI, queryMode } = clientObj ;
-    let sheetTitle = "";
-
-    for (const [key, nftSet] of  activeTraits.entries()) {
-      sheetTitle += key + " ";
+        return  root.querySelector(`#${id}`);
     }
-
-    return {
-      filterModeABS:  filterModeABS,
-      activeFilterMap_IDS:  activeFilterMap_IDS,
-      activeTraitUI_toArray:  buildVideoFilterObject( activeTraitUI),
-      queryMode: queryMode,
-      sheetTitle
-    };
-  }
-
-  function serializeActiveTraitUI ( activeTraitUI ) {
-    const list = [];
-
-    for (const [traitKey, values] of  activeTraitUI.entries()) {
-      for (const value of values) {
-        list.push({ traitKey, value });
-      }
-    }
-
-    return list;
-  }
-
-  function buildVideoFilterObject(activeTraitUI) {
-    const filter = {};
-
-    for (const [traitType, valueSet] of activeTraitUI.entries()) {
-      filter[traitType] = Array.from(valueSet);
-    }
-
-    return filter;
-  }
-
-     */

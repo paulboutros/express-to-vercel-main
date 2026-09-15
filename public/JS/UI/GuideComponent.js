@@ -1,8 +1,10 @@
-//import { getProject, getProjectStore } from "../Mainfunctions/mainFunctions.js";
+ 
+import { getDOMregistry } from "../Mainfunctions/DOMregistry.js";
+import { getProject, getProjectStore } from "../Mainfunctions/localStorageAccess.js";
 import {     layoutArchitectureBranchFlows, renderArchitecture,
-     setupArchitectureInteractions, 
-     updateLayoutContainerHeight
-    } from "./renderArchitecture.js";
+             setupArchitectureInteractions, 
+             updateLayoutContainerHeight
+        } from "./renderArchitecture.js";
 import { renderTree } from "./renderTree.js";
 
  
@@ -14,41 +16,42 @@ import { renderTree } from "./renderTree.js";
     constructor({container = null  }){
 
         this.container = container;
+        this.currentPageData =null;
+        this.options=null;
+
+
+         getDOMregistry().guideComponent=this;  
  
     }
 
-    show(guide){
+    refresh (currentPageData){
+          
+          this.show(currentPageData, this.options);
+
+  
+          const project = getProject();//.architecture = uploadedPageData;
+           project.architecture = currentPageData;
+          getProjectStore().save(project);
+       
+
+    }
+
+    show(pageData, options={}){
       
+       this.options = options;
+       this.currentPageData = pageData;
+
       let html = `
 
              <div class="guideContent">
-
-               
-              <div class="guideTitleRow">
-                <div class="guideTitle">
-                    ${guide.title}
-                </div>
-
-                <div id="guideNavigation" class="guideNavigation">
-                    <div class="guideNavButton"></div>
-                    <div class="guideNavButton"></div>
-                </div>
-            </div>
+                  ${options.hideTopArea ? "": this.topArea(pageData) }
  
-                <div class="guideSummary">
-                    ${guide.summary}
-                </div>
-
         `;
 
-
-          /*
-        for(const section of guide.sections){
-             html += this.renderSection(section);
-         }*/
+ 
          
          let architectureIndex =0;
-          for (const section of guide.sections) {
+          for (const section of pageData.sections) {
             
               if (section.type === "architecture" && section.flow) {
 
@@ -62,7 +65,19 @@ import { renderTree } from "./renderTree.js";
                architectureIndex++;
             }
 
-            html += this.renderSection(section);
+
+             if ( options.hideTopArea &&
+                section.type === "architecture" ){ 
+
+                 html += this.renderSection(section, options);
+             }else{
+                // html += this.renderSection(section, options);
+             }
+             if (!options.hideTopArea){
+                  html += this.renderSection(section, options); 
+             }
+
+           
         }
 
 
@@ -71,22 +86,43 @@ import { renderTree } from "./renderTree.js";
 
         this.container.innerHTML = html;
 
-         setupArchitectureInteractions(this.container , guide ,
+ 
+
+         setupArchitectureInteractions(this.container , pageData ,
              () => { 
-                  this.do_layoutArchitectureBranchFlows( guide ) 
+                  this.do_layoutArchitectureBranchFlows( pageData ) 
              }
          )
         
-         this.do_layoutArchitectureBranchFlows( guide );
+         this.do_layoutArchitectureBranchFlows( pageData );
         
         
-        /* setupArchitectureInteractions(this.container , guide);*/
+        
 
     }
 
-    do_layoutArchitectureBranchFlows(  guide ){ 
+    topArea(pageData){ 
+         return `
+             <div class="guideTitleRow">
+                  <div class="guideTitle">
+                    ${pageData.title}
+                  </div>
+
+                   <div id="guideNavigation" class="guideNavigation">
+                         <div class="guideNavButton"></div>
+                         <div class="guideNavButton"></div>
+                   </div>
+               </div>
+ 
+                <div class="guideSummary">
+                    ${pageData.summary}
+                </div>
+           `;
+    }
+
+    do_layoutArchitectureBranchFlows(pageData){ 
        
-         for (const section of guide.sections) {
+         for (const section of pageData.sections) {
 
           if (section.type === "architecture" && section.flow) {
            
@@ -115,8 +151,18 @@ import { renderTree } from "./renderTree.js";
         
     }
 
+      
+   
+    renderSection(section, options={}  ){
 
-    renderSection(section, index){
+        /*
+        if (options.componentId){ 
+           
+            if( section.id !==  options.componentId ){ 
+                return ""; 
+            }
+       }*/
+
 
         switch(section.type){
 
@@ -205,15 +251,9 @@ import { renderTree } from "./renderTree.js";
                 `;
                
         case "architecture":
-        
-        /*
-         if ( section.id === "archi_01" ){ 
-             const project = getProject();
-              project.architecture = section;
-             getProjectStore().save( project );
-         }*/
+         
 
-             return renderArchitecture(this.container, section );
+             return renderArchitecture(this.container, section, options);
 
          case "tree":
              return renderTree(

@@ -1,12 +1,18 @@
+import { getDOMregistry } from "../Mainfunctions/DOMregistry.js";
 import { drawConnector, pt } from "./pipelineFunction.js";
  
+//const widgetContent = getDOMregistry().widgetContent;
 
 const nodeHeight = 30;
-let container_branchLayout =  document.querySelector(".guideArchitectureBranchLayout");
-let container_guideComponent = document.getElementById("guideTextBlock");
+let container_branchLayout = null;//  widgetContent.querySelector(".guideArchitectureBranchLayout");
+//let container_guideComponent = null;// widgetContent.getElementById("guideTextBlock");
  
 
-export function draw_connector_forkMiddle (forkNode) {
+export function draw_connector_forkMiddle (forkNode ,  containerArg) {
+
+let container_branchLayout = containerArg.querySelector(".guideArchitectureBranchLayout");
+
+    
 
 
           forkNode.segmentList.forEach( segEl => { 
@@ -22,9 +28,11 @@ export function draw_connector_forkMiddle (forkNode) {
 
 }
 
-export function draw_connector_forkStart(forkNode) {
+export function draw_connector_forkStart(forkNode, containerArg ) {
 
     // const container = container_branchLayout;
+
+  container_branchLayout = containerArg.querySelector(".guideArchitectureBranchLayout");
 
     const container_branchLayout_Rect = container_branchLayout.getBoundingClientRect();
      
@@ -98,7 +106,7 @@ export function getForkNodeMiddle(containerArg) {
 
 
 
-   container_branchLayout =  document.querySelector(".guideArchitectureBranchLayout");
+   container_branchLayout =  containerArg.querySelector(".guideArchitectureBranchLayout");
 
   const container = container_branchLayout;
 
@@ -202,7 +210,8 @@ export function getForkNodeEnd(containerArg) {
 
 
 
-   container_branchLayout =  document.querySelector(".guideArchitectureBranchLayout");
+  // container_branchLayout =  document.querySelector(".guideArchitectureBranchLayout");
+    container_branchLayout =  containerArg.querySelector(".guideArchitectureBranchLayout");
 
   const container = container_branchLayout;
 

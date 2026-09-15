@@ -4,7 +4,24 @@
    const PATH = require("../PATH_REGISTRY/PATH.js");
 const { get_savedFilters } = require('../storage/writeServices');
 
+
+const shared_state={ 
+
+     auto_last_saved  :"auto_last_saved",
  
+    currentPreviewURLList :[],
+    currentPreviewURL : null,
+    sheetPreviewwMode : false, // false: save to disk, true: write to buffer
+    reviewMode : false,
+
+    exportIndexList_fromFilter : [],
+  //  activeTraits : new Map(),
+    videoFilter :null
+} 
+
+/*
+
+
 
 //=============================================================
 let weaponShieldcombo  ;
@@ -239,11 +256,16 @@ function buildExpandedPatternMap(nftMap) {
  
 
 
-
+*/
 
 module.exports ={
 
-  shared_state, inputDispatcher, exportModeHandler, internalModeHandler,
+  shared_state,
+  
+  
+  /*
+  
+  inputDispatcher, exportModeHandler, internalModeHandler,
 
 
   clearActiveTraits,
@@ -268,6 +290,7 @@ module.exports ={
 
       nft_matching_this_filter ,  
       set_nft_matching_this_filter, get_nft_matching_this_filter
-
+*/
 
 }
+      

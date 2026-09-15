@@ -1,13 +1,5 @@
 
-
-#row1 {
-    min-width: 0;
-  /* padding: 10px;*/
-  display: flex;
-  font-family: sans-serif;
-  margin: 0;
  
-}
 #row2 {
    padding: 10px;
   display: flex;
@@ -151,3 +143,19 @@ border-radius:  var(--border-radius);
     
 font-size:var(--font-xxs);
 }
+
+/*
+used by widget shadow DOM version
+*/
+ #final_traitList[data-responsive="false"] {
+    
+    border: 1px solid var(--border);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    padding: var(--space-md);
+    overflow-y: auto;
+    background: var(--surface);
+    flex: 1;
+    min-height: 0;
+    margin-inline: var(--space-xs);
+    
+   }

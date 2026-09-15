@@ -1,6 +1,6 @@
  
 const  QueryEngine = require("../../query/QueryEngine.js");
-const { build_PART_GROUP_for_JSX, getFirstInSet,  getFirstInSetList, getMetaDataPathFromID } =
+const { build_PART_GROUP_for_JSX, getFirstInSet,  getFirstInSetList } =
  require("../../metadata/MetaDataAPI.js");
 
 const {  
@@ -10,14 +10,18 @@ const {
 } = require( "../FeatureState/featureState.js");
 
 const { getMixInfoABS } = require('../../DATA_TRANSFORM/headBodyMixMAP.js');
-const { get_rarityTraitCount } = require("../../storage/writeServices");
+ //const { get_rarityTraitCount } = require("../../storage/writeServices");
  
   const wuliDta =   require('../../storage/writeServices');
 const { mapSetToObject , pillsArrayToTraitMap} = require("../../UTILITY/generalUtil2");
-  let traitCounter_Data = get_rarityTraitCount();
+  //let traitCounter_Data = get_rarityTraitCount();
+
+  /*
   function getLoadedrarityTraitCount() { 
+ 
      return traitCounter_Data;
   }
+     */
   
    
   //============================ api response interface  ===============================
@@ -60,27 +64,7 @@ function createTraitFilterFeature(  featStateARG,  options = {}       ) {
          featStateArg.activeTraitUI.set(traitKey, new Set());
     }
 
- 
-
-   //let result = traitSet.has(value) ;
-
-    /*
-    // avoid duplicate UI entries
-    if (traitSet.has(value)) {
-      return {
-        added: false,
-        reason: "duplicate",
-        traitKey,
-        value,
-        ids,
-       // state: featState.activeTraitUI //       getState()
-       
-      };
-    }
-*/
   
-   // traitSet.add(value);
- 
  
     const payload = {
       added: true,
@@ -106,25 +90,7 @@ function createTraitFilterFeature(  featStateARG,  options = {}       ) {
   //  setState
   };
 }
-
- /*
-function applyTraitFilter( traitType, value, ids , savedKey) {
-   let key ;
-  
-  if (!savedKey){ 
-     key = `${traitType}::${value}`;
-  }else{ 
-      key = savedKey;
-  }
-   
-
-  if (!featState.activeTraits.has(key)) {
-       featState.activeTraits.set(key, new Set(ids));s
-  }
-
-  
-}
- */
+ 
 // at this point activeTraitUI value is 1 element ex:  "brow boots" .value here is not an array
   
 
@@ -150,7 +116,7 @@ function applyTraitFilter( traitType, value, ids , savedKey) {
     //  console.log( "final activeTraitUI:  rebuildActiveFilterMap rebuilt = " ,  featState.activeTraitUI  );
     }
 
- //console.log( "rebuildActiveFilterMap: featState   = " ,  featState  );
+ 
     if (!featStateArg){ 
        throw new Error("❌ 'featState' must be a valid object");
     } // return;
@@ -180,7 +146,7 @@ function applyTraitFilter( traitType, value, ids , savedKey) {
 
               QueryEngine.applyTraitBlockLogic( featStateArg ); 
           const response = get_APIresponse();
-           console.log( "============APIresponse==============\n" , response );
+          // console.log( "============APIresponse==============\n" , response );
          return response;//   get_APIresponse();
    
  }
@@ -199,10 +165,19 @@ function SetAllCall_NFTSearchMode(raw){
 
 // at this point activeTraitUI value is an array containing 1 or more trait value ex: ["brow boots","bpne boots"]
 function  restore_ActiveTraits_from_activeTraitUI(featStateArg) { //activeTraitUI
+
+
+        let traitCounter_Data = featStateArg.traitCounter_Data;
+
+      console.log( " restore_ActiveTraits :" ,traitCounter_Data["TYPE"]['Purple Orc']  );
+
+
         featStateArg.activeTraits.clear();
        for (const [traitType, valueSet] of featStateArg.activeTraitUI.entries()) {
              for (const value of valueSet) {
-                 const ids = getLoadedrarityTraitCount()?.[traitType]?.[value] || [];
+
+              const ids = traitCounter_Data?.[traitType]?.[value] || [];
+               //  const ids = getLoadedrarityTraitCount()?.[traitType]?.[value] || [];
                    
                        featStateArg.applyTraitFilter(traitType, value, ids, null);
             }

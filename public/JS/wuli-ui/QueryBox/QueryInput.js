@@ -6,6 +6,9 @@ export default class QueryInput {
 
         this.el = inputElement;
 
+
+        //if( !this.el )
+
        
        this.lastKey = null;
 

@@ -92,13 +92,15 @@ export function getTiersTab( type , argObj  ){
 
     onChange: (tierName) => {
       if (tierName === "ALL") {
+
+          
           getAssetPicker( argObj ).render(type); // no filter
           return;
       }
          const allowedNames = Object.keys(tiersCount[keyType][tierName].content
          );
-    
-        getAssetPicker( argObj ).renderFiltered(  type , allowedNames);
+       
+         getAssetPicker( argObj ).renderFiltered(  type , allowedNames);
     }
 });
  

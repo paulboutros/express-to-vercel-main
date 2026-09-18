@@ -33,7 +33,7 @@ let key_excludedIdsSet
   }
   function set_APIresponse(arg){
         APIresponse = arg;
-     //   console.log  (  "set_APIresponse: " ,    APIresponse );
+     
   }
   function get_APIresponse(){
       return APIresponse;
@@ -61,7 +61,7 @@ let key_excludedIdsSet
 
      
   if (!rebuildActiveFilterMapHandler) {
-  //  console.log("addTraitUIHandler not set");
+   
     return;
   }
 
@@ -137,8 +137,7 @@ function dslInterpreter(query , blocksData ) {
     // -------------------------
     // 1️⃣ Match value exclusion blocks: -v[TRAIT:[value1,value2]]
     // -------------------------
-  // console.log ( " blocksData.blocks   ===============   "  , blocksData.blocks   );
- 
+  
      const valueExcludeMatches = blocksData.blocks;
          valueExcludeMatches.forEach(block => {
             
@@ -350,13 +349,12 @@ function evaluateQueryToActiveFilterMap(featStateArg) {
     const exclusiveRuleSets   = state.exclusiveRuleSets;
 
 
-    // console.log
+     
      let workingSet = null;
      
 
       
-    // console.log(    " QueryState.Mode  =======================   "    ,   queryMode.DSL   );  
-     if (    
+      if (    
           featStateArg.QueryState.Mode  === queryMode.DSL ){ 
          
      }
@@ -391,7 +389,7 @@ function evaluateQueryToActiveFilterMap(featStateArg) {
 
     if (exclusiveRuleSets.length > 0) {
 
-      //  console.log("exclusiveRuleSets =====" ,  exclusiveRuleSets);
+       
         exclusiveRuleSets.forEach(set => {
 
             if (!exclusiveSet) {
@@ -497,8 +495,10 @@ function applyNFTSearchMode(featStateArg){
 
           featStateArg.rebuildactiveFilterMap_IDBASE_fromMap();
           featStateArg.rebuildactiveFilterMap_IDS_fromMap();
-            // console.log  (  "response: ", featStateArg.QueryState.Mode , get_APIresponse() );
-           set_APIresponse({
+          
+           
+        
+          set_APIresponse({
 
                 responseFromFN: "applyNFTSearchMode",
               
@@ -541,11 +541,7 @@ function handleDSLQuery( inputObj  , featStateArg ) {
            
      inputObj.traitCounter_DataArg = featStateArg.traitCounter_Data 
        
-  
-    console.log( "=== dsl  trait :", { 
-        traitCounter_Data_glob:   traitCounter_Data["TYPE"]['Purple Orc'],
-        traitCounter_Data_feat:   featStateArg.traitCounter_Data["TYPE"]['Purple Orc']
-    });
+     
     
 
       const blocksData  = canonicalizeQuery(inputObj);
@@ -557,11 +553,7 @@ function handleDSLQuery( inputObj  , featStateArg ) {
   
 
       for (let index = 0; index < blocksData.blocks.length; index++) {
-        /*
-                 console.log(  "  blocks (", index  ,")  ==============   \n" ,
-                           blocksData.blocks[ index ] , 
-                         " \n ========================================"
-                  );*/
+              
         }
        
         const result = dslInterpreter(normalizedQuery , blocksData  );
@@ -776,7 +768,7 @@ function applyValueExcludeFilter(result, featStateArg){
     // filter returns an array Not an object.
        const targetBlock = result.blocks.find( b=> b.tokens[0].canonical === "+v"  && b.input === rule.trait );
 
-       // console.log(" =======targetBlock ============" , targetBlock );
+      
         if ( targetBlock ) {   
          
             targetBlock.survivorEvaluation =
@@ -813,10 +805,7 @@ function applyValueExcludeFilter(result, featStateArg){
     });
 
 
-
-          //  console.log (" result.survivorEvaluation  = "      ,targetBlock.survivorEvaluation   );    
-           //  console.log (" targetBlock.valueEvaluation  = "   ,targetBlock.valueEvaluation   );     
-
+ 
       }
       
  
@@ -987,8 +976,7 @@ function getAvailableTraitType(traitKey) {
                      availableTraitResult = Object.keys(traitCounter_Data);
                }
             
-             // console.log( " availableTraitResult  == " , availableTraitResult  );
-            
+              
              return  {  availableTraitResult: availableTraitResult,
                        info:info
                      };
@@ -1010,7 +998,7 @@ function runQueryInputHandler(inputObj, featStateArg){ //traitSearch
    traitCounter_Data = featStateArg.traitCounter_Data; 
 
 
-console.log( " query trait :",  traitCounter_Data["TYPE"]['Purple Orc'] )
+ 
 
 
     //  featStateArg.traitCounter_Data
@@ -1035,8 +1023,7 @@ console.log( " query trait :",  traitCounter_Data["TYPE"]['Purple Orc'] )
     }
 
 
-  //  console.log("xxxxx  runQueryInputHandler   " ,   featStateArg.activeFilterMap_IDS   );
-
+   
  
   switch (featStateArg.QueryState.Mode ){
          
@@ -1067,8 +1054,7 @@ console.log( " query trait :",  traitCounter_Data["TYPE"]['Purple Orc'] )
                 queryData: queryResult?.queryDNAObj?.queryData 
 
              });
-            // console.log( "responseFromFN:  runQueryInputHandler case:DSL  ", get_APIresponse() );
-
+            
             const response = get_APIresponse();
                 
 
@@ -1095,8 +1081,11 @@ console.log( " query trait :",  traitCounter_Data["TYPE"]['Purple Orc'] )
 
 
            default:
-  // console.log( " default    QueryState.Mode    " ,    featStateArg.QueryState.Mode   );
-             break;
+
+      
+  
+  
+  break;
     }
 
     return get_APIresponse();
@@ -1142,7 +1131,7 @@ function handleNFTSearch(raw, featStateArg ) {
     call_NFTSearchMode(raw , featStateArg);
 
 
- //   console.log( " raw  " ,  raw );
+  
 }
 
 function call_NFTSearchMode(raw , featStateArg) {
@@ -1173,7 +1162,7 @@ function call_NFTSearchMode(raw , featStateArg) {
              activeFilterMap_IDS: featStateArg.NFTSearchResults
      }); 
 
-  // console.log( "query_rebuildFilter: ", get_APIresponse() );
+   
 
 }  
   
@@ -1272,15 +1261,7 @@ function applyTraitBlockLogic( featStateArg){
         }
     }
 
-    /*
-   console.log( 
-         " ==========================================  \n" ,
-          "traitsByType = "   , traitsByType , " \n" ,
-          "unionPerType = "   , unionPerType , " \n\n" ,
-          "resultSet = "      , resultSet   
-  
-   );
-*/
+    
   
 
 

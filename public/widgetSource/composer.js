@@ -27,6 +27,9 @@ import { initQueryBox } from "./wuli-QueryBox.js";
 import { initconsoleTXT } from "./consoleOutputTXT/wuli-consoleOutputTXT.js";
 import { UIActionRegistry } from "./consoleOutputTXT/buttonActionRegistry.js";
 import { initAssetPicker } from "./assetPicker/wuli-assetPicker.js";
+import { initTiersTab } from "./assetPicker/wuli-tiersTab.js";
+
+
  
 let guideComponent = null;
  const eventBus = window.eventBus;
@@ -121,7 +124,8 @@ async function render({
             initQueryBox,
             initinfoResult,
             initconsoleTXT,
-            initAssetPicker
+            initAssetPicker,
+            initTiersTab
 
         ]
     );
@@ -162,7 +166,8 @@ export const WuliComposer = {
         queryBox  : initQueryBox,
         infoResult: initinfoResult,
         consoleTXT: initconsoleTXT,
-        assetPicker:initAssetPicker
+        assetPicker:initAssetPicker,
+        tiersTab   : initTiersTab
 
       //  query: initQueryWidget,
        // grid: initGridWidget
@@ -309,6 +314,17 @@ export function createWidgetContent(
        
 
     widgetContent.className =className;
+
+
+    //  added fo grid
+     //Every WuliComposer widget starts with a full-height, shrinkable content area.
+    container.style. height= "100%"; 
+    container.style. minHeight= 0;
+
+    widgetContent.style. height= "100%"; 
+    widgetContent.style. minHeight= 0;
+   //==================================================================
+
          
 
     shadowRoot.appendChild(widgetContent);
@@ -321,10 +337,23 @@ export function createWidgetContent(
 function getHtml(shadowName){ 
 
       switch (shadowName) {
-
+        
+        case "tiersTab":
+         return `
+           
+          
+                <link rel="stylesheet" href="${API_BASE_URL}/widgetSource/assetPicker/css/weapPatternStyle.css">
+                <link rel="stylesheet" href="${API_BASE_URL}/widgetSource/assetPicker/css/horizontalSelector.css">
+                <link rel="stylesheet" href="${API_BASE_URL}/widgetSource/assetPicker/css/contextMenu.css">
+  
+              <div id="horizSelector" ></div>
+               <div id="tiersTab" ></div>
+                 <div id="assetPickerGrid" ></div>
+            
+              `;
        case "assetPicker":
          return `
-          <div style="flex:0 0 50%;">
+           
           
                 <link rel="stylesheet" href="${API_BASE_URL}/widgetSource/assetPicker/css/weapPatternStyle.css">
                 <link rel="stylesheet" href="${API_BASE_URL}/widgetSource/assetPicker/css/horizontalSelector.css">
@@ -335,7 +364,7 @@ function getHtml(shadowName){
              
                <div id="horizSelector" ></div>
                 <div id="assetPickerGrid" ></div>
-            </div>
+            
               `;
 
         case "consoleTXT":

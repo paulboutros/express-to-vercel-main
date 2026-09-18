@@ -1,6 +1,7 @@
  
 
 const crypto = require("crypto");
+const { connectToDataBase } = require("../../lib/connectToDataBase");
 
     //================================
 const activeCollections =
@@ -14,8 +15,7 @@ const MAX_ANONYMOUS_COLLECTIONS =
 
 
   function registerCollection(
-    projectId,
-    collectionData
+   userId, projectId , collectionData
 ) {
 
     // Basic validation
@@ -56,11 +56,7 @@ const MAX_ANONYMOUS_COLLECTIONS =
 
     }
 
-
-    // Create session ID
-   // const collectionId = crypto.randomUUID();
-  
-    // Store collection
+ 
     activeCollections.set(
 
         projectId,{
@@ -109,4 +105,132 @@ const MAX_ANONYMOUS_COLLECTIONS =
 }
 
 
-module.exports ={ registerCollection , getCollection}
+async function registerCollection_db(
+  userId, projectId , collectionData
+) {
+
+    // Basic validation
+    if (!collectionData || !projectId || !userId) {
+
+        return {
+            ok: false,
+            status: 400,
+            error: "INVALID_COLLECTION",
+            message: "Collection data is required."
+        };
+
+    }
+
+    try {
+
+        const { mongoClient } =
+            await connectToDataBase();
+
+        const db =
+            mongoClient.db("wulirocks_test");
+
+        const collection =
+            db.collection("collections");
+
+
+        await collection.updateOne(
+
+            { projectId },
+
+            {
+                $set: {
+                    userId,
+                    projectId,
+                    data: collectionData,
+                    updatedAt: Date.now()
+                },
+
+                $setOnInsert: {
+                    createdAt: Date.now()
+                }
+            },
+
+            { upsert: true }
+
+        );
+
+
+    console.log("  added  collectionData  to  project  " , collectionData ) ;
+
+
+        return {
+            ok: true,
+            status: 200,
+            projectId
+        };
+
+
+    } catch (e) {
+
+        console.error(e);
+
+        return {
+            ok: false,
+            status: 500,
+            error: "DATABASE_ERROR",
+            message: e.message
+        };
+
+    }
+
+}
+
+
+async function getCollection_db(
+    projectId
+) {
+
+    if (!projectId) {
+        return null;
+    }
+
+
+    try {
+
+        const { mongoClient } =
+            await connectToDataBase();
+
+        const db = mongoClient.db("wulirocks_test");
+           
+
+        const collection =db.collection("collections");
+            
+
+
+        const document =
+            await collection.findOne({
+                projectId
+            });
+
+
+        if (!document) {
+
+            console.log( " no collection found for:" , projectId   );
+            return null;
+        }
+
+
+        return document.data;
+
+
+    } catch (e) {
+
+        console.error(e);
+
+        return null;
+
+    }
+
+}
+
+
+
+module.exports ={ 
+     registerCollection,     getCollection,
+     registerCollection_db , getCollection_db
+}

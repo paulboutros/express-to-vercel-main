@@ -953,6 +953,10 @@ body[data-page="apiPipeline"][data-workspace="mobile"]{
 
 
  } 
+
+ 
+
+
  
  body[data-page="embed"]{ 
         #row1,
@@ -994,6 +998,25 @@ gap:var(--space-xs);
 
 align-content:flex-start;
 
+}
+
+
+body[data-client="desktopApp"]{ 
+    
+
+    #mainLayoutA {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 5fr auto 2fr;
+        display: grid;
+        min-width: 0;
+        min-height: 0;
+   } 
+   #mainLayoutA.workspace-bottom-hidden {
+      grid-template-rows: auto 1fr 0fr 0fr;
+   }
+  
+
+   
 }
 
 

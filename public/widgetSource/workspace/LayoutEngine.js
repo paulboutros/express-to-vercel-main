@@ -48,17 +48,33 @@ layoutManager.registerComponent("navigButton", document.getElementById("navigBut
  layoutManager.registerComponent("nodeGraph", document.getElementById("nodeGraph"));
  layoutManager.registerComponent("lexerWidget", document.getElementById("lexerWidget"));
    
+ // use mostly in desktop app
+ layoutManager.registerComponent("nftGrid", document.getElementById("nft-grid"));
+layoutManager.registerComponent("gridHeader", document.getElementById("grid-header"));
+
+ 
+ 
+ 
+ 
  
 // register widget (as layout element)
 if ( client === "desktopApp" ){ 
   layoutManager.registerComponent("queryBox", document.getElementById("wuli-query-widget"));
-  layoutManager.registerComponent("previewImg", document.getElementById("grid-container")); 
+  //layoutManager.registerComponent("previewImg", document.getElementById("grid-container")); 
+    layoutManager.registerComponent("previewImg", document.getElementById("previewImg")); 
   
  layoutManager.registerComponent("navig_container", document.getElementById("wuli-result-widget"));
-
+layoutManager.registerComponent("workspaceControls", document.getElementById("workspaceControls"));
+ 
 
  layoutManager.registerComponent("final_traitList", document.getElementById("all-traits-container")); 
   
+ layoutManager.registerComponent("horizSelector", document.getElementById("horizSelector"));
+layoutManager.registerComponent("assetPickerGridContainer", document.getElementById("assetPickerGrid-container"));
+layoutManager.registerComponent("tiersTabContainer", document.getElementById("tiersTab-container"));
+
+
+
   //"all-traits-container"
 }
  
@@ -101,8 +117,7 @@ function setLayoutRules_webApp(  {mode, client, layoutManager}  ){
           previewImg:mainMiddle ,
           final_traitList:mainMiddle ,
           queryBox:"top",
-
-           navig_container:"grid"  // name it: leftpanel
+          navig_container:"grid"  // name it: leftpanel
          
      });
  
@@ -211,13 +226,27 @@ function setLayoutRules_desktopApp(  {mode, client, layoutManager}  ){
   layoutManager.registerLayout("desktop",
       {  traitPills: mainMiddle, 
          buttonSet2:"panel", 
-         previewImg:mainMiddle ,
+
+         gridHeader      :mainMiddle ,
+         nftGrid         :mainMiddle ,
+         horizSelector   :mainMiddle ,
+  
+
+         
+         tiersTabContainer  :mainMiddle ,
+         assetPickerGridContainer :mainMiddle ,
+ 
+
+
+         previewImg  :mainMiddle ,
 
          final_traitList:"panel" ,
          queryBox:"top",
 
 
           navig_container:"grid",
+          workspaceControls:"grid" ,
+          //tiersTabContainer :"grid" ,
      });
   
         break;

@@ -161,9 +161,7 @@ function createTraitToken({
   
 
    // const localStart = blockRaw.indexOf("[") + 1;
-
-    console.log( "createToken  localStart  ============  " , localStart   )
-          
+ 
 
 
     //const raw =  blockRaw.slice(startBlock + localStart, localEnd);

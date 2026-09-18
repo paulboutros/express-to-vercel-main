@@ -63,11 +63,11 @@ export async function getPageData() {
 
 }
 export async function api_getTraitData( query ) {
-
-    return post("/api/getTraitData", query);
-
+     
+      return post("/api/getTraitData", query);
+     
 }
-
+ 
 export async function api_generateAllTraitSheet(query) {
 
     return post("/api/generateAllTraitSheet", query);
@@ -92,12 +92,17 @@ export async function api_collection_query(query) {
 
 }
 
-export async function api_collection_register( collectionData, projectId) {
 
- 
-return post("/api/collection/register", {collectionData, projectId} );
+export async function api_collection_register_db( collectionData, projectId) {
+  
+  return post("/api/collection_db/register", {collectionData, projectId} );
+  
+} 
 
- 
+export async function api_collection_register( collectionData, projectId, userId) {
+  
+  return post("/api/collection/register", {collectionData, projectId, userId} );
+  
 }
 
  
@@ -107,6 +112,29 @@ export async function searchCharacters(query) {
     return post("/api/searchCharacters", query);
 
 }
+
+
+export async function api_user_set(obj) {
+
+ return post("/api/user_set", obj);
+ 
+} 
+export async function api_getUserProject(uerdID) {
+   return get(`/api/user/${uerdID}/project` );
+} 
+export async function api_getUser( uerdID) {
+
+ return get(`/api/user/${uerdID}` );
+ 
+} 
+
+ 
+export async function globalData_setDebugMode(traitKey, value, ids, objArg) {
+
+ return post("/api/globalData_setDebugMode", {traitKey, value, ids, objArg});
+ 
+} 
+ 
 
 
 export async function api_addTraitSelection(traitKey, value, ids, objArg) {

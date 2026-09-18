@@ -45,7 +45,9 @@ const rootContainer =  widgetContent.querySelector("#consoleTXTcontainer");
 
   
         getAssetPicker(argObj).render(type);
-        getTiersTab(type , argObj);
+      //  getTiersTab(type , argObj);
+
+       
      
      window.WuliComposer.instance[ options.instanceName]  = 
       (type) =>{  

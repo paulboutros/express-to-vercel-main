@@ -195,7 +195,7 @@ function isCompleteProducerAt(raw, index, ctx) {
 
     if (splitIndex === -1) return null;
 
-  console.log( "======== inside===================|", inside,"|");
+  // console.log( "======== inside===================|", inside,"|");
 //======================================================
 const traitRaw = inside.slice(0, splitIndex);
 
@@ -325,13 +325,13 @@ function processUnknown_xxxxx(ctx) {
  
   if (ctx.index <= start) {
 
-          console.log("error info :" , {  
+        /*  console.log("error info :" , {  
                      tokenType:  token.type  ,
                      token, 
                       start,
                       ctx_index : ctx.index 
 
-                     })
+                     })*/
 
                  throw new Error("processUnknown returned without advancing ctx.index" ); 
                      

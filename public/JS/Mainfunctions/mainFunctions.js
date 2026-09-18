@@ -15,7 +15,12 @@ import {  api_addTraitSelection ,api_rebuildActiveFilterMap,
           api_generateAllTraitSheet,
           api_saveSheet,
           api_collection_register,
-          api_getTraitData
+          api_getTraitData,
+          globalData_setDebugMode,
+          api_user_set,
+          api_getUser,
+          
+          api_getUserProject
         
      } from "../apiClient.js"; 
 
@@ -38,16 +43,81 @@ import { uploadJSON } from "../copyEmbed.js";
   //import { get } from "lodash";
  
 
+  // user data ===============================
+let userPreferences;
+let traitData;
+let project;
+let projectId;
+let userId;
+//================================================
+//=========================================================
+  //await globalData_setDebugMode({info:"ddddd"})
+  /*
+await api_user_set({
+  "userId": "test_001",
+  "plan": "pro",
+  "features": {
+    "grid": true,
+    "rarityCount": true,
+    "advancedQuery": false
+  }
+})*/
+const user = await api_getUser("test_001");
+  //=====================================================
+
+
+  if (user) {
+
+    // Authenticated / identified path
+   // SessionState.user = user;
+
+    // Load user's project from DB
+       project = await api_getUserProject(user.userId);
+       userPreferences = user.preferences;
+
+
+        userId = user.userId;
+
+
+   if (  project ) { 
+         projectId = project.projectId;
+    }  
+
+
+console.log( "project and user:",  {
+  project,
+   user,
+     userPreferences,
+     projectId
+    });
+
+     traitData = await api_getTraitData( {collectionId: project.projectId , user });
+
+ 
+
+  if (traitCounter_Data  ){ 
+
+     //console.log(  "main F 1) api_collection_registerExistingData  " ,   );
+   await  api_collection_registerExistingData( traitCounter_Data  );
+  //  console.log(  "main F 2) api_getdata  " ,   );
+    traitData = await api_getTraitData( {collectionId: projectId, userId });
+  }
+
+
+   // SessionState.project = project;
+
+} else {
+
    initLocalStorage();
- let projectId = null;
-  const project = getProject(); 
+   projectId = null;
+    project = getProject(); 
    if (  project ) { 
          projectId = project.id
     }  
 
     console.log(  "project =========== " , project );
 
- let traitData = await api_getTraitData( {collectionId: projectId });
+   traitData = await api_getTraitData( {collectionId: projectId });
 
   if (traitCounter_Data  ){ 
 
@@ -56,6 +126,13 @@ import { uploadJSON } from "../copyEmbed.js";
   //  console.log(  "main F 2) api_getdata  " ,   );
    traitData = await api_getTraitData( {collectionId: projectId });
   }
+
+  userPreferences =  loadUserPreferences();
+
+}
+
+
+
 
 
 export function getTraiDataResult(){
@@ -132,7 +209,7 @@ let previewImg ;
 //====================================================================
     
    */
-const userPreferences =  loadUserPreferences();
+
 
   function getElement(id) {
         return DOM.root.querySelector(`#${id}`);
@@ -248,6 +325,11 @@ export async function saveSheet(batchNumber, incr , options={}){
 export async function generateAllTraitSheet(batchNumber, incr , options={}){ 
                 
 
+           if (!options){ 
+              return;
+           }
+ 
+ console.log(  "generateAllTraitSheet   userPreferences =========== " ,   userPreferences );
     
            const maxPerSheet = 6;
           const totalSheetCount = Math.ceil(      get_UIstate().activeFilterMap_IDS.length   / maxPerSheet);
@@ -264,7 +346,7 @@ export async function generateAllTraitSheet(batchNumber, incr , options={}){
                   var vidFilter = get_VideoFilterObject(); // get_featState().get_VideoFilterObject();
                 
                 
-                  vidFilter.collectionId = project.id;// collectionId;
+                  vidFilter.collectionId = projectId;// project.id;// collectionId;
                   vidFilter.batchNumber = functionState.batchIndex;
                   vidFilter.userPreferences = userPreferences;
                   vidFilter.options = options;
@@ -313,9 +395,14 @@ export async function generateAllTraitSheet(batchNumber, incr , options={}){
 
 export async function refreshQueryResult ( obj ) { //raw
 
+
+
+ console.log( "main:refreshQueryResult" , obj  );
+
+
              let {raw,caret} = obj;
             
-              obj.collectionId = project.id;// collectionId;
+              obj.collectionId = projectId;// project.id;// collectionId;
             
              const result =  await runQueryInputHandler(obj); // raw
 
@@ -451,7 +538,7 @@ export function setDOM(config = {}) {
             const objArg =   {  filterModeABS:         get_UIstate().filterModeABS,
                                 serializeActivePills:  get_UIstate().serializeActivePills,
 
-                                collectionId : project.id 
+                                collectionId : projectId // project.id 
                             };
               
                 const result = await  api_addTraitSelection  (  traitKey, value , ids , objArg )  ;       
@@ -471,7 +558,7 @@ export function filterModeToggleAction( /*values*/){
          const result = await api_set_filterModeABS(
                              { filterModeABS:        get_UIstate().filterModeABS,
                                serializeActivePills:  get_UIstate().serializeActivePills,
-                               collectionId:  project.id
+                               collectionId: projectId //  project.id
                              });
         
          propagateQueryResult(result);        
@@ -1002,13 +1089,15 @@ export async function get_uploaded_collection(){
   export async function api_collection_registerExistingData(jsonResult){
     // const jsonResult =  await  uploadJSON();
     console.log( " ready to upload existing data " , { 
-        projectId,
-        jsonResult
+        jsonResult, projectId, userId
     } );
-     return  api_collection_register(jsonResult, projectId);
+   return  api_collection_register(jsonResult, projectId, userId);
      
  
 }
+
+ 
+
 //window.api_collection_registerExistingData  = api_collection_registerExistingData;
  
 

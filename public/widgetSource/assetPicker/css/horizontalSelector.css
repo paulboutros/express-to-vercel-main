@@ -1,13 +1,15 @@
  
 
 .horizontal-selector {
-    display: flex;
+   display: flex;
     gap: 6px;
+    justify-content: left;
+    flex-flow: row-reverse;
 }
 
 .horizontal-selector button {
 
-    
+    height: auto;
 
      display: flex;
     flex-direction: column;

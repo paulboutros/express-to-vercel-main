@@ -10,8 +10,8 @@ const { connectToDataBase } = require("../../lib/connectToDataBase");
  
  
  
-      const engine = require("../../wuliEngine/index.js");
-const { registerCollection, getCollection } = require("./collectionRegistration.js");
+       const engine = require("../../wuliEngine/index.js");
+const { registerCollection, getCollection, getCollection_db, registerCollection_db } = require("./collectionRegistration.js");
 const { validateRarityCount } = require("./validateRarityCount.js");
        //const engine = require("@wulirocks/collection-engine");
      const {rebuildActiveFilterMap} = engine.features_traitFilters; 
@@ -118,16 +118,8 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
              const obj  = req.body;
  
         
-   //=================================================
-   /*
-     let collectionData = getCollection(  obj.collectionId );
-      if(!collectionData ){ 
-        console.log( "collection is undefined. using default raritycount" );
-         collectionData = rarityCount;
-     }  else{ 
-        console.log( "collection is defined." );
-     }
-        */
+    
+    
     //=================================================
       //++v[TYPE:[pu]]
      const featState = new FeatureState( 
@@ -207,7 +199,7 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
                  saveStatus  
           });
       } catch(e){ 
-          console.error(e); response.status(500).json(e);
+           console.error(e); response.status(500).json(e);
         }
   
 });
@@ -314,27 +306,55 @@ router.post("/api/collection/query", async (req, res) => {
 
 });
 
-
-
+/*
 //==================================================
-router.post("/api/collection/register", async (req, response) => {
+router.post("/api/collection_db/register", async (req, response) => {
         // let result = await engine.writeServices.getSiteNavigationData();
- 
-   
+    
    const  collectionData  = req.body.collectionData;
    const validation = validateRarityCount(collectionData);
 
     if (!validation.ok) {
         return res.status(400).json(validation);
     }
-
-
-
+ 
        const result =
             registerCollection(
                 req.body.projectId,
-                collectionData
+                collectionData,
+                req.body.userId
             );
+
+
+       // return res
+          //  .status(result.status)
+          //  .json(result);
+
+
+  try {
+        response.status(200).json(  result  );
+  } catch(e){  console.error(e); response.status(500).json(e);}
+ });*/
+
+//==================================================
+router.post("/api/collection/register", async (req, response) => {
+        // let result = await engine.writeServices.getSiteNavigationData();
+    
+   const {collectionData ,projectId, userId} = req.body    ;//.collectionData;
+   const validation = validateRarityCount(collectionData);
+
+    if (!validation.ok) {
+        return res.status(400).json(validation);
+    }
+ 
+
+  console.log("registerCollection_forUser  " );
+       const result =
+            await registerCollection_forUser( userId, projectId , collectionData);
+                
+                 
+                 
+            
 
 
        // return res
@@ -363,6 +383,78 @@ router.post("/api/getSiteNavigationData", async (req, response) => {
        response.status(200).json(  result  );
   } catch(e){  console.error(e); response.status(500).json(e);}
  });
+
+ 
+ async function getUser_db(userId) {
+
+    try {
+
+        const { mongoClient } = await connectToDataBase();
+ 
+        const db = mongoClient.db("wulirocks_test");
+         const collection = db.collection("users");
+ 
+        const user =  await collection.findOne(
+                 { userId: userId },
+                {
+                    projection: {
+                        _id: 0,
+                        userId: 1,
+                        email: 1,
+                        plan: 1,
+                        features: 1,
+                        preferences: 1
+                    }
+                }
+            );
+
+        return user || null;
+
+    } catch (e) {
+
+        console.error(e);
+
+        throw e;
+    }
+}
+
+  async function registerCollection_forUser(userId, projectId , collectionData) {
+
+    // Try real user first
+    if (userId) {
+         const user = await getUser_db(userId);
+
+        if (user) {
+
+           console.log("  =====> registerCollection_db  " );
+             return await registerCollection_db(userId, projectId , collectionData);
+         }
+     }
+
+     console.log("  =====> registerCollection (guest)  " );
+    // No real user → guest / anonymous
+    return registerCollection(  projectId, collectionData, userId);
+    
+   
+}
+
+ async function getCollection_forUser(userId, projectId) {
+
+    // Try real user first
+    if (userId) {
+
+        const user = await getUser_db(userId);
+
+        if (user) {
+
+            return await getCollection_db(projectId);
+
+        }
+    }
+
+    // No real user → guest / anonymous
+    return getCollection(projectId);
+}
  //======================================
  router.post("/api/getTraitData", async (req, response) => {
  
@@ -372,19 +464,23 @@ router.post("/api/getSiteNavigationData", async (req, response) => {
 
 
       const obj  = req.body;
+     // const userId = obj.userId;
+     // const userId = obj.userId;
+     const { userId, collectionId:projectId} = obj;
+ 
 
       if (!obj.collectionId){ 
           console.log( "collectionId  id NULL " );
           result = rarityCount; 
       }else{ 
-
-
-           collectionData = getCollection(obj.collectionId);
+ 
+           collectionData = await getCollection_forUser(userId, projectId) 
+           // getCollection(obj.collectionId);
            if(!collectionData ){ 
                 console.log( "collection is undefined. using default raritycount" );
                 // collectionData = rarityCount;
                 result = rarityCount; 
-            }  else{ 
+            } else{ 
 
                 result = collectionData;
                 console.log( "collection is defined." );
@@ -401,12 +497,187 @@ router.post("/api/getSiteNavigationData", async (req, response) => {
       
  } catch(e){   console.error(e); response.status(500).json(e);}
  });
+ /*
+ router.post("/api/getTraitData_db", async (req, response) => {
+ 
+
+      let result = null;
+      let collectionData = null;
+
+
+      const obj  = req.body;
+
+      if (!obj.collectionId){ 
+          console.log( "collectionId  id NULL " );
+          result = rarityCount; 
+      }else{ 
+
+
+           collectionData = getCollection_db(obj.collectionId);
+           if(!collectionData ){ 
+                console.log( "collection is undefined. using default raritycount" );
+                // collectionData = rarityCount;
+                result = rarityCount; 
+            }  else{ 
+
+                result = collectionData;
+                console.log( "collection DB is defined." );
+            }
+
+
+      }
+ 
+
+     // let result = await engine.writeServices.get_rarityTraitCount();
+      
+  try {
+       response.status(200).json(result);
+      
+ } catch(e){   console.error(e); response.status(500).json(e);}
+ });*/
+
+router.post("/api/user_set", async (req, response) => {
+
+  const { userId, plan, features } = req.body;
+
+  if (!userId) {
+    return response.status(400).json({
+      error: "userId is required"
+    });
+  }
+
+  try {
+
+    const { mongoClient } = await connectToDataBase();
+
+    const db = mongoClient.db("wulirocks_test");
+    const collection = db.collection("users");
+
+    const update = {};
+
+    if (plan !== undefined) {
+      update.plan = plan;
+    }
+
+    if (features !== undefined) {
+      update.features = features;
+    }
+
+    const result = await collection.updateOne(
+      { userId: userId },
+      { $set: update }
+    );
+
+    response.status(200).json({
+      success: true,
+      userId: userId,
+      modified: result.modifiedCount
+    });
+
+  } catch (e) {
+
+    console.error(e);
+
+    response.status(500).json({
+      error: e.message
+    });
+  }
+});
+
+router.get("/api/user/:userId", async (req, response) => {
+
+  const userId = req.params.userId;
+
+  try {
+
+    const { mongoClient } = await connectToDataBase();
+
+    const db = mongoClient.db("wulirocks_test");
+    const collection = db.collection("users");
+
+    const user = await collection.findOne(
+      { userId: userId },
+      {
+        projection: {
+          _id: 0,
+          userId: 1,
+          email: 1,
+          plan: 1,
+          features: 1,
+          preferences: 1
+        }
+      }
+    );
+
+    if (!user) {
+      return response.status(404).json({
+        error: "User not found"
+      });
+    }
+
+    response.status(200).json(user);
+
+  } catch (e) {
+
+    console.error(e);
+
+    response.status(500).json({
+      error: e.message
+    });
+  }
+});
+
+router.get("/api/user/:userId/project", async (req, response) => {
+
+    const userId = req.params.userId;
+
+
+  console.log("  ===>   " +  userId );
+
+    try {
+
+        const { mongoClient } =
+            await connectToDataBase();
+
+        const db =
+            mongoClient.db("wulirocks_test");
+
+        const collection =
+            db.collection("projects");
+
+        const project =
+            await collection.findOne(
+                { userId: userId },
+                {
+                    projection: {
+                        _id: 0
+                    }
+                }
+            );
+
+        if (!project) {
+            return response.status(404).json({
+                error: "PROJECT_NOT_FOUND"
+            });
+        }
+
+        response.status(200).json(project);
+
+    } catch (e) {
+
+        console.error(e);
+
+        response.status(500).json({
+            error: "DATABASE_ERROR",
+            message: e.message
+        });
+
+    }
+});
 
 
 
-
-
-router.post("/globalData_setDebugMode",   async (req, response) => {
+router.post("/api/globalData_setDebugMode",   async (req, response) => {
  
   const value =  req.body.value;
   const ID  = req.body.ID;
@@ -415,17 +686,18 @@ router.post("/globalData_setDebugMode",   async (req, response) => {
   try {
   const {mongoClient} =   await connectToDataBase();
    
- const db = mongoClient.db("wudb");
+ const db = mongoClient.db("wulirocks_test");
  const collection = db.collection("users");
  
 
- const  filter = {"ID":  ID  }; // Replace with the actual _id value
- const update = {
-     $set: { debugMode: value }, // Replace "new_value" with the updated value for debugMode
-   
- };
+ //const  filter = {"ID":  ID  }; // Replace with the actual _id value
  
-        collection.updateOne(filter, update  ); // ,  { upsert: true } it should be created already
+ //const update = {
+   //  $set: { debugMode: "12345" }, // Replace "new_value" with the updated value for debugMode
+   
+ //};
+ 
+   //     collection.updateOne(filter, update  ); // ,  { upsert: true } it should be created already
  
  response.status(200).json(    {msg:"value modified to: "+ value  });
 
@@ -643,7 +915,7 @@ function get_collectionData(collectionId){
         console.log( "collection is undefined. using default raritycount" );
          collectionData = rarityCount;
      }  else{ 
-        console.log( "collection is defined." );
+        console.log( "get_collectionData is defined." );
      }
 
     return collectionData;

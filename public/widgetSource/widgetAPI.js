@@ -4,8 +4,11 @@
    //composer/bootstrap: warning this is async, subsequent <script> will execute before this finished loading...
    // import "http://localhost:2000/widgetSource/composer.js";
     
-    import "./composer.js";
    
+import "./composer.js";
+    
+     
+    
 /*
     WuliComposer.runWidget(
     {      // "wuli-consoleTXT-widget"
@@ -177,8 +180,8 @@ const WuliAPI = {
                         {  
                             name: "pass_assetPicker_to_client",
                             getAssetPicker :  window.WuliComposer.instance["getAssetPicker"], 
-                            getTiersTab    :  window.WuliComposer.instance["getTiersTab"]
-            
+                            getTiersTab    :  window.WuliComposer.instance["getTiersTab"] 
+                         
 
                             
                         }

@@ -22,8 +22,8 @@ const {
 function canonicalizeQuery({ raw = "", caret = 0, action = null,  command = null , traitCounter_DataArg }) {
       
      traitCounter_Data = traitCounter_DataArg;
-    console.log(  "=========  canonicalize trait data:", 
-        traitCounter_Data["TYPE"]
+    console.log(  "========= canonicalize trait data Purple Orc :", 
+        traitCounter_Data["TYPE"]["Purple Orc"].length
      );
 
     const blocks =[];
@@ -56,7 +56,7 @@ function canonicalizeQuery({ raw = "", caret = 0, action = null,  command = null
                }
                analyzeBlock(block, caret);
                block_id++; block.blockId = block_id;
-               console.log( "block ====", block );  
+             //  console.log( "block ====", block );  
               insertRawTokens(block);
 
               blocks.push(block);

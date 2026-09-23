@@ -10,9 +10,9 @@ import {  setDOM,
  
 export function widgetInit 
     ({
-     widgetContent,
-    destinationContainer = null,
-    options = {}
+      widgetContent,
+     destinationContainer = null,
+     options = {}
 
 }) {
 

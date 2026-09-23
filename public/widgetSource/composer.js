@@ -189,7 +189,7 @@ export const WuliComposer = {
         tiersTab  :  async () => {const { initTiersTab } = await import(`${API_BASE_URL}/widgetSource/assetPicker/wuli-tiersTab.js`); return initTiersTab; },
         rarityCountBtn  :  async () => {const { initBTNrarity } = await import(`${API_BASE_URL}/widgetSource/TRAITCOUNT/rarityCountBtnWidget.js`); return initBTNrarity; } ,
 
-        imageGrid  :  async () => {const { widgetInit } = await import(`${API_BASE_URL}/widgetSource/imageGridWidget/wuli-gridWidget.js`); return widgetInit; } 
+        imageGrid  :  async () => {const { widgetInit } = await import(`${API_BASE_URL}/widgetSource/imageGridwidget/wuli-gridWidget.js`); return widgetInit; } 
                                                                                                    //imageGridWidget/imageGridWidget
         
  

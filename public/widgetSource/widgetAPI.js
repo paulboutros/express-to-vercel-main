@@ -2,65 +2,8 @@
  
  
    //composer/bootstrap: warning this is async, subsequent <script> will execute before this finished loading...
-   // import "http://localhost:2000/widgetSource/composer.js";
-    
-   
-import "./composer.js";
-    
-     
-    
-/*
-    WuliComposer.runWidget(
-    {      // "wuli-consoleTXT-widget"
-         container:  document.getElementById("bottomRight"),
-         shadowName: "consoleTXT"
-     },
-    (widgetContent) =>
-        WuliComposer.initCompose(
-              widgetContent,[{
-                 widget: WuliComposer.widgets.consoleTXT ,
-                 options: {
-                      instanceName:"consoleTXT_01"
-                      // onResult: WuliComposer.refreshQueryResult 
-                 }
-              }]
-         )
-     );
-
-   //==============================================================================
-      WuliComposer.runWidget(
-    {      // "wuli-consoleTXT-widget"
-         container:  document.getElementById("bottomRow1"),
-         shadowName: "consoleTXT"
-     },
-    (widgetContent) =>
-        WuliComposer.initCompose(
-              widgetContent,[{
-                 widget: WuliComposer.widgets.consoleTXT,
-                 options: {
-                      instanceName:"consoleTXT_02"
-                      // onResult: WuliComposer.refreshQueryResult 
-                 }
-                
-                }]
-         )
-     );
-      
-     // pass instance to client
-        window.eventBus.emit(
-            window.eventBus.eventNames.EVENT_widgetLoaded,
-                {   
-                    name: "add_consoleTXT_to_WuliComposer",
-                    uIActionRegistry_actions: "default",
-                    consoleInstance:  window.WuliComposer.instance["consoleTXT_01"]   
-                    // window.WuliComposer.instance.consoleBtnDescriptiontxt
-                }
-        ); 
-              
  
-*/
-
-
+     
 
  
 import "./composer.js";
@@ -78,7 +21,9 @@ const WuliAPI = {
             type,
             container,
             instanceName,
-            options = {}
+            destinationContainer,
+            options = {},
+            style ={}
         } = config;
 
 
@@ -97,7 +42,13 @@ const WuliAPI = {
         // Resolve widget from Composer
         // --------------------------------------------------------
 
+
+      
+
         const widget = WuliComposer.widgets[type];
+
+     console.log( "widget  == ",type , "style:",  style )  ;
+
  
         if (!widget) {
             throw new Error(
@@ -110,8 +61,10 @@ const WuliAPI = {
         // Build Composer widget configuration
         // --------------------------------------------------------
 
-         const widgetConfig = {  container,
-               shadowName: type
+         const widgetConfig = {
+               container,
+               shadowName: type,
+               style
          };
 
 
@@ -125,13 +78,15 @@ const WuliAPI = {
 
                 WuliComposer.runWidget(
                     widgetConfig,
-
+                 
                     (widgetContent) => {
 
                         try {
                              const composeConfig = {
                                  widget,
-                                 options 
+                                 destinationContainer,
+                                 options//,
+                                // style 
 
                             };
 
@@ -174,8 +129,8 @@ const WuliAPI = {
 
             if ( type === "assetPicker" ) {
 
-                console.log( "f ( options.instanceName ===  assetPicker  ) {");
-                            window.eventBus.emit(
+                 
+              window.eventBus.emit(
                     window.eventBus.eventNames.EVENT_widgetLoaded,
                         {  
                             name: "pass_assetPicker_to_client",
@@ -185,7 +140,7 @@ const WuliAPI = {
 
                             
                         }
-                ); 
+                     ); 
                 }
 
                               

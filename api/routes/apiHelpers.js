@@ -46,5 +46,52 @@
 
 }
 
+/*
+async function consumeCredit(userId, collection ) {
 
-module.exports = {validateRarityCount}
+    const result = await collection.findOneAndUpdate(
+        {
+            userId,
+            credits: { $gt: 0 }
+        },
+        {
+            $inc: { credits: -1 }
+        },
+        {
+            returnDocument: "after"
+        }
+    );
+
+    if (!result) {
+        throw new Error("Insufficient credits");
+    }
+
+    return result;
+}*/
+
+async function consumeCredit(userId, collection) {
+
+    const result = await collection.findOneAndUpdate(
+        {
+            userId,
+            credits: { $gt: 0 }
+        },
+        {
+            $inc: { credits: -1 }
+        },
+        {
+            returnDocument: "after"
+        }
+    );
+
+    if (!result) {
+        const error = new Error("Insufficient credits");
+        error.status = 402;
+        throw error;
+    }
+
+    return result;
+}
+
+
+module.exports = {validateRarityCount, consumeCredit}

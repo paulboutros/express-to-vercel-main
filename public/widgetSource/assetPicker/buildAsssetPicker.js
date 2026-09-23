@@ -116,7 +116,7 @@ export function getAssetPicker({
      } ){ 
 
 
-console.log( "picker    "    , picker ) ;
+console.log( "picker ddddd   "    , picker ) ;
 
 
 
@@ -131,6 +131,13 @@ console.log( "picker    "    , picker ) ;
       // console.log(   weaponAssets , maskAssets,shieldAssets );
         asset_are_loaded = true;
   }
+
+ 
+
+     console.log( "====loaded asset:  " ,  {weaponAssets , maskAssets,shieldAssets}  )
+
+
+
  
     if (!picker){ 
       picker = new AssetPicker({

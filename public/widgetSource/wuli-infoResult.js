@@ -5,9 +5,7 @@ import { setDOM } from "../JS/Mainfunctions/mainFunctions.js";
  
 import InfoCard from "../JS/UI/infoCard.js";
  
- 
-
-
+  
 export function initinfoResult 
     ({
      widgetContent,

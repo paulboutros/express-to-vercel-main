@@ -1,7 +1,7 @@
  
-//const { filemanager } = require("../../services/writeServices");
+//const { filema nager } = require("../../services/writeServices");
 import { HorizontalSelector } from  "./horizontalSelector.js" ;
-//const traitOverrideNames = filemanager.traitOverrideNames.load();
+//const traitOverrideNames = filemana ger.traitOverrideNames.load();
  
 
 

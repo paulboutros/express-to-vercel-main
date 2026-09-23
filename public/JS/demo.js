@@ -11,9 +11,9 @@
    //  const traitData = await api.getTraitData();
    
      // wuli ui oackage
-     import TraitSelectorPanel from "./wuli-ui/traitSelectorPanel.js";
-     import  ToggleButton   from "./wuli-ui/toggleButton.js";
-     import  RunButton from "./wuli-ui/runButton.js";
+    // import TraitSelectorPanel from "./wuli-ui/traitSelectorPanel.js";
+     
+    
      import QueryBox from "./wuli-ui/QueryBox/QueryBox.js";
      import QueryStore from "./wuli-ui/QueryBox/QueryStore.js";
      import QueryDropdown from "./wuli-ui/QueryBox/QueryDropdown.js";
@@ -49,7 +49,8 @@
                  refreshQueryResult,
                  timeout_saveSheet,   setAllElement,
                  getTraiDataResult,
-                 filterModeToggleAction 
+                 filterModeToggleAction, 
+                 onTraitAdd
                  
 
        } from "./Mainfunctions/mainFunctions.js";
@@ -70,6 +71,8 @@ console.log("initDemo()");
 const panel_ignored_traits = [ "NECKSTYLE","DNA","_BODY_","_HEAD_","COLORSQN","HELMCREST","WEAPON_PAT","MASK_PAT"] ;
 
    //==============================================================================================
+
+   /*
  const traitPanel = new TraitSelectorPanel({
 
     container: document.getElementById("final_traitFILTERListContainer"),
@@ -83,9 +86,44 @@ const panel_ignored_traits = [ "NECKSTYLE","DNA","_BODY_","_HEAD_","COLORSQN","H
     }
 
 });
+
     
  traitPanel.render(    getTraiDataResult()   );  // traitData
- 
+ */
+
+ window.eventBus.on( window.eventBus.eventNames.EVENT_active_filter_update, 
+     (eventObj) => { 
+       
+         console.log( "========== eventObj " ,  eventObj );
+
+   //     Object.assign(featState, eventObj);
+      
+        //  onTraitAdd(traitKey, value, ids) ;
+         // propagateQueryResult(eventObj);   
+         
+           timeout_generateAllTraitSheet( null ,0 );
+    /*  
+       onTraitAdd(traitKey, value, ids) ;
+    */
+       //  Electron version
+       //  featState.rebuildactiveFilterMap_from_IDS();
+       //  featState.rebuildactiveFilterMap_IDBASE_fromMap();
+       //  populateGrid();
+        
+
+     
+    } 
+   ) 
+
+
+
+
+
+
+
+
+
+
 //===============================================================
      let siteNavigationData  = await api.getSiteNavigationData();
      setNavigationPaths(  buildNavigationPaths( siteNavigationData)   );
@@ -102,7 +140,9 @@ const panel_ignored_traits = [ "NECKSTYLE","DNA","_BODY_","_HEAD_","COLORSQN","H
 // check button id: navigToggle
   const navigPanelView = new ElementView( '[data-toggle="navigation"]');
        viewManager.register("NAVIGVIEW", navigPanelView);
-       viewManager.hide("NAVIGVIEW");     
+       viewManager.hide("NAVIGVIEW");  
+       
+      setDOM({viewManager}); 
 //===============================================================
 
  /*
@@ -131,6 +171,7 @@ const sheetCard = new InfoCard( resultInfo,"SHEETS","0");
     viewManager.register("SHEET GENERATION", sheetView);
     viewManager.register("SEARCH RESULT", gridView);
     viewManager.setInitialView("SHEET GENERATION");
+   
     
      
  const layoutEngine = startLayoutEngine({mode:"demo"});
@@ -207,6 +248,9 @@ const buttonSet2 = document.getElementById("buttonSet2") ;
  
 //======================================================== 
 //======================================================== 
+
+
+/*
 const filterModeToggle = new ToggleButton({
 
     containerId: "trait-pill-container", 
@@ -218,27 +262,14 @@ const filterModeToggle = new ToggleButton({
              get_UIstate().filterModeABS = values;
              filterModeToggleAction();
      } 
-  /*
-      onChange:   (values) => {
-       // get_UIstate().filterModeABS = values;  // moved outside
-       const apiCall =  async () => { 
-             const result = await api_set_filterModeABS(
-                             { filterModeABS:        get_UIstate().filterModeABS,
-                               serializeActivePills:  get_UIstate().serializeActivePills
-                             });
-   
-       
-         propagateQueryResult(result);        
- 
-      }
-       apiCall();
-     }
-*/
+  
 
 
 
 
 });
+*/
+
 //======================================================================================
     const filterModeView = new ElementView( '[class="filterModeToggleBtn"]');
    viewManager.register("filterModeBTN", filterModeView);
@@ -259,7 +290,7 @@ const filterModeToggle = new ToggleButton({
 
  //=====================================================================
   //=======================================================================================
-
+/*
   async function onTraitAdd(traitKey, value, ids) {
       
     // activeTraitUI_result add the pills and serialize. make sure you run this before api_addtrait engine loi
@@ -273,14 +304,12 @@ const filterModeToggle = new ToggleButton({
                    
        
                 propagateQueryResult(result);                   
-              
-                
-        
+         
           viewManager.show("filterModeBTN");
  
  
 }
-
+*/
 
  //=====================================================================
 

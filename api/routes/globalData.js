@@ -1,4 +1,6 @@
   
+const jwt = require ( 'jsonwebtoken');
+const bcrypt = require("bcrypt");
 const path = require("path");
 const express = require("express");
 const { connectToDataBase } = require("../../lib/connectToDataBase");
@@ -12,7 +14,8 @@ const { connectToDataBase } = require("../../lib/connectToDataBase");
  
        const engine = require("../../wuliEngine/index.js");
 const { registerCollection, getCollection, getCollection_db, registerCollection_db } = require("./collectionRegistration.js");
-const { validateRarityCount } = require("./validateRarityCount.js");
+const { validateRarityCount, consumeCredit } = require("./apiHelpers.js");
+const { authenticate, authenticateOptional, allowPlaygroundOrAuth } = require('./middlewares/authenticate.js');
        //const engine = require("@wulirocks/collection-engine");
      const {rebuildActiveFilterMap} = engine.features_traitFilters; 
 
@@ -32,9 +35,7 @@ const { validateRarityCount } = require("./validateRarityCount.js");
 
 const router = express.Router();
    
-
- 
-router.post("/api/traitFilter/rebuildActiveFilterMap", (req, res) => {
+router.post("/api/traitFilter/rebuildActiveFilterMap",async (req, res) => {
 
    const {filterModeABS, serializeActivePills, collectionId} = req.body;
 
@@ -42,18 +43,268 @@ router.post("/api/traitFilter/rebuildActiveFilterMap", (req, res) => {
                    {filterModeABS, serializeActivePills, collectionId}
            )
 
-      const result = run_rebuildActiveFilterMap( filterModeABS, serializeActivePills, collectionId );
+      const result = await run_rebuildActiveFilterMap( filterModeABS, serializeActivePills, collectionId );
    
     
            res.json(result);
 });
-
-router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
-  // to do now, pass obj.collectionId from client in obj (just added)
-     const {filterModeABS, serializeActivePills, collectionId} = req.body;
  
+
+
+router.post("/api/auth/logout", (req, res) => {
+
+    res.clearCookie("token");
+
+    return res.json({
+        success: true
+    });
+});
+
+
+router.get("/api/auth/me",  authenticate,
+     async (req, res) => {
+
+    return res.json({
+        user: {
+            userId: req.state.user.userId,
+            email: req.state.user.email,
+            plan: req.state.user.plan,
+            features: req.state.user.features,
+            credits: req.state.user.credits 
+        }
+    });
+});
+ router.post("/api/auth/register", async (req, res) => {
+
+    try {
+
+        const { email, password } = req.body;
+
+        if (!email || !password) {
+            return res.status(400).json({
+                error: "Email and password are required"
+            });
+        }
+
+        const { mongoClient } = await connectToDataBase();
+
+        const db = mongoClient.db("wulirocks_test");
+        const collection = db.collection("users");
+
+        const existingUser = await collection.findOne({ email });
+
+        if (existingUser) {
+            return res.status(409).json({
+                error: "User already exists"
+            });
+        }
+
+        const passwordHash = await bcrypt.hash(password, 12);
+
+        const user = {
+            userId: crypto.randomUUID(),
+            email,
+            passwordHash,
+
+            plan: "free",
+
+            features: {
+                grid: false,
+                rarityCount: false,
+                advancedQuery: false
+            },
+
+            debugMode: null,
+
+            preferences: {
+                sheetAutoSave: false
+            }
+        };
+
+        await collection.insertOne(user);
+
+        return res.status(201).json({
+            userId: user.userId,
+            email: user.email
+        });
+
+    } catch (e) {
+
+        console.error(e);
+
+        return res.status(500).json({
+            error: "Registration failed"
+        });
+    }
+});
+
+router.post("/api/auth/login", async (req, res) => {
+
+    try {
+
+        const { email, password } = req.body;
+
+        if (!email || !password) {
+            return res.status(400).json({
+                error: "Email and password are required"
+            });
+        }
+
+        const { mongoClient } = await connectToDataBase();
+
+        const db = mongoClient.db("wulirocks_test");
+        const collection = db.collection("users");
+
+        const user = await collection.findOne(
+            { email },
+            {
+                projection: {
+                    _id: 0,
+                    userId: 1,
+                    email: 1,
+                    passwordHash: 1,
+                    plan: 1,
+                    features: 1,
+                    preferences: 1
+                }
+            }
+        );
+
+        if (!user) {
+            return res.status(401).json({
+                error: "Invalid email or password"
+            });
+        }
+
+        const valid = await bcrypt.compare(
+            password,
+            user.passwordHash
+        );
+
+        if (!valid) {
+            return res.status(401).json({
+                error: "Invalid email or password"
+            });
+        }
+
+        // Create authentication token
+        const token = jwt.sign(
+            {},
+            process.env.JWT_SECRET,
+            {
+                subject: user.userId,
+                expiresIn: "1h"
+            }
+        );
+
+        // Store token in HTTP-only cookie
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === "production",
+            sameSite: "lax",
+            maxAge: 60 * 60 * 1000
+        });
+
+        return res.json({
+            user: {
+                userId: user.userId,
+                email: user.email,
+                plan: user.plan,
+                features: user.features,
+                preferences: user.preferences
+            }
+        });
+
+    } catch (e) {
+
+        console.error(e);
+
+        return res.status(500).json({
+            error: "Login failed"
+        });
+    }
+});
+/*
+ router.post("/api/auth/login", async (req, res) => {
+
+    try {
+
+        const { email, password } = req.body;
+
+        if (!email || !password) {
+            return res.status(400).json({
+                error: "Email and password are required"
+            });
+        }
+
+        const { mongoClient } = await connectToDataBase();
+
+        const db = mongoClient.db("wulirocks_test");
+        const collection = db.collection("users");
+
+        const user = await collection.findOne(
+            { email },
+            {
+                projection: {
+                    _id: 0,
+                    userId: 1,
+                    email: 1,
+                    passwordHash: 1,
+                    plan: 1,
+                    features: 1,
+                    preferences: 1
+                }
+            }
+        );
+
+        if (!user) {
+            return res.status(401).json({
+                error: "Invalid email or password"
+            });
+        }
+
+        // Password verification comes here.
+        // Example later:
+        // const valid = await bcrypt.compare(password, user.passwordHash);
+        const valid = await bcrypt.compare(
+            password,
+            user.passwordHash
+        );
+ 
+        if (!valid) {
+            return res.status(401).json({
+                error: "Invalid email or password"
+            });
+        }
+
+        return res.json({
+            user: {
+                userId: user.userId,
+                email: user.email,
+                plan: user.plan,
+                features: user.features,
+                preferences: user.preferences
+            }
+        });
+
+    } catch (e) {
+
+        console.error(e);
+
+        return res.status(500).json({
+            error: "Login failed"
+        });
+    }
+});
+*/
+router.post("/api/traitFilter/set_filterModeABS",async (req, res) => {
+  // to do now, pass obj.collectionId from client in obj (just added)
+     const {filterModeABS, serializeActivePills, collectionId, userId} = req.body;
+    console.log(  "set_filterModeABS  req.body ",
+                    req.body
+           )
       
-  const result = run_rebuildActiveFilterMap( filterModeABS, serializeActivePills, collectionId );
+  const result = await run_rebuildActiveFilterMap( filterModeABS, serializeActivePills, collectionId, userId );
   
         
     
@@ -63,23 +314,18 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
 
 
 
-   router.post("/api/traitFilter/add", (req, res) => {
+   router.post("/api/traitFilter/add",async (req, res) => {
     const { traitKey, value, ids, objArg } = req.body;
      
     //  const featState =  new FeatureState({ nameArg: "=======traitFilter/add"});
 
- // console.log( "trait add:",  objArg  );
+  
 
     const featState = new FeatureState( 
      // {traitCounter_Data: collectionData,// rarityCount, 
-         {traitCounter_Data: get_collectionData(objArg.collectionId)
+         {traitCounter_Data: await get_collectionData(objArg.collectionId , objArg.userId)
       }); 
- 
-
-
-
-
-
+  
 
        const { /*set_featState,*/ rebuildActiveFilterMap} = engine.features_traitFilters; 
     
@@ -104,7 +350,7 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
             result.activeFilterMap_IDS_length = featState.activeFilterMap_IDS.length;
            
 
-         //    console.log( "add trait .activeFilterMap_IDS " ,  suffleIDS  );
+        
         
           res.json(result);
   
@@ -113,18 +359,46 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
 });
 
 //=======================================================
-     router.post("/api/query/runQueryInputHandler", (req, res) => {
-      // const { raw } = req.body;
-             const obj  = req.body;
+  router.post("/api/query/runQueryInputHandler",
+   authenticateOptional,
+   allowPlaygroundOrAuth,
+   //  authenticate,
+     async (req, res) => {
+    
+
  
-        
-    
-    
-    //=================================================
-      //++v[TYPE:[pu]]
+
+     try {
+ 
+
+        const obj  = req.body;
+
+     console.log( "runQueryInputHandler  req.state:" ,  req.state )   
+
+
+     let user;
+     if (req.state.access === "public") {
+          
+     } else {
+
+
+          const userId = req.state.user?.userId;
+         // 1. Check/consume credit
+          const { mongoClient } = await connectToDataBase();
+ 
+        const db = mongoClient.db("wulirocks_test");
+         const collection = db.collection("users");
+          user = await consumeCredit(userId, collection);
+     
+      }
+     
+
+
+
+
      const featState = new FeatureState( 
      // {traitCounter_Data: collectionData,// rarityCount, 
-        {traitCounter_Data: get_collectionData(   obj.collectionId ),// rarityCount, 
+        {traitCounter_Data: await get_collectionData(   obj.collectionId, obj.userId ),// rarityCount, 
 
         getFirstInSet:getFirstInSet ,
         getALL_NFTIDS:getALL_NFTIDS,
@@ -132,16 +406,19 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
       
        }
     );
+    console.log( " =======================     obj.userId  ===" ,  obj.userId ) ;
+     
+
     const {rebuildActiveFilterMap} = engine.features_traitFilters; 
   
           engine.queryEngine.set_rebuildActiveFilterMap(
                     () => rebuildActiveFilterMap({featStateArg: featState} )  
-                   // rebuildActiveFilterMap
+                   
                   );
          let result = engine.queryEngine.runQueryInputHandler(  obj , featState); //raw
 
        // this works as alternative to callback above..
-       //rebuildActiveFilterMap({featStateArg: featState} );
+      
        
          const suffleIDS = buildDisplayOrder(featState.activeFilterMap_IDS);
          result.activeFilterMap_suffleIDS  = suffleIDS;
@@ -151,9 +428,29 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
             if (!result || typeof result !== "object") {
                  result = { "res:raw " : raw   }
         }
-      
+   //========================================================
+   
 
-     res.json(result);
+        // 3. Return result + remaining balance
+        
+
+  //====================================================
+      result.credits = user?.credits;
+       
+       res.status(200).json(result);
+        } catch(e){ 
+
+               if (e.status === 402) {
+                    return res.status(402).json({
+                     error: "Insufficient credits"
+                });
+               }
+
+              
+  
+
+            console.error(e); res.status(500).json(e);
+        }
 });
 
  
@@ -225,7 +522,7 @@ router.post("/api/traitFilter/set_filterModeABS", (req, res) => {
 
          //if (process.env.VERCEL !== "1") {
 
-         console.log(  "guest user info:"   ,
+         console.log(  "user info:"   ,
              {userPref : vidFilter.userPreferences ,
               collectionId: vidFilter.collectionId
                } 
@@ -294,7 +591,7 @@ router.post("/api/collection/query", async (req, res) => {
         });
     }
 
-    console.log("Collection found:", collectionId);
+    console.log("/collection/queryCollection found:", collectionId);
    // console.log("Query:", query);
 
     return res.json({
@@ -341,6 +638,11 @@ router.post("/api/collection/register", async (req, response) => {
         // let result = await engine.writeServices.getSiteNavigationData();
     
    const {collectionData ,projectId, userId} = req.body    ;//.collectionData;
+
+
+
+   // console.log( "uploaded   collectionData    =  "  , collectionData     );
+
    const validation = validateRarityCount(collectionData);
 
     if (!validation.ok) {
@@ -348,7 +650,7 @@ router.post("/api/collection/register", async (req, response) => {
     }
  
 
-  console.log("registerCollection_forUser  " );
+    console.log("registerCollection_forUser  " );
        const result =
             await registerCollection_forUser( userId, projectId , collectionData);
                 
@@ -433,7 +735,7 @@ router.post("/api/getSiteNavigationData", async (req, response) => {
 
      console.log("  =====> registerCollection (guest)  " );
     // No real user → guest / anonymous
-    return registerCollection(  projectId, collectionData, userId);
+    return registerCollection({ userId, projectId, collectionData } );
     
    
 }
@@ -483,7 +785,7 @@ router.post("/api/getSiteNavigationData", async (req, response) => {
             } else{ 
 
                 result = collectionData;
-                console.log( "collection is defined." );
+                console.log( "collection is defined for userID " ,{userId} );
             }
 
 
@@ -497,45 +799,7 @@ router.post("/api/getSiteNavigationData", async (req, response) => {
       
  } catch(e){   console.error(e); response.status(500).json(e);}
  });
- /*
- router.post("/api/getTraitData_db", async (req, response) => {
- 
-
-      let result = null;
-      let collectionData = null;
-
-
-      const obj  = req.body;
-
-      if (!obj.collectionId){ 
-          console.log( "collectionId  id NULL " );
-          result = rarityCount; 
-      }else{ 
-
-
-           collectionData = getCollection_db(obj.collectionId);
-           if(!collectionData ){ 
-                console.log( "collection is undefined. using default raritycount" );
-                // collectionData = rarityCount;
-                result = rarityCount; 
-            }  else{ 
-
-                result = collectionData;
-                console.log( "collection DB is defined." );
-            }
-
-
-      }
- 
-
-     // let result = await engine.writeServices.get_rarityTraitCount();
-      
-  try {
-       response.status(200).json(result);
-      
- } catch(e){   console.error(e); response.status(500).json(e);}
- });*/
-
+  
 router.post("/api/user_set", async (req, response) => {
 
   const { userId, plan, features } = req.body;
@@ -804,11 +1068,11 @@ function mulberry32(seed) {
   };
 }
 
-function run_rebuildActiveFilterMap( filterModeABS, serializeActivePills , collectionId ){
+async function run_rebuildActiveFilterMap( filterModeABS, serializeActivePills , collectionId, userId ){
         
      const featState =  new FeatureState( 
       { nameArg: "========ebuildActiveFilterMap",
-       traitCounter_Data: get_collectionData(    collectionId ),// rarityCount
+       traitCounter_Data: await get_collectionData(    collectionId, userId ),// rarityCount
 
       } 
      );
@@ -907,10 +1171,14 @@ function save_sheetGenerationHistory_local(engine, vidFilter){
    return true;
 }
 
-function get_collectionData(collectionId){ 
+async function get_collectionData(projectId, userId){ 
 
+
+    // await getCollection_forUser()
+
+     let collectionData = await getCollection_forUser(userId, projectId) 
    //=================================================
-     let collectionData = getCollection(  collectionId );
+    // let collectionData = getCollection(  collectionId );
       if(!collectionData ){ 
         console.log( "collection is undefined. using default raritycount" );
          collectionData = rarityCount;

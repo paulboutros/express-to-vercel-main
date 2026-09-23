@@ -39,7 +39,7 @@ export default class QueryStore{
         );
 
 
-         console.log(    " this.queries   ==   "  ,  this.queries   );
+        
 
 
     }

@@ -1,3 +1,11 @@
+
+
+const cors = require("cors");
+const cookieParser = require("cookie-parser");
+
+
+
+
 const path = require("path");
 const express = require("express");
 const dotenv = require("dotenv");
@@ -9,30 +17,54 @@ dotenv.config();
  const app = express();
 
 
+
+  /*
+ app.use((req, res, next) => {
+
+    console.log(
+        "REQUEST:",
+        req.method,
+        req.url,
+        "ORIGIN:",
+        req.headers.origin
+    );
+
+    next();
+});
+ */
+
+ 
+
+app.use(cors({
+    origin: true, 
+    credentials: true
+}));
+
+
+
+app.use(cookieParser());
+
+
+
+ 
+
+
 // --------------------------------------------------
 // Paths
 // --------------------------------------------------
 
 const publicPath = path.join(__dirname, "..", "public");
  
-// --------------------------------------------------
+ // --------------------------------------------------
 // Middleware
 // --------------------------------------------------
 
 app.use(express.json({ limit: "2mb"}));
  app.use(express.urlencoded({ extended: true, limit: "2mb" }));
-
-
-// --------------------------------------------------
+ // --------------------------------------------------
 // Static files
 // --------------------------------------------------
- /*
-// Wuli UI package
-app.use("/wuli-ui", express.static(uiPath));
-*/
-
-
-// Local development only where express serve index.html
+ // Local development only where express serve index.html
 // current vercel express, trigger frontend ESM to be rewritten in CJS..(not ok)
 // so In Vercel, public/ should be served directly by Vercel.(public has own mode:module package)
 if (process.env.VERCEL !== "1") {

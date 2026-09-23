@@ -1,13 +1,14 @@
 
 
-import { api_addTraitSelection, api_rebuildActiveFilterMap, api_set_filterModeABS } from "../JS/apiClient.js";
-import { getDOMregistry } from "../JS/Mainfunctions/DOMregistry.js";
-import { getTraiDataResult, propagateQueryResult,
+//import { api_addTraitSelection, api_rebuildActiveFilterMap, api_set_filterModeABS } from "../JS/apiClient.js";
+//import { getDOMregistry } from "../JS/Mainfunctions/DOMregistry.js";
+import { getTraiDataResult,// propagateQueryResult,
      onTraitAdd, setDOM,
     filterModeToggleAction, 
     getUIelements} from "../JS/Mainfunctions/mainFunctions.js";
 import viewManager from "./workspace/ViewManager.js";
-import { call_addTrait_inUI, get_UIstate, setTraitUIHandlers } from "../JS/wuli-ui/filterPills.js";
+import { //call_addTrait_inUI,
+     get_UIstate, setTraitUIHandlers } from "../JS/wuli-ui/filterPills.js";
 import ToggleButton from "../JS/wuli-ui/toggleButton.js";
 import TraitSelectorPanel from "../JS/wuli-ui/traitSelectorPanel.js";
 
@@ -40,21 +41,12 @@ const  rootContainer = document.getElementById("wuli-trait-panel-widget") ;
  setDOM({ traitpanel_widget: widgetContent });
 
  const root = getUIelements().traitpanel_widget;
-    console.log( "pills  traitpanel_widget  == == = " , root  )
+    
 
      const pillsContainerName ="trait-pill-container";
   let bar = getElement(pillsContainerName);   
 
-
-
-
-console.log( "trait panel",  {
-    root,
-    bar, 
-       rootContainer, 
-       widgetContent
-})
-
+ 
 
 
 //======================================================== 
@@ -85,9 +77,7 @@ const filterModeToggle = new ToggleButton({
   //  container: document.getElementById("final_traitFILTERListContainer"),
      panel_ignored_traits: panel_ignored_traits,
     onAdd: ({ traitKey, value, ids }) => {
-
-
-       console.log(   " onAdd: "  , { traitKey, value, ids }   );
+ 
 
            onTraitAdd(traitKey, value, ids) ;
  
@@ -111,20 +101,10 @@ const filterModeToggle = new ToggleButton({
                         viewManager.hide("filterModeBTN");
                      } 
                     
-          filterModeToggleAction();
-          /*
-          const apiCall =  async () => { 
-                    const result = await api_rebuildActiveFilterMap(
-                                    { filterModeABS:        get_UIstate().filterModeABS,
-                                     serializeActivePills:  get_UIstate().serializeActivePills
-                                    });
-         
-                     propagateQueryResult(result);               
-            }
-            apiCall();
-            */
+                  filterModeToggleAction();
+          
  
-    // redraw result grid
+    
         }
      });
      
@@ -148,7 +128,7 @@ const filterModeToggle = new ToggleButton({
 
         const root = getUIelements().traitpanel_widget;
 
-        console.log( "pills  traitpanel_widget  == == = " , root  )
+        
 
         return  root.querySelector(`#${id}`);
     }

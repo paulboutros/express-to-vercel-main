@@ -242,7 +242,7 @@ export function get_VideoFilterObject() {
 
         const root = getUIelements().traitpanel_widget || document;
 
-        console.log( "pills  traitpanel_widget  == == = " , root  )
+       
 
         return  root.querySelector(`#${id}`);
     }

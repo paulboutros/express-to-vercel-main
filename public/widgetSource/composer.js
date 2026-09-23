@@ -1,37 +1,17 @@
  
  
- 
-//import startLayoutEngine from "./workspace/LayoutEngine.js";
- 
-
+import { api_collection_registerExistingData } from "../JS/Mainfunctions/collectionResolver.js";
 import {   getDOMregistry } from "../JS/Mainfunctions/DOMregistry.js";
 import { refreshQueryResult, setDOM,
-         
-         getTraiDataResult,
-         propagateQueryResult,
-         api_collection_registerExistingData, getUIelements
+        
+         getUIelements
 
 } from "../JS/Mainfunctions/mainFunctions.js";
 import { setPageDataset } from "../JS/Mainfunctions/pageDataset.js";
-
+ import { UIActionRegistry } from "./consoleOutputTXT/buttonActionRegistry.js"; 
  
-import QueryBox from "../JS/wuli-ui/QueryBox/QueryBox.js";
-import QueryStore from "../JS/wuli-ui/QueryBox/QueryStore.js";
  
-
-
-// widget
-import { initTraitWidget } from "./trait-panel.js";
-import { initinfoResult } from "./wuli-infoResult.js";
-import { initQueryBox } from "./wuli-QueryBox.js";
-import { initconsoleTXT } from "./consoleOutputTXT/wuli-consoleOutputTXT.js";
-import { UIActionRegistry } from "./consoleOutputTXT/buttonActionRegistry.js";
-import { initAssetPicker } from "./assetPicker/wuli-assetPicker.js";
-import { initTiersTab } from "./assetPicker/wuli-tiersTab.js";
-
-
  
-let guideComponent = null;
  const eventBus = window.eventBus;
 
 function createWidgetRoot(container) {
@@ -68,6 +48,9 @@ async function render({
             "WuliArchitecture.render() requires a container."
         );
 
+
+  
+
     const widgetContent =
         createWidgetContent(container, {
             className,
@@ -95,6 +78,11 @@ async function render({
             //=================================================================
                 const styleConfig =  style?.element;
                 
+
+                console.log(" styleConfig   === " ,
+                        {styleConfig,
+                              style } );
+
                 if (styleConfig) {
 
                     const { id, ...styles } = styleConfig;
@@ -114,18 +102,30 @@ async function render({
 
 
 
-     console.log( "widgetContent     =  " , widgetContent )
+     
 
 
     await initCompose(
         widgetContent,
         [
+
+                WuliComposer.traitPanel ,
+               
+                WuliComposer.queryBox,
+                WuliComposer.infoResult,
+                WuliComposer.consoleTXT,
+                WuliComposer.assetPicker,
+                WuliComposer.tiersTab ,
+                WuliComposer.initBTNrarity,
+                WuliComposer.imageGrid
+            /*
             initTraitWidget,
             initQueryBox,
             initinfoResult,
             initconsoleTXT,
             initAssetPicker,
             initTiersTab
+            */
 
         ]
     );
@@ -137,14 +137,25 @@ async function render({
  
 async function initCompose(widgetContent, widgets = []){ 
      
+
+console.log(   "intcompose:  widgets " , widgets   )
+
+
      for (const config of widgets) {
 
-        console.log( "initCompose widgetContent  = "  ,widgetContent );
-        const component= await config.widget({
+
+         // Load the widget initializer
+        const initWidget = await config.widget();
+
+        // Execute the widget initializer
+        const component = await initWidget({
+ 
+      //  const component= await config.widget({
             
              widgetContent,
             // destinationContainer: config.destinationContainer,
-             options:  config.options
+             options:  config.options,
+          //   style: config.style
          });
      
         if (config.destinationContainer) {
@@ -162,15 +173,37 @@ export const WuliComposer = {
     runWidget,
     initCompose,
     widgets: {
-        traitPanel: initTraitWidget ,
-        queryBox  : initQueryBox,
-        infoResult: initinfoResult,
-        consoleTXT: initconsoleTXT,
-        assetPicker:initAssetPicker,
-        tiersTab   : initTiersTab
 
-      //  query: initQueryWidget,
-       // grid: initGridWidget
+        infoResult: async () => {
+            const { initinfoResult } =
+                await import(
+                    `${API_BASE_URL}/widgetSource/wuli-infoResult.js`
+                );
+
+            return initinfoResult;
+        }, 
+        queryBox    :  async () => {const { initQueryBox } = await import(`${API_BASE_URL}/widgetSource/wuli-QueryBox.js`); return initQueryBox; },
+        traitPanel  :  async () => {const { initTraitWidget } = await import(`${API_BASE_URL}/widgetSource/trait-panel.js`); return initTraitWidget; },
+        consoleTXT  :  async () => {const { initconsoleTXT } = await import(`${API_BASE_URL}/widgetSource/consoleOutputTXT/wuli-consoleOutputTXT.js`); return initconsoleTXT; },
+        assetPicker  :  async () => {const { initAssetPicker } = await import(`${API_BASE_URL}/widgetSource/assetPicker/wuli-assetPicker.js`); return initAssetPicker; },
+        tiersTab  :  async () => {const { initTiersTab } = await import(`${API_BASE_URL}/widgetSource/assetPicker/wuli-tiersTab.js`); return initTiersTab; },
+        rarityCountBtn  :  async () => {const { initBTNrarity } = await import(`${API_BASE_URL}/widgetSource/TRAITCOUNT/rarityCountBtnWidget.js`); return initBTNrarity; } ,
+
+        imageGrid  :  async () => {const { widgetInit } = await import(`${API_BASE_URL}/widgetSource/imageGridWidget/imageGridWidget.js`); return widgetInit; } 
+
+        
+ 
+        /*
+        
+        tiersTab   : initTiersTab
+      */
+
+        /*
+       import { UIActionRegistry } from  `${API_BASE_URL}/widgetSource/consoleOutputTXT/buttonActionRegistry.js`;
+    
+         
+        */
+      
     },
     actions: {
         updateConsole : () => {} ,
@@ -210,7 +243,7 @@ setDOM({activeCollection:"nothing"});
     const wuliQueryWidget = container;// document.getElementById("wuli-query-widget"); 
 
 
- console.log(   " run widget container    "  , container  ); 
+  
 
    if (!wuliQueryWidget   ){  return;   }
      
@@ -219,7 +252,7 @@ setDOM({activeCollection:"nothing"});
    if (  wuliQueryWidget.dataset.src ){
        const jsonFile = wuliQueryWidget.dataset.src; 
        const response =  await fetch( jsonFile );
-         console.log(   "fetch response    "  , response  ); 
+         
         if (!response.ok) {
 
             throw new Error(
@@ -228,7 +261,7 @@ setDOM({activeCollection:"nothing"});
 
         }
           pageData =await response.json();
-         console.log(   "pageData   "  , pageData  );
+          
       }
 
        
@@ -246,7 +279,7 @@ setDOM({activeCollection:"nothing"});
       style,
 
     className: "wulirocks",
-
+ 
    /* width: "300px",*/
 
     html: getHtml( shadowName ) ,
@@ -333,11 +366,37 @@ export function createWidgetContent(
 }
  
  
-
+ 
 function getHtml(shadowName){ 
 
       switch (shadowName) {
         
+  // grid-header
+        case "imageGrid":
+           
+         return `   
+                <link rel="stylesheet" href="${API_BASE_URL}/widgetSource/imageGridwidget/css/style2.css">
+                <div id="baseContainer"> 
+                    <div id="grid-controls">
+                        <button id="openNFTMETA">open NFT</button>
+                        <button id="openNFTfolder">op NFT img</button>
+                        <button id="openNFTMETA_PS2">op NFT MT</button>
+                        <button id="openIMAGES">openIMAGES</button>
+                        
+                        <button id="prevFrame">◀</button>
+                        <div id="curFrame"> 0 </div>
+                        
+                        <button id="nextFrame">▶</button>
+                        <button id="frameUpdate">⟳</button>
+                    
+                        <button id="zoomOut">-</button>
+                        <button id="zoomIn">+</button>
+                    </div>
+                    <div id="nft-grid"> </div>
+                   </div>
+                  
+             `;
+
         case "tiersTab":
          return `
            
@@ -367,6 +426,14 @@ function getHtml(shadowName){
             
               `;
 
+
+      case "rarityCountBtn":
+             
+             return `
+               <div id="rarityBtn">  </div> 
+             
+             `;  
+
         case "consoleTXT":
          return `
            <div id="consoleTXTcontainer">  
@@ -380,7 +447,7 @@ function getHtml(shadowName){
            </div">  
              `;
 
-        case "resultCards":
+        case "infoResult":
              
              return `
                <div id="resultInfo">  </div> 
@@ -401,7 +468,7 @@ function getHtml(shadowName){
           </div>  
  
             `;  
-        case "widgetContent":
+        case "queryBox":
                 return `
          
   <!-- <div id="row1">
@@ -424,16 +491,18 @@ function getHtml(shadowName){
 
 
  //EVENT_allwidgetLoaded
-eventBus.on( eventBus.eventNames.EVENT_widgetLoaded , 
+
+ if(eventBus ){ 
+    eventBus.on( eventBus.eventNames.EVENT_widgetLoaded , 
     ({ name, consoleInstance , uIActionRegistry_actions  }) => {
 
   
      if (name !== "add_consoleTXT_to_WuliComposer" ){
-         console.log("widget name arg=" , name );
+         
          return; 
       } 
 
-       console.log("======= const uIActionRegistry = new UIActionRegistry();  :", consoleInstance);
+       
 
        const uIActionRegistry = new UIActionRegistry();
        if(uIActionRegistry_actions ){
@@ -463,8 +532,8 @@ eventBus.on( eventBus.eventNames.EVENT_widgetLoaded ,
 
     // client-specific customization
    // widget.registerAction(...);
-});
-
+    });
+ }
 
 ///  button factory:
 
@@ -486,7 +555,7 @@ function buttonRunBase(config ){
 
         if (config.path && config.preCheckNeeded){ 
 
-          console.log(  "config.preCheckNeeded  " ,config.preCheckNeeded );
+        
               if (!config.preCheckNeeded()){
                    runJSXfn(config.path); 
                }
@@ -604,7 +673,7 @@ function createButtonTool(id, config ,  consoleTXTInstance ) {
     btn.addEventListener("mouseenter", () => { 
       var btnDescription = config.btnDescription;
 
-       console.log( "mouse enter: ", btnDescription );
+       
 
       if( !btnDescription)return;
         current_btnDescription = btnDescription;
@@ -617,7 +686,7 @@ function createButtonTool(id, config ,  consoleTXTInstance ) {
 
     btn.addEventListener("mouseleave", () => {
       var btnDescription = config.btnDescription;
-       console.log( "mouse leave: ", btnDescription );
+    
        
               // ( "leaves " + consoleBtnDescriptiontxt.defaultMsg );
        

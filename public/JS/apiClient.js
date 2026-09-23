@@ -4,13 +4,14 @@
     || "";
 
 
-console.log("API_BASE_URL ",  API_BASE_URL);
+ 
 
 
 async function request(url, options = {}) {
 
     const response = await fetch(API_BASE_URL + url, {
-
+ 
+        credentials: "include",
         headers: {
             "Content-Type": "application/json"
         },
@@ -136,14 +137,53 @@ export async function globalData_setDebugMode(traitKey, value, ids, objArg) {
 } 
  
 
+// add, or remove, or change filter.. all submit current trait selection
+// and engine treas active traits combined with filters the same way
+//regarless of what produced that selection, regarless of whether the
+//user pressed add, remove, switch filter. the input is only active trait + filter
+export async function api_addTraitSelection(traitKey, value, ids, objArg ) {
 
-export async function api_addTraitSelection(traitKey, value, ids, objArg) {
+ return post("/api/traitFilter/add", {traitKey, value, ids, objArg });
+   
+} 
+//  
+export async function api_set_filterModeABS( dataArg ) {
 
- return post("/api/traitFilter/add", {traitKey, value, ids, objArg});
+
+     console.log("api_set_filterModeABS:dataArg   =====", dataArg  );
+
+    if ( !dataArg.userId  ) { 
+
+         // throw new Error( " user id is null  ")
+    }
+
+     return post("/api/traitFilter/set_filterModeABS", dataArg);
  
 } 
- 
 
+export async function api_auth_logout() {
+
+    return post(
+        "/api/auth/logout",
+        {}
+    );
+}
+
+export async function api_auth_me() {
+
+    return get("/api/auth/me");
+
+}
+export async function api_auth_login(dataArg) {
+
+    return post("/api/auth/login", dataArg);
+     
+} 
+export async function api_auth_register(dataArg) {
+
+    return post("/api/auth/register", dataArg);
+     
+} 
  
 export async function api_getQueryExample(dataArg) {
 
@@ -166,8 +206,4 @@ export async function api_runQueryInputHandler(query) {
   return post("/api/query/runQueryInputHandler", query);
   
 } 
-export async function api_set_filterModeABS( dataArg ) {
 
-return post("/api/traitFilter/set_filterModeABS", dataArg);
- 
-} 

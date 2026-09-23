@@ -169,7 +169,7 @@ function  restore_ActiveTraits_from_activeTraitUI(featStateArg) { //activeTraitU
 
         let traitCounter_Data = featStateArg.traitCounter_Data;
 
-      console.log( " restore_ActiveTraits :" ,traitCounter_Data["TYPE"]['Purple Orc']  );
+ 
 
 
         featStateArg.activeTraits.clear();

@@ -34,7 +34,7 @@ function build_BTN_Description_HTML( item ) {
   if (!item) return "";
 
 
-  console.log (   "item    =  "   , item    )
+ 
 
 
     return formatConsoleObject(item);
@@ -76,11 +76,7 @@ export class OutputConsoleTXT {
 
           this.root = root;
 
-        console.log( "console class: "  ,  { 
-        containerId,
-        root
-              
-        }  )
+     
 
         this.container = this.getElement(containerId);
           // document.getElementById(containerId);

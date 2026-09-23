@@ -26,18 +26,13 @@ export  class AssetPicker {
         const grid = this.container;
         grid.innerHTML = "";
 
-        console.log(" ==== getUserAsssetsPath  " , 
-         { // folder , 
-          getAssetPath: this.getAssetPath , 
-           type} );
+        
 
 
         const assets = this.getUserAsssetsPath(type);
         const folder = this.getAssetPath(type);
 
-      console.log(" ==== folder  " , 
-         {  folder 
-        } );
+      
 
          assets.forEach((asset, i) => {
            // const item = this.createItem(asset, type, folder);
@@ -56,10 +51,7 @@ export  class AssetPicker {
     const assets = this.getUserAsssetsPath(type);
     const folder = this.getAssetPath(type);
 
-
-  console.log(" ==== folder (2)" , 
-     {folder ,  
-        getAssetPath:  this.getAssetPath } )
+ 
 
     const filtered = [];
 
@@ -92,7 +84,7 @@ export  class AssetPicker {
        item.dataset.imgData = imgData;// JSON.stringify(imgData);
 
 
-  //console.log(   "  fileSrc    ===== "  ,   fileSrc  );
+   
     if (!asset.file) {
         item.textContent = "None";
     } else {
@@ -133,7 +125,7 @@ selectItem(item, asset, index, type) {
     item.classList.add("selected");
     this.selectedElement = item;
 
-     console.log( " CLASS picked index  = "  ,  index );
+     
 
     if (typeof this.onSelect === "function") {
         this.onSelect({
@@ -152,8 +144,14 @@ selectItem(item, asset, index, type) {
 }
 
 function fileSrc(folder, filename) {
-  return "file://" +  folder +"/"+ filename ;
-  //return "file://" + path.join(folder, filename);
+
+   
+   //const path = folder +"/"+ filename ; 
+
+   // console.log( "fileSrc:",  path ) ;
+
+     return  folder +"/"+ filename ;
+ 
 } 
 
  

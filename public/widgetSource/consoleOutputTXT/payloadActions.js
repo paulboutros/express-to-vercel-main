@@ -31,9 +31,9 @@ import {
     return clickMap;
    }
    
-   const DEFAULT_CONFIG   =  filemanager.inputConfig.load();//    inputConfig;
-                 // getData( getPath("inputConfig.json" , "CONFIG") );
-   export  const inputMap =  DEFAULT_CONFIG.layoutGrid;
+    // use client provided data
+    const DEFAULT_CONFIG   = filemanager.inputConfig.load();//    inputConfig;
+    export  const inputMap =  DEFAULT_CONFIG.layoutGrid;
      
 
 

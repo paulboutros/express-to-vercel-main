@@ -32,9 +32,22 @@ export default class InfoCard {
     }
 
     setValue(value) {
-        if (!value)return; // is null when typing for panel trait filtering display
+ 
 
+    // Yep — classic JavaScript truthiness issue. 0 is falsy.
+     if (value === undefined || value === null) return;
+        //if (!value)return; // is null when typing for panel trait filtering display
+ 
         this.valueEl.textContent = value;
+     /*
+    console.log(  "info after update: card value: ",{ 
+           textContent:  this.titleEl.textContent,
+           value   
+    });*/
+
+
+
+
 
     }
 

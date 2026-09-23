@@ -1,0 +1,351 @@
+
+//module-free browser JavaScript
+const EVENT_filterModeABS_update ="EVENT_filterModeABS_update";
+
+  
+// eventBus.js
+class EventBus {
+  constructor() {
+    
+    this.eventNames ={ 
+        EVENT_allwidgetLoaded           :"EVENT_allwidgetLoaded",
+        EVENT_widgetLoaded           :"EVENT_widgetLoaded",
+       EVENT_saveSessionData           :"EVENT_saveSessionData",
+      EVENT_loadSessionData           :"EVENT_loadSessionData",
+      EVENT_active_filter_update      :"EVENT_active_filter_update",
+      EVENT_filterModeABS_update      :"EVENT_filterModeABS_update",
+      toggleWeaponMetaMode            :"EVENT_toggleWeaponMetaMode" ,
+      selectedKeysABS_changed         :"EVENT_selectedKeysABS_changed",
+  
+      COM_reviewExport_to_nftGrid              :"COM_reviewExport_to_nftGrid",
+        EVENT_imageViewer_reviewModeFALSE      :"EVENT_imageViewer_reviewModeFALSE",
+        EVENT_imageViewer_goGridAndQuery       :"EVENT_imageViewer_goGridAndQuery",
+        EVENT_imageViewer_rerender             :"EVENT_imageViewer_rerender",
+
+
+         EVENT_responseHander_suggest             :"EVENT_responseHander_suggest",
+
+         EVENT_psResponseType_nftCardPlacedSucess   :"EVENT_psResponseType_nftCardPlacedSucess" ,
+         EVENT_psResponseType_ScanDocCompleted   :"EVENT_psResponseType_ScanDocCompleted"  ,
+         EVENT_psResponseType_activeDocIdentified:"EVENT_psResponseType_activeDocIdentified"
+     };
+
+    this.EVENT_filterModeABS_update ="EVENT_filterModeABS_update";
+    this.listeners = {};
+  }
+
+  on(event, callback) {
+
+    // console.log( "on", { event, callback } )
+    if (!this.listeners[event]) this.listeners[event] = [];
+    this.listeners[event].push(callback);
+  }
+
+  emit(event, data) {
+
+
+   // console.log( "emit", { event, data } )
+
+    if (this.listeners[event]) {
+      this.listeners[event].forEach(cb => cb(data));
+    }
+  }
+
+  off(event, callback) {
+    if (!this.listeners[event]) return;
+    this.listeners[event] = this.listeners[event].filter(cb => cb !== callback);
+  }
+}
+
+const eventBus = new EventBus();
+  window.eventBus = eventBus; 
+
+ 
+class FeatureState {
+  constructor({ 
+     traitCounter_Data = null,
+   //  getFirstInSet = null, 
+     getALL_NFTIDS = null,
+     nameArg ="defaultName"} = {}  ) {
+
+    this.name = nameArg,
+    this.traitCounter_Data = traitCounter_Data;
+    //this.getFirstInSet = getFirstInSet;
+    this.getALL_NFTIDS = getALL_NFTIDS;
+
+    this.activeTraitUI = new Map();
+    this.activeTraits = new Map();
+
+    this.activeFilterMap_IDS = [];
+    this.activeFilterMap_IDBASE = []; // used for main configuration (non absolute) grid
+    this.activeFilterMap = new Map(); // used for Absolute grid
+
+    this.NFTSearchResults = []; // later: populated from search bar
+
+    this.gridMode = Object.freeze({
+      ABSOLUTE: "ABSOLUTE",
+      BATCH: "BATCH"
+    });
+
+    this.filterMode = "AND";
+    this.filterModeABS = "AND";
+
+    this.gridRenderMode = "unSet";
+    this.queryMode = "TRAIT_SEARCH"; // default
+
+
+
+   
+   
+  }
+
+  QueryState = {
+
+    includedIdsSet: new Set(),
+    excludedIdsSet: new Set(),
+    includedValueIdsSet: new Set(),
+    exclusiveValueIdsSet: new Set(),
+    exclusiveRuleSets:[],
+
+    ALL_NFTIDS : ( ) => { this.getALL_NFTIDS()  },
+
+    Mode:null,
+    
+    setMode(valueArg){
+         this.Mode = valueArg;
+     }
+
+   } 
+
+
+
+   setQueryMode(arg) {
+    this.queryMode = arg;
+  }
+
+  getQueryMode() {
+    return this.queryMode;
+  }
+
+  reset() {
+    this.activeTraitUI = new Map();
+    this.activeTraits = new Map();
+    this.activeFilterMap_IDS = [];
+    this.activeFilterMap_IDBASE = [];
+    this.activeFilterMap = new Map(); // used for Absolute grid
+    this.NFTSearchResults = []; // later: populated from search bar
+  }
+
+  set_gridRenderMode(mode) {
+    this.gridRenderMode = mode;
+  }
+
+  get_gridRenderMode() {
+    return this.gridRenderMode;
+  }
+
+  get_filterModeABS() {
+    return this.filterModeABS;
+  }
+
+   on_clearAllSearchQuery(){ 
+           this.clearAllFilters();
+           this.restore_nftFilter_from_activeTraitUI( this.activeTraitUI  );
+  
+  }
+ 
+   applyTraitFilter( traitType, value, ids , savedKey) {
+   let key ;
+  
+  if (!savedKey){ 
+     key = `${traitType}::${value}`;
+  }else{ 
+      key = savedKey;
+  }
+ 
+  if (!this.activeTraits.has(key)) {
+       this.activeTraits.set(key, new Set(ids));
+  }
+   
+ }
+
+  rebuildFiltersFromUI() {
+    
+    this.activeTraits.clear();
+    for (const [traitType, value] of this.activeTraitUI.entries()) {
+         const ids = traitCounter_Data[traitType][value];
+    
+         this.applyTraitFilter(traitType, value, ids, null);
+    }
+   }
+
+
+  set_filterModeABS(valueArg) {
+     console.log("set_filterModeABS(valueArg)", valueArg);
+    this.filterModeABS = valueArg;
+    return { filterModeABS: valueArg };
+  }
+
+  get_activeFilterMap_IDS() {
+    return this.activeFilterMap_IDS;
+  }
+
+  get_VideoFilterObject() {
+    let sheetTitle = "";
+
+    for (const [key, nftSet] of this.activeTraits.entries()) {
+      sheetTitle += key + " ";
+    }
+
+    return {
+      filterModeABS: this.filterModeABS,
+      activeFilterMap_IDS: this.activeFilterMap_IDS,
+      activeTraitUI_toArray: this.buildVideoFilterObject(this.activeTraitUI),
+      queryMode: this.getQueryMode(),
+      sheetTitle
+    };
+  }
+
+  serializeActiveTraitUI() {
+    const list = [];
+
+    for (const [traitKey, values] of this.activeTraitUI.entries()) {
+      for (const value of values) {
+        list.push({ traitKey, value });
+      }
+    }
+
+    return list;
+  }
+
+  buildVideoFilterObject(activeTraitUI) {
+    const filter = {};
+
+    for (const [traitType, valueSet] of activeTraitUI.entries()) {
+      filter[traitType] = Array.from(valueSet);
+    }
+
+    return filter;
+  }
+
+  
+
+  getTraitUIResult() {
+    return {
+      // activeTraitUI: mapSetToObject(this.activeTraitUI),
+      pills: this.serializeActiveTraitUI()
+      // activeTraitsData: serializeActiveTraitUI(UIstate.activeTraits)
+    };
+  }
+
+  setGeneralFilterMode() {
+    this.activeTraits.clear();
+    this.activeFilterMap.clear();
+  }
+
+   restore_nftFilter_from_activeTraitUI( activeTraitUI ) { 
+      for (const [traitType, valueSet] of activeTraitUI.entries()) {
+
+            for (const value of valueSet) {
+
+                const ids = this.traitCounter_Data?.[traitType]?.[value] || [];
+                this.activeFilterMap_IDS.push(ids)
+            
+                for (let index = 0; index < ids.length; index++) {
+                    
+                        var id = ids[index] ;//#3200
+                        var idBase =  getFirstInSet(id); // getFirstInSet(id);
+                        this.activeFilterMap.set(id, { id: id, idBase: idBase });
+                    
+                }
+                this.rebuildactiveFilterMap_IDBASE_fromMap();
+                this.rebuildactiveFilterMap_IDS_fromMap(  );
+            
+            }
+    }
+ 
+}
+
+
+
+  clearAllFilters() {
+    this.activeFilterMap.clear();
+    this.activeFilterMap_IDS.length = 0;
+    this.activeFilterMap_IDBASE.length = 0;
+
+    this.set_gridRenderMode(this.gridMode.ABSOLUTE);
+
+    console.log("add call back to replace: window.updateGrid()");
+    // if (window.updateGrid) window.updateGrid();
+   } 
+ 
+  rebuildactiveFilterMap_IDS_fromMap() {
+     this.activeFilterMap_IDS.length = 0;
+     this.activeFilterMap.forEach( (entry) => {
+         
+
+        if (this.activeFilterMap_IDS.indexOf( entry.id ) === -1) {
+            this.activeFilterMap_IDS.push( entry.id );
+        }
+    });
+  } 
+
+  
+    getFirstInSet(currentNum) {
+
+  //  alert('dddddddddd');
+    if (currentNum % 10 === 0) {
+        // If ends in 0, it's the last frame of a batch
+        return currentNum - 9;
+    } else {
+        // Otherwise, floor to previous multiple of 10, then add 1
+        return Math.floor(currentNum / 10) * 10 + 1;
+    }
+}
+  //  from ids result directly not from active trait..
+  rebuildactiveFilterMap_from_IDS(){
+
+      const ids = this.activeFilterMap_IDS ;
+           
+     this.activeFilterMap.clear();   
+     for (let index = 0; index < ids.length; index++) {
+                    
+           var id = ids[index] ;//#3200
+            var idBase =  this.getFirstInSet(id); // getFirstInSet(id);
+            this.activeFilterMap.set(id, { id: id, idBase: idBase });
+       }
+
+
+  }
+
+  rebuildactiveFilterMap_IDBASE_fromMap() {
+    this.activeFilterMap_IDBASE.length = 0;
+
+    this.activeFilterMap.forEach( (entry) => {
+        var idBase = entry.idBase;
+ 
+
+        if (this.activeFilterMap_IDBASE.indexOf(idBase) === -1) {
+            this.activeFilterMap_IDBASE.push(idBase);
+        }
+    });
+   }
+
+
+
+}
+ 
+
+function safeFileName(str) {
+    return str
+        .replace(/\s+/g, "_")
+        .replace(/[^\w\-]/g, "");
+}
+
+function sanitizeText(str) {
+    return str
+        .replace(/\r?\n/g, " ")  // remove line breaks
+        .trim();
+}
+
+const featState = new FeatureState();

@@ -22,9 +22,12 @@ const {
 function canonicalizeQuery({ raw = "", caret = 0, action = null,  command = null , traitCounter_DataArg }) {
       
      traitCounter_Data = traitCounter_DataArg;
-    console.log(  "========= canonicalize trait data Purple Orc :", 
-        traitCounter_Data["TYPE"]["Purple Orc"].length
-     );
+     
+     /*
+    console.log(  "========= canonicalize trait [ TYPE ]  )[0] :", 
+        Object.keys( traitCounter_Data["TYPE"]  )[0] .length
+       // traitCounter_Data["TYPE"]["Pur ple Orc"].length
+     );*/
 
     const blocks =[];
     const ctx = {

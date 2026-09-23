@@ -15,7 +15,7 @@ const MAX_ANONYMOUS_COLLECTIONS =
 
 
   function registerCollection(
-   userId, projectId , collectionData
+   {userId, projectId , collectionData}
 ) {
 
     // Basic validation
@@ -57,21 +57,35 @@ const MAX_ANONYMOUS_COLLECTIONS =
     }
 
  
-    activeCollections.set(
 
-        projectId,{
+     const dataObj = {
              data: collectionData,
              createdAt: Date.now(),
              lastAccessedAt:  Date.now()
          
-        }
+        } ;
+    activeCollections.set(
+
+        projectId, dataObj
 
     );
+
+     const dataFirstKey = Object.keys(dataObj.data)[0]; 
+     const dataFirstKeyLength = Object.values(dataObj.data[dataFirstKey] ).length; 
+
+      const resultSumary = {
+             projectId, 
+             dataFirstKey, 
+             dataFirstKeyLength,
+             createdAt: dataObj.createdAt,
+             lastAccessedAt: dataObj.lastAccessedAt
+     } ;
+
  
     return {
          ok: true,
          status: 200,
-         projectId
+         resultSumary
      };
 
 }
@@ -82,6 +96,8 @@ const MAX_ANONYMOUS_COLLECTIONS =
     collectionId
 ) {
 
+
+    console.log( "access guest collectionId:",collectionId );
     const session =
         activeCollections.get(
             collectionId
@@ -94,6 +110,16 @@ const MAX_ANONYMOUS_COLLECTIONS =
 
     }
 
+     const dataFirstKey = Object.keys(session.data)[0]; 
+
+     const dataFirstKeyLength = Object.values(session.data[dataFirstKey] ).length; 
+
+     console.log( "  guest found session:", { 
+             dataFirstKey, 
+             dataFirstKeyLength,
+             created: session.createdAt,
+             lastAccessedAt: session.lastAccessedAt
+     });
 
     // Keep track of activity
     session.lastAccessedAt =

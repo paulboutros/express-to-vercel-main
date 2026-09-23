@@ -1,137 +1,53 @@
  
-
-
-
-
-import { loadUserPreferences } from "../UserPreferences.js";
-console.log( "loaded: loadUserPreferences  ");
-
-  
-
+ 
  import { applyTraitSearchBlock  } from "../wuli-ui/displayBlocksFromSearch.js";
-//import {  } from "../apiClient.js";
-import {  api_addTraitSelection ,api_rebuildActiveFilterMap,
-          api_set_filterModeABS, api_runQueryInputHandler , api_getQueryExample ,
+   
+import {  api_set_filterModeABS, api_runQueryInputHandler ,
           api_generateAllTraitSheet,
-          api_saveSheet,
-          api_collection_register,
-          api_getTraitData,
-          globalData_setDebugMode,
-          api_user_set,
-          api_getUser,
-          
-          api_getUserProject
-        
+          api_saveSheet 
+         
      } from "../apiClient.js"; 
 
-import { drawConnector,pt ,clearConnectors, layoutNodes,
-        getRequiredHorizontalWidth
+import { drawConnector,pt ,clearConnectors, layoutNodes, getRequiredHorizontalWidth
+        
  } from "../wuli-ui/pipelineFunction.js";
-
-import RunButton     from "../wuli-ui/runButton.js";
+  
 import QueryDropdown from "../wuli-ui/QueryBox/QueryDropdown.js";
      
 
-   import {updateActiveTraitBar , call_addTrait_inUI , setTraitUIHandlers ,get_UIstate ,
-       get_VideoFilterObject
+   import {  call_addTrait_inUI, get_UIstate ,get_VideoFilterObject
+       
     } from "../wuli-ui/filterPills.js";
 import { appendTokenInfo } from "../wuli-ui/dataRepresentation/tokenDataToNode.js";
+
+/*
 import { getProject, getProjectStore, initLocalStorage } from "./localStorageAccess.js";
-//import { getElement } from "./DOMregistry.js";
+ */
 import InfoCard from "../UI/infoCard.js";
-import { uploadJSON } from "../copyEmbed.js";
+
+import { getUserResolve } from "./userResolve.js";
+import { uploadBtn_rarity_function } from "./collectionResolver.js";
   //import { get } from "lodash";
  
 
+  
+
   // user data ===============================
+  /*
 let userPreferences;
 let traitData;
 let project;
 let projectId;
-let userId;
+let userId;*/
 //================================================
-//=========================================================
-  //await globalData_setDebugMode({info:"ddddd"})
-  /*
-await api_user_set({
-  "userId": "test_001",
-  "plan": "pro",
-  "features": {
-    "grid": true,
-    "rarityCount": true,
-    "advancedQuery": false
-  }
-})*/
-const user = await api_getUser("test_001");
-  //=====================================================
-
-
-  if (user) {
-
-    // Authenticated / identified path
-   // SessionState.user = user;
-
-    // Load user's project from DB
-       project = await api_getUserProject(user.userId);
-       userPreferences = user.preferences;
-
-
-        userId = user.userId;
-
-
-   if (  project ) { 
-         projectId = project.projectId;
-    }  
-
-
-console.log( "project and user:",  {
-  project,
-   user,
-     userPreferences,
-     projectId
-    });
-
-     traitData = await api_getTraitData( {collectionId: project.projectId , user });
-
  
-
-  if (traitCounter_Data  ){ 
-
-     //console.log(  "main F 1) api_collection_registerExistingData  " ,   );
-   await  api_collection_registerExistingData( traitCounter_Data  );
-  //  console.log(  "main F 2) api_getdata  " ,   );
-    traitData = await api_getTraitData( {collectionId: projectId, userId });
-  }
-
-
-   // SessionState.project = project;
-
-} else {
-
-   initLocalStorage();
-   projectId = null;
-    project = getProject(); 
-   if (  project ) { 
-         projectId = project.id
-    }  
-
-    console.log(  "project =========== " , project );
-
-   traitData = await api_getTraitData( {collectionId: projectId });
-
-  if (traitCounter_Data  ){ 
-
-     //console.log(  "main F 1) api_collection_registerExistingData  " ,   );
-   await  api_collection_registerExistingData( traitCounter_Data);
-  //  console.log(  "main F 2) api_getdata  " ,   );
-   traitData = await api_getTraitData( {collectionId: projectId });
-  }
-
-  userPreferences =  loadUserPreferences();
-
-}
-
-
+ 
+     let { 
+        userPreferences,
+        traitData,
+       // project,
+        projectId,
+        userId} = await getUserResolve();
 
 
 
@@ -224,7 +140,8 @@ export function setAllElement(
     uploadBtn  = getElement("uploadBtn"); 
     uploadBtn?.addEventListener("click", (e) => {
          
-        uploadBtn_rarity_function(); 
+      uploadBtn_rarity_function();
+       
 
    });
   
@@ -402,7 +319,8 @@ export async function refreshQueryResult ( obj ) { //raw
 
              let {raw,caret} = obj;
             
-              obj.collectionId = projectId;// project.id;// collectionId;
+              obj.collectionId = projectId; 
+              obj.userId = userId; 
             
              const result =  await runQueryInputHandler(obj); // raw
 
@@ -535,15 +453,22 @@ export function setDOM(config = {}) {
     // activeTraitUI_result add the pills and serialize. make sure you run this before api_addtrait engine loi
         const activeTraitUI_result = call_addTrait_inUI( traitKey, value , ids );
        
-            const objArg =   {  filterModeABS:         get_UIstate().filterModeABS,
+
+         filterModeToggleAction();
+         /*
+              const objArg =   {  filterModeABS:         get_UIstate().filterModeABS,
                                 serializeActivePills:  get_UIstate().serializeActivePills,
 
-                                collectionId : projectId // project.id 
+                                collectionId : projectId, // project.id 
+                                userId
                             };
               
                 const result = await  api_addTraitSelection  (  traitKey, value , ids , objArg )  ;       
                         
-                propagateQueryResult(result);                   
+                propagateQueryResult(result); 
+         */
+                
+
            DOM.viewManager.show("filterModeBTN");
  
  
@@ -554,11 +479,15 @@ export function filterModeToggleAction( /*values*/){
        //move outside
      //  get_UIstate().filterModeABS = values;
   
+
+console.log( "===========  userId    " , userId   );
+
         const apiCall =  async () => { 
          const result = await api_set_filterModeABS(
                              { filterModeABS:        get_UIstate().filterModeABS,
                                serializeActivePills:  get_UIstate().serializeActivePills,
-                               collectionId: projectId //  project.id
+                               collectionId: projectId, 
+                               userId  
                              });
         
          propagateQueryResult(result);        
@@ -598,13 +527,17 @@ export function filterModeToggleAction( /*values*/){
             
                //==============================  Client Data/ session memory  ==============================   
            
-          
-              // if ( result.queryMode !== "TRAIT" ){       
-                    DOM.foundCard?.setValue(result?.activeFilterMap_IDS?.length);
+          // console.log("result.activeFilterMap_IDS.length  "  , result.activeFilterMap_IDS.length  );
+              // if ( result.queryMode !== "TRAIT" ){     
+                  // DOM.foundCard?.setValue(result.activeFilterMap_IDS.length);  
+                     DOM.foundCard?.setValue(result?.activeFilterMap_IDS?.length);
               // }
                     get_UIstate().activeFilterMap_IDS = result.activeFilterMap_IDS;
                     get_UIstate().activeFilterMap_suffleIDS = result.activeFilterMap_suffleIDS;
+
+                  // get_UIstate().IDS_Match_Count     = result.activeFilterMap_IDS.length;
                     get_UIstate().IDS_Match_Count     = result?.activeFilterMap_IDS?.length;
+                    
                     get_UIstate().queryMode = queryModeTEXT;// queryMode;
                     get_UIstate().raw = result.raw;
                     get_UIstate().dna = result.dna;
@@ -1079,26 +1012,26 @@ export async function get_uploaded_collection(){
 
     // api_collection_query
 }
-
+/*
   export async function uploadBtn_rarity_function(){
      const jsonResult =  await  uploadJSON();
  
      api_collection_register(jsonResult, projectId);
  
 }
-  export async function api_collection_registerExistingData(jsonResult){
+  export async function api_collection_registerExis tingData(jsonResult){
     // const jsonResult =  await  uploadJSON();
-    console.log( " ready to upload existing data " , { 
+    console.log( " ready to upload exis ting data " , { 
         jsonResult, projectId, userId
     } );
    return  api_collection_register(jsonResult, projectId, userId);
      
  
 }
-
+*/
  
 
-//window.api_collection_registerExistingData  = api_collection_registerExistingData;
+//window.api_collection_registerExisti ngData  = api_collection_registerExis tingData;
  
 
 

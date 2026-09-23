@@ -35,7 +35,7 @@ export default class HorizontalSelector {
 
 
 
-            console.log( " option.current "  , option.current   , " option.target  " , option.target  );
+           
             // -----------------------
             // COUNT (current : target)
             // -----------------------

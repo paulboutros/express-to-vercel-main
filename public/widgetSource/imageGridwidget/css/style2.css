@@ -1,0 +1,530 @@
+/* Overall layout */
+body {
+  display: flex;
+  font-family: sans-serif;
+  margin: 0;
+  height: 100vh;
+}
+
+
+#grid-header {
+   /*
+  display: flex;
+ 
+  align-items: center;      
+  justify-content: space-between;  
+  margin-bottom: 10px;
+  */
+}
+
+#grid-controls {
+ display: flex;
+  align-items: center;
+  /*justify-content: space-between;  puts elements apart */
+}
+ 
+#grid-controls button {
+  
+  margin-left: 5px;
+  padding: 4px 8px;
+  cursor: pointer;
+  
+}
+ 
+
+ #previewImg
+/*#grid-container*/
+ {
+  
+  
+  box-sizing: border-box;
+}
+
+#nft-grid {
+  
+  user-select: none; /*to avoid text or native browser blue selection when using shift range selection*/
+ 
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  /* gap: 10px;*/
+  justify-items: center;
+
+  height: 800px;   /*    fixed height */
+  overflow-y: auto;   /* scroll happens here */
+}
+
+
+#nft-grid img {
+  width: 100%;
+  height: auto;
+  max-width: 150px;
+  object-fit: contain;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  transition: border-color 0.2s;
+}
+
+#nft-grid img.selected {
+  border-color: #007bff;
+}
+
+ 
+.hasWeaponPat {
+  border: 1px solid #333;   /* base state */
+  border-color: #16cc55;
+}
+
+
+/* ==========================================================*/
+ /* container for each NFT */
+.nft-item {
+  position: relative;
+  width: 100%;
+  align-self: start;
+}
+
+/* image styling remains mostly the same */
+.nft-item img {
+  width: 100%;
+  height: auto;
+  max-width: 150px;
+  object-fit: contain;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  transition: border-color 0.2s;
+}
+
+.nft-item img.selected {
+  border-color: #007bff;
+}
+
+/* hover box styling */
+ .hover-info {
+  z-index: 10;
+  position: absolute;
+
+  top: 100%;              /* BELOW the nft-item */
+  left: 0;
+  margin-top: 6px;
+
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+
+  white-space: pre-line;  /* now safe to enable */
+  max-width: 260px;
+  text-align: left;
+
+  pointer-events: none;
+  opacity: 0;
+
+  transform: translateY(4px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.nft-item:hover .hover-info {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.nft-item.used {
+  outline: 2px solid #f0ad4e; /* amber */
+}
+.nft-item.used {
+  outline: 2px solid #ee5f2b; /* amber */
+}
+
+ .MaskInfo {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+
+  min-width: 18px;
+  height: 18px;
+  padding: 0 3px;
+
+  font-size: 11px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 18px;
+  
+  color: #437c56;
+  border-radius: 9px;
+}
+
+
+/*============== WEAPOn AND SHIELD ICON =========================================*/
+/*=============================================================*/
+.weaponChart {
+  position: relative;
+}
+
+.weaponChart::after {
+  content: "";
+  position: absolute;
+  top: 50px;
+  left: 0;
+
+ /* transform: translateY(50%);  👈 THIS is the missing piece */
+
+  width: 64px;
+  height: 64px;
+
+  background-image: var(--weapon-icon);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.shieldChart {
+  position: relative;
+}
+
+.shieldChart::after {
+  content: "";
+  position: absolute;
+  top: 80px;
+  left: 0;
+
+ /* transform: translateY(50%);  👈 THIS is the missing piece */
+
+  width: 64px;
+  height: 64px;
+
+  background-image: var(--shield-icon);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+/*=============================================================*/
+/*=============================================================*/
+
+/*============================*/
+ .weaponPatInfo {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+
+  min-width: 18px;
+  height: 18px;
+  padding: 0 3px;
+
+  font-size: 11px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 18px;
+  
+  color: #437c56;
+  border-radius: 9px;
+}
+
+/*============================*/
+ .clanInfo {
+  position: absolute;
+  bottom: 2px;
+  left: 2px;
+
+  min-width: 18px;
+  height: 18px;
+  padding: 0 3px;
+
+  font-size: 11px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 18px;
+  
+  color: #437c56;
+  border-radius: 9px;
+}
+
+
+
+/*============================*/
+ .trait_idx {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+
+  min-width: 18px;
+  height: 18px;
+  padding: 0 3px;
+
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 18px;
+
+  
+  color: #437c56;
+  border-radius: 9px;
+}
+
+
+
+
+ 
+ 
+/* Right: trait editor panel */
+/*#traits-container,
+#final-traits-container,*/
+#all-traits-container
+{
+  /*
+  width: 50%;
+  height: 900px;
+  padding: 20px;
+  */
+  overflow-y: auto;
+  box-sizing: border-box;
+  border-left: 1px solid #ccc;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+
+#traitListContainer,
+/*#final_traitFILTERListContainer,*/
+#trait-card-panel-container,
+#exportTraitPanel
+{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));    /* three equal columns */
+    gap: 8px; /* spacing between cells */
+    align-items: center; /* vertical alignment */
+}
+
+
+
+
+
+.row label {
+  width: 120px; /* fixed width for trait name */
+}
+
+.row select,
+.row input {
+  flex: 1;
+  padding: 4px 6px;
+  font-size: 14px;
+}
+
+#savingOptions {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; puts elements apart */
+}
+
+
+
+ 
+.checkbox-panel {
+    display: flex;
+   align-items: center;
+  /*justify-content: space-between;  puts elements apart */
+}
+#myUIContainer {
+/*
+  display: flex;
+  align-items: center;
+*/
+  /*justify-content: space-between;  puts elements apart */
+}
+#buttonGroup01{ 
+  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+     
+}
+
+#buttonSet4,
+#buttonSet3,
+#buttonSet5
+ {
+   display: grid;
+    grid-template-columns: 1fr;
+  /*justify-content: space-between;  puts elements apart */
+}
+ 
+
+#filterBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* puts elements apart */
+}
+#filterList {
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+
+/*==================================================================================*/
+
+
+
+/* === FILTER CONTROLS BAR === */
+#filterControls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 8px;
+  background: #e9f2ff;
+  border-radius: 6px;
+  border: 1px solid #bcd8ff;
+  margin-bottom: 10px;
+}
+
+
+.hidden {
+  display: none;
+}
+
+/* Save Button */
+#savePresetBtn {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+#savePresetBtn:hover {
+  background: #005ecb;
+}
+
+/* Dropdown */
+#loadPresetDropdown {
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #aaa;
+  min-width: 140px;
+  background: white;
+  color: #333;
+}
+
+/* Load Button */
+#loadPresetBtn {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  background: #00bcd4;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+#loadPresetBtn:hover {
+  background: #0097a7;
+}
+
+
+
+/*======================================================
+.trait-card {
+  cursor: pointer;
+  border: 1px solid #333;
+  padding: 8px;
+  border-radius: 6px;
+  transition: background 0.15s, border-color 0.15s;
+}
+*/
+/*
+=============================================================================
+
+Trait Selection Panel
+
+======================================================================
+*/
+
+
+.trait-card:hover {
+  background: #91babb;
+  border-color: #666;
+}
+
+.trait-card.active {
+  background: #cdd7ef;
+  border-color: #4a7cff;
+}
+
+ 
+   
+.trait-card {
+  background: #f7f8fa;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+ 
+.trait-type {
+  font-size: 11px;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.trait-value {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #111827;
+}
+
+.trait-count {
+     font-size: 14px;
+    color: #040404;
+}
+ 
+
+.trait-block {
+  margin-bottom: 12px;
+}
+
+.trait-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.trait-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.trait-toggle-btn {
+  width: 32px;
+  font-weight: bold;
+}
+
+
+
+/*
+=============================================================================
+
+ Weapon  Shield pattern slot
+
+======================================================================
+*/
+
+
+
+
+
+/*
+=============================================================================
+
+ DROP DOWN IMAGE
+
+======================================================================
+*/
+

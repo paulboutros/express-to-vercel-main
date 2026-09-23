@@ -10,13 +10,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:widget": "esbuild widget/wuli-architecture.js --bundle --format=esm --platform=browser --outfile=public/widget/wuli-architecture.js",
     "build:widget-wuli-query": "esbuild public/widget/wuli-query.js --bundle --format=esm --platform=browser --outfile=public/widget/wuli-query.js",
-
     "build:widget:css": "esbuild widget/wuli-architecture.css --bundle --outfile=public/widget/wuli-architecture.css"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "crypto-random-string": "^5.0.0",
     "dotenv": "^16.3.1",

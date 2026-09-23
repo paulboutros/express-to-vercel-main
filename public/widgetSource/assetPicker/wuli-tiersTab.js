@@ -20,9 +20,7 @@ export function initTiersTab( {
       window.WuliComposer.actions[ options.instanceName] = defaultOnSelect;
     
 
-     console.log( "==========  weaponShieldSession.slot.last_picked.type  :",{
-         weaponShieldSession:  weaponShieldSession.slot.last_picked.type
-     });
+     
 
 
        const type =  weaponShieldSession.slot.last_picked.type;     // options.assetType || "weapon";

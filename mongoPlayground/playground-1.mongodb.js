@@ -6,6 +6,15 @@
  
 
 use("wulirocks_test");
+ 
+
+db.users.updateMany(
+  {},                              // Filter: Matches all documents
+  { 
+    $set: { credits: 100 }     // Action: Adds 'status' to every user
+  }
+);
+
 /*
 db.users.updateOne(
     { userId: "test_001" },

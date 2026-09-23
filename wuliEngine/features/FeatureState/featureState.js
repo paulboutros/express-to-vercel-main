@@ -1,7 +1,5 @@
- 
-
- 
-class FeatureState {
+  
+export class FeatureState {
   constructor({ 
      traitCounter_Data = null,
    //  getFirstInSet = null, 
@@ -274,20 +272,4 @@ class FeatureState {
 
 
 }
-
-module.exports = { FeatureState };
-  
-
-function safeFileName(str) {
-    return str
-        .replace(/\s+/g, "_")
-        .replace(/[^\w\-]/g, "");
-}
-
-function sanitizeText(str) {
-    return str
-        .replace(/\r?\n/g, " ")  // remove line breaks
-        .trim();
-}
-
   
